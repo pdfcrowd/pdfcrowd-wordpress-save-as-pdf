@@ -1,0 +1,61 @@
+.save-as-pdf-pdfcrowd-m-description {
+    max-height: 84px;
+    overflow-y: auto;
+}
+
+.save-as-pdf-pdfcrowd-m-description ul {
+    list-style: disc;
+    margin: 0 0 0 30px;
+}
+
+.save-as-pdf-pdfcrowd-m-description ul ul {
+    list-style: circle;
+}
+
+.save-as-pdf-pdfcrowd-m-description ul ul ul {
+    list-style: square;
+}
+
+#save-as-pdf-pdfcrowd-options select {
+    max-width: 500px !important;
+}
+
+
+.save-as-pdf-pdfcrowd-reset,
+.save-as-pdf-pdfcrowd-reset * {
+    all: initial;
+}
+
+.save-as-pdf-pdfcrowd-button-wrap {
+    display: block;
+}
+
+.save-as-pdf-pdfcrowd-button-wrap * {
+    cursor: pointer;
+}
+
+.save-as-pdf-pdfcrowd-button img {
+    vertical-align: middle;
+}
+
+
+.save-as-pdf-pdfcrowd-inner-table {
+    margin: 0;
+    padding: 0;
+}
+
+.save-as-pdf-pdfcrowd-inner-table td {
+    padding: 0 3em 0 0;
+}
+
+#save-as-pdf-pdfcrowd-images img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+.save-as-pdf-pdfcrowd-warning {
+    padding: 1em;
+    color: #800000;
+    background-color: #ffffbb;
+}

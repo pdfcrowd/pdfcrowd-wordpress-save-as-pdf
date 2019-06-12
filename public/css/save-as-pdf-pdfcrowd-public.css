@@ -1,0 +1,22 @@
+
+.save-as-pdf-pdfcrowd-reset,
+.save-as-pdf-pdfcrowd-reset * {
+    all: initial;
+}
+
+.save-as-pdf-pdfcrowd-button-wrap {
+    display: block;
+}
+
+.save-as-pdf-pdfcrowd-button-wrap * {
+    cursor: pointer;
+}
+
+.save-as-pdf-pdfcrowd-button img {
+    vertical-align: middle;
+}
+
+
+.save-as-pdf-pdfcrowd-post-form {
+    display: none !important;
+}
