@@ -8,14 +8,14 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://pdfcrowd.com/wordpress/
+ * @link              https://pdfcrowd.com/save-as-pdf-image-wordpress-plugin/
  * @since             1.0.0
  * @package           Save_As_Pdf_Pdfcrowd
  *
  * @wordpress-plugin
  * Plugin Name:       Save as PDF by Pdfcrowd
- * Plugin URI:        https://pdfcrowd.com/wordpress/
- * Description:       Let your visitors to save pages as PDF by a single click. Reliable, fast and highly customizable.
+ * Plugin URI:        https://pdfcrowd.com/save-as-pdf-image-wordpress-plugin/
+ * Description:       Let your visitors save pages as PDF in a single click. Reliable, fast and highly customizable.
  * Version:           1.0.0
  * Author:            Pdfcrowd <support@pdfcrowd.com>
  * Author URI:        https://pdfcrowd.com

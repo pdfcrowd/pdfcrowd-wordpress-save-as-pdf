@@ -3,7 +3,7 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       https://pdfcrowd.com/wordpress/
+ * @link       https://pdfcrowd.com/save-as-pdf-image-wordpress-plugin/
  * @since      1.0.0
  *
  * @package    Save_As_Pdf_Pdfcrowd
@@ -66,19 +66,6 @@ class Save_As_Pdf_Pdfcrowd_Public {
      * @since    1.0.0
      */
     public function enqueue_styles() {
-
-        /**
-         * This function is provided for demonstration purposes only.
-         *
-         * An instance of this class should be passed to the run() function
-         * defined in Save_As_Pdf_Pdfcrowd_Loader as all of the hooks are defined
-         * in that particular class.
-         *
-         * The Save_As_Pdf_Pdfcrowd_Loader will then create the relationship
-         * between the defined hooks and the functions defined in this
-         * class.
-         */
-
         wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/save-as-pdf-pdfcrowd-public.css', array(), $this->version, 'all' );
 
     }
@@ -89,28 +76,14 @@ class Save_As_Pdf_Pdfcrowd_Public {
      * @since    1.0.0
      */
     public function enqueue_scripts() {
-
-        /**
-         * This function is provided for demonstration purposes only.
-         *
-         * An instance of this class should be passed to the run() function
-         * defined in Save_As_Pdf_Pdfcrowd_Loader as all of the hooks are defined
-         * in that particular class.
-         *
-         * The Save_As_Pdf_Pdfcrowd_Loader will then create the relationship
-         * between the defined hooks and the functions defined in this
-         * class.
-         */
-
         wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/save-as-pdf-pdfcrowd-public.js', array( 'jquery' ), $this->version, false );
-
     }
 
     public function setup_shortcodes() {
         add_shortcode('save_as_pdf_pdfcrowd',
                       array($this, 'save_as_pdf_pdfcrowd_shortcode'));
-        add_shortcode('string_save_as_pdf_pdfcrowd',
-                      array($this, 'string_save_as_pdf_pdfcrowd_shortcode'));
+        add_shortcode('block_save_as_pdf_pdfcrowd',
+                      array($this, 'block_save_as_pdf_pdfcrowd_shortcode'));
         add_action('wp_ajax_save_as_pdf_pdfcrowd', array($this, 'save_as_pdf_pdfcrowd'));
         add_action('wp_ajax_nopriv_save_as_pdf_pdfcrowd', array($this, 'save_as_pdf_pdfcrowd'));
         add_action('wp_head', array($this, 'add_ajaxurl'), 1);
@@ -126,47 +99,47 @@ class Save_As_Pdf_Pdfcrowd_Public {
     }
 
     public static $DEFAULTS = array(
-        'username' => 'demo',
-        'dev_mode' => '0',
-        'button_border_color' => '#007bff',
-        'button_text_color' => '#fff',
-        'button_image_url' => '',
-        'button_on_posts' => '1',
-        'rendering_mode' => 'viewport',
-        'button_margin_left' => '6',
-        'button_margin_bottom' => '6',
-        'use_print_media' => '1',
-        'button_text' => 'Save as PDF',
+        'api_key' => '',
         'button_alignment' => 'center',
-        'button_padding_right' => '6',
-        'button_on_home' => '1',
-        'button_padding_left' => '6',
-        'button_on_front' => '1',
-        'button_margin_right' => '6',
-        'button_on_categories' => '1',
-        'button_radius' => '3',
-        'button_styling' => 'custom',
+        'button_background_color' => '#007bff',
+        'button_border_color' => '#007bff',
+        'button_border_style' => 'solid',
         'button_border_width' => '1',
-        'button_image_width' => '24',
         'button_disposition' => 'attachment',
+        'button_format' => 'image-text',
+        'button_hidden' => '1',
+        'button_image' => 'images/pdf1.svg',
+        'button_image_height' => '24',
+        'button_image_url' => '',
+        'button_image_width' => '24',
+        'button_margin_bottom' => '6',
+        'button_margin_left' => '6',
+        'button_margin_right' => '6',
         'button_margin_top' => '6',
-        'no_margins' => '0',
+        'button_on_categories' => '1',
+        'button_on_front' => '1',
+        'button_on_home' => '1',
+        'button_on_pages' => '1',
+        'button_on_posts' => '1',
+        'button_on_taxonomies' => '1',
+        'button_padding_bottom' => '6',
+        'button_padding_left' => '6',
+        'button_padding_right' => '6',
         'button_padding_top' => '6',
         'button_position' => 'below',
-        'button_image' => 'images/pdf1.svg',
-        'viewport_width' => '1200',
-        'button_background_color' => '#007bff',
-        'button_on_taxonomies' => '1',
-        'button_text_weight' => 'bold',
-        'button_padding_bottom' => '6',
-        'button_on_pages' => '1',
-        'button_format' => 'image-text',
-        'button_border_style' => 'solid',
+        'button_radius' => '3',
+        'button_styling' => 'custom',
+        'button_text' => 'Save as PDF',
+        'button_text_color' => '#fff',
         'button_text_size' => '14',
-        'api_key' => 'ce544b6ea52a5621fb9d55f8b542d14d',
+        'button_text_weight' => 'bold',
+        'dev_mode' => '0',
+        'no_margins' => '0',
         'output_format' => 'pdf',
-        'button_hidden' => '1',
-        'button_image_height' => '24',
+        'rendering_mode' => 'viewport',
+        'use_print_media' => '1',
+        'username' => '',
+        'viewport_width' => '1200',
     );
 
     private static $ERROR_MESSAGES = array(
@@ -180,17 +153,16 @@ class Save_As_Pdf_Pdfcrowd_Public {
         430 => "<p>The limit of max concurrent requests was exceeded.</p>",
         452 => "There is nothing specified to be converted.",
         453 => "Some conversion option is unknown. See details in HTTP response body.",
-        454 => "The input is too complex or large. It can't be converted. Try to simplify your input data.",
-        455 => "The conversion can't be finished due to a system error.",
+        454 => "The input is too complex or large. It can not be converted. Try to simplify your input data.",
+        455 => "The conversion can not be finished due to a system error.",
         456 => "The input file is not specified correctly. Files are accepted only in multipart POST requests.",
         457 => "The type of the input file is unknown. The file has no extension.",
         458 => "<p>The request was aborted because it took long time.</p> <p>A typical cause of this error is too many images in the HTML page which take too long to download. Another cause might be a long running JavaScript.</p> <p>Try to simplify your input data or speed up the page load time.</p>
 ",
-        459 => "The archive uploaded can't be accepted. It's too large, corrupted or contains symbolic links.
-",
+        459 => "The archive uploaded can not be accepted. It is too large, corrupted or contains symbolic links.",
         460 => "The output is too large. Try to simplify your input data or compress images.",
         470 => "A conversion option is set to an invalid value.",
-        471 => "The converted URL can't be navigated to.",
+        471 => "The converted URL can not be navigated to.",
         472 => "Exceeded the maximum number of sub-requests during a conversion.",
         473 => "The main frame loaded with an HTTP code >= 400.",
         474 => "The URL loaded with an HTTP code >= 400 or some requests are still pending. See details in a debug log.",
@@ -199,7 +171,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         477 => "The input document type is unknown or not supported. For example, the HTML content type should be text/html.",
         478 => "The URL hostname could not be resolved.",
         479 => "The URL is invalid.",
-        480 => "The converter couldn't establish an HTTPS connection because of an invalid SSL certificate.",
+        480 => "The converter could not establish an HTTPS connection because of an invalid SSL certificate.",
         481 => "<p>There was a problem connecting to Pdfcrowd servers over HTTPS. This could be caused by several reasons, one of them is that your local CA certificate store is out of date or not configured correctly.</p> <p>An alternative is to use the API over HTTP. The HTTP mode can be enabled by the <a href='/doc/api/method-index/#html_to_pdf_set_use_http'>setUseHttp</a> method.<p>
 ",
         502 => "The 502 status code indicates a temporary network issue. Try the request again.",
@@ -286,7 +258,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         if(!empty($div_style)) {
             $div_style = " style='{$div_style}'";
         }
-        $button = "<div class='$classes'{$div_style}><button class='save-as-pdf-pdfcrowd-button' type='button'{$btn_style} onclick='window.SaveAsPDFPdfcrowd(\"$custom_options\");'>";
+        $button = "<div class='$classes'{$div_style}><div class='save-as-pdf-pdfcrowd-button'{$btn_style} onclick='window.SaveAsPDFPdfcrowd(\"$custom_options\");'>";
 
         $button_content = '';
         switch($options['button_format']) {
@@ -304,7 +276,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
             break;
         }
 
-        $button .= $button_content . "</button></div>";
+        $button .= $button_content . "</div></div>";
 
         if($options['button_position'] == 'below') {
             return $content . $button;
@@ -323,13 +295,6 @@ class Save_As_Pdf_Pdfcrowd_Public {
 
     function show_button($content) {
         $options = $this->get_options();
-
-        // print_r("is_home: " . is_home() . "<br/>");
-        // print_r("is_front_page: " . is_front_page() . "<br/>");
-        // print_r("is_page: " . is_page() . "<br/>");
-        // print_r("is_single: " . is_single() . "<br/>");
-        // print_r("is_tax: " . is_tax() . "<br/>");
-        // print_r("is_category: " . is_category() . "<br/>");
 
         if(!(
             (is_home() && isset($options['button_on_home']) && $options['button_on_home']) ||
@@ -367,7 +332,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         return $this->eval_shortcode($attrs, $content, $custom_options);
    }
 
-    function string_save_as_pdf_pdfcrowd_shortcode($attrs = array(), $content = null) {
+    function block_save_as_pdf_pdfcrowd_shortcode($attrs = array(), $content = null) {
         // merge attrs with the default options defined on the settings page
         $options = $this->get_options();
 
@@ -383,8 +348,9 @@ class Save_As_Pdf_Pdfcrowd_Public {
     }
 
     private function embed_styles($html) {
+        $my_domain = $_SERVER['SERVER_NAME'];
         $output = preg_replace_callback(
-            "/(?i)\<link rel=[\'\"]stylesheet[\'\"](?<pre>.*?)href=[\'\"](?<url>.*?)[\'\"](?<post>.*?)\/\>/",
+            "/(?i)\<link rel=[\'\"]stylesheet[\'\"](?<pre>.*?)href=[\'\"](?<url>https?:\/\/{$my_domain}.*?)[\'\"](?<post>.*?)\/\>/",
             function ($match) {
                 $content = wp_remote_retrieve_body(wp_remote_get($match['url']));
                 return '<style ' . $match['pre'] . $match['post'] . ">\r\n" . $content . '</style>';
@@ -423,9 +389,20 @@ class Save_As_Pdf_Pdfcrowd_Public {
             $options = wp_parse_args($custom_options, $options);
         }
 
+        if(!isset($options['username']) || empty($options['username']) &&
+           !isset($options['api_key']) || empty($options['api_key'])) {
+            // use demo credentials
+            $options['username'] = 'wp-demo';
+            $options['api_key'] = 'a182eb08c32a11e992c42c4d5455307a';
+        }
+
         $client = new \SaveAsPdfPdfcrowd\HtmlToPdfClient(
             $options['username'],
             $options['api_key']);
+
+        global $wp_version;
+        $client->setUserAgent('pdfcrowd_wordpress_plugin/1.0.0 ('
+                             . $wp_version . '/' . phpversion() . ')');
 
         $html = $url = null;
         if(isset($options['html'])) {

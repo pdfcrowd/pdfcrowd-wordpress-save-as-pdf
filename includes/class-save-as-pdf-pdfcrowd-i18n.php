@@ -6,7 +6,7 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       https://pdfcrowd.com/wordpress/
+ * @link       https://pdfcrowd.com/save-as-pdf-image-wordpress-plugin/
  * @since      1.0.0
  *
  * @package    Save_As_Pdf_Pdfcrowd

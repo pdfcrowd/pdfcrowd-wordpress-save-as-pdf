@@ -3,7 +3,7 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://pdfcrowd.com/wordpress/
+ * @link       https://pdfcrowd.com/save-as-pdf-image-wordpress-plugin/
  * @since      1.0.0
  *
  * @package    Save_As_Pdf_Pdfcrowd
@@ -84,13 +84,64 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         );
     }
 
+    /**
+    * Build dict holding license status and other info.
+    *
+    * @since    1.0.0
+    */
+    private static function build_status($status, $product='', $credits=NULL) {
+        return array('status' => $status,
+                     'credits' => $credits,
+                     'product' => $product);
+    }
+
+    /**
+    * Get status of the Pdfcrowd API license.
+    *
+    * @since    1.0.0
+    */
     public static function get_license_status($options) {
-        if(!isset($options['username']) ||
-           empty($options['username']) ||
-           $options['username'] == 'demo') {
-            return 'demo';
+        if((!isset($options['username']) || empty($options['username'])) &&
+           (!isset($options['api_key']) || empty($options['api_key']))) {
+            return self::build_status('active', 'Demo');
         }
-        return 'active';
+
+        if(empty($options['username'])) {
+            $options['username'] = 'null';
+        }
+
+        $url = 'https://pdfcrowd.com/admin-api/api2/username:' . $options['username'] . '/';
+        // small timeout so client doesn't wait too long for the license getter
+        $args = array(
+            'timeout' => 3,
+            'headers' => array(
+                'Authorization' => 'Basic ' . base64_encode($options['username'] . ':' . $options['api_key'])));
+        $response = wp_remote_get($url, $args);
+        if(is_wp_error($response) || !is_array($response)) {
+            return self::build_status('null');
+        }
+
+        $code = wp_remote_retrieve_response_code($response);
+        if($code == 401) {
+            return array('status' => 'invalid');
+        }
+
+        if($code == 404) {
+            return self::build_status('', 'None');
+        }
+
+        if($code != 200) {
+            return self::build_status('error');
+        }
+
+        $data = json_decode(wp_remote_retrieve_body($response));
+        $status = self::build_status($data->status,
+                                     $data->product->name,
+                                     $data->credits);
+        if($status['credits'] <= 0) {
+            $status['credits'] = "<span class='attention'>{$status['credits']}</span>";
+        }
+        return $status;
     }
 
     /**
@@ -108,21 +159,10 @@ class Save_As_Pdf_Pdfcrowd_Admin {
      * @since    1.0.0
      */
     public function add_action_links( $links ) {
-        $options = get_option($this->plugin_name);
-        if(self::get_license_status($options) == 'demo') {
-            $lic_links = array(
-                'activate_lic' => '<a href="https://pdfcrowd.com/user/sign_up/">' . __( 'Activate Pdfcrowd License', $this->plugin_name ) . '</a>'
-            );
-        } else {
-            $lic_links = array(
-                'delete_lic' => '<a class="delete" href="https://pdfcrowd.com/user/account/api2-license/">' . __( 'Delete Pdfcrowd License', $this->plugin_name ) . '</a>'
-            );
-        }
         return array_merge(
             array(
                 'settings' => '<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_name ) . '">' . __( 'Settings', $this->plugin_name ) . '</a>'
             ),
-            $lic_links,
             $links
         );
     }
@@ -140,21 +180,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         $options = get_option($this->plugin_name);
         $valid = $input;
 
-        if (!isset($input['username']) || empty($input['username'])) {
-            add_settings_error(
-                'username',
-                'empty_username',
-                'Pdfcrowd username can not be empty'
-            );
-        }
-
-        if (!isset($input['api_key']) || empty($input['api_key'])) {
-            add_settings_error(
-                'api_key',
-                'empty_api_key',
-                'Pdfcrowd API key can not be empty'
-            );
-        }
+        $valid['__init__'] = $input['__init__'];
 
         if (isset($input['page_size']) && !empty($input['page_size'])) {
             $page_size = $input['page_size'];
@@ -188,6 +214,8 @@ class Save_As_Pdf_Pdfcrowd_Admin {
             
         }
         $valid['page_height'] = $input['page_height'];
+
+        $valid['page_dimensions'] = $input['page_dimensions'];
 
         if (isset($input['orientation']) && !empty($input['orientation'])) {
             $orientation = $input['orientation'];
@@ -245,6 +273,8 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         $valid['margin_left'] = $input['margin_left'];
 
         $valid['no_margins'] = (isset($input['no_margins']) && !empty($input['no_margins'])) ? 1: 0;
+
+        $valid['page_margins'] = $input['page_margins'];
 
         if (isset($input['header_url']) && !empty($input['header_url'])) {
             $header_url = $input['header_url'];
@@ -391,6 +421,8 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         }
         $valid['content_area_height'] = $input['content_area_height'];
 
+        $valid['content_area'] = $input['content_area'];
+
         if (isset($input['page_watermark']) && !empty($input['page_watermark'])) {
             $page_watermark = $input['page_watermark'];
             if (!(filesize($page_watermark) > 0))
@@ -461,6 +493,8 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         $valid['http_auth_user_name'] = $input['http_auth_user_name'];
 
         $valid['http_auth_password'] = $input['http_auth_password'];
+
+        $valid['http_auth'] = $input['http_auth'];
 
         $valid['use_print_media'] = (isset($input['use_print_media']) && !empty($input['use_print_media'])) ? 1: 0;
 
@@ -553,11 +587,11 @@ class Save_As_Pdf_Pdfcrowd_Admin {
 
         if (isset($input['viewport_width']) && !empty($input['viewport_width'])) {
             $viewport_width = $input['viewport_width'];
-            if (!(intval($viewport_width) >= 96 && intval($viewport_width) <= 7680))
+            if (!(intval($viewport_width) >= 96 && intval($viewport_width) <= 65000))
                 add_settings_error(
                 'viewport_width',
                 'empty_viewport_width',
-                pdfcrowd_create_invalid_value_message($viewport_width, 'Viewport Width', 'The value must be in the range 96-7680.'));
+                pdfcrowd_create_invalid_value_message($viewport_width, 'Viewport Width', 'The value must be in the range 96-65000.'));
             
         }
         $valid['viewport_width'] = $input['viewport_width'];
@@ -572,6 +606,8 @@ class Save_As_Pdf_Pdfcrowd_Admin {
             
         }
         $valid['viewport_height'] = $input['viewport_height'];
+
+        $valid['viewport'] = $input['viewport'];
 
         if (isset($input['rendering_mode']) && !empty($input['rendering_mode'])) {
             $rendering_mode = $input['rendering_mode'];
@@ -779,6 +815,14 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         $valid['client_certificate'] = $input['client_certificate'];
 
         $valid['client_certificate_password'] = $input['client_certificate_password'];
+
+        $valid['use_http'] = (isset($input['use_http']) && !empty($input['use_http'])) ? 1: 0;
+
+        $valid['proxy'] = $input['proxy'];
+
+        $valid['use_curl'] = (isset($input['use_curl']) && !empty($input['use_curl'])) ? 1: 0;
+
+        $valid['retry_count'] = $input['retry_count'];
 
 
         return $valid;

@@ -5,7 +5,7 @@
    *
    * This file is used to markup the admin-facing aspects of the plugin.
    *
-   * @link       https://pdfcrowd.com/wordpress/
+   * @link       https://pdfcrowd.com/save-as-pdf-image-wordpress-plugin/
    * @since      1.0.0
    *
    * @package    Save_As_Pdf_Pdfcrowd
@@ -19,7 +19,7 @@
 
   <h2 id="save-as-pdf-pdfcrowd-nav-tab" class="nav-tab-wrapper">
     <a href="#save-as-pdf-pdfcrowd-license-settings" class="nav-tab nav-tab-active">Pdfcrowd API License</a>
-    <a href="#save-as-pdf-pdfcrowd-wordpress-settings" class="nav-tab">Wordpress Settings</a>
+    <a href="#save-as-pdf-pdfcrowd-wordpress-settings" class="nav-tab">WordPress Settings</a>
 <a href="#save-as-pdf-pdfcrowd-page-setup" class="nav-tab">Page Setup</a>
 <a href="#save-as-pdf-pdfcrowd-watermark-and-background" class="nav-tab">Watermark & Background</a>
 <a href="#save-as-pdf-pdfcrowd-general-options" class="nav-tab">General Options</a>
@@ -27,6 +27,7 @@
 <a href="#save-as-pdf-pdfcrowd-pdf-format" class="nav-tab">PDF Format</a>
 <a href="#save-as-pdf-pdfcrowd-viewer-preferences" class="nav-tab">Viewer Preferences</a>
 <a href="#save-as-pdf-pdfcrowd-miscellaneous" class="nav-tab">Miscellaneous</a>
+<a href="#save-as-pdf-pdfcrowd-api-client-options" class="nav-tab">API Client Options</a>
   </h2>
 
       <form method="post" id="save-as-pdf-pdfcrowd-options" name="save_as_pdf_pdfcrowd-options" action="options.php">
@@ -36,57 +37,60 @@
 
         $license_status = Save_As_Pdf_Pdfcrowd_Admin::get_license_status($options);
 
-        $username = isset($options['username']) ? $options['username'] : '';
-        $dev_mode = isset($options['dev_mode']) ? $options['dev_mode'] : '';
-        $button_border_color = isset($options['button_border_color']) ? $options['button_border_color'] : '';
-        $button_text_color = isset($options['button_text_color']) ? $options['button_text_color'] : '';
-        $button_image_url = isset($options['button_image_url']) ? $options['button_image_url'] : '';
-        $button_on_posts = isset($options['button_on_posts']) ? $options['button_on_posts'] : '';
-        $rendering_mode = isset($options['rendering_mode']) ? $options['rendering_mode'] : '';
-        $button_margin_left = isset($options['button_margin_left']) ? $options['button_margin_left'] : '';
-        $button_margin_bottom = isset($options['button_margin_bottom']) ? $options['button_margin_bottom'] : '';
-        $use_print_media = isset($options['use_print_media']) ? $options['use_print_media'] : '';
-        $button_text = isset($options['button_text']) ? $options['button_text'] : '';
+        $api_key = isset($options['api_key']) ? $options['api_key'] : '';
         $button_alignment = isset($options['button_alignment']) ? $options['button_alignment'] : '';
-        $button_padding_right = isset($options['button_padding_right']) ? $options['button_padding_right'] : '';
-        $button_on_home = isset($options['button_on_home']) ? $options['button_on_home'] : '';
-        $button_padding_left = isset($options['button_padding_left']) ? $options['button_padding_left'] : '';
-        $button_on_front = isset($options['button_on_front']) ? $options['button_on_front'] : '';
-        $button_margin_right = isset($options['button_margin_right']) ? $options['button_margin_right'] : '';
-        $button_on_categories = isset($options['button_on_categories']) ? $options['button_on_categories'] : '';
-        $button_radius = isset($options['button_radius']) ? $options['button_radius'] : '';
-        $button_styling = isset($options['button_styling']) ? $options['button_styling'] : '';
+        $button_background_color = isset($options['button_background_color']) ? $options['button_background_color'] : '';
+        $button_border_color = isset($options['button_border_color']) ? $options['button_border_color'] : '';
+        $button_border_style = isset($options['button_border_style']) ? $options['button_border_style'] : '';
         $button_border_width = isset($options['button_border_width']) ? $options['button_border_width'] : '';
-        $button_image_width = isset($options['button_image_width']) ? $options['button_image_width'] : '';
         $button_disposition = isset($options['button_disposition']) ? $options['button_disposition'] : '';
+        $button_format = isset($options['button_format']) ? $options['button_format'] : '';
+        $button_hidden = isset($options['button_hidden']) ? $options['button_hidden'] : '';
+        $button_image = isset($options['button_image']) ? $options['button_image'] : '';
+        $button_image_height = isset($options['button_image_height']) ? $options['button_image_height'] : '';
+        $button_image_url = isset($options['button_image_url']) ? $options['button_image_url'] : '';
+        $button_image_width = isset($options['button_image_width']) ? $options['button_image_width'] : '';
+        $button_margin_bottom = isset($options['button_margin_bottom']) ? $options['button_margin_bottom'] : '';
+        $button_margin_left = isset($options['button_margin_left']) ? $options['button_margin_left'] : '';
+        $button_margin_right = isset($options['button_margin_right']) ? $options['button_margin_right'] : '';
         $button_margin_top = isset($options['button_margin_top']) ? $options['button_margin_top'] : '';
-        $no_margins = isset($options['no_margins']) ? $options['no_margins'] : '';
+        $button_on_categories = isset($options['button_on_categories']) ? $options['button_on_categories'] : '';
+        $button_on_front = isset($options['button_on_front']) ? $options['button_on_front'] : '';
+        $button_on_home = isset($options['button_on_home']) ? $options['button_on_home'] : '';
+        $button_on_pages = isset($options['button_on_pages']) ? $options['button_on_pages'] : '';
+        $button_on_posts = isset($options['button_on_posts']) ? $options['button_on_posts'] : '';
+        $button_on_taxonomies = isset($options['button_on_taxonomies']) ? $options['button_on_taxonomies'] : '';
+        $button_padding_bottom = isset($options['button_padding_bottom']) ? $options['button_padding_bottom'] : '';
+        $button_padding_left = isset($options['button_padding_left']) ? $options['button_padding_left'] : '';
+        $button_padding_right = isset($options['button_padding_right']) ? $options['button_padding_right'] : '';
         $button_padding_top = isset($options['button_padding_top']) ? $options['button_padding_top'] : '';
         $button_position = isset($options['button_position']) ? $options['button_position'] : '';
-        $button_image = isset($options['button_image']) ? $options['button_image'] : '';
-        $viewport_width = isset($options['viewport_width']) ? $options['viewport_width'] : '';
-        $button_background_color = isset($options['button_background_color']) ? $options['button_background_color'] : '';
-        $button_on_taxonomies = isset($options['button_on_taxonomies']) ? $options['button_on_taxonomies'] : '';
-        $button_text_weight = isset($options['button_text_weight']) ? $options['button_text_weight'] : '';
-        $button_padding_bottom = isset($options['button_padding_bottom']) ? $options['button_padding_bottom'] : '';
-        $button_on_pages = isset($options['button_on_pages']) ? $options['button_on_pages'] : '';
-        $button_format = isset($options['button_format']) ? $options['button_format'] : '';
-        $button_border_style = isset($options['button_border_style']) ? $options['button_border_style'] : '';
+        $button_radius = isset($options['button_radius']) ? $options['button_radius'] : '';
+        $button_styling = isset($options['button_styling']) ? $options['button_styling'] : '';
+        $button_text = isset($options['button_text']) ? $options['button_text'] : '';
+        $button_text_color = isset($options['button_text_color']) ? $options['button_text_color'] : '';
         $button_text_size = isset($options['button_text_size']) ? $options['button_text_size'] : '';
-        $api_key = isset($options['api_key']) ? $options['api_key'] : '';
+        $button_text_weight = isset($options['button_text_weight']) ? $options['button_text_weight'] : '';
+        $dev_mode = isset($options['dev_mode']) ? $options['dev_mode'] : '';
+        $no_margins = isset($options['no_margins']) ? $options['no_margins'] : '';
         $output_format = isset($options['output_format']) ? $options['output_format'] : '';
-        $button_hidden = isset($options['button_hidden']) ? $options['button_hidden'] : '';
-        $button_image_height = isset($options['button_image_height']) ? $options['button_image_height'] : '';
+        $rendering_mode = isset($options['rendering_mode']) ? $options['rendering_mode'] : '';
+        $use_print_media = isset($options['use_print_media']) ? $options['use_print_media'] : '';
+        $username = isset($options['username']) ? $options['username'] : '';
+        $viewport_width = isset($options['viewport_width']) ? $options['viewport_width'] : '';
 
+        $__init__ = isset($options['__init__']) ? $options['__init__'] : '';
         $page_size = isset($options['page_size']) ? $options['page_size'] : 'A4';
         $page_width = isset($options['page_width']) ? $options['page_width'] : '';
         $page_height = isset($options['page_height']) ? $options['page_height'] : '';
+        $page_dimensions = isset($options['page_dimensions']) ? $options['page_dimensions'] : '';
         $orientation = isset($options['orientation']) ? $options['orientation'] : 'portrait';
         $margin_top = isset($options['margin_top']) ? $options['margin_top'] : '';
         $margin_right = isset($options['margin_right']) ? $options['margin_right'] : '';
         $margin_bottom = isset($options['margin_bottom']) ? $options['margin_bottom'] : '';
         $margin_left = isset($options['margin_left']) ? $options['margin_left'] : '';
         $no_margins = isset($options['no_margins']) ? $options['no_margins'] : '';
+        $page_margins = isset($options['page_margins']) ? $options['page_margins'] : '';
         $header_url = isset($options['header_url']) ? $options['header_url'] : '';
         $header_html = isset($options['header_html']) ? $options['header_html'] : '';
         $header_height = isset($options['header_height']) ? $options['header_height'] : '';
@@ -101,6 +105,7 @@
         $content_area_y = isset($options['content_area_y']) ? $options['content_area_y'] : '';
         $content_area_width = isset($options['content_area_width']) ? $options['content_area_width'] : '';
         $content_area_height = isset($options['content_area_height']) ? $options['content_area_height'] : '';
+        $content_area = isset($options['content_area']) ? $options['content_area'] : '';
         $page_watermark = isset($options['page_watermark']) ? $options['page_watermark'] : '';
         $multipage_watermark = isset($options['multipage_watermark']) ? $options['multipage_watermark'] : '';
         $page_background = isset($options['page_background']) ? $options['page_background'] : '';
@@ -114,6 +119,7 @@
         $default_encoding = isset($options['default_encoding']) ? $options['default_encoding'] : '';
         $http_auth_user_name = isset($options['http_auth_user_name']) ? $options['http_auth_user_name'] : '';
         $http_auth_password = isset($options['http_auth_password']) ? $options['http_auth_password'] : '';
+        $http_auth = isset($options['http_auth']) ? $options['http_auth'] : '';
         $use_print_media = isset($options['use_print_media']) ? $options['use_print_media'] : '';
         $no_xpdfcrowd_header = isset($options['no_xpdfcrowd_header']) ? $options['no_xpdfcrowd_header'] : '';
         $cookies = isset($options['cookies']) ? $options['cookies'] : '';
@@ -129,6 +135,7 @@
         $wait_for_element = isset($options['wait_for_element']) ? $options['wait_for_element'] : '';
         $viewport_width = isset($options['viewport_width']) ? $options['viewport_width'] : '';
         $viewport_height = isset($options['viewport_height']) ? $options['viewport_height'] : '';
+        $viewport = isset($options['viewport']) ? $options['viewport'] : '';
         $rendering_mode = isset($options['rendering_mode']) ? $options['rendering_mode'] : 'default';
         $smart_scaling_mode = isset($options['smart_scaling_mode']) ? $options['smart_scaling_mode'] : 'default';
         $scale_factor = isset($options['scale_factor']) ? $options['scale_factor'] : '';
@@ -165,6 +172,10 @@
         $https_proxy = isset($options['https_proxy']) ? $options['https_proxy'] : '';
         $client_certificate = isset($options['client_certificate']) ? $options['client_certificate'] : '';
         $client_certificate_password = isset($options['client_certificate_password']) ? $options['client_certificate_password'] : '';
+        $use_http = isset($options['use_http']) ? $options['use_http'] : '';
+        $proxy = isset($options['proxy']) ? $options['proxy'] : '';
+        $use_curl = isset($options['use_curl']) ? $options['use_curl'] : '';
+        $retry_count = isset($options['retry_count']) ? $options['retry_count'] : '';
 
         /*
         * Set up hidden fields

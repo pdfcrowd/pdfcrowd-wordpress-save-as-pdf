@@ -3,7 +3,7 @@
 /**
  * Fired during plugin deactivation
  *
- * @link       https://pdfcrowd.com/wordpress/
+ * @link       https://pdfcrowd.com/save-as-pdf-image-wordpress-plugin/
  * @since      1.0.0
  *
  * @package    Save_As_Pdf_Pdfcrowd

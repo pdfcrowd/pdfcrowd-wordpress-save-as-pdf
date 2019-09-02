@@ -96,5 +96,11 @@
                 window.SaveAsPDFPdfcrowdShowButtonPreview(this);
             }
         });
+
+        $('.save-as-pdf-pdfcrowd-expert').click(function(e) {
+            e.preventDefault();
+            $('.save-as-pdf-pdfcrowd-devi').show();
+            $('.save-as-pdf-pdfcrowd-expert').hide();
+        });
     });
 })( jQuery );
