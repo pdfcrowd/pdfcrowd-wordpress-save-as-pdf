@@ -16,7 +16,7 @@
 <div id="save-as-pdf-pdfcrowd-page-setup" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Page Setup</h2>
-    <button class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</button>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
 
 
     <table class="form-table">
@@ -29,6 +29,7 @@
                 </th>
                 <td>
                     <select name="save-as-pdf-pdfcrowd[page_size]">
+                    <option value="" <?php selected($page_size, '');?>>-- unset --</option>
                     <option value="A2" <?php selected($page_size, 'A2');?>>A2</option>
                     <option value="A3" <?php selected($page_size, 'A3');?>>A3</option>
                     <option value="A4" <?php selected($page_size, 'A4');?>>A4</option>
@@ -38,7 +39,7 @@
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>page_size</strong>"<br/>Possible values: "A2", "A3", "A4", "A5", "A6", "Letter"
+                            Shortcode & function parameter: "<strong>page_size</strong>"<br/>Possible values: "", "A2", "A3", "A4", "A5", "A6", "Letter"
                         </p>
                         <p class='description'>
                             Set the output page size.
@@ -53,7 +54,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_width" name="save-as-pdf-pdfcrowd[page_width]" value="<?php if(!empty($page_width)) esc_attr_e($page_width, $this->plugin_name);?>" placeholder="8.27in" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_width" name="save-as-pdf-pdfcrowd[page_width]" value="<?php echo($page_width); ?>" placeholder="8.27in" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>page_width</strong>"
@@ -72,7 +73,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_height" name="save-as-pdf-pdfcrowd[page_height]" value="<?php if(!empty($page_height)) esc_attr_e($page_height, $this->plugin_name);?>" placeholder="11.7in" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_height" name="save-as-pdf-pdfcrowd[page_height]" value="<?php echo($page_height); ?>" placeholder="11.7in" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>page_height</strong>"
@@ -80,25 +81,6 @@
                         <p class='description'>
                             Set the output page height. Use <span class='field-value'>-1</span> for a single page PDF. The safe maximum is <span class='field-value'>200in</span> otherwise some PDF viewers may be unable to open the PDF.
                             Can be -1 or specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
-                        </p>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-page_dimensions">
-                        Page Dimensions
-                    </label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_dimensions" name="save-as-pdf-pdfcrowd[page_dimensions]" value="<?php if(!empty($page_dimensions)) esc_attr_e($page_dimensions, $this->plugin_name);?>" placeholder="" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>page_dimensions</strong>"
-                        </p>
-                        <p class='description'>
-                            Set the output page dimensions.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
                         </p>
                     </div>
                 </td>
@@ -131,7 +113,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-margin_top" name="save-as-pdf-pdfcrowd[margin_top]" value="<?php if(!empty($margin_top)) esc_attr_e($margin_top, $this->plugin_name);?>" placeholder="0.4in" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-margin_top" name="save-as-pdf-pdfcrowd[margin_top]" value="<?php echo($margin_top); ?>" placeholder="0.4in" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>margin_top</strong>"
@@ -150,7 +132,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-margin_right" name="save-as-pdf-pdfcrowd[margin_right]" value="<?php if(!empty($margin_right)) esc_attr_e($margin_right, $this->plugin_name);?>" placeholder="0.4in" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-margin_right" name="save-as-pdf-pdfcrowd[margin_right]" value="<?php echo($margin_right); ?>" placeholder="0.4in" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>margin_right</strong>"
@@ -169,7 +151,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-margin_bottom" name="save-as-pdf-pdfcrowd[margin_bottom]" value="<?php if(!empty($margin_bottom)) esc_attr_e($margin_bottom, $this->plugin_name);?>" placeholder="0.4in" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-margin_bottom" name="save-as-pdf-pdfcrowd[margin_bottom]" value="<?php echo($margin_bottom); ?>" placeholder="0.4in" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>margin_bottom</strong>"
@@ -188,7 +170,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-margin_left" name="save-as-pdf-pdfcrowd[margin_left]" value="<?php if(!empty($margin_left)) esc_attr_e($margin_left, $this->plugin_name);?>" placeholder="0.4in" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-margin_left" name="save-as-pdf-pdfcrowd[margin_left]" value="<?php echo($margin_left); ?>" placeholder="0.4in" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>margin_left</strong>"
@@ -220,31 +202,12 @@
             </tr>
             <tr>
                 <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-page_margins">
-                        Page Margins
-                    </label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_margins" name="save-as-pdf-pdfcrowd[page_margins]" value="<?php if(!empty($page_margins)) esc_attr_e($page_margins, $this->plugin_name);?>" placeholder="" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>page_margins</strong>"
-                        </p>
-                        <p class='description'>
-                            Set the output page margins.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
-                        </p>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-header_url">
                         Header Url
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-header_url" name="save-as-pdf-pdfcrowd[header_url]" value="<?php if(!empty($header_url)) esc_attr_e($header_url, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-header_url" name="save-as-pdf-pdfcrowd[header_url]" value="<?php echo($header_url); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>header_url</strong>"
@@ -263,7 +226,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-header_html" name="save-as-pdf-pdfcrowd[header_html]" value="<?php if(!empty($header_html)) esc_attr_e($header_html, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-header_html" name="save-as-pdf-pdfcrowd[header_html]" value="<?php echo($header_html); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>header_html</strong>"
@@ -282,7 +245,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-header_height" name="save-as-pdf-pdfcrowd[header_height]" value="<?php if(!empty($header_height)) esc_attr_e($header_height, $this->plugin_name);?>" placeholder="0.5in" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-header_height" name="save-as-pdf-pdfcrowd[header_height]" value="<?php echo($header_height); ?>" placeholder="0.5in" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>header_height</strong>"
@@ -301,7 +264,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-footer_url" name="save-as-pdf-pdfcrowd[footer_url]" value="<?php if(!empty($footer_url)) esc_attr_e($footer_url, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-footer_url" name="save-as-pdf-pdfcrowd[footer_url]" value="<?php echo($footer_url); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>footer_url</strong>"
@@ -320,7 +283,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-footer_html" name="save-as-pdf-pdfcrowd[footer_html]" value="<?php if(!empty($footer_html)) esc_attr_e($footer_html, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-footer_html" name="save-as-pdf-pdfcrowd[footer_html]" value="<?php echo($footer_html); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>footer_html</strong>"
@@ -339,7 +302,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-footer_height" name="save-as-pdf-pdfcrowd[footer_height]" value="<?php if(!empty($footer_height)) esc_attr_e($footer_height, $this->plugin_name);?>" placeholder="0.5in" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-footer_height" name="save-as-pdf-pdfcrowd[footer_height]" value="<?php echo($footer_height); ?>" placeholder="0.5in" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>footer_height</strong>"
@@ -358,7 +321,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-print_page_range" name="save-as-pdf-pdfcrowd[print_page_range]" value="<?php if(!empty($print_page_range)) esc_attr_e($print_page_range, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-print_page_range" name="save-as-pdf-pdfcrowd[print_page_range]" value="<?php echo($print_page_range); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>print_page_range</strong>"
@@ -377,7 +340,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-exclude_header_on_pages" name="save-as-pdf-pdfcrowd[exclude_header_on_pages]" value="<?php if(!empty($exclude_header_on_pages)) esc_attr_e($exclude_header_on_pages, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-exclude_header_on_pages" name="save-as-pdf-pdfcrowd[exclude_header_on_pages]" value="<?php echo($exclude_header_on_pages); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>exclude_header_on_pages</strong>"
@@ -396,7 +359,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-exclude_footer_on_pages" name="save-as-pdf-pdfcrowd[exclude_footer_on_pages]" value="<?php if(!empty($exclude_footer_on_pages)) esc_attr_e($exclude_footer_on_pages, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-exclude_footer_on_pages" name="save-as-pdf-pdfcrowd[exclude_footer_on_pages]" value="<?php echo($exclude_footer_on_pages); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>exclude_footer_on_pages</strong>"
@@ -415,7 +378,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_numbering_offset" name="save-as-pdf-pdfcrowd[page_numbering_offset]" value="<?php if(!empty($page_numbering_offset)) esc_attr_e($page_numbering_offset, $this->plugin_name);?>" placeholder="0" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_numbering_offset" name="save-as-pdf-pdfcrowd[page_numbering_offset]" value="<?php echo($page_numbering_offset); ?>" placeholder="0" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>page_numbering_offset</strong>"
@@ -433,7 +396,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area_x" name="save-as-pdf-pdfcrowd[content_area_x]" value="<?php if(!empty($content_area_x)) esc_attr_e($content_area_x, $this->plugin_name);?>" placeholder="0in" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area_x" name="save-as-pdf-pdfcrowd[content_area_x]" value="<?php echo($content_area_x); ?>" placeholder="0in" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>content_area_x</strong>"
@@ -452,7 +415,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area_y" name="save-as-pdf-pdfcrowd[content_area_y]" value="<?php if(!empty($content_area_y)) esc_attr_e($content_area_y, $this->plugin_name);?>" placeholder="0in" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area_y" name="save-as-pdf-pdfcrowd[content_area_y]" value="<?php echo($content_area_y); ?>" placeholder="0in" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>content_area_y</strong>"
@@ -471,7 +434,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area_width" name="save-as-pdf-pdfcrowd[content_area_width]" value="<?php if(!empty($content_area_width)) esc_attr_e($content_area_width, $this->plugin_name);?>" placeholder="The width of the print area." />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area_width" name="save-as-pdf-pdfcrowd[content_area_width]" value="<?php echo($content_area_width); ?>" placeholder="The width of the print area." />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>content_area_width</strong>"
@@ -490,7 +453,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area_height" name="save-as-pdf-pdfcrowd[content_area_height]" value="<?php if(!empty($content_area_height)) esc_attr_e($content_area_height, $this->plugin_name);?>" placeholder="The height of the print area." />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area_height" name="save-as-pdf-pdfcrowd[content_area_height]" value="<?php echo($content_area_height); ?>" placeholder="The height of the print area." />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>content_area_height</strong>"
@@ -502,32 +465,13 @@
                     </div>
                 </td>
             </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-content_area">
-                        Content Area
-                    </label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area" name="save-as-pdf-pdfcrowd[content_area]" value="<?php if(!empty($content_area)) esc_attr_e($content_area, $this->plugin_name);?>" placeholder="" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>content_area</strong>"
-                        </p>
-                        <p class='description'>
-                            Set the content area position and size. The content area enables to specify a web page area to be converted.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt). It may contain a negative value.
-                        </p>
-                    </div>
-                </td>
-            </tr>
         </tbody>
     </table>
 </div>
 <div id="save-as-pdf-pdfcrowd-watermark-and-background" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Watermark & Background</h2>
-    <button class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</button>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
 
     <p class='clear save-as-pdf-pdfcrowd-note'>PDF file used as a watermark or a background must exist on the file system. To apply WordPress uploaded media use a relative path. Example:
         <br/>
@@ -543,7 +487,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_watermark" name="save-as-pdf-pdfcrowd[page_watermark]" value="<?php if(!empty($page_watermark)) esc_attr_e($page_watermark, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_watermark" name="save-as-pdf-pdfcrowd[page_watermark]" value="<?php echo($page_watermark); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>page_watermark</strong>"
@@ -562,7 +506,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-multipage_watermark" name="save-as-pdf-pdfcrowd[multipage_watermark]" value="<?php if(!empty($multipage_watermark)) esc_attr_e($multipage_watermark, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-multipage_watermark" name="save-as-pdf-pdfcrowd[multipage_watermark]" value="<?php echo($multipage_watermark); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>multipage_watermark</strong>"
@@ -581,7 +525,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_background" name="save-as-pdf-pdfcrowd[page_background]" value="<?php if(!empty($page_background)) esc_attr_e($page_background, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_background" name="save-as-pdf-pdfcrowd[page_background]" value="<?php echo($page_background); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>page_background</strong>"
@@ -600,7 +544,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-multipage_background" name="save-as-pdf-pdfcrowd[multipage_background]" value="<?php if(!empty($multipage_background)) esc_attr_e($multipage_background, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-multipage_background" name="save-as-pdf-pdfcrowd[multipage_background]" value="<?php echo($multipage_background); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>multipage_background</strong>"
@@ -619,7 +563,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_background_color" name="save-as-pdf-pdfcrowd[page_background_color]" value="<?php if(!empty($page_background_color)) esc_attr_e($page_background_color, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_background_color" name="save-as-pdf-pdfcrowd[page_background_color]" value="<?php echo($page_background_color); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>page_background_color</strong>"
@@ -637,7 +581,7 @@
 <div id="save-as-pdf-pdfcrowd-general-options" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>General Options</h2>
-    <button class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</button>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
 
 
     <table class="form-table">
@@ -739,7 +683,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-default_encoding" name="save-as-pdf-pdfcrowd[default_encoding]" value="<?php if(!empty($default_encoding)) esc_attr_e($default_encoding, $this->plugin_name);?>" placeholder="auto detect" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-default_encoding" name="save-as-pdf-pdfcrowd[default_encoding]" value="<?php echo($default_encoding); ?>" placeholder="auto detect" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>default_encoding</strong>"
@@ -758,7 +702,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-http_auth_user_name" name="save-as-pdf-pdfcrowd[http_auth_user_name]" value="<?php if(!empty($http_auth_user_name)) esc_attr_e($http_auth_user_name, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-http_auth_user_name" name="save-as-pdf-pdfcrowd[http_auth_user_name]" value="<?php echo($http_auth_user_name); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>http_auth_user_name</strong>"
@@ -777,32 +721,13 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-http_auth_password" name="save-as-pdf-pdfcrowd[http_auth_password]" value="<?php if(!empty($http_auth_password)) esc_attr_e($http_auth_password, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-http_auth_password" name="save-as-pdf-pdfcrowd[http_auth_password]" value="<?php echo($http_auth_password); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>http_auth_password</strong>"
                         </p>
                         <p class='description'>
                             Set the HTTP authentication password.
-                            
-                        </p>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-http_auth">
-                        Http Auth
-                    </label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-http_auth" name="save-as-pdf-pdfcrowd[http_auth]" value="<?php if(!empty($http_auth)) esc_attr_e($http_auth, $this->plugin_name);?>" placeholder="" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>http_auth</strong>"
-                        </p>
-                        <p class='description'>
-                            Set credentials to access HTTP base authentication protected websites.
                             
                         </p>
                     </div>
@@ -851,7 +776,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-cookies" name="save-as-pdf-pdfcrowd[cookies]" value="<?php if(!empty($cookies)) esc_attr_e($cookies, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-cookies" name="save-as-pdf-pdfcrowd[cookies]" value="<?php echo($cookies); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>cookies</strong>"
@@ -924,7 +849,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-custom_javascript" name="save-as-pdf-pdfcrowd[custom_javascript]" value="<?php if(!empty($custom_javascript)) esc_attr_e($custom_javascript, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-custom_javascript" name="save-as-pdf-pdfcrowd[custom_javascript]" value="<?php echo($custom_javascript); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>custom_javascript</strong>"
@@ -943,7 +868,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-on_load_javascript" name="save-as-pdf-pdfcrowd[on_load_javascript]" value="<?php if(!empty($on_load_javascript)) esc_attr_e($on_load_javascript, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-on_load_javascript" name="save-as-pdf-pdfcrowd[on_load_javascript]" value="<?php echo($on_load_javascript); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>on_load_javascript</strong>"
@@ -962,7 +887,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-custom_http_header" name="save-as-pdf-pdfcrowd[custom_http_header]" value="<?php if(!empty($custom_http_header)) esc_attr_e($custom_http_header, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-custom_http_header" name="save-as-pdf-pdfcrowd[custom_http_header]" value="<?php echo($custom_http_header); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>custom_http_header</strong>"
@@ -981,7 +906,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-javascript_delay" name="save-as-pdf-pdfcrowd[javascript_delay]" value="<?php if(!empty($javascript_delay)) esc_attr_e($javascript_delay, $this->plugin_name);?>" placeholder="200" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-javascript_delay" name="save-as-pdf-pdfcrowd[javascript_delay]" value="<?php echo($javascript_delay); ?>" placeholder="200" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>javascript_delay</strong>"
@@ -999,7 +924,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-element_to_convert" name="save-as-pdf-pdfcrowd[element_to_convert]" value="<?php if(!empty($element_to_convert)) esc_attr_e($element_to_convert, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-element_to_convert" name="save-as-pdf-pdfcrowd[element_to_convert]" value="<?php echo($element_to_convert); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>element_to_convert</strong>"
@@ -1040,7 +965,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-wait_for_element" name="save-as-pdf-pdfcrowd[wait_for_element]" value="<?php if(!empty($wait_for_element)) esc_attr_e($wait_for_element, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-wait_for_element" name="save-as-pdf-pdfcrowd[wait_for_element]" value="<?php echo($wait_for_element); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>wait_for_element</strong>"
@@ -1058,7 +983,7 @@
 <div id="save-as-pdf-pdfcrowd-print-resolution" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Print Resolution</h2>
-    <button class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</button>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
 
 
     <table class="form-table">
@@ -1070,7 +995,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-viewport_width" name="save-as-pdf-pdfcrowd[viewport_width]" value="<?php if(!empty($viewport_width)) esc_attr_e($viewport_width, $this->plugin_name);?>" placeholder="1024" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-viewport_width" name="save-as-pdf-pdfcrowd[viewport_width]" value="<?php echo($viewport_width); ?>" placeholder="1024" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>viewport_width</strong>"
@@ -1088,31 +1013,13 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-viewport_height" name="save-as-pdf-pdfcrowd[viewport_height]" value="<?php if(!empty($viewport_height)) esc_attr_e($viewport_height, $this->plugin_name);?>" placeholder="768" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-viewport_height" name="save-as-pdf-pdfcrowd[viewport_height]" value="<?php echo($viewport_height); ?>" placeholder="768" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>viewport_height</strong>"
                         </p>
                         <p class='description'>
                             Set the viewport height in pixels. The viewport is the user's visible area of the page.
-                        </p>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-viewport">
-                        Viewport
-                    </label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-viewport" name="save-as-pdf-pdfcrowd[viewport]" value="<?php if(!empty($viewport)) esc_attr_e($viewport, $this->plugin_name);?>" placeholder="" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>viewport</strong>"
-                        </p>
-                        <p class='description'>
-                            Set the viewport size. The viewport is the user's visible area of the page.
                         </p>
                     </div>
                 </td>
@@ -1169,7 +1076,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-scale_factor" name="save-as-pdf-pdfcrowd[scale_factor]" value="<?php if(!empty($scale_factor)) esc_attr_e($scale_factor, $this->plugin_name);?>" placeholder="100" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-scale_factor" name="save-as-pdf-pdfcrowd[scale_factor]" value="<?php echo($scale_factor); ?>" placeholder="100" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>scale_factor</strong>"
@@ -1187,7 +1094,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-header_footer_scale_factor" name="save-as-pdf-pdfcrowd[header_footer_scale_factor]" value="<?php if(!empty($header_footer_scale_factor)) esc_attr_e($header_footer_scale_factor, $this->plugin_name);?>" placeholder="100" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-header_footer_scale_factor" name="save-as-pdf-pdfcrowd[header_footer_scale_factor]" value="<?php echo($header_footer_scale_factor); ?>" placeholder="100" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>header_footer_scale_factor</strong>"
@@ -1205,7 +1112,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-jpeg_quality" name="save-as-pdf-pdfcrowd[jpeg_quality]" value="<?php if(!empty($jpeg_quality)) esc_attr_e($jpeg_quality, $this->plugin_name);?>" placeholder="100" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-jpeg_quality" name="save-as-pdf-pdfcrowd[jpeg_quality]" value="<?php echo($jpeg_quality); ?>" placeholder="100" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>jpeg_quality</strong>"
@@ -1245,7 +1152,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-image_dpi" name="save-as-pdf-pdfcrowd[image_dpi]" value="<?php if(!empty($image_dpi)) esc_attr_e($image_dpi, $this->plugin_name);?>" placeholder="0" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-image_dpi" name="save-as-pdf-pdfcrowd[image_dpi]" value="<?php echo($image_dpi); ?>" placeholder="0" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>image_dpi</strong>"
@@ -1262,7 +1169,7 @@
 <div id="save-as-pdf-pdfcrowd-pdf-format" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>PDF Format</h2>
-    <button class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</button>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
 
 
     <table class="form-table">
@@ -1310,7 +1217,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-user_password" name="save-as-pdf-pdfcrowd[user_password]" value="<?php if(!empty($user_password)) esc_attr_e($user_password, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-user_password" name="save-as-pdf-pdfcrowd[user_password]" value="<?php echo($user_password); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>user_password</strong>"
@@ -1329,7 +1236,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-owner_password" name="save-as-pdf-pdfcrowd[owner_password]" value="<?php if(!empty($owner_password)) esc_attr_e($owner_password, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-owner_password" name="save-as-pdf-pdfcrowd[owner_password]" value="<?php echo($owner_password); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>owner_password</strong>"
@@ -1402,7 +1309,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-title" name="save-as-pdf-pdfcrowd[title]" value="<?php if(!empty($title)) esc_attr_e($title, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-title" name="save-as-pdf-pdfcrowd[title]" value="<?php echo($title); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>title</strong>"
@@ -1421,7 +1328,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-subject" name="save-as-pdf-pdfcrowd[subject]" value="<?php if(!empty($subject)) esc_attr_e($subject, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-subject" name="save-as-pdf-pdfcrowd[subject]" value="<?php echo($subject); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>subject</strong>"
@@ -1440,7 +1347,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-author" name="save-as-pdf-pdfcrowd[author]" value="<?php if(!empty($author)) esc_attr_e($author, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-author" name="save-as-pdf-pdfcrowd[author]" value="<?php echo($author); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>author</strong>"
@@ -1459,7 +1366,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-keywords" name="save-as-pdf-pdfcrowd[keywords]" value="<?php if(!empty($keywords)) esc_attr_e($keywords, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-keywords" name="save-as-pdf-pdfcrowd[keywords]" value="<?php echo($keywords); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>keywords</strong>"
@@ -1477,7 +1384,7 @@
 <div id="save-as-pdf-pdfcrowd-viewer-preferences" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Viewer Preferences</h2>
-    <button class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</button>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
 
 
     <table class="form-table">
@@ -1559,7 +1466,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-initial_page" name="save-as-pdf-pdfcrowd[initial_page]" value="<?php if(!empty($initial_page)) esc_attr_e($initial_page, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-initial_page" name="save-as-pdf-pdfcrowd[initial_page]" value="<?php echo($initial_page); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>initial_page</strong>"
@@ -1577,7 +1484,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-initial_zoom" name="save-as-pdf-pdfcrowd[initial_zoom]" value="<?php if(!empty($initial_zoom)) esc_attr_e($initial_zoom, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-initial_zoom" name="save-as-pdf-pdfcrowd[initial_zoom]" value="<?php echo($initial_zoom); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>initial_zoom</strong>"
@@ -1720,7 +1627,7 @@
 <div id="save-as-pdf-pdfcrowd-miscellaneous" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Miscellaneous</h2>
-    <button class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</button>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
 
 
     <table class="form-table">
@@ -1750,7 +1657,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-tag" name="save-as-pdf-pdfcrowd[tag]" value="<?php if(!empty($tag)) esc_attr_e($tag, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-tag" name="save-as-pdf-pdfcrowd[tag]" value="<?php echo($tag); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>tag</strong>"
@@ -1769,7 +1676,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-http_proxy" name="save-as-pdf-pdfcrowd[http_proxy]" value="<?php if(!empty($http_proxy)) esc_attr_e($http_proxy, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-http_proxy" name="save-as-pdf-pdfcrowd[http_proxy]" value="<?php echo($http_proxy); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>http_proxy</strong>"
@@ -1788,7 +1695,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-https_proxy" name="save-as-pdf-pdfcrowd[https_proxy]" value="<?php if(!empty($https_proxy)) esc_attr_e($https_proxy, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-https_proxy" name="save-as-pdf-pdfcrowd[https_proxy]" value="<?php echo($https_proxy); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>https_proxy</strong>"
@@ -1807,7 +1714,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-client_certificate" name="save-as-pdf-pdfcrowd[client_certificate]" value="<?php if(!empty($client_certificate)) esc_attr_e($client_certificate, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-client_certificate" name="save-as-pdf-pdfcrowd[client_certificate]" value="<?php echo($client_certificate); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>client_certificate</strong>"
@@ -1826,7 +1733,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-client_certificate_password" name="save-as-pdf-pdfcrowd[client_certificate_password]" value="<?php if(!empty($client_certificate_password)) esc_attr_e($client_certificate_password, $this->plugin_name);?>" placeholder="" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-client_certificate_password" name="save-as-pdf-pdfcrowd[client_certificate_password]" value="<?php echo($client_certificate_password); ?>" placeholder="" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>client_certificate_password</strong>"
@@ -1844,7 +1751,7 @@
 <div id="save-as-pdf-pdfcrowd-api-client-options" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>API Client Options</h2>
-    <button class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</button>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
 
 
     <table class="form-table">
@@ -1869,49 +1776,12 @@
             </tr>
             <tr>
                 <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-proxy">
-                        Proxy
-                    </label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-proxy" name="save-as-pdf-pdfcrowd[proxy]" value="<?php if(!empty($proxy)) esc_attr_e($proxy, $this->plugin_name);?>" placeholder="" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>proxy</strong>"
-                        </p>
-                        <p class='description'>
-                            Specifies an HTTP proxy that the API client library will use to connect to the internet.
-                            
-                        </p>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-use_curl">
-                        Use Curl
-                    </label>
-                </th>
-                <td>
-                    <input type="checkbox" id="save-as-pdf-pdfcrowd-use_curl" name="save-as-pdf-pdfcrowd[use_curl]" value="1" <?php checked( $use_curl, 1 ); ?> />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>use_curl</strong>"<br/>Possible values: 0, 1
-                        </p>
-                        <p class='description'>
-                            Use cURL for the conversion request instead of the file_get_contents() PHP function.
-                        </p>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-retry_count">
                         Retry Count
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-retry_count" name="save-as-pdf-pdfcrowd[retry_count]" value="<?php if(!empty($retry_count)) esc_attr_e($retry_count, $this->plugin_name);?>" placeholder="1" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-retry_count" name="save-as-pdf-pdfcrowd[retry_count]" value="<?php echo($retry_count); ?>" placeholder="1" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>retry_count</strong>"
