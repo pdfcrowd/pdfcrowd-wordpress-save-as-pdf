@@ -99,6 +99,7 @@ More answers can be found on [Pdfcrowd FAQ](https://pdfcrowd.com/faq/) page.
 == Screenshots ==
 
 1. Default button appearance.
+2. Sample of settings.
 
 == Changelog ==
 

@@ -75,7 +75,6 @@
         $no_margins = isset($options['no_margins']) ? $options['no_margins'] : '';
         $output_format = isset($options['output_format']) ? $options['output_format'] : '';
         $rendering_mode = isset($options['rendering_mode']) ? $options['rendering_mode'] : '';
-        $use_print_media = isset($options['use_print_media']) ? $options['use_print_media'] : '';
         $username = isset($options['username']) ? $options['username'] : '';
         $viewport_width = isset($options['viewport_width']) ? $options['viewport_width'] : '';
 
@@ -87,7 +86,6 @@
         $margin_right = isset($options['margin_right']) ? $options['margin_right'] : '';
         $margin_bottom = isset($options['margin_bottom']) ? $options['margin_bottom'] : '';
         $margin_left = isset($options['margin_left']) ? $options['margin_left'] : '';
-        $no_margins = isset($options['no_margins']) ? $options['no_margins'] : '';
         $header_url = isset($options['header_url']) ? $options['header_url'] : '';
         $header_html = isset($options['header_html']) ? $options['header_html'] : '';
         $header_height = isset($options['header_height']) ? $options['header_height'] : '';
@@ -128,9 +126,7 @@
         $element_to_convert = isset($options['element_to_convert']) ? $options['element_to_convert'] : '';
         $element_to_convert_mode = isset($options['element_to_convert_mode']) ? $options['element_to_convert_mode'] : 'cut-out';
         $wait_for_element = isset($options['wait_for_element']) ? $options['wait_for_element'] : '';
-        $viewport_width = isset($options['viewport_width']) ? $options['viewport_width'] : '';
         $viewport_height = isset($options['viewport_height']) ? $options['viewport_height'] : '';
-        $rendering_mode = isset($options['rendering_mode']) ? $options['rendering_mode'] : 'default';
         $smart_scaling_mode = isset($options['smart_scaling_mode']) ? $options['smart_scaling_mode'] : 'default';
         $scale_factor = isset($options['scale_factor']) ? $options['scale_factor'] : '';
         $header_footer_scale_factor = isset($options['header_footer_scale_factor']) ? $options['header_footer_scale_factor'] : '';

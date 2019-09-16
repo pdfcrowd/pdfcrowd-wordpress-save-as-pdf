@@ -137,7 +137,6 @@ class Save_As_Pdf_Pdfcrowd_Public {
         'no_margins' => '0',
         'output_format' => 'pdf',
         'rendering_mode' => 'viewport',
-        'use_print_media' => '1',
         'username' => '',
         'viewport_width' => '1200',
     );
