@@ -518,7 +518,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/1.0.0 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/1.0.1 ('
             . $wp_version . '/' . phpversion() . ')'
         );
 

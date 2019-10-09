@@ -83,7 +83,7 @@ class Save_As_Pdf_Pdfcrowd {
             return SAVE_AS_PDF_VERSION;
         }
 
-        return '1.0.0';
+        return '1.0.1';
     }
 
     /**
@@ -243,6 +243,6 @@ class Save_As_Pdf_Pdfcrowd {
  */
 function create_save_as_pdf_pdfcrowd_button($options = array()) {
     $converter = new Save_As_Pdf_Pdfcrowd_Public(
-        'save_as_pdf_pdfcrowd', Save_As_Pdf_Pdfcrowd::build_version());
+        'save-as-pdf-pdfcrowd', Save_As_Pdf_Pdfcrowd::build_version());
     return $converter->save_as_pdf_pdfcrowd_shortcode($options);
 }

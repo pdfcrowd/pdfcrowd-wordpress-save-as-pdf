@@ -103,5 +103,8 @@ More answers can be found on [Pdfcrowd FAQ](https://pdfcrowd.com/faq/) page.
 
 == Changelog ==
 
+= 1.0.1 =
+* Fixed issue with missing input when create_save_as_pdf_pdfcrowd_button is used.
+
 = 1.0.0 =
 * Initial version
