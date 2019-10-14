@@ -19,7 +19,8 @@
 
   <h2 id="save-as-pdf-pdfcrowd-nav-tab" class="nav-tab-wrapper">
     <a href="#save-as-pdf-pdfcrowd-license-settings" class="nav-tab nav-tab-active">Pdfcrowd API License</a>
-    <a href="#save-as-pdf-pdfcrowd-wordpress-settings" class="nav-tab">WordPress Settings</a>
+    <a href="#save-as-pdf-pdfcrowd-appearance" class="nav-tab">Appearance</a>
+    <a href="#save-as-pdf-pdfcrowd-behavior" class="nav-tab">Behavior</a>
 <a href="#save-as-pdf-pdfcrowd-page-setup" class="nav-tab">Page Setup</a>
 <a href="#save-as-pdf-pdfcrowd-watermark-and-background" class="nav-tab">Watermark & Background</a>
 <a href="#save-as-pdf-pdfcrowd-general-options" class="nav-tab">General Options</a>
@@ -33,7 +34,7 @@
       <form method="post" id="save-as-pdf-pdfcrowd-options" name="save_as_pdf_pdfcrowd-options" action="options.php">
         <?php
 
-        $options = get_option($this->plugin_name, Save_As_Pdf_Pdfcrowd_Public::$DEFAULTS);
+        $options = Save_As_Pdf_Pdfcrowd_Public::get_options();
 
         $license_status = Save_As_Pdf_Pdfcrowd_Admin::get_license_status($options);
 
@@ -43,6 +44,7 @@
         $button_border_color = isset($options['button_border_color']) ? $options['button_border_color'] : '';
         $button_border_style = isset($options['button_border_style']) ? $options['button_border_style'] : '';
         $button_border_width = isset($options['button_border_width']) ? $options['button_border_width'] : '';
+        $button_custom_html = isset($options['button_custom_html']) ? $options['button_custom_html'] : '';
         $button_disposition = isset($options['button_disposition']) ? $options['button_disposition'] : '';
         $button_format = isset($options['button_format']) ? $options['button_format'] : '';
         $button_hidden = isset($options['button_hidden']) ? $options['button_hidden'] : '';
@@ -71,12 +73,15 @@
         $button_text_color = isset($options['button_text_color']) ? $options['button_text_color'] : '';
         $button_text_size = isset($options['button_text_size']) ? $options['button_text_size'] : '';
         $button_text_weight = isset($options['button_text_weight']) ? $options['button_text_weight'] : '';
+        $conversion_mode = isset($options['conversion_mode']) ? $options['conversion_mode'] : '';
         $dev_mode = isset($options['dev_mode']) ? $options['dev_mode'] : '';
         $no_margins = isset($options['no_margins']) ? $options['no_margins'] : '';
         $output_format = isset($options['output_format']) ? $options['output_format'] : '';
+        $pdf_created_callback = isset($options['pdf_created_callback']) ? $options['pdf_created_callback'] : '';
         $rendering_mode = isset($options['rendering_mode']) ? $options['rendering_mode'] : '';
         $smart_scaling_mode = isset($options['smart_scaling_mode']) ? $options['smart_scaling_mode'] : '';
         $username = isset($options['username']) ? $options['username'] : '';
+        $version = isset($options['version']) ? $options['version'] : '';
         $viewport_width = isset($options['viewport_width']) ? $options['viewport_width'] : '';
 
         $page_size = isset($options['page_size']) ? $options['page_size'] : 'A4';
@@ -102,9 +107,13 @@
         $content_area_width = isset($options['content_area_width']) ? $options['content_area_width'] : '';
         $content_area_height = isset($options['content_area_height']) ? $options['content_area_height'] : '';
         $page_watermark = isset($options['page_watermark']) ? $options['page_watermark'] : '';
+        $page_watermark_url = isset($options['page_watermark_url']) ? $options['page_watermark_url'] : '';
         $multipage_watermark = isset($options['multipage_watermark']) ? $options['multipage_watermark'] : '';
+        $multipage_watermark_url = isset($options['multipage_watermark_url']) ? $options['multipage_watermark_url'] : '';
         $page_background = isset($options['page_background']) ? $options['page_background'] : '';
+        $page_background_url = isset($options['page_background_url']) ? $options['page_background_url'] : '';
         $multipage_background = isset($options['multipage_background']) ? $options['multipage_background'] : '';
+        $multipage_background_url = isset($options['multipage_background_url']) ? $options['multipage_background_url'] : '';
         $page_background_color = isset($options['page_background_color']) ? $options['page_background_color'] : '';
         $no_background = isset($options['no_background']) ? $options['no_background'] : '';
         $disable_javascript = isset($options['disable_javascript']) ? $options['disable_javascript'] : '';
@@ -174,7 +183,8 @@
 
         // Include tabs partials
         require_once('license-settings.php');
-        require_once('wordpress-settings.php');
+        require_once('appearance.php');
+        require_once('behavior.php');
         require_once('save-as-pdf-pdfcrowd-settings.php');
         ?>
 
@@ -184,4 +194,13 @@
 
     </form>
 
+    <div id='save-as-pdf-pdfcrowd-support-notes'>
+        <hr/>
+        <p>
+            If you like "Save as PDF by Pdfcrowd" plugin, please rate us using <a href='https://wordpress.org/support/plugin/save-as-pdf-by-pdfcrowd/reviews/#new-post' target='_blank'>★★★★★</a>.
+        </p>
+        <p>
+            Feel free to contact Pdfcrowd support at <a href="mailto:support@pdfcrowd.com">support@pdfcrowd.com</a> for any help.
+        </p>
+    </div>
 </div>

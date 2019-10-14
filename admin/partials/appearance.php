@@ -13,8 +13,8 @@
 */
 ?>
 
-<div id="save-as-pdf-pdfcrowd-wordpress-settings" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
-    <h2>WordPress Settings</h2>
+<div id="save-as-pdf-pdfcrowd-appearance" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
+    <h2>Appearance</h2>
     <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
 
     <table class="form-table">
@@ -30,42 +30,6 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-button-on-posts" name="save-as-pdf-pdfcrowd[button_on_posts]" value="1" <?php checked( $button_on_posts, 1 ); ?> /><label for="save-as-pdf-pdfcrowd-button-on-posts">Posts<br/></label>
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-button-on-categories" name="save-as-pdf-pdfcrowd[button_on_categories]" value="1" <?php checked( $button_on_categories, 1 ); ?> /><label for="save-as-pdf-pdfcrowd-button-on-categories">Category pages<br/></label>
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-button-on-taxonomies" name="save-as-pdf-pdfcrowd[button_on_taxonomies]" value="1" <?php checked( $button_on_taxonomies, 1 ); ?> /><label for="save-as-pdf-pdfcrowd-button-on-taxonomies">Taxonomy pages<br/></label>
-                </td>
-            </tr>
-            <tr>
-                <th>
-                    Run in DEV MODE
-                </th>
-                <td>
-                    <input type="checkbox" id="save-as-pdf-pdfcrowd-dev-mode" name="save-as-pdf-pdfcrowd[dev_mode]" value="1" <?php checked( $dev_mode, 1 ); ?> />
-                    <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>dev_mode</strong>"<br/>Possible values: 0, 1
-                        <br/>
-                        Hint: Use DEV MODE if you run on localhost or your pages are not accessible.
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    Button Click Action
-                </th>
-                <td>
-                    <fieldset>
-                        <legend class="screen-reader-text">
-                            <span>Button Click Action</span>
-                        </legend>
-                        <label for="save-as-pdf-pdfcrowd-button-disp-attachment">
-                            <input type="radio" id="save-as-pdf-pdfcrowd-button-disp-attachment" name="save-as-pdf-pdfcrowd[button_disposition]" value="attachment" <?php checked( $button_disposition, "attachment" ); ?> />
-                            save PDF
-                        </label><br>
-                        <label for="save-as-pdf-pdfcrowd-button-disp-inline">
-                            <input type="radio" id="save-as-pdf-pdfcrowd-button-disp-inline" name="save-as-pdf-pdfcrowd[button_disposition]" value="inline" <?php checked( $button_disposition, "inline" ); ?> />
-                            open PDF inside the browser
-                        </label><br>
-                    </fieldset>
-                    <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>button_disposition</strong>"<br/>Possible values: "attachment", "inline"
-                    </p>
                 </td>
             </tr>
             <tr>
@@ -108,10 +72,17 @@
                             <input type="radio" id="save-as-pdf-pdfcrowd-pdfcrowd.svg" name="save-as-pdf-pdfcrowd[button_image]" value="pdfcrowd.svg" <?php checked( $button_image, "pdfcrowd.svg" ); ?> />
                             <img src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTkuMjI3IiBoZWlnaHQ9IjQzLjI1NiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03My44MDIgLTM4Ni4wNikiPjxnIHRyYW5zZm9ybT0ibWF0cml4KDEuNzk0OCAwIDAgMS43OTQ4IC0yNjI2LjUgLTIxMi4wNikiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmOTUwMCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0ibTE1MTQuNSAzMzUuODZjMC40NDI2IDAuMDU0IDEuMjM2Ni0wLjI0MzM2IDEuMDAwMiAwLjQ4OTY1djE4LjUxMWMtMC40NDI2LTAuMDU0LTEuMjM2NiAwLjI0MzM3LTEuMDAwMi0wLjQ4OTY1di0xOC41MTF6IiBvcGFjaXR5PSIuOTkiIHN0cm9rZS13aWR0aD0iNC45OTk4Ii8+PHBhdGggZD0ibTE1MDYuMyAzNDQuNTRoMS40NzQ4djEwLjU1NWgtMS40NzQ4di0xMC41NTV6IiBvcGFjaXR5PSIuOTkiIHN0cm9rZS13aWR0aD0iNC41MjUxIi8+PHBhdGggZD0ibTE1MjIuNCAzMzkuNzhjMC4zNzU1IDAuMTIzMSAxLjI5ODYtMC4zMDEzMyAxLjE2OTQgMC4zMjY0M3YxNC44NDNjLTAuMzc1NS0wLjEyMzExLTEuMjk4NiAwLjMwMTMzLTEuMTY5NC0wLjMyNjQzdi0xNC44NDN6IiBvcGFjaXR5PSIuOTkiIHN0cm9rZS13aWR0aD0iNC44MzA2Ii8+PHBhdGggZD0ibTE1MzUuMSAzNTMuMjh2Mi4xNjQ5aC01LjE2NDl2LTIuMTY0OWg1LjE2NDl6IiBvcGFjaXR5PSIuOTkiIHN0cm9rZS13aWR0aD0iMy44MzUxIi8+PC9nPjwvZz48L3N2Zz4K'/>
                         </label>&nbsp;&nbsp;&nbsp;
+                        <p class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>button_image</strong>"<br/>Possible values: "pdf1.svg", "pdf2.svg", "pdf3.svg", "pdf4.svg", "pdfcrowd.svg", "custom_image", "custom_html"
+                        </p>
+                        <br/>
                         <label for="save-as-pdf-pdfcrowd-custom-image">
                             <input type="radio" id="save-as-pdf-pdfcrowd-custom-image" name="save-as-pdf-pdfcrowd[button_image]" value="custom_image" <?php checked( $button_image, "custom_image" ); ?> />
                             Custom Image URL
                             <input id="save-as-pdf-pdfcrowd-custom-image-url" type="text" class="clear regular-text" name="save-as-pdf-pdfcrowd[button_image_url]" value="<?php echo($button_image_url);?>">
+                            <p class='save-as-pdf-pdfcrowd-devi'>
+                                Shortcode & function parameter: "<strong>button_image_url</strong>"
+                            </p>
                             <div class='save-as-pdf-pdfcrowd-m-description' style='padding-left: 2em'>
                                 <p class='description'>
                                     Examples:
@@ -127,10 +98,31 @@
                             </div>
                         </div>
                         </label>
+                        <br/>
+                        <label for="save-as-pdf-pdfcrowd-custom-image-h">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-custom-image-h" name="save-as-pdf-pdfcrowd[button_image]" value="custom_html" <?php checked( $button_image, "custom_html" ); ?> />
+                            Custom HTML
+                            <br/>
+                            <textarea class="clear regular-text" id="save-as-pdf-pdfcrowd-custom-html" name="save-as-pdf-pdfcrowd[button_custom_html]" rows=5 cols=60 style='margin-left: 2em'><?php echo($button_custom_html); ?></textarea>
+                            <p class='save-as-pdf-pdfcrowd-devi'>
+                                Shortcode & function parameter: "<strong>button_custom_html</strong>"
+                            </p>
+                            <div class='save-as-pdf-pdfcrowd-m-description' style='padding-left: 2em'>
+                                <p class='description'>
+                                    Examples:
+                                    <ul>
+                                        <li>
+                                            &lt;div style='width: 20pt; height: 20pt; background-color: red;'&gt;PDF&lt;/div&gt;
+                                        </li>
+                                        <li>
+                                            &lt;svg style='width: 20pt; height: 20pt;'&gt;&lt;rect style='fill:red;inline-size:20px;block-size:20px;' /&gt;&lt;/svg&gt;
+                                        </li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                        </label>
                     </fieldset>
-                    <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>button_image_url</strong>"
-                    </p>
                 </td>
             </tr>
             <tr>

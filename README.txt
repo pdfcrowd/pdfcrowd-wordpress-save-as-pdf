@@ -20,6 +20,7 @@ The plugin internally uses the Pdfcrowd API web service. The Pdfcrowd API is a p
 The plugin is highly customizable, you can:
 * customize the button style, text and icon
 * choose between the "screen" and "print" layout (CSS @media)
+* convert password-protected pages
 * customize page size and margins, page orientation, header and footer, run custom JavaScript, add a watermark, and many more ...
 
 You can customize the plugin on the Settings page.
@@ -86,9 +87,13 @@ A single Pdfcrowd [API license](https://pdfcrowd.com/user/account/api2-license/?
 
 == Frequently Asked Questions ==
 
+= Can I convert password-protected pages? =
+
+Yes, set "Conversion Mode" to "upload" or "development" on the Settings page or enable HTTP Basic Authentication for your site or choose other methods for accessing your pages (Client Certificate, Custom Cookies, Custom HTTP Headers).
+
 = Can I convert my localhost pages? =
 
-Yes, enable Dev Mode on the Settings page.
+Yes, set "Conversion Mode" to "upload" or "development" on the Settings page.
 
 = Are my data safe? =
 
@@ -102,6 +107,14 @@ More answers can be found on [Pdfcrowd FAQ](https://pdfcrowd.com/faq/) page.
 2. Sample of settings.
 
 == Changelog ==
+
+= 1.1.0 =
+* New option "Custom HTML" which allows to specify custom HTML for the conversion button.
+* New option "PDF Created Callback" which allows to manipulate with the output file.
+* New option "Conversion Mode". The "Run in DEV Mode" option was removed, you can use the "Conversion Mode" values "url" or "development" instead.
+* New options: Page Watermark Url, Multipage Watermark Url, Page Background Url, Multipage Background Url.
+* Improved conversion of password-protected pages.
+* Admin settings reordered.
 
 = 1.0.1 =
 * Fixed issue with missing input when create_save_as_pdf_pdfcrowd_button is used.

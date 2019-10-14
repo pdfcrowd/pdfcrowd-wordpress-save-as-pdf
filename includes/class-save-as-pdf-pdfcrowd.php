@@ -83,7 +83,7 @@ class Save_As_Pdf_Pdfcrowd {
             return SAVE_AS_PDF_VERSION;
         }
 
-        return '1.0.1';
+        return '1.1.0';
     }
 
     /**
@@ -227,6 +227,7 @@ class Save_As_Pdf_Pdfcrowd {
     }
 
     public function create_sample_button() {
+        $_POST = stripslashes_deep($_POST);
         $out = Save_As_Pdf_Pdfcrowd_Public::create_button_from_style(
             $_POST['style'],
             '<p style="margin: 0; padding: 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>');
@@ -243,6 +244,6 @@ class Save_As_Pdf_Pdfcrowd {
  */
 function create_save_as_pdf_pdfcrowd_button($options = array()) {
     $converter = new Save_As_Pdf_Pdfcrowd_Public(
-        'save-as-pdf-pdfcrowd', Save_As_Pdf_Pdfcrowd::build_version());
+        'save-as-pdf-pdfcrowd', Save_As_Pdf_Pdfcrowd::build_version(), false);
     return $converter->save_as_pdf_pdfcrowd_shortcode($options);
 }

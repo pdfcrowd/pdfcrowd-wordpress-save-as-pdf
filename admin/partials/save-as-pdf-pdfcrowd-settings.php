@@ -226,7 +226,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-header_html" name="save-as-pdf-pdfcrowd[header_html]" value="<?php echo($header_html); ?>" placeholder="" />
+                    <textarea class="regular-text" id="save-as-pdf-pdfcrowd-header_html" name="save-as-pdf-pdfcrowd[header_html]" placeholder="" rows=5 cols=70><?php echo($header_html); ?></textarea>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>header_html</strong>"
@@ -283,7 +283,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-footer_html" name="save-as-pdf-pdfcrowd[footer_html]" value="<?php echo($footer_html); ?>" placeholder="" />
+                    <textarea class="regular-text" id="save-as-pdf-pdfcrowd-footer_html" name="save-as-pdf-pdfcrowd[footer_html]" placeholder="" rows=5 cols=70><?php echo($footer_html); ?></textarea>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>footer_html</strong>"
@@ -328,7 +328,7 @@
                         </p>
                         <p class='description'>
                             Set the page range to print.
-                            A comma seperated list of page numbers or ranges.
+                            A comma separated list of page numbers or ranges.
                         </p>
                     </div>
                 </td>
@@ -347,7 +347,7 @@
                         </p>
                         <p class='description'>
                             The page header is not printed on the specified pages.
-                            A comma seperated list of page numbers.
+                            A comma separated list of page numbers.
                         </p>
                     </div>
                 </td>
@@ -366,7 +366,7 @@
                         </p>
                         <p class='description'>
                             The page footer is not printed on the specified pages.
-                            A comma seperated list of page numbers.
+                            A comma separated list of page numbers.
                         </p>
                     </div>
                 </td>
@@ -501,6 +501,25 @@
             </tr>
             <tr>
                 <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-page_watermark_url">
+                        Page Watermark Url
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_watermark_url" name="save-as-pdf-pdfcrowd[page_watermark_url]" value="<?php echo($page_watermark_url); ?>" placeholder="" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <p class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>page_watermark_url</strong>"
+                        </p>
+                        <p class='description'>
+                            Load a watermark PDF from the specified URL and apply the first page of the watermark PDF to every page of the output PDF.
+                            The supported protocols are http:// and https://.
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-multipage_watermark">
                         Multipage Watermark
                     </label>
@@ -514,6 +533,25 @@
                         <p class='description'>
                             Apply each page of the specified watermark PDF to the corresponding page of the output PDF.
                             The file must exist and not be empty.
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-multipage_watermark_url">
+                        Multipage Watermark Url
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-multipage_watermark_url" name="save-as-pdf-pdfcrowd[multipage_watermark_url]" value="<?php echo($multipage_watermark_url); ?>" placeholder="" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <p class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>multipage_watermark_url</strong>"
+                        </p>
+                        <p class='description'>
+                            Load a watermark PDF from the specified URL and apply each page of the specified watermark PDF to the corresponding page of the output PDF.
+                            The supported protocols are http:// and https://.
                         </p>
                     </div>
                 </td>
@@ -539,6 +577,25 @@
             </tr>
             <tr>
                 <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-page_background_url">
+                        Page Background Url
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_background_url" name="save-as-pdf-pdfcrowd[page_background_url]" value="<?php echo($page_background_url); ?>" placeholder="" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <p class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>page_background_url</strong>"
+                        </p>
+                        <p class='description'>
+                            Load a background PDF from the specified URL and apply the first page of the background PDF to every page of the output PDF.
+                            The supported protocols are http:// and https://.
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-multipage_background">
                         Multipage Background
                     </label>
@@ -552,6 +609,25 @@
                         <p class='description'>
                             Apply each page of the specified PDF to the background of the corresponding page of the output PDF.
                             The file must exist and not be empty.
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-multipage_background_url">
+                        Multipage Background Url
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-multipage_background_url" name="save-as-pdf-pdfcrowd[multipage_background_url]" value="<?php echo($multipage_background_url); ?>" placeholder="" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <p class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>multipage_background_url</strong>"
+                        </p>
+                        <p class='description'>
+                            Load a background PDF from the specified URL and apply each page of the specified background PDF to the corresponding page of the output PDF.
+                            The supported protocols are http:// and https://.
                         </p>
                     </div>
                 </td>
@@ -849,7 +925,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-custom_javascript" name="save-as-pdf-pdfcrowd[custom_javascript]" value="<?php echo($custom_javascript); ?>" placeholder="" />
+                    <textarea class="regular-text" id="save-as-pdf-pdfcrowd-custom_javascript" name="save-as-pdf-pdfcrowd[custom_javascript]" placeholder="" rows=5 cols=70><?php echo($custom_javascript); ?></textarea>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>custom_javascript</strong>"
@@ -868,7 +944,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-on_load_javascript" name="save-as-pdf-pdfcrowd[on_load_javascript]" value="<?php echo($on_load_javascript); ?>" placeholder="" />
+                    <textarea class="regular-text" id="save-as-pdf-pdfcrowd-on_load_javascript" name="save-as-pdf-pdfcrowd[on_load_javascript]" placeholder="" rows=5 cols=70><?php echo($on_load_javascript); ?></textarea>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>on_load_javascript</strong>"
@@ -1279,7 +1355,7 @@
                             Shortcode & function parameter: "<strong>no_modify</strong>"<br/>Possible values: 0, 1
                         </p>
                         <p class='description'>
-                            Disallow modification of the ouput PDF.
+                            Disallow modification of the output PDF.
                         </p>
                     </div>
                 </td>

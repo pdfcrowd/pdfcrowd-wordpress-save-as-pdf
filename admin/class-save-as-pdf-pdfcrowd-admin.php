@@ -179,6 +179,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
+        $valid['version'] = 110;
 
         if (isset($input['page_size']) &&
             $input['page_size'] != '') {
@@ -357,7 +358,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
                 add_settings_error(
                 'pages',
                 'empty_pages',
-                pdfcrowd_create_invalid_value_message($pages, 'Print Page Range', 'A comma seperated list of page numbers or ranges.'));
+                pdfcrowd_create_invalid_value_message($pages, 'Print Page Range', 'A comma separated list of page numbers or ranges.'));
             
         }
         $valid['print_page_range'] = $input['print_page_range'];
@@ -369,7 +370,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
                 add_settings_error(
                 'pages',
                 'empty_pages',
-                pdfcrowd_create_invalid_value_message($pages, 'Exclude Header On Pages', 'A comma seperated list of page numbers.'));
+                pdfcrowd_create_invalid_value_message($pages, 'Exclude Header On Pages', 'A comma separated list of page numbers.'));
             
         }
         $valid['exclude_header_on_pages'] = $input['exclude_header_on_pages'];
@@ -381,7 +382,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
                 add_settings_error(
                 'pages',
                 'empty_pages',
-                pdfcrowd_create_invalid_value_message($pages, 'Exclude Footer On Pages', 'A comma seperated list of page numbers.'));
+                pdfcrowd_create_invalid_value_message($pages, 'Exclude Footer On Pages', 'A comma separated list of page numbers.'));
             
         }
         $valid['exclude_footer_on_pages'] = $input['exclude_footer_on_pages'];
@@ -448,6 +449,18 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         }
         $valid['page_watermark'] = $input['page_watermark'];
 
+        if (isset($input['page_watermark_url']) &&
+            $input['page_watermark_url'] != '') {
+            $page_watermark_url = $input['page_watermark_url'];
+            if (!preg_match("/(?i)^https?:\/\/.*$/", $page_watermark_url))
+                add_settings_error(
+                'page_watermark_url',
+                'empty_page_watermark_url',
+                pdfcrowd_create_invalid_value_message($page_watermark_url, 'Page Watermark Url', 'The supported protocols are http:// and https://.'));
+            
+        }
+        $valid['page_watermark_url'] = $input['page_watermark_url'];
+
         if (isset($input['multipage_watermark']) &&
             $input['multipage_watermark'] != '') {
             $multipage_watermark = $input['multipage_watermark'];
@@ -459,6 +472,18 @@ class Save_As_Pdf_Pdfcrowd_Admin {
             
         }
         $valid['multipage_watermark'] = $input['multipage_watermark'];
+
+        if (isset($input['multipage_watermark_url']) &&
+            $input['multipage_watermark_url'] != '') {
+            $multipage_watermark_url = $input['multipage_watermark_url'];
+            if (!preg_match("/(?i)^https?:\/\/.*$/", $multipage_watermark_url))
+                add_settings_error(
+                'multipage_watermark_url',
+                'empty_multipage_watermark_url',
+                pdfcrowd_create_invalid_value_message($multipage_watermark_url, 'Multipage Watermark Url', 'The supported protocols are http:// and https://.'));
+            
+        }
+        $valid['multipage_watermark_url'] = $input['multipage_watermark_url'];
 
         if (isset($input['page_background']) &&
             $input['page_background'] != '') {
@@ -472,6 +497,18 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         }
         $valid['page_background'] = $input['page_background'];
 
+        if (isset($input['page_background_url']) &&
+            $input['page_background_url'] != '') {
+            $page_background_url = $input['page_background_url'];
+            if (!preg_match("/(?i)^https?:\/\/.*$/", $page_background_url))
+                add_settings_error(
+                'page_background_url',
+                'empty_page_background_url',
+                pdfcrowd_create_invalid_value_message($page_background_url, 'Page Background Url', 'The supported protocols are http:// and https://.'));
+            
+        }
+        $valid['page_background_url'] = $input['page_background_url'];
+
         if (isset($input['multipage_background']) &&
             $input['multipage_background'] != '') {
             $multipage_background = $input['multipage_background'];
@@ -483,6 +520,18 @@ class Save_As_Pdf_Pdfcrowd_Admin {
             
         }
         $valid['multipage_background'] = $input['multipage_background'];
+
+        if (isset($input['multipage_background_url']) &&
+            $input['multipage_background_url'] != '') {
+            $multipage_background_url = $input['multipage_background_url'];
+            if (!preg_match("/(?i)^https?:\/\/.*$/", $multipage_background_url))
+                add_settings_error(
+                'multipage_background_url',
+                'empty_multipage_background_url',
+                pdfcrowd_create_invalid_value_message($multipage_background_url, 'Multipage Background Url', 'The supported protocols are http:// and https://.'));
+            
+        }
+        $valid['multipage_background_url'] = $input['multipage_background_url'];
 
         if (isset($input['page_background_color']) &&
             $input['page_background_color'] != '') {
