@@ -988,7 +988,7 @@
                             Shortcode & function parameter: "<strong>javascript_delay</strong>"
                         </p>
                         <p class='description'>
-                            Wait the specified number of milliseconds to finish all JavaScript after the document is loaded. The maximum value is determined by your API license.
+                            Wait the specified number of milliseconds to finish all JavaScript after the document is loaded. Your API license defines the maximum wait time by "Max Delay" parameter.
                         </p>
                     </div>
                 </td>
