@@ -56,6 +56,13 @@
                         <legend class="screen-reader-text">
                             <span>Conversion Mode</span>
                         </legend>
+                        <label for="save-as-pdf-pdfcrowd-conversion-mode-auto">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-conversion-mode-auto" name="save-as-pdf-pdfcrowd[conversion_mode]" value="auto" <?php checked( $conversion_mode, "auto" ); ?> />
+                            auto
+                            <p class='description'>
+                                If web page URL is specified explicitly, the "url" mode is used otherwise "upload" mode is used.
+                            </p>
+                        </label><br>
                         <label for="save-as-pdf-pdfcrowd-conversion-mode-url">
                             <input type="radio" id="save-as-pdf-pdfcrowd-conversion-mode-url" name="save-as-pdf-pdfcrowd[conversion_mode]" value="url" <?php checked( $conversion_mode, "url" ); ?> />
                             url
@@ -79,7 +86,20 @@
                         </label><br>
                     </fieldset>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>conversion_mode</strong>"<br/>Possible values: "url", "upload", "development"
+                        Shortcode & function parameter: "<strong>conversion_mode</strong>"<br/>Possible values: "auto", "url", "upload", "development"
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd[auto_use_cookies]">
+                        Auto Use Cookies
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-auto-use-cookies" name="save-as-pdf-pdfcrowd[auto_use_cookies]" value="1" <?php checked( $auto_use_cookies, 1 ); ?> />
+                    <p class='description'>
+                        All cookies are sent automatically into the conversion process. It is suitable for a password-protected websites. These cookies are appended to the cookies defined on the "General Options" settings tab.
                     </p>
                 </td>
             </tr>

@@ -229,8 +229,7 @@ class Save_As_Pdf_Pdfcrowd {
     public function create_sample_button() {
         $_POST = stripslashes_deep($_POST);
         $out = Save_As_Pdf_Pdfcrowd_Public::create_button_from_style(
-            $_POST['style'],
-            '<p style="margin: 0; padding: 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>');
+            $_POST['style']);
         echo $out;
         die();
     }

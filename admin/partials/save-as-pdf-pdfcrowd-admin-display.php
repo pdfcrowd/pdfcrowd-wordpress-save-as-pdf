@@ -39,6 +39,7 @@
         $license_status = Save_As_Pdf_Pdfcrowd_Admin::get_license_status($options);
 
         $api_key = isset($options['api_key']) ? $options['api_key'] : '';
+        $auto_use_cookies = isset($options['auto_use_cookies']) ? $options['auto_use_cookies'] : '';
         $button_alignment = isset($options['button_alignment']) ? $options['button_alignment'] : '';
         $button_background_color = isset($options['button_background_color']) ? $options['button_background_color'] : '';
         $button_border_color = isset($options['button_border_color']) ? $options['button_border_color'] : '';

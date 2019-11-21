@@ -108,6 +108,12 @@ More answers can be found on [Pdfcrowd FAQ](https://pdfcrowd.com/faq/) page.
 
 == Changelog ==
 
+= 1.2.0 =
+* New value "auto" for the Conversion Mode.
+* New option "Auto Use Cookies" for an automatic use of the current cookies for the conversion.
+* Avoid double-click on the conversion button.
+* Better error message for error code 452.
+
 = 1.1.0 =
 * New option "Custom HTML" which allows to specify custom HTML for the conversion button.
 * New option "PDF Created Callback" which allows to manipulate with the output file.

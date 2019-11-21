@@ -78,7 +78,11 @@ class Save_As_Pdf_Pdfcrowd_Public {
      * @since    1.0.0
      */
     public function enqueue_scripts() {
-        wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/save-as-pdf-pdfcrowd-public.js', array( 'jquery' ), $this->version, false );
+        wp_enqueue_script($this->plugin_name,
+                          plugin_dir_url( __FILE__ ) . 'js/save-as-pdf-pdfcrowd-public.js',
+                          array( 'jquery', 'underscore' ),
+                          $this->version,
+                          false);
     }
 
     public function setup_shortcodes() {
@@ -102,6 +106,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
 
     public static $DEFAULTS = array(
         'api_key' => '',
+        'auto_use_cookies' => '0',
         'button_alignment' => 'center',
         'button_background_color' => '#007bff',
         'button_border_color' => '#007bff',
@@ -136,7 +141,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         'button_text_color' => '#fff',
         'button_text_size' => '14',
         'button_text_weight' => 'bold',
-        'conversion_mode' => 'upload',
+        'conversion_mode' => 'auto',
         'dev_mode' => '0',
         'no_margins' => '0',
         'output_format' => 'pdf',
@@ -295,7 +300,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
             if(isset($options['dev_mode']) && $options['dev_mode']) {
                 $options['conversion_mode'] = 'development';
             } else {
-                $options['conversion_mode'] = 'url';
+                $options['conversion_mode'] = 'auto';
             }
         } else {
             if($options['version'] == 110) {
@@ -323,7 +328,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
     }
 
     public static function create_button_from_style(
-        $options, $custom_options, $content='') {
+        $options, $custom_options='', $content='') {
         $image = '';
         if(strpos($options['button_format'], 'image') !== false) {
             if($options['button_image'] == 'custom_html') {
@@ -437,7 +442,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         )) return $content;
 
         return $this->create_button($options,
-                                    array('url' => get_permalink()),
+                                    array('permalink' => get_permalink()),
                                     $content);
     }
 
@@ -459,7 +464,11 @@ class Save_As_Pdf_Pdfcrowd_Public {
     }
 
     function save_as_pdf_pdfcrowd_shortcode($attrs = array(), $content = null) {
-        $custom_options = array('url' => get_permalink());
+        $custom_options = array();
+        if($attrs && !isset($attrs['url'])) {
+            // remember permalink for url conversion
+            $custom_options['permalink'] = get_permalink();
+        }
         return $this->eval_shortcode($attrs, $content, $custom_options);
    }
 
@@ -468,17 +477,23 @@ class Save_As_Pdf_Pdfcrowd_Public {
         $content = do_shortcode($content);
 
         $custom_options = array('text' => $content);
-        if(!isset($attrs['output_name'])) {
+        if(!isset($attrs['output_name']) && !isset($attrs['url'])) {
             // add url so default name can be created
-            $custom_options['url'] = get_permalink();
+            $custom_options['permalink'] = get_permalink();
         }
         return $this->eval_shortcode($attrs, $content, $custom_options);
     }
 
-    private static function get_url($url, $args) {
+    private static function get_url($url, $args, $throw_error = false) {
         $response = wp_remote_get($url, $args);
         if(is_wp_error($response)) {
-            error_log($response->get_error_message() .' ' . $url);
+            $msg = $response->get_error_message() . ' ' . $url;
+            error_log($msg);
+            if($throw_error) {
+                throw new Exception(
+                    self::prepare_error_message(471, $msg, '<b>"url"</b>') .
+                    '<p>Or check your network and PHP configuration.</p>');
+            }
             return '';
         }
         return wp_remote_retrieve_body($response);
@@ -590,7 +605,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
             . $wp_version . '/' . phpversion() . ')'
         );
 
-        // error_log('conversion mode ' . $options['conversion_mode']);
+        // error_log('conversion start with mode: ' . $options['conversion_mode']);
         if(isset($options['conversion_mode']) &&
            $options['conversion_mode'] != 'url') {
             $html = null;
@@ -610,7 +625,12 @@ class Save_As_Pdf_Pdfcrowd_Public {
                 }
                 // error_log('download ' . $options['url']);
 
-                $html = self::get_url($options['url'], $args);
+                try {
+                    $html = self::get_url($options['url'], $args, true);
+                } catch (Exception $ex) {
+                    $error = new WP_Error(471, $ex->getMessage());
+                    return $error;
+                }
             }
 
             $options['text'] = $site &&
@@ -619,13 +639,27 @@ class Save_As_Pdf_Pdfcrowd_Public {
                              : $html;
         }
 
+        if(isset($options['auto_use_cookies']) &&
+           isset($options['auto_use_cookies'])) {
+            if(isset($options['cookies']) && $options['cookies']) {
+                $options['cookies'] .= ';';
+            } else {
+                $options['cookies'] = '';
+            }
+            $cookies = implode(';', array_map(function($name, $value) {
+                return $name . '=' . $value;
+            }, array_keys($_COOKIE), array_values($_COOKIE)));
+            $options['cookies'] .= $cookies;
+            error_log(print_r($options['cookies'], true));
+        }
+
         $fields = array();
         $files = array();
 
         // configure the conversion
         foreach($options as $key => $value) {
             if(!in_array($key, self::$API_OPTIONS) || $value == '') {
-                // ignore empty values
+                // ignore empty values and no API options
                 continue;
             }
 
@@ -680,7 +714,8 @@ class Save_As_Pdf_Pdfcrowd_Public {
 
                 $error = new WP_Error(
                     $code, self::prepare_error_message(
-                        $code, wp_remote_retrieve_body($response)));
+                        $code, wp_remote_retrieve_body($response),
+                        '<b>"upload"</b> or <b>"development"</b>'));
                 if($code != 502) {
                     return $error;
                 }
@@ -691,14 +726,16 @@ class Save_As_Pdf_Pdfcrowd_Public {
         return $error;
     }
 
-    private static function prepare_error_message($code, $text) {
+    private static function prepare_error_message($code, $text, $cmode) {
+        $text = '<h3>' . $text . '</h3>';
         switch($code) {
         case 471:
         case 478:
             $link = '<a href="' .
                   admin_url('options-general.php?page=save-as-pdf-pdfcrowd#save-as-pdf-pdfcrowd-behavior') .
                   '"><b>Behavior</b></a>';
-            $text = $text . '<p>Set <b>"Conversion Mode"</b> to <b>"upload"</b> or <b>"development"</b> on the ' .
+            $text = $text . '<p>Set <b>"Conversion Mode"</b> to ' .
+                  $cmode . ' on the ' .
                   $link . ' settings page of the "Save as PDF by Pdfcrowd" plugin.</p>';
             break;
         }
@@ -711,6 +748,20 @@ class Save_As_Pdf_Pdfcrowd_Public {
         if(!empty($_POST['options'])) {
             $custom_options = unserialize($this->decrypt(urldecode($_POST['options']), $options['api_key']));
             $options = wp_parse_args($custom_options, $options);
+        }
+
+        $default_conv_mode = 'url';
+        if(!isset($options['url']) && isset($options['permalink'])) {
+            // use permalink as url
+            $options['url'] = $options['permalink'];
+            $default_conv_mode = 'upload';
+        }
+
+        // decide conversion mode
+        if(!isset($options['conversion_mode']) ||
+           $options['conversion_mode'] == 'auto') {
+            $options['conversion_mode'] = isset($options['url'])
+                                        ? $default_conv_mode : 'upload';
         }
 
         // error_log('decrypted options:');

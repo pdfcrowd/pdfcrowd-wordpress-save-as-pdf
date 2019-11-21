@@ -48,8 +48,6 @@
                 }
             }
 
-            var cursor = document.body.style.cursor;
-
             function getFormData(){
                 var unindexed_array = $('#save-as-pdf-pdfcrowd-appearance :input').serializeArray();
                 var indexed_array = {};
