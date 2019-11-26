@@ -179,7 +179,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 120;
+        $valid['version'] = 121;
 
         if (isset($input['page_size']) &&
             $input['page_size'] != '') {

@@ -108,6 +108,9 @@ More answers can be found on [Pdfcrowd FAQ](https://pdfcrowd.com/faq/) page.
 
 == Changelog ==
 
+= 1.2.1 =
+* Fix of conversion auto mode.
+
 = 1.2.0 =
 * New value "auto" for the Conversion Mode.
 * New option "Auto Use Cookies" for an automatic use of the current cookies for the conversion.
