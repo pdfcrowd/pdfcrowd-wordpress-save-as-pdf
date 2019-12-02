@@ -29,7 +29,7 @@
                 </th>
                 <td>
                     <select name="save-as-pdf-pdfcrowd[page_size]">
-                    <option value="" <?php selected($page_size, '');?>>-- unset --</option>
+                    <option value="" <?php selected($page_size, '');?>>-- default (A4) --</option>
                     <option value="A2" <?php selected($page_size, 'A2');?>>A2</option>
                     <option value="A3" <?php selected($page_size, 'A3');?>>A3</option>
                     <option value="A4" <?php selected($page_size, 'A4');?>>A4</option>

@@ -262,7 +262,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         401 => "Authentication is required and has failed or has not yet been provided or your license does not exist.",
         403 => "Your license is suspended or there are no credits left.",
         405 => "The method specified in the request is not allowed. The request method must be POST.",
-        413 => "<p>The size limit for the uploaded data is 50MB.</p> <p>You can zip your HTML to avoid this error.</p>",
+        413 => "<p>The size limit for the uploaded data is 100MMB.</p> <p>You can zip your HTML to avoid this error.</p>",
         429 => "The user has sent too many requests in a given amount of time (rate limiting).",
         430 => "<p>The limit of max concurrent requests was exceeded.</p>",
         452 => "There is nothing specified to be converted.",
