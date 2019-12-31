@@ -1108,8 +1108,8 @@
                 </th>
                 <td>
                     <select name="save-as-pdf-pdfcrowd[rendering_mode]">
-                    <option value="default" <?php selected($rendering_mode, 'default');?>>This mode is based on the standard browser print functionality.</option>
-                    <option value="viewport" <?php selected($rendering_mode, 'viewport');?>>The viewport width affects the @media min-width and max-width CSS properties. This mode can be used to choose a particular version (mobile, desktop, ..) of a responsive page.</option>
+                    <option value="default" <?php selected($rendering_mode, 'default');?>>The mode based on the standard browser print functionality.</option>
+                    <option value="viewport" <?php selected($rendering_mode, 'viewport');?>>The viewport width affects the @media min-width and max-width CSS properties.</option>
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
@@ -1129,7 +1129,7 @@
                 </th>
                 <td>
                     <select name="save-as-pdf-pdfcrowd[smart_scaling_mode]">
-                    <option value="default" <?php selected($smart_scaling_mode, 'default');?>>This mode is based on the standard browser print functionality.</option>
+                    <option value="default" <?php selected($smart_scaling_mode, 'default');?>>The mode based on the standard browser print functionality.</option>
                     <option value="disabled" <?php selected($smart_scaling_mode, 'disabled');?>>No smart scaling is performed.</option>
                     <option value="viewport-fit" <?php selected($smart_scaling_mode, 'viewport-fit');?>>The viewport width fits the print area width.</option>
                     <option value="content-fit" <?php selected($smart_scaling_mode, 'content-fit');?>>The HTML contents width fits the print area width.</option>
@@ -1209,7 +1209,7 @@
                     <select name="save-as-pdf-pdfcrowd[convert_images_to_jpeg]">
                     <option value="none" <?php selected($convert_images_to_jpeg, 'none');?>>No image conversion is done.</option>
                     <option value="opaque" <?php selected($convert_images_to_jpeg, 'opaque');?>>Only opaque images are converted to JPEG images.</option>
-                    <option value="all" <?php selected($convert_images_to_jpeg, 'all');?>>All images are converted to JPEG images. The JPEG format does not support transparency so the transparent color is replaced by a PDF page background color.</option>
+                    <option value="all" <?php selected($convert_images_to_jpeg, 'all');?>>All images are converted to JPEG images.</option>
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
@@ -1523,7 +1523,7 @@
                     <option value="" <?php selected($initial_zoom_type, '');?>>-- unset --</option>
                     <option value="fit-width" <?php selected($initial_zoom_type, 'fit-width');?>>The page content is magnified just enough to fit the entire width of the page within the window.</option>
                     <option value="fit-height" <?php selected($initial_zoom_type, 'fit-height');?>>The page content is magnified just enough to fit the entire height of the page within the window.</option>
-                    <option value="fit-page" <?php selected($initial_zoom_type, 'fit-page');?>>The page content is magnified just enough to fit the entire page within the window both horizontally and vertically. If the required horizontal and vertical magnification factors are different, use the smaller of the two, centering the page within the window in the other dimension.</option>
+                    <option value="fit-page" <?php selected($initial_zoom_type, 'fit-page');?>>The page content is magnified just enough to fit the entire page within the window both horizontally and vertically.</option>
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
