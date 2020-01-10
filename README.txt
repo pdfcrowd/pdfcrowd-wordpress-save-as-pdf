@@ -3,7 +3,7 @@ Contributors: Pdfcrowd
 Tags: pdf, print, save, page, save to pdf, save as pdf, convert to pdf, pdf print, pdf button, pdf widget, pdf plugin, pdfcrowd, html, page as pdf
 Requires PHP: 5.1
 Requires at least: 4.0
-Tested up to: 5.2.1
+Tested up to: 5.3.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -107,6 +107,10 @@ More answers can be found on [Pdfcrowd FAQ](https://pdfcrowd.com/faq/) page.
 2. Sample of settings.
 
 == Changelog ==
+
+= 1.2.2 =
+* Refactor description in the plugin settings.
+* Added a flag describing the button creation mode.
 
 = 1.2.1 =
 * Fix of conversion auto mode.
