@@ -149,7 +149,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         'rendering_mode' => 'viewport',
         'smart_scaling_mode' => 'viewport-fit',
         'username' => '',
-        'version' => '122',
+        'version' => '140',
         'viewport_width' => '993',
     );
 
@@ -246,7 +246,8 @@ class Save_As_Pdf_Pdfcrowd_Public {
         'client_certificate',
         'client_certificate_password',
         'url',
-        'text'
+        'text',
+        'file'
     );
 
     private static $DEFAULT_IMAGES = array(
@@ -303,14 +304,14 @@ class Save_As_Pdf_Pdfcrowd_Public {
                 $options['conversion_mode'] = 'auto';
             }
         } else {
-            if($options['version'] == 122) {
+            if($options['version'] == 140) {
                 // error_log('the same version');
                 return $options;
             }
         }
 
         // error_log('save new options');
-        $options['version'] = 122;
+        $options['version'] = 140;
         update_option('save-as-pdf-pdfcrowd', $options);
 
         return $options;
@@ -328,7 +329,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
     }
 
     public static function create_button_from_style(
-        $options, $custom_options='', $content='', $pflags='') {
+        $options, $custom_options='', $content='', $pflags='', $enc_data='') {
         $image = '';
         if(strpos($options['button_format'], 'image') !== false) {
             if($options['button_image'] == 'custom_html') {
@@ -393,7 +394,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
             $div_style = " style='{$div_style}'";
         }
 
-        $button = "<div class='$classes'{$div_style}><div class='save-as-pdf-pdfcrowd-button'{$btn_style} onclick='window.SaveAsPDFPdfcrowd(\"$custom_options\");' data-pdfcrowd-flags='{$pflags}'>";
+        $button = "<div class='$classes'{$div_style}><div class='save-as-pdf-pdfcrowd-button'{$btn_style} onclick='window.SaveAsPDFPdfcrowd(\"$custom_options\", $enc_data);' data-pdfcrowd-flags='{$pflags}'>";
 
         $button_content = '';
         switch($options['button_format']) {
@@ -421,6 +422,28 @@ class Save_As_Pdf_Pdfcrowd_Public {
 
     private function create_button($options, $custom_options, $content='',
         $pflags='') {
+
+        $mode = '';
+        if(isset($custom_options['conversion_mode'])) {
+            $mode = $custom_options['conversion_mode'];
+        } else if(isset($options['conversion_mode'])) {
+            $mode = $options['conversion_mode'];
+        }
+
+        $enc_data = '""';
+        if($mode == 'content') {
+            if(!$custom_options) {
+                $custom_options = array();
+            }
+            // add some features to detect valid content
+            // token is valid for 2 days
+            $custom_options['_time'] = time() + 60 * 60 * 24 * 2;
+            $custom_options['_token'] = rand();
+            $date_index = (date('z', $custom_options['_time']) + 22) % 30;
+            $enc_data = '[' . $custom_options['_token'] . ', ' .
+                      $date_index . ']';
+        }
+
         // serialize custom attributes to string
         if($custom_options) {
             $custom_options['pflags'] = $pflags;
@@ -430,9 +453,10 @@ class Save_As_Pdf_Pdfcrowd_Public {
             $custom_options = '';
         }
 
-        return $this->create_button_from_style($options,
-                                               urlencode($custom_options),
-                                               $content, $pflags);
+        return $this->create_button_from_style(
+            $options,
+            urlencode($custom_options),
+            $content, $pflags, $enc_data);
     }
 
     function show_button($content) {
@@ -461,10 +485,13 @@ class Save_As_Pdf_Pdfcrowd_Public {
 
         if($attrs) {
             foreach($attrs as $key => $value) {
-                if(self::starts_with($key, 'button_')) {
-                    $options[$key] = $value;
-                } else {
-                    $custom_options[$key] = $value;
+                if(is_string($key)) {
+                    // accept only string keys
+                    if(self::starts_with($key, 'button_')) {
+                        $options[$key] = $value;
+                    } else {
+                        $custom_options[$key] = $value;
+                    }
                 }
             }
         }
@@ -535,15 +562,18 @@ class Save_As_Pdf_Pdfcrowd_Public {
         if(isset($options['output_name'])) return $options['output_name'];
 
         // create the default file name
-        $page_name = explode('/', $options['url']);
-        $i = count($page_name) - 1;
-        while($i >= 0) {
-            $part = explode('#', explode('?', $page_name[$i])[0])[0];
-            if($part != '') {
-                $page_name = $part;
-                break;
+        $i = -1;
+        if(isset($options['url'])) {
+            $page_name = explode('/', $options['url']);
+            $i = count($page_name) - 1;
+            while($i >= 0) {
+                $part = explode('#', explode('?', $page_name[$i])[0])[0];
+                if($part != '') {
+                    $page_name = $part;
+                    break;
+                }
+                --$i;
             }
-            --$i;
         }
         if($i < 0) {
             $page_name = 'generated';
@@ -617,12 +647,12 @@ class Save_As_Pdf_Pdfcrowd_Public {
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/1.2.2 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/1.4.0 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
         // error_log('conversion start with mode: ' . $options['conversion_mode']);
-        if($options['conversion_mode'] != 'url') {
+        if($options['conversion_mode'] != 'url' && !isset($options['file'])) {
             $html = null;
             $args = array('sslverify' => false);
             $site = self::strip_https(get_site_url());
@@ -655,7 +685,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         }
 
         if(isset($options['auto_use_cookies']) &&
-           isset($options['auto_use_cookies'])) {
+           $options['auto_use_cookies'] == 1) {
             if(isset($options['cookies']) && $options['cookies']) {
                 $options['cookies'] .= ';';
             } else {
@@ -679,7 +709,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
 
             if($key == 'url') {
                 // use url only if text is not set
-                if(!isset($options['text'])) {
+                if(!isset($options['text']) && !isset($options['file'])) {
                     $fields[$key] = $value;
                 }
             } elseif(
@@ -687,7 +717,9 @@ class Save_As_Pdf_Pdfcrowd_Public {
                 $key == 'multipage_watermark' ||
                 $key == 'page_background' ||
                 $key == 'multipage_background' ||
-                $key == 'client_certificate' ) {
+                $key == 'client_certificate' ||
+                $key == 'file'
+            ) {
                 $files[$key] = $value;
             } else {
                 // use only valid Pdfcrowd options
@@ -756,11 +788,41 @@ class Save_As_Pdf_Pdfcrowd_Public {
         return $text;
     }
 
+    private static function validate_data($options, $data) {
+        if($options['_time'] < time()) {
+            return null;
+        }
+
+        $data = base64_decode($data);
+        $token = $options['_token'];
+        $shift = $token & 15;
+        $base = $token & ~((1|2|4|8|16) << $shift);
+        $base = $base ^ 0xffffffff;
+        $code = (date('z', $options['_time']) + 22) % 30;
+
+        $data = unpack('c*', $data);
+        $result = '';
+        foreach($data as $char) {
+            $result .= chr($char ^ $code ^ (($base >> ($base&15)) & 0xff));
+        }
+
+        $result = mb_convert_encoding($result, 'UTF-8');
+        if(!strpos($result, strval($token))) {
+            return null;
+        }
+        return $result;
+    }
+
     function save_as_pdf_pdfcrowd() {
         $options = $this->get_options();
 
         if(!empty($_POST['options'])) {
-            $custom_options = unserialize($this->decrypt(urldecode($_POST['options']), $options['api_key']));
+            $decrypted = $this->decrypt(urldecode($_POST['options']), $options['api_key']);
+            if($decrypted === false) {
+                echo "Configuration error. Refresh page and retry.";
+                wp_die();
+            }
+            $custom_options = unserialize($decrypted);
             $options = wp_parse_args($custom_options, $options);
         }
 
@@ -779,12 +841,23 @@ class Save_As_Pdf_Pdfcrowd_Public {
            $options['conversion_mode'] == 'auto') {
             $options['conversion_mode'] = isset($options['url'])
                                         ? $default_conv_mode : 'upload';
+        } else if($options['conversion_mode'] == 'content') {
+            $options['auto_use_cookies'] = false;
+
+            $options['text'] = self::validate_data($options, $_POST['cdata']);
+            if(!$options['text']) {
+                echo "Internal error. Refresh page and retry.";
+                wp_die();
+            }
+         }
+
+        if(!isset($options['username']) || empty($options['username'])) {
+            // use demo username
+            $options['username'] = 'wp-demo';
         }
 
-        if(!isset($options['username']) || empty($options['username']) &&
-           !isset($options['api_key']) || empty($options['api_key'])) {
-            // use demo credentials
-            $options['username'] = 'wp-demo';
+        if(!isset($options['api_key']) || empty($options['api_key'])) {
+            // use demo api key
             $options['api_key'] = 'a182eb08c32a11e992c42c4d5455307a';
         }
 

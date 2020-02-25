@@ -39,7 +39,7 @@
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>page_size</strong>"<br/>Possible values: "A2", "A3", "A4", "A5", "A6", "Letter"
+                            Shortcode & function parameter: "<strong>page_size</strong>"<br>Possible values: "A2", "A3", "A4", "A5", "A6", "Letter"
                         </div>
                         <div class='description'>
                             Set the output page size.
@@ -98,7 +98,7 @@
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>orientation</strong>"<br/>Possible values: "landscape", "portrait"
+                            Shortcode & function parameter: "<strong>orientation</strong>"<br>Possible values: "landscape", "portrait"
                         </div>
                         <div class='description'>
                             Set the output page orientation.
@@ -192,7 +192,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-no_margins" name="save-as-pdf-pdfcrowd[no_margins]" value="1" <?php checked( $no_margins, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>no_margins</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>no_margins</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Disable page margins.
@@ -672,7 +672,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-no_background" name="save-as-pdf-pdfcrowd[no_background]" value="1" <?php checked( $no_background, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>no_background</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>no_background</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Do not print the background graphics.
@@ -690,7 +690,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-disable_javascript" name="save-as-pdf-pdfcrowd[disable_javascript]" value="1" <?php checked( $disable_javascript, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>disable_javascript</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>disable_javascript</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Do not execute JavaScript.
@@ -708,7 +708,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-disable_image_loading" name="save-as-pdf-pdfcrowd[disable_image_loading]" value="1" <?php checked( $disable_image_loading, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>disable_image_loading</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>disable_image_loading</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Do not load images.
@@ -726,7 +726,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-disable_remote_fonts" name="save-as-pdf-pdfcrowd[disable_remote_fonts]" value="1" <?php checked( $disable_remote_fonts, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>disable_remote_fonts</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>disable_remote_fonts</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Disable loading fonts from remote sources.
@@ -744,7 +744,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-block_ads" name="save-as-pdf-pdfcrowd[block_ads]" value="1" <?php checked( $block_ads, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>block_ads</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>block_ads</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Try to block ads. Enabling this option can produce smaller output and speed up the conversion.
@@ -819,7 +819,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-use_print_media" name="save-as-pdf-pdfcrowd[use_print_media]" value="1" <?php checked( $use_print_media, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>use_print_media</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>use_print_media</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Use the print version of the page if available (@media print).
@@ -837,7 +837,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-no_xpdfcrowd_header" name="save-as-pdf-pdfcrowd[no_xpdfcrowd_header]" value="1" <?php checked( $no_xpdfcrowd_header, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>no_xpdfcrowd_header</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>no_xpdfcrowd_header</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Do not send the X-Pdfcrowd HTTP header in Pdfcrowd HTTP requests.
@@ -874,7 +874,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-verify_ssl_certificates" name="save-as-pdf-pdfcrowd[verify_ssl_certificates]" value="1" <?php checked( $verify_ssl_certificates, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>verify_ssl_certificates</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>verify_ssl_certificates</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Do not allow insecure HTTPS connections.
@@ -892,7 +892,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-fail_on_main_url_error" name="save-as-pdf-pdfcrowd[fail_on_main_url_error]" value="1" <?php checked( $fail_on_main_url_error, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>fail_on_main_url_error</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>fail_on_main_url_error</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Abort the conversion if the main URL HTTP status code is greater than or equal to 400.
@@ -910,7 +910,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-fail_on_any_url_error" name="save-as-pdf-pdfcrowd[fail_on_any_url_error]" value="1" <?php checked( $fail_on_any_url_error, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>fail_on_any_url_error</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>fail_on_any_url_error</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Abort the conversion if any of the sub-request HTTP status code is greater than or equal to 400 or if some sub-requests are still pending. See details in a debug log.
@@ -1026,7 +1026,7 @@
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>element_to_convert_mode</strong>"<br/>Possible values: <ul><li>"cut-out" - The element and its children are cut out of the document.</li><li>"remove-siblings" - All element's siblings are removed.</li><li>"hide-siblings" - All element's sibilings are hidden.</li></ul>
+                            Shortcode & function parameter: "<strong>element_to_convert_mode</strong>"<br>Possible values: <ul><li>"cut-out" - The element and its children are cut out of the document.</li><li>"remove-siblings" - All element's siblings are removed.</li><li>"hide-siblings" - All element's sibilings are hidden.</li></ul>
                         </div>
                         <div class='description'>
                             Specify the DOM handling when only a part of the document is converted.
@@ -1113,7 +1113,7 @@
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>rendering_mode</strong>"<br/>Possible values: <ul><li>"default" - The mode based on the standard browser print functionality.</li><li>"viewport" - The viewport width affects the @media min-width and max-width CSS properties. This mode can be used to choose a particular version (mobile, desktop, ..) of a responsive page.</li></ul>
+                            Shortcode & function parameter: "<strong>rendering_mode</strong>"<br>Possible values: <ul><li>"default" - The mode based on the standard browser print functionality.</li><li>"viewport" - The viewport width affects the @media min-width and max-width CSS properties. This mode can be used to choose a particular version (mobile, desktop, ..) of a responsive page.</li></ul>
                         </div>
                         <div class='description'>
                             Set the rendering mode.
@@ -1137,7 +1137,7 @@
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>smart_scaling_mode</strong>"<br/>Possible values: <ul><li>"default" - The mode based on the standard browser print functionality.</li><li>"disabled" - No smart scaling is performed.</li><li>"viewport-fit" - The viewport width fits the print area width.</li><li>"content-fit" - The HTML contents width fits the print area width.</li><li>"single-page-fit" - The whole HTML contents fits the print area of a single page.</li></ul>
+                            Shortcode & function parameter: "<strong>smart_scaling_mode</strong>"<br>Possible values: <ul><li>"default" - The mode based on the standard browser print functionality.</li><li>"disabled" - No smart scaling is performed.</li><li>"viewport-fit" - The viewport width fits the print area width.</li><li>"content-fit" - The HTML contents width fits the print area width.</li><li>"single-page-fit" - The whole HTML contents fits the print area of a single page.</li></ul>
                         </div>
                         <div class='description'>
                             Specifies the scaling mode used for fitting the HTML contents to the print area.
@@ -1213,7 +1213,7 @@
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>convert_images_to_jpeg</strong>"<br/>Possible values: <ul><li>"none" - No image conversion is done.</li><li>"opaque" - Only opaque images are converted to JPEG images.</li><li>"all" - All images are converted to JPEG images. The JPEG format does not support transparency so the transparent color is replaced by a PDF page background color.</li></ul>
+                            Shortcode & function parameter: "<strong>convert_images_to_jpeg</strong>"<br>Possible values: <ul><li>"none" - No image conversion is done.</li><li>"opaque" - Only opaque images are converted to JPEG images.</li><li>"all" - All images are converted to JPEG images. The JPEG format does not support transparency so the transparent color is replaced by a PDF page background color.</li></ul>
                         </div>
                         <div class='description'>
                             Specify which image types will be converted to JPEG. Converting lossless compression image formats (PNG, GIF, ...) to JPEG may result in a smaller PDF file.
@@ -1260,7 +1260,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-linearize" name="save-as-pdf-pdfcrowd[linearize]" value="1" <?php checked( $linearize, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>linearize</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>linearize</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Create linearized PDF. This is also known as Fast Web View.
@@ -1278,7 +1278,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-encrypt" name="save-as-pdf-pdfcrowd[encrypt]" value="1" <?php checked( $encrypt, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>encrypt</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>encrypt</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Encrypt the PDF. This prevents search engines from indexing the contents.
@@ -1334,7 +1334,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-no_print" name="save-as-pdf-pdfcrowd[no_print]" value="1" <?php checked( $no_print, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>no_print</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>no_print</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Disallow printing of the output PDF.
@@ -1352,7 +1352,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-no_modify" name="save-as-pdf-pdfcrowd[no_modify]" value="1" <?php checked( $no_modify, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>no_modify</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>no_modify</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Disallow modification of the output PDF.
@@ -1370,7 +1370,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-no_copy" name="save-as-pdf-pdfcrowd[no_copy]" value="1" <?php checked( $no_copy, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>no_copy</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>no_copy</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Disallow text and graphics extraction from the output PDF.
@@ -1481,7 +1481,7 @@
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>page_layout</strong>"<br/>Possible values: <ul><li>"single-page" - Display one page at a time.</li><li>"one-column" - Display the pages in one column.</li><li>"two-column-left" - Display the pages in two columns, with odd-numbered pages on the left.</li><li>"two-column-right" - Display the pages in two columns, with odd-numbered pages on the right.</li></ul>
+                            Shortcode & function parameter: "<strong>page_layout</strong>"<br>Possible values: <ul><li>"single-page" - Display one page at a time.</li><li>"one-column" - Display the pages in one column.</li><li>"two-column-left" - Display the pages in two columns, with odd-numbered pages on the left.</li><li>"two-column-right" - Display the pages in two columns, with odd-numbered pages on the right.</li></ul>
                         </div>
                         <div class='description'>
                             Specify the page layout to be used when the document is opened.
@@ -1504,7 +1504,7 @@
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>page_mode</strong>"<br/>Possible values: <ul><li>"full-screen" - Full-screen mode.</li><li>"thumbnails" - Thumbnail images are visible.</li><li>"outlines" - Document outline is visible.</li></ul>
+                            Shortcode & function parameter: "<strong>page_mode</strong>"<br>Possible values: <ul><li>"full-screen" - Full-screen mode.</li><li>"thumbnails" - Thumbnail images are visible.</li><li>"outlines" - Document outline is visible.</li></ul>
                         </div>
                         <div class='description'>
                             Specify how the document should be displayed when opened.
@@ -1527,7 +1527,7 @@
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>initial_zoom_type</strong>"<br/>Possible values: <ul><li>"fit-width" - The page content is magnified just enough to fit the entire width of the page within the window.</li><li>"fit-height" - The page content is magnified just enough to fit the entire height of the page within the window.</li><li>"fit-page" - The page content is magnified just enough to fit the entire page within the window both horizontally and vertically. If the required horizontal and vertical magnification factors are different, use the smaller of the two, centering the page within the window in the other dimension.</li></ul>
+                            Shortcode & function parameter: "<strong>initial_zoom_type</strong>"<br>Possible values: <ul><li>"fit-width" - The page content is magnified just enough to fit the entire width of the page within the window.</li><li>"fit-height" - The page content is magnified just enough to fit the entire height of the page within the window.</li><li>"fit-page" - The page content is magnified just enough to fit the entire page within the window both horizontally and vertically. If the required horizontal and vertical magnification factors are different, use the smaller of the two, centering the page within the window in the other dimension.</li></ul>
                         </div>
                         <div class='description'>
                             Specify how the page should be displayed when opened.
@@ -1581,7 +1581,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-hide_toolbar" name="save-as-pdf-pdfcrowd[hide_toolbar]" value="1" <?php checked( $hide_toolbar, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>hide_toolbar</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>hide_toolbar</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Specify whether to hide the viewer application's tool bars when the document is active.
@@ -1599,7 +1599,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-hide_menubar" name="save-as-pdf-pdfcrowd[hide_menubar]" value="1" <?php checked( $hide_menubar, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>hide_menubar</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>hide_menubar</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Specify whether to hide the viewer application's menu bar when the document is active.
@@ -1617,7 +1617,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-hide_window_ui" name="save-as-pdf-pdfcrowd[hide_window_ui]" value="1" <?php checked( $hide_window_ui, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>hide_window_ui</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>hide_window_ui</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Specify whether to hide user interface elements in the document's window (such as scroll bars and navigation controls), leaving only the document's contents displayed.
@@ -1635,7 +1635,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-fit_window" name="save-as-pdf-pdfcrowd[fit_window]" value="1" <?php checked( $fit_window, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>fit_window</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>fit_window</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Specify whether to resize the document's window to fit the size of the first displayed page.
@@ -1653,7 +1653,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-center_window" name="save-as-pdf-pdfcrowd[center_window]" value="1" <?php checked( $center_window, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>center_window</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>center_window</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Specify whether to position the document's window in the center of the screen.
@@ -1671,7 +1671,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-display_title" name="save-as-pdf-pdfcrowd[display_title]" value="1" <?php checked( $display_title, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>display_title</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>display_title</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Specify whether the window's title bar should display the document title. If false , the title bar should instead display the name of the PDF file containing the document.
@@ -1689,7 +1689,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-right_to_left" name="save-as-pdf-pdfcrowd[right_to_left]" value="1" <?php checked( $right_to_left, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>right_to_left</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>right_to_left</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Set the predominant reading order for text to right-to-left. This option has no direct effect on the document's contents or page numbering but can be used to determine the relative positioning of pages when displayed side by side or printed n-up
@@ -1718,7 +1718,7 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-debug_log" name="save-as-pdf-pdfcrowd[debug_log]" value="1" <?php checked( $debug_log, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>debug_log</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>debug_log</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
                             Turn on the debug logging. Details about the conversion are stored in the debug log. The URL of the log can be obtained from the <a href='https://pdfcrowd.com/doc/api/html-to-pdf/php/#get_debug_log_url'>getDebugLogUrl</a> method or available in <a href='https://pdfcrowd.com/user/account/log/conversion/'>conversion statistics</a>.
@@ -1842,10 +1842,10 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-use_http" name="save-as-pdf-pdfcrowd[use_http]" value="1" <?php checked( $use_http, 1 ); ?> />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>use_http</strong>"<br/>Possible values: 0, 1
+                            Shortcode & function parameter: "<strong>use_http</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
-                            Specifies if the client communicates over HTTP or HTTPS with Pdfcrowd API.
+                            Specifies if the client communicates over HTTP or HTTPS with Pdfcrowd API. <div class='bg-warning'>Warning: Using HTTP is insecure as data sent over HTTP is not encrypted. Enable this option only if you know what you are doing.</div>
                         </div>
                     </div>
                 </td>

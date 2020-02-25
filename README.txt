@@ -69,7 +69,7 @@ The output file name is generated automatically or can be specified in custom op
 Please contact us on support@pdfcrowd.com us if you need any help.
 We recommend that you check our [FAQ](https://pdfcrowd.com/faq/). It contains answers to many common questions.
 
-
+Pdfcrowd [API playground](https://pdfcrowd.com/playground/) may help you to create the [shortcode](https://pdfcrowd.com/playground/html-to-pdf/?lang=wf-wpscode) or the [function call](https://pdfcrowd.com/playground/html-to-pdf/?lang=wf-wpfunc).
 
 == Installation ==
 
@@ -107,6 +107,14 @@ More answers can be found on [Pdfcrowd FAQ](https://pdfcrowd.com/faq/) page.
 2. Sample of settings.
 
 == Changelog ==
+
+= 1.4.0 =
+* Added a convertion mode "content" to convert the current HTML contents shown in the browser.
+* Minified JavaScript files for faster page load.
+
+= 1.3.0 =
+* Added an option to convert local file by the shortcode or the function call.
+* Fix of multiline shortcode parameters.
 
 = 1.2.2 =
 * Refactor description in the plugin settings.

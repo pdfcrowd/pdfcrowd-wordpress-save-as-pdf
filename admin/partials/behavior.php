@@ -38,7 +38,7 @@
                         </label><br>
                     </fieldset>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>button_disposition</strong>"<br/>Possible values: "attachment", "inline"
+                        Shortcode & function parameter: "<strong>button_disposition</strong>"<br>Possible values: "attachment", "inline"
                     </p>
                     <p class='description'>
                         The action which is done when the conversion button is clicked.
@@ -67,26 +67,33 @@
                             <input type="radio" id="save-as-pdf-pdfcrowd-conversion-mode-url" name="save-as-pdf-pdfcrowd[conversion_mode]" value="url" <?php checked( $conversion_mode, "url" ); ?> />
                             url
                             <p class='description'>
-                                The web page URL is uploaded for the conversion.<br/>This mode is suitable for a public website.
+                                The web page URL is uploaded for the conversion.<br>This mode is suitable for a public website.
                             </p>
                         </label><br>
                         <label for="save-as-pdf-pdfcrowd-conversion-mode-upload">
                             <input type="radio" id="save-as-pdf-pdfcrowd-conversion-mode-upload" name="save-as-pdf-pdfcrowd[conversion_mode]" value="upload" <?php checked( $conversion_mode, "upload" ); ?> />
                             upload
                             <p class='description'>
-                                The contents of the web page is uploaded for the conversion.<br/>This mode is suitable for any website, password-protected or not publicly accessible website.
+                                The contents of the web page is uploaded for the conversion.<br>This mode is suitable for any website, password-protected or not publicly accessible website.
                             </p>
                         </label><br>
                         <label for="save-as-pdf-pdfcrowd-conversion-mode-development">
                             <input type="radio" id="save-as-pdf-pdfcrowd-conversion-mode-development" name="save-as-pdf-pdfcrowd[conversion_mode]" value="development" <?php checked( $conversion_mode, "development" ); ?> />
                             development
                             <p class='description'>
-                                The contents of the web page and some local assets are uploaded for the conversion.<br/>This mode is suitable for a website running on a localhost.<br/>Local images may not appear in the converted document.
+                                The contents of the web page and some local assets are uploaded for the conversion.<br>This mode is suitable for a website running on a localhost.<br>Local images may not appear in the converted document.
+                            </p>
+                        </label><br>
+                        <label for="save-as-pdf-pdfcrowd-conversion-mode-content">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-conversion-mode-content" name="save-as-pdf-pdfcrowd[conversion_mode]" value="content" <?php checked( $conversion_mode, "content" ); ?> />
+                            content
+                            <p class='description'>
+                                The current HTML contents shown in the browser is sent for conversion.<br>This mode is suitable for web forms and dynamic HTML contents.
                             </p>
                         </label><br>
                     </fieldset>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>conversion_mode</strong>"<br/>Possible values: "auto", "url", "upload", "development"
+                        Shortcode & function parameter: "<strong>conversion_mode</strong>"<br>Possible values: "auto", "url", "upload", "development", "content"
                     </p>
                 </td>
             </tr>

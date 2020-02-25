@@ -39,7 +39,7 @@
                 <td>
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-button-hidden" name="save-as-pdf-pdfcrowd[button_hidden]" value="1" <?php checked( $button_hidden, 1 ); ?> />
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>button_hidden</strong>"<br/>Possible values: 0, 1
+                        Shortcode & function parameter: "<strong>button_hidden</strong>"<br>Possible values: 0, 1
                     </p>
                 </td>
             </tr>
@@ -73,7 +73,7 @@
                             <img src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTkuMjI3IiBoZWlnaHQ9IjQzLjI1NiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03My44MDIgLTM4Ni4wNikiPjxnIHRyYW5zZm9ybT0ibWF0cml4KDEuNzk0OCAwIDAgMS43OTQ4IC0yNjI2LjUgLTIxMi4wNikiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmOTUwMCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0ibTE1MTQuNSAzMzUuODZjMC40NDI2IDAuMDU0IDEuMjM2Ni0wLjI0MzM2IDEuMDAwMiAwLjQ4OTY1djE4LjUxMWMtMC40NDI2LTAuMDU0LTEuMjM2NiAwLjI0MzM3LTEuMDAwMi0wLjQ4OTY1di0xOC41MTF6IiBvcGFjaXR5PSIuOTkiIHN0cm9rZS13aWR0aD0iNC45OTk4Ii8+PHBhdGggZD0ibTE1MDYuMyAzNDQuNTRoMS40NzQ4djEwLjU1NWgtMS40NzQ4di0xMC41NTV6IiBvcGFjaXR5PSIuOTkiIHN0cm9rZS13aWR0aD0iNC41MjUxIi8+PHBhdGggZD0ibTE1MjIuNCAzMzkuNzhjMC4zNzU1IDAuMTIzMSAxLjI5ODYtMC4zMDEzMyAxLjE2OTQgMC4zMjY0M3YxNC44NDNjLTAuMzc1NS0wLjEyMzExLTEuMjk4NiAwLjMwMTMzLTEuMTY5NC0wLjMyNjQzdi0xNC44NDN6IiBvcGFjaXR5PSIuOTkiIHN0cm9rZS13aWR0aD0iNC44MzA2Ii8+PHBhdGggZD0ibTE1MzUuMSAzNTMuMjh2Mi4xNjQ5aC01LjE2NDl2LTIuMTY0OWg1LjE2NDl6IiBvcGFjaXR5PSIuOTkiIHN0cm9rZS13aWR0aD0iMy44MzUxIi8+PC9nPjwvZz48L3N2Zz4K'/>
                         </label>&nbsp;&nbsp;&nbsp;
                         <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>button_image</strong>"<br/>Possible values: "pdf1.svg", "pdf2.svg", "pdf3.svg", "pdf4.svg", "pdfcrowd.svg", "custom_image", "custom_html"
+                            Shortcode & function parameter: "<strong>button_image</strong>"<br>Possible values: "pdf1.svg", "pdf2.svg", "pdf3.svg", "pdf4.svg", "pdfcrowd.svg", "custom_image", "custom_html"
                         </p>
                         <br/>
                         <label for="save-as-pdf-pdfcrowd-custom-image">
@@ -134,7 +134,7 @@
                 <td>
                     <input type="number" class="small-text" min="6" id="save-as-pdf-pdfcrowd-button-image-width" name="save-as-pdf-pdfcrowd[button_image_width]" value="<?php echo $button_image_width ?>" />px
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>button_image_width</strong>"<br/>Possible values: any numeric value
+                        Shortcode & function parameter: "<strong>button_image_width</strong>"<br>Possible values: any numeric value
                     </p>
                 </td>
             </tr>
@@ -147,7 +147,7 @@
                 <td>
                     <input type="number" class="small-text" min="6" id="save-as-pdf-pdfcrowd-button-image-height" name="save-as-pdf-pdfcrowd[button_image_height]" value="<?php echo $button_image_height ?>" />px
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>button_image_height</strong>"<br/>Possible values: any numeric value
+                        Shortcode & function parameter: "<strong>button_image_height</strong>"<br>Possible values: any numeric value
                     </p>
                 </td>
             </tr>
@@ -191,7 +191,7 @@
                         </label><br>
                     </fieldset>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>button_format</strong>"<br/>Possible values: "image-text", "text-image", "image", "text"
+                        Shortcode & function parameter: "<strong>button_format</strong>"<br>Possible values: "image-text", "text-image", "image", "text"
                     </p>
                 </td>
             </tr>
@@ -213,7 +213,7 @@
                     <option value="right" <?php selected($button_position, 'right');?>>right to content</option>
                     </select>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>button_position</strong>"<br/>Possible values: "below", "above", "left", "right"
+                        Shortcode & function parameter: "<strong>button_position</strong>"<br>Possible values: "below", "above", "left", "right"
                     </p>
                 </td>
             </tr>
@@ -231,7 +231,7 @@
                     <option value="end" <?php selected($button_alignment, 'end');?>>end</option>
                     </select>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>button_alignment</strong>"<br/>Possible values: "", "start", "center", "left", "right", "end"
+                        Shortcode & function parameter: "<strong>button_alignment</strong>"<br>Possible values: "", "start", "center", "left", "right", "end"
                     </p>
                 </td>
             </tr>
@@ -259,7 +259,7 @@
                         </tr>
                     </table>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>button_margin_left", "button_margin_right", "button_margin_top", "button_margin_bottom</strong>"<br/>Possible values: any numeric value
+                        Shortcode & function parameter: "<strong>button_margin_left", "button_margin_right", "button_margin_top", "button_margin_bottom</strong>"<br>Possible values: any numeric value
                     </p>
                 </td>
             </tr>
@@ -288,7 +288,7 @@
                         </label>
                     </fieldset>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>button_styling</strong>"<br/>Possible values: "theme", "custom"
+                        Shortcode & function parameter: "<strong>button_styling</strong>"<br>Possible values: "theme", "custom"
                         <br/>
                         Hint: The style can be changed by the CSS rule .save-as-pdf-pdfcrowd-button too.<br/>
                         Example: insert the following line into your CSS<br/>
@@ -310,7 +310,7 @@
                     <td>
                         <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-text-size" name="save-as-pdf-pdfcrowd[button_text_size]" value="<?php echo $button_text_size ?>" />px
                         <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>button_text_size</strong>"<br/>Possible values: any numeric value
+                            Shortcode & function parameter: "<strong>button_text_size</strong>"<br>Possible values: any numeric value
                         </p>
                     </td>
                 </tr>
@@ -337,7 +337,7 @@
                             <option value="900" <?php selected($button_text_weight, '900');?>>900</option>
                         </select>
                         <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>button_text_weight</strong>"<br/>Possible values: any CSS font-weight
+                            Shortcode & function parameter: "<strong>button_text_weight</strong>"<br>Possible values: any CSS font-weight
                         </p>
                     </td>
                 </tr>
@@ -350,7 +350,7 @@
                     <td>
                         <input type="text" class="save-as-pdf-pdfcrowd-color-field" id="save-as-pdf-pdfcrowd-button-text-color" name="save-as-pdf-pdfcrowd[button_text_color]" value="<?php echo $button_text_color;?>" data-default-color="#fff" />
                         <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>button_text_color</strong>"<br/>Possible values: any HTML color code
+                            Shortcode & function parameter: "<strong>button_text_color</strong>"<br>Possible values: any HTML color code
                         </p>
                     </td>
                 </tr>
@@ -363,7 +363,7 @@
                     <td>
                         <input type="text" class="save-as-pdf-pdfcrowd-color-field" id="save-as-pdf-pdfcrowd-button-background-color" name="save-as-pdf-pdfcrowd[button_background_color]" value="<?php echo($button_background_color);?>" data-default-color="#007bff" />
                         <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>button_background_color</strong>"<br/>Possible values: any HTML color code
+                            Shortcode & function parameter: "<strong>button_background_color</strong>"<br>Possible values: any HTML color code
                         </p>
                     </td>
                 </tr>
@@ -376,7 +376,7 @@
                     <td>
                         <input type="text" class="save-as-pdf-pdfcrowd-color-field" id="save-as-pdf-pdfcrowd-button-border-color" name="save-as-pdf-pdfcrowd[button_border_color]" value="<?php echo($button_border_color);?>" data-default-color="#007bff" />
                         <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>button_border_color</strong>"<br/>Possible values: any HTML color code
+                            Shortcode & function parameter: "<strong>button_border_color</strong>"<br>Possible values: any HTML color code
                         </p>
                     </td>
                 </tr>
@@ -400,7 +400,7 @@
                             <option value="hidden" <?php selected($button_border_style, 'hidden');?>>hidden</option>
                         </select>
                         <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>button_border_style</strong>"<br/>Possible values: "dotted", "dashed", "solid", "double", "groove", "ridge", "inset", "outset", "none", "hidden"
+                            Shortcode & function parameter: "<strong>button_border_style</strong>"<br>Possible values: "dotted", "dashed", "solid", "double", "groove", "ridge", "inset", "outset", "none", "hidden"
                         </p>
                     </td>
                 </tr>
@@ -413,7 +413,7 @@
                     <td>
                         <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-border-width" name="save-as-pdf-pdfcrowd[button_border_width]" value="<?php echo $button_border_width ?>" />px
                         <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>button_border_width</strong>"<br/>Possible values: any numeric value
+                            Shortcode & function parameter: "<strong>button_border_width</strong>"<br>Possible values: any numeric value
                         </p>
                     </td>
                 </tr>
@@ -441,7 +441,7 @@
                             </tr>
                         </table>
                         <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>button_padding_left", "button_padding_right", "button_padding_top", "button_padding_bottom</strong>"<br/>Possible values: any numeric value
+                            Shortcode & function parameter: "<strong>button_padding_left", "button_padding_right", "button_padding_top", "button_padding_bottom</strong>"<br>Possible values: any numeric value
                         </p>
                     </td>
                 </tr>
@@ -454,7 +454,7 @@
                     <td>
                         <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-radius" name="save-as-pdf-pdfcrowd[button_radius]" value="<?php echo $button_radius ?>" />px
                         <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>button_radius</strong>"<br/>Possible values: any numeric value
+                            Shortcode & function parameter: "<strong>button_radius</strong>"<br>Possible values: any numeric value
                         </p>
                     </td>
                 </tr>
