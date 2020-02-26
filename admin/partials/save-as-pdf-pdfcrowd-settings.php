@@ -1845,8 +1845,11 @@
                             Shortcode & function parameter: "<strong>use_http</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
-                            Specifies if the client communicates over HTTP or HTTPS with Pdfcrowd API. <div class='doc-warning'>Warning: Using HTTP is insecure as data sent over HTTP is not encrypted. Enable this option only if you know what you are doing.</div>
+                            Specifies if the client communicates over HTTP or HTTPS with Pdfcrowd API.
                         </div>
+                            <div class='save-as-pdf-pdfcrowd-note'>
+                                <strong>Warning:</strong> Using HTTP is insecure as data sent over HTTP is not encrypted. Enable this option only if you know what you are doing.
+                            </div>
                     </div>
                 </td>
             </tr>
