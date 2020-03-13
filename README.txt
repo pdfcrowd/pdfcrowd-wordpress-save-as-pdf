@@ -108,6 +108,10 @@ More answers can be found on [Pdfcrowd FAQ](https://pdfcrowd.com/faq/) page.
 
 == Changelog ==
 
+= 1.4.1 =
+* Button to reset settings to default values was added to the plugin settings page.
+* Fix demo license usage.
+
 = 1.4.0 =
 * Added a convertion mode "content" to convert the current HTML contents shown in the browser.
 * Minified JavaScript files for faster page load.
