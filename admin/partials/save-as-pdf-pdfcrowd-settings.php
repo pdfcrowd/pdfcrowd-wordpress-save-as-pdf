@@ -468,6 +468,171 @@
         </tbody>
     </table>
 </div>
+<div id="save-as-pdf-pdfcrowd-data" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
+
+    <h2>Data</h2>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
+
+
+    <table class="form-table">
+        <tbody>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-data_string">
+                        Data String
+                    </label>
+                </th>
+                <td>
+                    <textarea class="regular-text" id="save-as-pdf-pdfcrowd-data_string" name="save-as-pdf-pdfcrowd[data_string]" placeholder="" rows=5 cols=70><?php echo($data_string); ?></textarea>
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>data_string</strong>"
+                        </div>
+                        <div class='description'>
+                            Set the input data for template rendering. The data format can be JSON, XML, YAML or CSV.
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-data_file">
+                        Data File
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-data_file" name="save-as-pdf-pdfcrowd[data_file]" value="<?php echo($data_file); ?>" placeholder="" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>data_file</strong>"
+                        </div>
+                        <div class='description'>
+                            Load the input data for template rendering from the specified file. The data format can be JSON, XML, YAML or CSV.
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-data_format">
+                        Data Format
+                    </label>
+                </th>
+                <td>
+                    <select name="save-as-pdf-pdfcrowd[data_format]">
+                    <option value="auto" <?php selected($data_format, 'auto');?>>the data format is auto detected</option>
+                    <option value="json" <?php selected($data_format, 'json');?>>json</option>
+                    <option value="xml" <?php selected($data_format, 'xml');?>>xml</option>
+                    <option value="yaml" <?php selected($data_format, 'yaml');?>>yaml</option>
+                    <option value="csv" <?php selected($data_format, 'csv');?>>csv</option>
+                    </select>
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>data_format</strong>"<br>Possible values: <ul><li>"auto" - the data format is auto detected</li><li>"json"</li><li>"xml"</li><li>"yaml"</li><li>"csv"</li></ul>
+                        </div>
+                        <div class='description'>
+                            Specify the input data format.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-data_encoding">
+                        Data Encoding
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-data_encoding" name="save-as-pdf-pdfcrowd[data_encoding]" value="<?php echo($data_encoding); ?>" placeholder="utf-8" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>data_encoding</strong>"
+                        </div>
+                        <div class='description'>
+                             Set the encoding of the data file set by <a href='https://pdfcrowd.com/doc/api/html-to-pdf/php/#set_data_file'>setDataFile</a>.
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-data_ignore_undefined">
+                        Data Ignore Undefined
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-data_ignore_undefined" name="save-as-pdf-pdfcrowd[data_ignore_undefined]" value="1" <?php checked( $data_ignore_undefined, 1 ); ?> />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>data_ignore_undefined</strong>"<br>Possible values: 0, 1
+                        </div>
+                        <div class='description'>
+                            Ignore undefined variables in the HTML template. The default mode is strict so any undefined variable causes the conversion to fail. You can use <span class='field-value text-nowrap'>&#x007b;&#x0025; if variable is defined &#x0025;&#x007d;</span> to check if the variable is defined.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-data_auto_escape">
+                        Data Auto Escape
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-data_auto_escape" name="save-as-pdf-pdfcrowd[data_auto_escape]" value="1" <?php checked( $data_auto_escape, 1 ); ?> />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>data_auto_escape</strong>"<br>Possible values: 0, 1
+                        </div>
+                        <div class='description'>
+                            Auto escape HTML symbols in the input data before placing them into the output.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-data_trim_blocks">
+                        Data Trim Blocks
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-data_trim_blocks" name="save-as-pdf-pdfcrowd[data_trim_blocks]" value="1" <?php checked( $data_trim_blocks, 1 ); ?> />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>data_trim_blocks</strong>"<br>Possible values: 0, 1
+                        </div>
+                        <div class='description'>
+                            Auto trim whitespace around each template command block.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-data_options">
+                        Data Options
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-data_options" name="save-as-pdf-pdfcrowd[data_options]" value="<?php echo($data_options); ?>" placeholder="" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>data_options</strong>"
+                        </div>
+                        <div class='description'>
+                            Set the advanced data options:<ul><li><span class='field-value'>csv_delimiter</span> - The CSV data delimiter, the default is <span class='field-value'>,</span>.</li><li><span class='field-value'>xml_remove_root</span> - Remove the root XML element from the input data.</li><li><span class='field-value'>data_root</span> - The name of the root element inserted into the input data without a root node (e.g. CSV), the default is <span class='field-value'>data</span>.</li></ul>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 <div id="save-as-pdf-pdfcrowd-watermark-and-background" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Watermark & Background</h2>

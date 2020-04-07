@@ -22,6 +22,7 @@
     <a href="#save-as-pdf-pdfcrowd-appearance" class="nav-tab">Appearance</a>
     <a href="#save-as-pdf-pdfcrowd-behavior" class="nav-tab">Behavior</a>
 <a href="#save-as-pdf-pdfcrowd-page-setup" class="nav-tab">Page Setup</a>
+<a href="#save-as-pdf-pdfcrowd-data" class="nav-tab">Data</a>
 <a href="#save-as-pdf-pdfcrowd-watermark-and-background" class="nav-tab">Watermark & Background</a>
 <a href="#save-as-pdf-pdfcrowd-general-options" class="nav-tab">General Options</a>
 <a href="#save-as-pdf-pdfcrowd-print-resolution" class="nav-tab">Print Resolution</a>
@@ -107,6 +108,14 @@
         $content_area_y = isset($options['content_area_y']) ? $options['content_area_y'] : '';
         $content_area_width = isset($options['content_area_width']) ? $options['content_area_width'] : '';
         $content_area_height = isset($options['content_area_height']) ? $options['content_area_height'] : '';
+        $data_string = isset($options['data_string']) ? $options['data_string'] : '';
+        $data_file = isset($options['data_file']) ? $options['data_file'] : '';
+        $data_format = isset($options['data_format']) ? $options['data_format'] : 'auto';
+        $data_encoding = isset($options['data_encoding']) ? $options['data_encoding'] : '';
+        $data_ignore_undefined = isset($options['data_ignore_undefined']) ? $options['data_ignore_undefined'] : '';
+        $data_auto_escape = isset($options['data_auto_escape']) ? $options['data_auto_escape'] : '';
+        $data_trim_blocks = isset($options['data_trim_blocks']) ? $options['data_trim_blocks'] : '';
+        $data_options = isset($options['data_options']) ? $options['data_options'] : '';
         $page_watermark = isset($options['page_watermark']) ? $options['page_watermark'] : '';
         $page_watermark_url = isset($options['page_watermark_url']) ? $options['page_watermark_url'] : '';
         $multipage_watermark = isset($options['multipage_watermark']) ? $options['multipage_watermark'] : '';

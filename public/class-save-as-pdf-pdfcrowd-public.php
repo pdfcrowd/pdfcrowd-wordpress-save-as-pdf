@@ -149,7 +149,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         'rendering_mode' => 'viewport',
         'smart_scaling_mode' => 'viewport-fit',
         'username' => '',
-        'version' => '141',
+        'version' => '150',
         'viewport_width' => '993',
     );
 
@@ -177,6 +177,14 @@ class Save_As_Pdf_Pdfcrowd_Public {
         'content_area_y',
         'content_area_width',
         'content_area_height',
+        'data_string',
+        'data_file',
+        'data_format',
+        'data_encoding',
+        'data_ignore_undefined',
+        'data_auto_escape',
+        'data_trim_blocks',
+        'data_options',
         'page_watermark',
         'page_watermark_url',
         'multipage_watermark',
@@ -287,6 +295,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         479 => "The URL is invalid.",
         480 => "The converter could not establish an HTTPS connection because of an invalid SSL certificate.",
         481 => "<p>There was a problem connecting to Pdfcrowd servers over HTTPS. This could be caused by several reasons, one of them is that your local CA certificate store is out of date or not configured correctly.</p> <p>An alternative is to use the API over HTTP. The HTTP mode can be enabled by the <a href='/doc/api/method-index/#html_to_pdf_set_use_http'>setUseHttp</a> method.<p>",
+        482 => "The input template or data is invalid.",
         502 => "The 502 status code indicates a temporary network issue. Try the request again.",
     );
 
@@ -304,14 +313,14 @@ class Save_As_Pdf_Pdfcrowd_Public {
                 $options['conversion_mode'] = 'auto';
             }
         } else {
-            if($options['version'] == 141) {
+            if($options['version'] == 150) {
                 // error_log('the same version');
                 return $options;
             }
         }
 
         // error_log('save new options');
-        $options['version'] = 141;
+        $options['version'] = 150;
         update_option('save-as-pdf-pdfcrowd', $options);
 
         return $options;
@@ -647,7 +656,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/1.4.1 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/1.5.0 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
@@ -713,6 +722,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
                     $fields[$key] = $value;
                 }
             } elseif(
+                $key == 'data_file' ||
                 $key == 'page_watermark' ||
                 $key == 'multipage_watermark' ||
                 $key == 'page_background' ||

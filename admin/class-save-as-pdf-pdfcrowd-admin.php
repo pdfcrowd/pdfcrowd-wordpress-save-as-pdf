@@ -181,7 +181,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 141;
+        $valid['version'] = 150;
 
         if(isset($input['wp_reset_settings']) &&
            $input['wp_reset_settings'] === 'reset') {
@@ -444,6 +444,32 @@ class Save_As_Pdf_Pdfcrowd_Admin {
             
         }
         $valid['content_area_height'] = isset($input['content_area_height']) ? $input['content_area_height'] : '';
+
+        $valid['data_string'] = isset($input['data_string']) ? $input['data_string'] : '';
+
+        $valid['data_file'] = isset($input['data_file']) ? $input['data_file'] : '';
+
+        if (isset($input['data_format']) &&
+            $input['data_format'] != '') {
+            $data_format = $input['data_format'];
+            if (!preg_match("/(?i)^(auto|json|xml|yaml|csv)$/", $data_format))
+                add_settings_error(
+                'data_format',
+                'empty_data_format',
+                pdfcrowd_create_invalid_value_message($data_format, 'Data Format', 'Allowed values are auto, json, xml, yaml, csv.'));
+            
+        }
+        $valid['data_format'] = isset($input['data_format']) ? $input['data_format'] : '';
+
+        $valid['data_encoding'] = isset($input['data_encoding']) ? $input['data_encoding'] : '';
+
+        $valid['data_ignore_undefined'] = (isset($input['data_ignore_undefined']) && !empty($input['data_ignore_undefined'])) ? 1: 0;
+
+        $valid['data_auto_escape'] = (isset($input['data_auto_escape']) && !empty($input['data_auto_escape'])) ? 1: 0;
+
+        $valid['data_trim_blocks'] = (isset($input['data_trim_blocks']) && !empty($input['data_trim_blocks'])) ? 1: 0;
+
+        $valid['data_options'] = isset($input['data_options']) ? $input['data_options'] : '';
 
         if (isset($input['page_watermark']) &&
             $input['page_watermark'] != '') {
