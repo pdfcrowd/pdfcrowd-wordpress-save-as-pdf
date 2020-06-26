@@ -21,6 +21,7 @@ The plugin is highly customizable, you can:
 * customize the button style, text and icon
 * choose between the "screen" and "print" layout (CSS @media)
 * convert password-protected pages
+* convert pages with data in forms
 * customize page size and margins, page orientation, header and footer, run custom JavaScript, add a watermark, and many more ...
 
 You can customize the plugin on the Settings page.
@@ -43,7 +44,7 @@ For example, to change the page size to Letter and create a red button use:
 
 The conversion button can be created directly in your PHP code with the **create_save_as_pdf_pdfcrowd_button**($options = array()) function.
 
-`<?php create_save_as_pdf_pdfcrowd_button(array('page_size' => 'letter', 'button_hidden' => 0)); ?>`
+`<?php create_save_as_pdf_pdfcrowd_button(array('page_size' => 'letter', 'button_text' => 'Save as Letter')); ?>`
 
 
 **Button CSS Customization**
@@ -69,7 +70,7 @@ The output file name is generated automatically or can be specified in custom op
 Please contact us on support@pdfcrowd.com us if you need any help.
 We recommend that you check our [FAQ](https://pdfcrowd.com/faq/). It contains answers to many common questions.
 
-Pdfcrowd [API playground](https://pdfcrowd.com/playground/) may help you to create the [shortcode](https://pdfcrowd.com/playground/html-to-pdf/?lang=wf-wpscode) or the [function call](https://pdfcrowd.com/playground/html-to-pdf/?lang=wf-wpfunc).
+Pdfcrowd [API playground](https://pdfcrowd.com/playground/) may help you to configure the plugin, create a [shortcode](https://pdfcrowd.com/playground/html-to-pdf/?lang=wf-wpscode) or a [function call](https://pdfcrowd.com/playground/html-to-pdf/?lang=wf-wpfunc).
 
 == Installation ==
 
@@ -89,17 +90,31 @@ A single Pdfcrowd [API license](https://pdfcrowd.com/user/account/api2-license/?
 
 = Can I convert password-protected pages? =
 
-Yes, set "Conversion Mode" to "upload" or "development" on the Settings page or enable HTTP Basic Authentication for your site or choose other methods for accessing your pages (Client Certificate, Custom Cookies, Custom HTTP Headers).
+Yes, set "Conversion Mode" to "upload", "content" or "development" on the Settings|Behavior page or enable HTTP Basic Authentication for your site or choose other methods for accessing your pages (Client Certificate, Custom Cookies, Custom HTTP Headers).
 
-= Can I convert my localhost pages? =
+= Can I convert my localhost or dynamic pages? =
 
-Yes, set "Conversion Mode" to "upload" or "development" on the Settings page.
+Yes, set "Conversion Mode" to "upload", "content" or "development" on the Settings|Behavior page.
+
+= Can I convert data entered into a form? =
+
+Yes, set "Conversion Mode" to "content" on the Settings|Behavior page.
 
 = Are my data safe? =
 
 Yes, Pdfcrowd is GDPR compliant. All data for the conversion are kept only for the time necessary to efficiently process the conversion and then permanently deleted.
 
-More answers can be found on [Pdfcrowd FAQ](https://pdfcrowd.com/faq/) page.
+= My page is not printed correctly. What should I do? =
+
+The first thing to try is to play with the following configuration settings: "Conversion Mode", "Viewport Width", "Wiewport Height", "Rendering Mode" and "Smart Scaling Mode". If it does not help, contact us at support@pdfcrowd.com.
+
+= How to exclude some parts of a web page? =
+
+Add "pdfcrowd-remove" or "pdfcrowd-hide" CSS class to the HTML elements you want to remove or hide. Another option is to remove them using custom Javascript code set in the "Custom Javascript" option.
+
+= Can you help me? =
+
+Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with any issue you may have.
 
 == Screenshots ==
 

@@ -30,6 +30,22 @@
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-button-on-posts" name="save-as-pdf-pdfcrowd[button_on_posts]" value="1" <?php checked( $button_on_posts, 1 ); ?> /><label for="save-as-pdf-pdfcrowd-button-on-posts">Posts<br/></label>
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-button-on-categories" name="save-as-pdf-pdfcrowd[button_on_categories]" value="1" <?php checked( $button_on_categories, 1 ); ?> /><label for="save-as-pdf-pdfcrowd-button-on-categories">Category pages<br/></label>
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-button-on-taxonomies" name="save-as-pdf-pdfcrowd[button_on_taxonomies]" value="1" <?php checked( $button_on_taxonomies, 1 ); ?> /><label for="save-as-pdf-pdfcrowd-button-on-taxonomies">Taxonomy pages<br/></label>
+                    <div style='margin-top: 1em'>
+                        <p>
+                            or use shortcode
+                            <strong>[save_as_pdf_pdfcrowd]</strong> in your page,
+                            <a href='https://pdfcrowd.com/save-as-pdf-image-wordpress-plugin/#shortcodes' target='_blank'>
+                                details
+                            </a>
+                        </p>
+                        <p>
+                            or use function call,
+                            <strong>create_save_as_pdf_pdfcrowd_button</strong> in your PHP code
+                            <a href='https://pdfcrowd.com/save-as-pdf-image-wordpress-plugin/#functions' target='_blank'>
+                                details
+                            </a>
+                        </p>
+                    </div>
                 </td>
             </tr>
             <tr>
