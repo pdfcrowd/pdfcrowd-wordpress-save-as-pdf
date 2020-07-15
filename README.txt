@@ -44,7 +44,13 @@ For example, to change the page size to Letter and create a red button use:
 
 The conversion button can be created directly in your PHP code with the **create_save_as_pdf_pdfcrowd_button**($options = array()) function.
 
-`<?php create_save_as_pdf_pdfcrowd_button(array('page_size' => 'letter', 'button_text' => 'Save as Letter')); ?>`
+`<?php
+
+create_save_as_pdf_pdfcrowd_button(array(
+    'page_size' => 'letter',
+    'button_text' => 'Save as Letter'));
+
+?>`
 
 
 **Button CSS Customization**
@@ -122,6 +128,11 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 2. Sample of settings.
 
 == Changelog ==
+
+= 1.6.0 =
+* Added support for parameters in the page URL.
+* Added support for missing protocol in links.
+* Added function pdfcrowd_save_as_pdf($options). It's useful for acccessing Pdfcrowd API directly.
 
 = 1.5.0 =
 * Added HTML template rendering with custom JSON, XML, YAML and CSV data.

@@ -149,7 +149,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         'rendering_mode' => 'viewport',
         'smart_scaling_mode' => 'viewport-fit',
         'username' => '',
-        'version' => '150',
+        'version' => '160',
         'viewport_width' => '993',
     );
 
@@ -313,14 +313,14 @@ class Save_As_Pdf_Pdfcrowd_Public {
                 $options['conversion_mode'] = 'auto';
             }
         } else {
-            if($options['version'] == 150) {
+            if($options['version'] == 160) {
                 // error_log('the same version');
                 return $options;
             }
         }
 
         // error_log('save new options');
-        $options['version'] = 150;
+        $options['version'] = 160;
         update_option('save-as-pdf-pdfcrowd', $options);
 
         return $options;
@@ -468,6 +468,11 @@ class Save_As_Pdf_Pdfcrowd_Public {
             $content, $pflags, $enc_data);
     }
 
+    private function get_permalink_with_params() {
+        return isset($_GET) ?
+            add_query_arg($_GET, get_permalink()) : get_permalink();
+    }
+
     function show_button($content) {
         $options = $this->get_options();
 
@@ -482,9 +487,10 @@ class Save_As_Pdf_Pdfcrowd_Public {
             (is_tax() && isset($options['button_on_taxonomies']) && $options['button_on_taxonomies'])
         )) return $content;
 
-        return $this->create_button($options,
-                                    array('permalink' => get_permalink()),
-                                    $content, 'auto');
+        return $this->create_button(
+            $options,
+            array('permalink' => $this->get_permalink_with_params()),
+            $content, 'auto');
     }
 
     private function eval_shortcode($attrs, $content, $custom_options,
@@ -517,7 +523,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         $custom_options = array();
         if(!$attrs || !isset($attrs['url'])) {
             // remember permalink for url conversion
-            $custom_options['permalink'] = get_permalink();
+            $custom_options['permalink'] = $this->get_permalink_with_params();
         }
         return $this->eval_shortcode($attrs, $content, $custom_options, $pflags);
     }
@@ -529,7 +535,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         $custom_options = array('text' => $content);
         if(!$attrs || (!isset($attrs['output_name']) && !isset($attrs['url']))) {
             // add url so default name can be created
-            $custom_options['permalink'] = get_permalink();
+            $custom_options['permalink'] = $this->get_permalink_with_params();
         }
         return $this->eval_shortcode($attrs, $content, $custom_options, 'bsc');
     }
@@ -550,18 +556,29 @@ class Save_As_Pdf_Pdfcrowd_Public {
     }
 
     private static function embed_styles($html, $site, $args) {
+        $protocol = isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) ? 'https' : 'http';
+
         $output = preg_replace_callback(
             "`(?i)\<link rel=[\'\"]stylesheet[\'\"](?<pre>.*?)href=[\'\"](?<url>(?:http:|https:)?\/\/{$site}.*?)[\'\"](?<post>.*?)\s*\/\s*\>`",
             function ($match) use($args) {
                 $url = $match['url'];
                 if(!self::starts_with($url, 'http')) {
-                    $protocol = isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) ? 'https' : 'http';
                     $url = $protocol . ':' . $url;
                 }
                 // error_log('embed ' . $url);
                 $content = self::get_url($url, $args);
                 return '<style ' . $match['pre'] . $match['post'] . ">\r\n" . $content . '</style>';
             },
+            $html);
+        return $output ? $output : $html;
+    }
+
+    private static function add_missing_protocol($html) {
+        $protocol = isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) ? 'https' : 'http';
+
+        $output = preg_replace(
+            "`(?im)(\<(?:a|img|link|iframe|input|body|base|script|embed)\s+[^\>]*(?:src|href|background)\s*=\s*[\'\"])(?:\/\/)`",
+            '${1}' . $protocol . '://',
             $html);
         return $output ? $output : $html;
     }
@@ -645,22 +662,6 @@ class Save_As_Pdf_Pdfcrowd_Public {
     }
 
     public static function do_post_request($options) {
-        $auth = 'Basic ' . base64_encode(
-            $options['username'] . ':' . $options['api_key']);
-
-        $boundary = wp_generate_password(24);
-
-        $pflags = isset($options['pflags']) ? $options['pflags'] : '-';
-
-        global $wp_version;
-        $headers = array(
-            'Authorization' => $auth,
-            'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/1.5.0 ('
-            . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
-        );
-
-        // error_log('conversion start with mode: ' . $options['conversion_mode']);
         if($options['conversion_mode'] != 'url' && !isset($options['file'])) {
             $html = null;
             $args = array('sslverify' => false);
@@ -687,6 +688,9 @@ class Save_As_Pdf_Pdfcrowd_Public {
                 }
             }
 
+            // add http:// or https:// to links without it
+            $html = self::add_missing_protocol($html);
+
             $options['text'] = $site &&
                              $options['conversion_mode'] == 'development'
                              ? self::embed_styles($html, $site, $args)
@@ -706,6 +710,10 @@ class Save_As_Pdf_Pdfcrowd_Public {
             $options['cookies'] .= $cookies;
         }
 
+        return self::convert($options);
+    }
+
+    public static function convert($options) {
         $fields = array();
         $files = array();
 
@@ -736,6 +744,21 @@ class Save_As_Pdf_Pdfcrowd_Public {
                 $fields[$key] = $value;
             }
         }
+
+        $auth = 'Basic ' . base64_encode(
+            $options['username'] . ':' . $options['api_key']);
+
+        $boundary = wp_generate_password(24);
+
+        $pflags = isset($options['pflags']) ? $options['pflags'] : '-';
+
+        global $wp_version;
+        $headers = array(
+            'Authorization' => $auth,
+            'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/1.6.0 ('
+            . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
+        );
 
         $args = array(
             'method' => 'POST',
@@ -945,5 +968,16 @@ HTML;
             return $original_plaintext;
         }
         return false;
+    }
+}
+
+/**
+ *  function for triggering conversion from the server code
+ *
+ * @since    1.6.0
+ */
+if(!function_exists('pdfcrowd_save_as_pdf')) {
+    function pdfcrowd_save_as_pdf($options) {
+        return Save_As_Pdf_Pdfcrowd_Public::convert($options);
     }
 }
