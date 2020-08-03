@@ -129,6 +129,10 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 1.7.0 =
+* New value "open PDF in a new browser tab" for the "Button Click Action" option.
+* Minor change of descriptions for values in the "Button Click Action" option.
+
 = 1.6.0 =
 * Added support for parameters in the page URL.
 * Added support for missing protocol in links.

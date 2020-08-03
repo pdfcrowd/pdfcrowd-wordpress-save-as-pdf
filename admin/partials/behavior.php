@@ -30,15 +30,19 @@
                         </legend>
                         <label for="save-as-pdf-pdfcrowd-button-disp-attachment">
                             <input type="radio" id="save-as-pdf-pdfcrowd-button-disp-attachment" name="save-as-pdf-pdfcrowd[button_disposition]" value="attachment" <?php checked( $button_disposition, "attachment" ); ?> />
-                            save PDF
+                            download PDF
                         </label><br>
                         <label for="save-as-pdf-pdfcrowd-button-disp-inline">
                             <input type="radio" id="save-as-pdf-pdfcrowd-button-disp-inline" name="save-as-pdf-pdfcrowd[button_disposition]" value="inline" <?php checked( $button_disposition, "inline" ); ?> />
-                            open PDF inside the browser
+                            open PDF in the current browser tab
+                        </label><br>
+                        <label for="save-as-pdf-pdfcrowd-button-disp-inline_new_tab">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-button-disp-inline_new_tab" name="save-as-pdf-pdfcrowd[button_disposition]" value="inline_new_tab" <?php checked( $button_disposition, "inline_new_tab" ); ?> />
+                            open PDF in a new browser tab
                         </label><br>
                     </fieldset>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>button_disposition</strong>"<br>Possible values: "attachment", "inline"
+                        Shortcode & function parameter: "<strong>button_disposition</strong>"<br>Possible values: "attachment", "inline", "inline_new_tab"
                     </p>
                     <p class='description'>
                         The action which is done when the conversion button is clicked.
