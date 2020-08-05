@@ -129,6 +129,10 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 1.8.0 =
+* Improved handling of lazy loaded images.
+* Fixed the issue with the converted page URL when some third party WP plugins are used.
+
 = 1.7.0 =
 * New value "open PDF in a new browser tab" for the "Button Click Action" option.
 * Minor change of descriptions for values in the "Button Click Action" option.

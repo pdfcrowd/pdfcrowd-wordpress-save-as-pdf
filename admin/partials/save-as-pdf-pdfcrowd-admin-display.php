@@ -84,6 +84,7 @@
         $smart_scaling_mode = isset($options['smart_scaling_mode']) ? $options['smart_scaling_mode'] : '';
         $username = isset($options['username']) ? $options['username'] : '';
         $version = isset($options['version']) ? $options['version'] : '';
+        $viewport_height = isset($options['viewport_height']) ? $options['viewport_height'] : '';
         $viewport_width = isset($options['viewport_width']) ? $options['viewport_width'] : '';
 
         $page_size = isset($options['page_size']) ? $options['page_size'] : 'A4';
@@ -146,7 +147,6 @@
         $element_to_convert = isset($options['element_to_convert']) ? $options['element_to_convert'] : '';
         $element_to_convert_mode = isset($options['element_to_convert_mode']) ? $options['element_to_convert_mode'] : 'cut-out';
         $wait_for_element = isset($options['wait_for_element']) ? $options['wait_for_element'] : '';
-        $viewport_height = isset($options['viewport_height']) ? $options['viewport_height'] : '';
         $scale_factor = isset($options['scale_factor']) ? $options['scale_factor'] : '';
         $header_footer_scale_factor = isset($options['header_footer_scale_factor']) ? $options['header_footer_scale_factor'] : '';
         $jpeg_quality = isset($options['jpeg_quality']) ? $options['jpeg_quality'] : '';
