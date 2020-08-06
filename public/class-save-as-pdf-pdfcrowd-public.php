@@ -149,7 +149,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         'rendering_mode' => 'viewport',
         'smart_scaling_mode' => 'viewport-fit',
         'username' => '',
-        'version' => '180',
+        'version' => '181',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -314,14 +314,14 @@ class Save_As_Pdf_Pdfcrowd_Public {
                 $options['conversion_mode'] = 'auto';
             }
         } else {
-            if($options['version'] == 180) {
+            if($options['version'] == 181) {
                 // error_log('the same version');
                 return $options;
             }
         }
 
         // error_log('save new options');
-        $options['version'] = 180;
+        $options['version'] = 181;
         update_option('save-as-pdf-pdfcrowd', $options);
 
         return $options;
@@ -476,6 +476,11 @@ class Save_As_Pdf_Pdfcrowd_Public {
             $content, $pflags, $enc_data);
     }
 
+    private function get_permalink_with_params() {
+        return isset($_GET) ?
+            add_query_arg($_GET, get_permalink()) : get_permalink();
+    }
+
     function show_button($content) {
         $options = $this->get_options();
 
@@ -490,7 +495,10 @@ class Save_As_Pdf_Pdfcrowd_Public {
             (is_tax() && isset($options['button_on_taxonomies']) && $options['button_on_taxonomies'])
         )) return $content;
 
-        return $this->create_button($options, array(), $content, 'auto');
+        return $this->create_button(
+            $options,
+            array('permalink' => $this->get_permalink_with_params()),
+            $content, 'auto');
     }
 
     private function eval_shortcode($attrs, $content, $custom_options,
@@ -521,6 +529,10 @@ class Save_As_Pdf_Pdfcrowd_Public {
 
     function save_as_pdf_pdfcrowd_shortcode_fn($attrs, $content, $pflags) {
         $custom_options = array();
+        if(!$attrs || !isset($attrs['url'])) {
+            // remember permalink for url conversion
+            $custom_options['permalink'] = $this->get_permalink_with_params();
+        }
         return $this->eval_shortcode($attrs, $content, $custom_options, $pflags);
     }
 
@@ -529,6 +541,10 @@ class Save_As_Pdf_Pdfcrowd_Public {
         $content = do_shortcode($content);
 
         $custom_options = array('text' => $content);
+        if(!$attrs || !isset($attrs['url'])) {
+            // add url so default name can be created
+            $custom_options['permalink'] = $this->get_permalink_with_params();
+        }
         return $this->eval_shortcode($attrs, $content, $custom_options, 'bsc');
     }
 
@@ -748,7 +764,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/1.8.0 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/1.8.1 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
@@ -838,6 +854,35 @@ class Save_As_Pdf_Pdfcrowd_Public {
         return $result;
     }
 
+    private function get_location($data, $options) {
+        $location = null;
+        $permalink = null;
+
+        if(isset($_POST['location'])) {
+            $location = $_POST['location'];
+        }
+        if(isset($options['permalink'])) {
+            $permalink = $options['permalink'];
+        }
+
+        if(!$location) {
+            return $permalink;
+        }
+
+        if(!$permalink) {
+            return null;
+        }
+
+        // check if the location is from my domain
+        if(parse_url($location, PHP_URL_HOST) !=
+           parse_url($permalink, PHP_URL_HOST)) {
+            error_log('Pdfcrowd: conflict in location URL ' . $location . ' vs ' . $permalink);
+            return $permalink;
+        }
+
+        return $location;
+    }
+
     function save_as_pdf_pdfcrowd() {
         $options = $this->get_options();
 
@@ -855,13 +900,14 @@ class Save_As_Pdf_Pdfcrowd_Public {
         // error_log('decrypted options:');
         // error_log(print_r($options, true));
 
-        $location = $_POST['location'];
-
         $default_conv_mode = 'url';
-        if(!isset($options['url']) && $location) {
-            // use the location as url
-            $options['url'] = $location;
-            $default_conv_mode = 'upload';
+        if(!isset($options['url'])) {
+            $location = $this->get_location($_POST, $options);
+            if($location) {
+                // use the location as url
+                $options['url'] = $location;
+                $default_conv_mode = 'upload';
+            }
         }
 
         // decide conversion mode
@@ -877,7 +923,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
                 echo "Internal error. Refresh page and retry.";
                 wp_die();
             }
-         }
+        }
 
         if(!isset($options['username']) || empty($options['username']) ||
            $options['username'] === 'demo') {
