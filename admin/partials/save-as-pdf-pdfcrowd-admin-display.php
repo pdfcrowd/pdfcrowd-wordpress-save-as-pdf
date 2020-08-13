@@ -47,6 +47,7 @@
         $button_border_style = isset($options['button_border_style']) ? $options['button_border_style'] : '';
         $button_border_width = isset($options['button_border_width']) ? $options['button_border_width'] : '';
         $button_custom_html = isset($options['button_custom_html']) ? $options['button_custom_html'] : '';
+        $button_custom_indicator = isset($options['button_custom_indicator']) ? $options['button_custom_indicator'] : '';
         $button_disposition = isset($options['button_disposition']) ? $options['button_disposition'] : '';
         $button_format = isset($options['button_format']) ? $options['button_format'] : '';
         $button_hidden = isset($options['button_hidden']) ? $options['button_hidden'] : '';
@@ -54,6 +55,8 @@
         $button_image_height = isset($options['button_image_height']) ? $options['button_image_height'] : '';
         $button_image_url = isset($options['button_image_url']) ? $options['button_image_url'] : '';
         $button_image_width = isset($options['button_image_width']) ? $options['button_image_width'] : '';
+        $button_indicator = isset($options['button_indicator']) ? $options['button_indicator'] : '';
+        $button_indicator_html = isset($options['button_indicator_html']) ? $options['button_indicator_html'] : '';
         $button_margin_bottom = isset($options['button_margin_bottom']) ? $options['button_margin_bottom'] : '';
         $button_margin_left = isset($options['button_margin_left']) ? $options['button_margin_left'] : '';
         $button_margin_right = isset($options['button_margin_right']) ? $options['button_margin_right'] : '';

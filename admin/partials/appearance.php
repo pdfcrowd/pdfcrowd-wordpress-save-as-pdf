@@ -94,7 +94,7 @@
                         <br/>
                         <label for="save-as-pdf-pdfcrowd-custom-image">
                             <input type="radio" id="save-as-pdf-pdfcrowd-custom-image" name="save-as-pdf-pdfcrowd[button_image]" value="custom_image" <?php checked( $button_image, "custom_image" ); ?> />
-                            Custom Image URL
+                            Custom image URL
                             <input id="save-as-pdf-pdfcrowd-custom-image-url" type="text" class="clear regular-text" name="save-as-pdf-pdfcrowd[button_image_url]" value="<?php echo($button_image_url);?>">
                             <p class='save-as-pdf-pdfcrowd-devi'>
                                 Shortcode & function parameter: "<strong>button_image_url</strong>"
@@ -119,7 +119,7 @@
                             <input type="radio" id="save-as-pdf-pdfcrowd-custom-image-h" name="save-as-pdf-pdfcrowd[button_image]" value="custom_html" <?php checked( $button_image, "custom_html" ); ?> />
                             Custom HTML
                             <br/>
-                            <textarea class="clear regular-text" id="save-as-pdf-pdfcrowd-custom-html" name="save-as-pdf-pdfcrowd[button_custom_html]" rows=5 cols=60 style='margin-left: 2em'><?php echo($button_custom_html); ?></textarea>
+                            <textarea id="save-as-pdf-pdfcrowd-custom-html" name="save-as-pdf-pdfcrowd[button_custom_html]" rows=5 style='margin-left: 2em' cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($button_custom_html); ?></textarea>
                             <p class='save-as-pdf-pdfcrowd-devi'>
                                 Shortcode & function parameter: "<strong>button_custom_html</strong>"
                             </p>
@@ -189,25 +189,110 @@
                         <legend class="screen-reader-text">
                             <span>Button Display Format</span>
                         </legend>
-                        <label for="save-as-pdf-pdfcrowd-image-text">
-                            <input type="radio" id="save-as-pdf-pdfcrowd-image-text" name="save-as-pdf-pdfcrowd[button_format]" value="image-text" <?php checked( $button_format, "image-text" ); ?> />
-                            image-text
+                        <label for="save-as-pdf-pdfcrowd-Icon on the left and text">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-Icon on the left and text" name="save-as-pdf-pdfcrowd[button_format]" value="image-text" <?php checked( $button_format, "image-text" ); ?> />
+                            Icon on the left and text
                         </label><br>
-                        <label for="save-as-pdf-pdfcrowd-text-image">
-                            <input type="radio" id="save-as-pdf-pdfcrowd-text-image" name="save-as-pdf-pdfcrowd[button_format]" value="text-image" <?php checked( $button_format, "text-image" ); ?> />
-                            text-image
+                        <label for="save-as-pdf-pdfcrowd-Text on the left and icon">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-Text on the left and icon" name="save-as-pdf-pdfcrowd[button_format]" value="text-image" <?php checked( $button_format, "text-image" ); ?> />
+                            Text on the left and icon
                         </label><br>
-                        <label for="save-as-pdf-pdfcrowd-image">
-                            <input type="radio" id="save-as-pdf-pdfcrowd-image" name="save-as-pdf-pdfcrowd[button_format]" value="image" <?php checked( $button_format, "image" ); ?> />
-                            image
+                        <label for="save-as-pdf-pdfcrowd-Icon only">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-Icon only" name="save-as-pdf-pdfcrowd[button_format]" value="image" <?php checked( $button_format, "image" ); ?> />
+                            Icon only
                         </label><br>
-                        <label for="save-as-pdf-pdfcrowd-text">
-                            <input type="radio" id="save-as-pdf-pdfcrowd-text" name="save-as-pdf-pdfcrowd[button_format]" value="text" <?php checked( $button_format, "text" ); ?> />
-                            text
+                        <label for="save-as-pdf-pdfcrowd-Text only">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-Text only" name="save-as-pdf-pdfcrowd[button_format]" value="text" <?php checked( $button_format, "text" ); ?> />
+                            Text only
                         </label><br>
                     </fieldset>
                     <p class='save-as-pdf-pdfcrowd-devi'>
                         Shortcode & function parameter: "<strong>button_format</strong>"<br>Possible values: "image-text", "text-image", "image", "text"
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr/>
+    <h2>Conversion in Progress Indicator</h2>
+    <table class="form-table">
+        <tbody>
+            <tr>
+                <th scope="row">
+                    Type
+                </th>
+                <td>
+                    <fieldset>
+                        <legend class="screen-reader-text">
+                            <span>Indicator Type</span>
+                        </legend>
+                        <label for="save-as-pdf-pdfcrowd-ellipsis">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-ellipsis" name="save-as-pdf-pdfcrowd[button_indicator]" value="ellipsis" <?php checked( $button_indicator, "ellipsis" ); ?> />
+                            Ellipsis
+                        </label>
+                        <br>
+                        <label for="save-as-pdf-pdfcrowd-ring">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-ring" name="save-as-pdf-pdfcrowd[button_indicator]" value="ring" <?php checked( $button_indicator, "ring" ); ?> />
+                            Ring
+                        </label>
+                        <br>
+                        <label for="save-as-pdf-pdfcrowd-dualRing">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-dualRing" name="save-as-pdf-pdfcrowd[button_indicator]" value="dualRing" <?php checked( $button_indicator, "dualRing" ); ?> />
+                            Dual ring
+                        </label>
+                        <br>
+                        <label for="save-as-pdf-pdfcrowd-html">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-html" name="save-as-pdf-pdfcrowd[button_indicator]" value="html" <?php checked( $button_indicator, "html" ); ?> />
+                            Custom HTML
+                            <br>
+                            <textarea id="save-as-pdf-pdfcrowd-custom-indicator-html" name="save-as-pdf-pdfcrowd[button_indicator_html]" rows=3 style='margin-left: 2em' cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo(esc_html($button_indicator_html));?></textarea>
+                            <div style="padding-left: 2em;">
+                                <p class='save-as-pdf-pdfcrowd-devi'>
+                                    Shortcode & function parameter: "<strong>button_indicator_html</strong>"<br>Possible values: your HTML code
+                                </p>
+                            </div>
+                        </label>
+                        <br>
+                        <label for="save-as-pdf-pdfcrowd-custom">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-custom" name="save-as-pdf-pdfcrowd[button_indicator]" value="custom" <?php checked( $button_indicator, "custom" ); ?> />
+                            Custom function
+                            <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-button-custom-indicator" name="save-as-pdf-pdfcrowd[button_custom_indicator]" value="<?php echo($button_custom_indicator);?>" placeholder="<?php esc_attr_e('Your JavaScript function name', $this->plugin_name);?>" />
+                            <div class="save-as-pdf-pdfcrowd-m-description" style="padding-left: 2em; max-height: none;">
+                                <p class='save-as-pdf-pdfcrowd-devi'>
+                                    Shortcode & function parameter: "<strong>button_custom_indicator</strong>"<br>Possible values: your JavaScript function name
+                                </p>
+                                <p class="description">
+                                    The name of the function that will handle the appearance of the conversion indicator. The function must accept 2 parameters:
+                                </p>
+                                <ul>
+                                    <li>isStart - true if the conversion has started, false if it has finished</li>
+                                    <li>button - an HTML element representing the pressed button</li>
+                                </ul>
+                                <p class="description" style="">
+                                    Example:
+                                </p>
+                                <pre>function mySaveAsPDFPdfcrowdIndicator(isStart, button) {
+    if(isStart) {
+        button.textContent = 'running....';
+        button.style.border = '4px dotted red';
+        document.body.style.cursor = 'wait';
+    } else {
+        button.textContent = 'finished';
+        button.style.border = '';
+        document.body.style.cursor = 'auto';
+    }
+}</pre>
+                            </div>
+                        </label>
+                        <br>
+                        <label for="save-as-pdf-pdfcrowd-">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-" name="save-as-pdf-pdfcrowd[button_indicator]" value="" <?php checked( $button_indicator, "" ); ?> />
+                            No indicator
+                        </label>
+                        <br>
+                    </fieldset>
+                    <p class='save-as-pdf-pdfcrowd-devi'>
+                        Shortcode & function parameter: "<strong>button_indicator</strong>"<br>Possible values: "ellipsis", "ring", "dualRing", "html", "custom", ""
                     </p>
                 </td>
             </tr>
@@ -259,18 +344,18 @@
                     <table class="save-as-pdf-pdfcrowd-inner-table">
                         <tr>
                             <td>
-                                top <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-margin-top" name="save-as-pdf-pdfcrowd[button_margin_top]" value="<?php echo $button_margin_top ?>" />px
+                                Top <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-margin-top" name="save-as-pdf-pdfcrowd[button_margin_top]" value="<?php echo $button_margin_top ?>" />px
                             </td>
                             <td>
-                                right <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-margin-right" name="save-as-pdf-pdfcrowd[button_margin_right]" value="<?php echo $button_margin_right ?>" />px
+                                Right <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-margin-right" name="save-as-pdf-pdfcrowd[button_margin_right]" value="<?php echo $button_margin_right ?>" />px
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                bottom <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-margin-bottom" name="save-as-pdf-pdfcrowd[button_margin_bottom]" value="<?php echo $button_margin_bottom ?>" />px
+                                Bottom <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-margin-bottom" name="save-as-pdf-pdfcrowd[button_margin_bottom]" value="<?php echo $button_margin_bottom ?>" />px
                             </td>
                             <td>
-                                left <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-margin-left" name="save-as-pdf-pdfcrowd[button_margin_left]" value="<?php echo $button_margin_left ?>" />px
+                                Left <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-margin-left" name="save-as-pdf-pdfcrowd[button_margin_left]" value="<?php echo $button_margin_left ?>" />px
                             </td>
                         </tr>
                     </table>
@@ -296,11 +381,11 @@
                         </legend>
                         <label for="save-as-pdf-pdfcrowd-st-theme">
                             <input type="radio" id="save-as-pdf-pdfcrowd-st-theme" name="save-as-pdf-pdfcrowd[button_styling]" value="theme" <?php checked( $button_styling, "theme" ); ?> />
-                            defined by your theme
+                            Defined by your theme
                         </label><br>
                         <label for="save-as-pdf-pdfcrowd-st-custom">
                             <input type="radio" id="save-as-pdf-pdfcrowd-st-custom" name="save-as-pdf-pdfcrowd[button_styling]" value="custom" <?php checked( $button_styling, "custom" ); ?> />
-                            custom
+                            Custom
                         </label>
                     </fieldset>
                     <p class='save-as-pdf-pdfcrowd-devi'>
@@ -441,18 +526,18 @@
                         <table class="save-as-pdf-pdfcrowd-inner-table">
                             <tr>
                                 <td>
-                                    top <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-padding-top" name="save-as-pdf-pdfcrowd[button_padding_top]" value="<?php echo $button_padding_top ?>" />px
+                                    Top <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-padding-top" name="save-as-pdf-pdfcrowd[button_padding_top]" value="<?php echo $button_padding_top ?>" />px
                                 </td>
                                 <td>
-                                    right <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-padding-right" name="save-as-pdf-pdfcrowd[button_padding_right]" value="<?php echo $button_padding_right ?>" />px
+                                    Right <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-padding-right" name="save-as-pdf-pdfcrowd[button_padding_right]" value="<?php echo $button_padding_right ?>" />px
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    bottom <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-padding-bottom" name="save-as-pdf-pdfcrowd[button_padding_bottom]" value="<?php echo $button_padding_bottom ?>" />px
+                                    Bottom <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-padding-bottom" name="save-as-pdf-pdfcrowd[button_padding_bottom]" value="<?php echo $button_padding_bottom ?>" />px
                                 </td>
                                 <td>
-                                    left <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-padding-left" name="save-as-pdf-pdfcrowd[button_padding_left]" value="<?php echo $button_padding_left ?>" />px
+                                    Left <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-padding-left" name="save-as-pdf-pdfcrowd[button_padding_left]" value="<?php echo $button_padding_left ?>" />px
                                 </td>
                             </tr>
                         </table>
@@ -476,10 +561,14 @@
                 </tr>
             </tbody>
         </table>
+
         <hr/>
         <h3>Button Quick Preview</h3>
         <div id='save-as-pdf-pdfcrowd-button-preview-content'>
         </div>
-        <hr style='clear: both'/>
+        <div style='clear: both'>
+            Tip: click on the conversion button to see the conversion idicator preview
+        </div>
+        <hr/>
     </div>
 </div>

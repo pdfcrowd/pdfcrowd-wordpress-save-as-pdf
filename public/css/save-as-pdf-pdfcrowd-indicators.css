@@ -1,0 +1,148 @@
+.save-as-pdf-pdfcrowd-ind {
+    cursor: wait;
+}
+
+.save-as-pdf-pdfcrowd-ind-in {
+    border-radius: inherit;
+    background: inherit;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.save-as-pdf-pdfcrowd-ind-el {
+    display: block;
+    position: relative;
+    cursor: inherit;
+    left: calc(50% - 20px);
+    top: calc(50% - 2px);
+}
+
+.save-as-pdf-pdfcrowd-ind-el div {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.save-as-pdf-pdfcrowd-ind-el div:nth-child(1) {
+    left: 2px;
+    animation: save-as-pdf-pdfcrowd-ind-el1 0.6s infinite;
+}
+
+.save-as-pdf-pdfcrowd-ind-el div:nth-child(2) {
+    left: 2px;
+    animation: save-as-pdf-pdfcrowd-ind-el2 0.6s infinite;
+}
+
+.save-as-pdf-pdfcrowd-ind-el div:nth-child(3) {
+    left: 16px;
+    animation: save-as-pdf-pdfcrowd-ind-el2 0.6s infinite;
+}
+
+.save-as-pdf-pdfcrowd-ind-el div:nth-child(4) {
+    left: 30px;
+    animation: save-as-pdf-pdfcrowd-ind-el3 0.6s infinite;
+}
+
+@keyframes save-as-pdf-pdfcrowd-ind-el1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes save-as-pdf-pdfcrowd-ind-el3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes save-as-pdf-pdfcrowd-ind-el2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(14px, 0);
+    }
+}
+
+.save-as-pdf-pdfcrowd-ind-dual-ring {
+    display: block;
+    position: relative;
+    cursor: inherit;
+    left: calc(50% - 13px);
+    top: calc(50% - 13px);
+}
+
+.save-as-pdf-pdfcrowd-ind-dual-ring:after {
+    box-sizing: border-box;
+    content: " ";
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    border-color: inherit;
+    animation: save-as-pdf-pdfcrowd-ind-dual-ring 1.2s linear infinite;
+}
+
+@keyframes save-as-pdf-pdfcrowd-ind-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.save-as-pdf-pdfcrowd-ind-ring {
+    display: block;
+    position: relative;
+    cursor: inherit;
+    left: calc(50% - 13px);
+    top: calc(50% - 13px);
+}
+
+.save-as-pdf-pdfcrowd-ind-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    animation: save-as-pdf-pdfcrowd-ind-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: inherit;
+}
+
+.save-as-pdf-pdfcrowd-ind-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.save-as-pdf-pdfcrowd-ind-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.save-as-pdf-pdfcrowd-ind-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes save-as-pdf-pdfcrowd-ind-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

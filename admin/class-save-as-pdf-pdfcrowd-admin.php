@@ -58,6 +58,12 @@ class Save_As_Pdf_Pdfcrowd_Admin {
      */
     public function enqueue_styles() {
         wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/save-as-pdf-pdfcrowd-admin.css', array( 'wp-color-picker' ), $this->version, 'all' );
+
+        wp_enqueue_style($this->plugin_name . 'indicators',
+                         plugin_dir_url( __FILE__ ) . '../public/css/save-as-pdf-pdfcrowd-indicators.css',
+                         array(),
+                         $this->version,
+                         'all');
     }
 
     /**
@@ -67,6 +73,12 @@ class Save_As_Pdf_Pdfcrowd_Admin {
      */
     public function enqueue_scripts() {
         wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/save-as-pdf-pdfcrowd-admin.js', array( 'jquery', 'wp-color-picker' ), $this->version, false );
+
+        wp_enqueue_script($this->plugin_name . 'indicators',
+                          plugin_dir_url( __FILE__ ) . '../public/js/save-as-pdf-pdfcrowd-indicators.js',
+                          array('jquery'),
+                          $this->version,
+                          false);
     }
 
     /**
@@ -181,7 +193,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 181;
+        $valid['version'] = 190;
 
         if(isset($input['wp_reset_settings']) &&
            $input['wp_reset_settings'] === 'reset') {

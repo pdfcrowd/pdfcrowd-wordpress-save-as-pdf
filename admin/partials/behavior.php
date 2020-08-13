@@ -30,15 +30,15 @@
                         </legend>
                         <label for="save-as-pdf-pdfcrowd-button-disp-attachment">
                             <input type="radio" id="save-as-pdf-pdfcrowd-button-disp-attachment" name="save-as-pdf-pdfcrowd[button_disposition]" value="attachment" <?php checked( $button_disposition, "attachment" ); ?> />
-                            download PDF
+                            Download PDF
                         </label><br>
                         <label for="save-as-pdf-pdfcrowd-button-disp-inline">
                             <input type="radio" id="save-as-pdf-pdfcrowd-button-disp-inline" name="save-as-pdf-pdfcrowd[button_disposition]" value="inline" <?php checked( $button_disposition, "inline" ); ?> />
-                            open PDF in the current browser tab
+                            Open PDF in the current browser tab
                         </label><br>
                         <label for="save-as-pdf-pdfcrowd-button-disp-inline_new_tab">
                             <input type="radio" id="save-as-pdf-pdfcrowd-button-disp-inline_new_tab" name="save-as-pdf-pdfcrowd[button_disposition]" value="inline_new_tab" <?php checked( $button_disposition, "inline_new_tab" ); ?> />
-                            open PDF in a new browser tab
+                            Open PDF in a new browser tab
                         </label><br>
                     </fieldset>
                     <p class='save-as-pdf-pdfcrowd-devi'>
@@ -62,35 +62,35 @@
                         </legend>
                         <label for="save-as-pdf-pdfcrowd-conversion-mode-auto">
                             <input type="radio" id="save-as-pdf-pdfcrowd-conversion-mode-auto" name="save-as-pdf-pdfcrowd[conversion_mode]" value="auto" <?php checked( $conversion_mode, "auto" ); ?> />
-                            auto
+                            Auto
                             <p class='description'>
                                 If web page URL is specified explicitly, the "url" mode is used otherwise "upload" mode is used.
                             </p>
                         </label><br>
                         <label for="save-as-pdf-pdfcrowd-conversion-mode-url">
                             <input type="radio" id="save-as-pdf-pdfcrowd-conversion-mode-url" name="save-as-pdf-pdfcrowd[conversion_mode]" value="url" <?php checked( $conversion_mode, "url" ); ?> />
-                            url
+                            Url
                             <p class='description'>
                                 The web page URL is uploaded for the conversion.<br>This mode is suitable for a public website.
                             </p>
                         </label><br>
                         <label for="save-as-pdf-pdfcrowd-conversion-mode-upload">
                             <input type="radio" id="save-as-pdf-pdfcrowd-conversion-mode-upload" name="save-as-pdf-pdfcrowd[conversion_mode]" value="upload" <?php checked( $conversion_mode, "upload" ); ?> />
-                            upload
+                            Upload
                             <p class='description'>
                                 The contents of the web page is uploaded for the conversion.<br>This mode is suitable for any website, password-protected or not publicly accessible website.
                             </p>
                         </label><br>
                         <label for="save-as-pdf-pdfcrowd-conversion-mode-development">
                             <input type="radio" id="save-as-pdf-pdfcrowd-conversion-mode-development" name="save-as-pdf-pdfcrowd[conversion_mode]" value="development" <?php checked( $conversion_mode, "development" ); ?> />
-                            development
+                            Development
                             <p class='description'>
                                 The contents of the web page and some local assets are uploaded for the conversion.<br>This mode is suitable for a website running on a localhost.<br>Local images may not appear in the converted document.
                             </p>
                         </label><br>
                         <label for="save-as-pdf-pdfcrowd-conversion-mode-content">
                             <input type="radio" id="save-as-pdf-pdfcrowd-conversion-mode-content" name="save-as-pdf-pdfcrowd[conversion_mode]" value="content" <?php checked( $conversion_mode, "content" ); ?> />
-                            content
+                            Content
                             <p class='description'>
                                 The current HTML contents shown in the browser is sent for conversion.<br>This mode is suitable for web forms and dynamic HTML contents.
                             </p>

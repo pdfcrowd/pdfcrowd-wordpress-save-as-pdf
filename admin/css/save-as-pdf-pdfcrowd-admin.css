@@ -20,6 +20,12 @@
     max-width: 500px !important;
 }
 
+#save-as-pdf-pdfcrowd-options pre {
+    font-size: 13px;
+    line-height: 1.2;
+    margin: 0.5em 0 0 1em;
+}
+
 
 .save-as-pdf-pdfcrowd-reset,
 .save-as-pdf-pdfcrowd-reset * {
@@ -36,10 +42,17 @@
 
 .save-as-pdf-pdfcrowd-button {
     display: inline-block;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .save-as-pdf-pdfcrowd-button img {
     vertical-align: middle;
+    display: inline-block;
 }
 
 

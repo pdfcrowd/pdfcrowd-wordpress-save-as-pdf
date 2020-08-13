@@ -226,7 +226,7 @@
                     </label>
                 </th>
                 <td>
-                    <textarea class="regular-text" id="save-as-pdf-pdfcrowd-header_html" name="save-as-pdf-pdfcrowd[header_html]" placeholder="" rows=5 cols=70><?php echo($header_html); ?></textarea>
+                    <textarea id="save-as-pdf-pdfcrowd-header_html" name="save-as-pdf-pdfcrowd[header_html]" placeholder="" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($header_html); ?></textarea>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>header_html</strong>"
@@ -283,7 +283,7 @@
                     </label>
                 </th>
                 <td>
-                    <textarea class="regular-text" id="save-as-pdf-pdfcrowd-footer_html" name="save-as-pdf-pdfcrowd[footer_html]" placeholder="" rows=5 cols=70><?php echo($footer_html); ?></textarea>
+                    <textarea id="save-as-pdf-pdfcrowd-footer_html" name="save-as-pdf-pdfcrowd[footer_html]" placeholder="" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($footer_html); ?></textarea>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>footer_html</strong>"
@@ -483,7 +483,7 @@
                     </label>
                 </th>
                 <td>
-                    <textarea class="regular-text" id="save-as-pdf-pdfcrowd-data_string" name="save-as-pdf-pdfcrowd[data_string]" placeholder="" rows=5 cols=70><?php echo($data_string); ?></textarea>
+                    <textarea id="save-as-pdf-pdfcrowd-data_string" name="save-as-pdf-pdfcrowd[data_string]" placeholder="" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($data_string); ?></textarea>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>data_string</strong>"
@@ -1090,7 +1090,7 @@
                     </label>
                 </th>
                 <td>
-                    <textarea class="regular-text" id="save-as-pdf-pdfcrowd-custom_javascript" name="save-as-pdf-pdfcrowd[custom_javascript]" placeholder="" rows=5 cols=70><?php echo($custom_javascript); ?></textarea>
+                    <textarea id="save-as-pdf-pdfcrowd-custom_javascript" name="save-as-pdf-pdfcrowd[custom_javascript]" placeholder="" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($custom_javascript); ?></textarea>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>custom_javascript</strong>"
@@ -1109,7 +1109,7 @@
                     </label>
                 </th>
                 <td>
-                    <textarea class="regular-text" id="save-as-pdf-pdfcrowd-on_load_javascript" name="save-as-pdf-pdfcrowd[on_load_javascript]" placeholder="" rows=5 cols=70><?php echo($on_load_javascript); ?></textarea>
+                    <textarea id="save-as-pdf-pdfcrowd-on_load_javascript" name="save-as-pdf-pdfcrowd[on_load_javascript]" placeholder="" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($on_load_javascript); ?></textarea>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>on_load_javascript</strong>"
