@@ -129,6 +129,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 1.9.1 =
+* Fixed issue with missing assets in the plugin setup.
+
 = 1.9.0 =
 * New "Conversion in Progress Indicator" option - a customizable visual indicator is shown when the conversion is in progress.
 * Fixed issue with the button appearence in MS Edge.

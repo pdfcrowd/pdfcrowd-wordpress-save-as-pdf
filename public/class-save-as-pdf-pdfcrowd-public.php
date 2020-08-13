@@ -168,7 +168,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'rendering_mode' => 'viewport',
         'smart_scaling_mode' => 'viewport-fit',
         'username' => '',
-        'version' => '190',
+        'version' => '191',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -333,14 +333,14 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
                 $options['conversion_mode'] = 'auto';
             }
         } else {
-            if($options['version'] == 190) {
+            if($options['version'] == 191) {
                 // error_log('the same version');
                 return $options;
             }
         }
 
         // error_log('save new options');
-        $options['version'] = 190;
+        $options['version'] = 191;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -806,7 +806,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/1.9.0 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/1.9.1 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
