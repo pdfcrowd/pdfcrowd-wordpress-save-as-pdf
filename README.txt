@@ -129,6 +129,10 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 1.10.0 =
+* New "Change on Mouse Over" option - highlights the button when the mouse pointer is hovering over it.
+* Fixed issue with external link to the plugin settings tab.
+
 = 1.9.1 =
 * Fixed issue with missing assets in the plugin setup.
 

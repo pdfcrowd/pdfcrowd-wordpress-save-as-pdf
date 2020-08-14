@@ -132,6 +132,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         'button_disposition' => 'attachment',
         'button_format' => 'image-text',
         'button_hidden' => '1',
+        'button_hover' => '1',
         'button_image' => 'pdf1.svg',
         'button_image_height' => '24',
         'button_image_url' => '',
@@ -168,7 +169,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'rendering_mode' => 'viewport',
         'smart_scaling_mode' => 'viewport-fit',
         'username' => '',
-        'version' => '191',
+        'version' => '1100',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -333,14 +334,14 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
                 $options['conversion_mode'] = 'auto';
             }
         } else {
-            if($options['version'] == 191) {
+            if($options['version'] == 1100) {
                 // error_log('the same version');
                 return $options;
             }
         }
 
         // error_log('save new options');
-        $options['version'] = 191;
+        $options['version'] = 1100;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -373,6 +374,20 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
                 $image_url = $options['button_image'] == 'custom_image' ? $options['button_image_url'] : self::$DEFAULT_IMAGES[$options['button_image']];
                 $image = "<img $image_style src=\"$image_url\"/>";
             }
+        }
+
+        $config = array();
+        $custom_indicator = false;
+        $config['indicator'] = isset($options['button_indicator'])
+                             ? $options['button_indicator']
+                             : '';
+        if($config['indicator'] == 'custom') {
+            $custom_indicator = true;
+            $config['indicator'] = isset($options['button_custom_indicator'])
+                                 ? $options['button_custom_indicator']
+                                 : '';
+        } else if($config['indicator']) {
+            $config['indicator'] = 'SaveAsPDFPdfcrowdIndicators.' . $config['indicator'];
         }
 
         $btn_style = self::rect_to_style('margin', $options);
@@ -408,6 +423,11 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
             if(strlen($options['button_radius'])) {
                 $btn_style .= "border-radius: {$options['button_radius']}px; ";
             }
+            if(isset($options['button_hover']) && $options['button_hover'] == 1) {
+                $btn_classes .= $custom_indicator
+                             ? ' save-as-pdf-pdfcrowd-has-indicator-func'
+                             : ' save-as-pdf-pdfcrowd-button-hoverable';
+            }
             $classes .= ' save-as-pdf-pdfcrowd-reset';
         }
 
@@ -428,22 +448,11 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
             $div_style = " style='{$div_style}'";
         }
 
-        $config = array();
         if(isset($options['button_disposition']) &&
            $options['button_disposition'] == 'inline_new_tab') {
             $config['target'] = '_blank';
         }
 
-        $config['indicator'] = isset($options['button_indicator'])
-                             ? $options['button_indicator']
-                             : '';
-        if($config['indicator'] == 'custom') {
-            $config['indicator'] = isset($options['button_custom_indicator'])
-                                 ? $options['button_custom_indicator']
-                                 : '';
-        } else if($config['indicator']) {
-            $config['indicator'] = 'SaveAsPDFPdfcrowdIndicators.' . $config['indicator'];
-        }
         $config = json_encode($config);
 
         $button = "<div class='$classes'{$div_style}><div class='{$btn_classes}'{$btn_style} onclick='window.SaveAsPDFPdfcrowd(\"$custom_options\", $enc_data, $config, this);' data-pdfcrowd-flags='{$pflags}'>";
@@ -806,7 +815,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/1.9.1 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/1.10.0 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 

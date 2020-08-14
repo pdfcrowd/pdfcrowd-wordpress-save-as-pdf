@@ -51,6 +51,7 @@
         $button_disposition = isset($options['button_disposition']) ? $options['button_disposition'] : '';
         $button_format = isset($options['button_format']) ? $options['button_format'] : '';
         $button_hidden = isset($options['button_hidden']) ? $options['button_hidden'] : '';
+        $button_hover = isset($options['button_hover']) ? $options['button_hover'] : '';
         $button_image = isset($options['button_image']) ? $options['button_image'] : '';
         $button_image_height = isset($options['button_image_height']) ? $options['button_image_height'] : '';
         $button_image_url = isset($options['button_image_url']) ? $options['button_image_url'] : '';

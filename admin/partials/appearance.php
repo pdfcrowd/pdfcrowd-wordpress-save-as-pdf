@@ -559,6 +559,24 @@
                         </p>
                     </td>
                 </tr>
+                <tr>
+                    <th>
+                        Change on Mouse Over
+                    </th>
+                    <td>
+                        <input type="checkbox" id="save-as-pdf-pdfcrowd-button-hover" name="save-as-pdf-pdfcrowd[button_hover]" value="1" <?php checked( $button_hover, 1 ); ?> />
+                        <p class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>button_hover</strong>"<br>Possible values: 0, 1
+                        </p>
+                        <p class='description'>
+                            The mouse over default style may be altered by CSS, e.g.
+                            <pre>
+.save-as-pdf-pdfcrowd-button-hover, .save-as-pdf-pdfcrowd-has-indicator-func:hover {
+    filter: invert(100%) !important;
+}</pre>
+                        </p>
+                    </td>
+                </tr>
             </tbody>
         </table>
 

@@ -16,7 +16,7 @@
  * Plugin Name:       Save as PDF by Pdfcrowd
  * Plugin URI:        https://pdfcrowd.com/save-as-pdf-image-wordpress-plugin/
  * Description:       Let your visitors save pages as PDF in a single click. Reliable, fast and highly customizable.
- * Version:           1.9.1
+ * Version:           1.10.0
  * Author:            Pdfcrowd <support@pdfcrowd.com>
  * Author URI:        https://pdfcrowd.com
  * License:           GPL-2.0+
@@ -30,7 +30,7 @@ if ( ! defined( 'WPINC' ) ) {
     die;
 }
 
-define( 'SAVE_AS_PDF_VERSION', '1.9.1' );
+define( 'SAVE_AS_PDF_VERSION', '1.10.0' );
 
 /**
  * The code that runs during plugin activation.

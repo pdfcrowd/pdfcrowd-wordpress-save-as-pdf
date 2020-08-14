@@ -22,6 +22,10 @@
     user-select: none;
 }
 
+.save-as-pdf-pdfcrowd-button-hover, .save-as-pdf-pdfcrowd-has-indicator-func:hover {
+    filter: grayscale(30%);
+}
+
 .save-as-pdf-pdfcrowd-button img {
     vertical-align: middle;
     display: inline-block;
