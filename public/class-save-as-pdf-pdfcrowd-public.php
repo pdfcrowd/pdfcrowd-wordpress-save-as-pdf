@@ -161,6 +161,8 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'button_text_color' => '#fff',
         'button_text_size' => '14',
         'button_text_weight' => 'bold',
+        'button_translation' => '',
+        'button_translation_domain' => '',
         'conversion_mode' => 'auto',
         'dev_mode' => '0',
         'no_margins' => '0',
@@ -362,6 +364,33 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         return $result;
     }
 
+    public static function get_button_text($options) {
+        if(!isset($options['button_translation']) ||
+           !$options['button_translation'] ||
+           !$options['button_text']) {
+            return $options['button_text'];
+        }
+        $text = $options['button_text'];
+        if($options['button_translation'] == 'domain') {
+            return translate($text,
+                             isset($options['button_translation_domain'])
+                             ? $options['button_translation_domain']
+                             : '');
+        }
+
+        // try to find the translation
+        global $l10n;
+        $domains = $l10n ? array_keys( $l10n ) : array();
+        foreach($domains as $domain) {
+            $result = translate($text, $domain);
+            if($result != $text) {
+                return $result;
+            }
+        }
+
+        return $text;
+    }
+
     public static function create_button_from_style(
         $options, $custom_options='', $content='', $pflags='', $enc_data='""') {
         $image = '';
@@ -460,13 +489,15 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $button_content = '';
         switch($options['button_format']) {
         case 'image-text':
-            $button_content = $image . '&nbsp;' . $options['button_text'];
+            $button_content = $image . '&nbsp;' .
+                            self::get_button_text($options);
             break;
         case 'text-image':
-            $button_content = $options['button_text'] . '&nbsp;' . $image;
+            $button_content = self::get_button_text($options)
+                            . '&nbsp;' . $image;
             break;
         case 'text':
-            $button_content = $options['button_text'];
+            $button_content = self::get_button_text($options);
             break;
         case 'image':
             $button_content = $image;

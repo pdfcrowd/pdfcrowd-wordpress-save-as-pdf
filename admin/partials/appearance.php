@@ -112,7 +112,6 @@
                                     </ul>
                                 </p>
                             </div>
-                        </div>
                         </label>
                         <br/>
                         <label for="save-as-pdf-pdfcrowd-custom-image-h">
@@ -177,6 +176,39 @@
                     <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-button-text" name="save-as-pdf-pdfcrowd[button_text]" value="<?php echo($button_text);?>" placeholder="<?php esc_attr_e('Your text', $this->plugin_name);?>" />
                     <p class='save-as-pdf-pdfcrowd-devi'>
                         Shortcode & function parameter: "<strong>button_text</strong>"
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    Button Text Translation
+                </th>
+                <td>
+                    <fieldset>
+                        <legend class="screen-reader-text">
+                            <span>Button Translation</span>
+                        </legend>
+                        <label for="save-as-pdf-pdfcrowd-button-translation-">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-button-translation-" name="save-as-pdf-pdfcrowd[button_translation]" value="" <?php checked($button_translation, ""); ?> />
+                            No translation
+                        </label><br>
+                        <label for="save-as-pdf-pdfcrowd-button-translation-auto">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-button-translation-auto" name="save-as-pdf-pdfcrowd[button_translation]" value="auto" <?php checked($button_translation, "auto"); ?> />
+                            Automatic - look up in your internationalization files
+                        </label><br>
+                        <label for="save-as-pdf-pdfcrowd-button-translation-domain">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-button-translation-domain" name="save-as-pdf-pdfcrowd[button_translation]" value="domain" <?php checked($button_translation, "domain"); ?> />
+                            Look up in the <a href="https://developer.wordpress.org/themes/functionality/internationalization/#text-domain">text domain</a>
+                            <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-button-translation-domain" name="save-as-pdf-pdfcrowd[button_translation_domain]" value="<?php echo($button_translation_domain);?>" placeholder="<?php esc_attr_e('default, the slug of your theme or plugin', $this->plugin_name);?>" />
+                            <div class="save-as-pdf-pdfcrowd-m-description" style="padding-left: 2em; max-height: none;">
+                                <p class='save-as-pdf-pdfcrowd-devi'>
+                                    Shortcode & function parameter: "<strong>button_translation_domain</strong>"<br>Possible values: "default", the slug of your theme or plugin
+                                </p>
+                            </div>
+                        </label><br>
+                    </fieldset>
+                    <p class='save-as-pdf-pdfcrowd-devi'>
+                        Shortcode & function parameter: "<strong>button_translation</strong>"<br>Possible values: "", "auto", "domain"
                     </p>
                 </td>
             </tr>

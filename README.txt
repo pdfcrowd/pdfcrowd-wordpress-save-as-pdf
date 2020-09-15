@@ -129,6 +129,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 1.11.0 =
+* New "Button Text Translation" option - allows to use translation for the button text.
+
 = 1.10.0 =
 * New "Change on Mouse Over" option - highlights the button when the mouse pointer is hovering over it.
 * Fixed issue with external link to the plugin settings tab.
