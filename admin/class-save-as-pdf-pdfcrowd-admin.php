@@ -193,7 +193,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 1110;
+        $valid['version'] = 2000;
 
         if(isset($input['wp_reset_settings']) &&
            $input['wp_reset_settings'] === 'reset') {
@@ -201,14 +201,38 @@ class Save_As_Pdf_Pdfcrowd_Admin {
             return Save_As_Pdf_Pdfcrowd_Public::get_options();
         }
 
+        if (isset($input['username'])) {
+            $valid['username'] = trim($input['username']);
+            if (!preg_match("/^[\w.@+-]*$/", $valid['username']))
+                add_settings_error(
+                    'username',
+                    'invalid_username',
+                    pdfcrowd_create_invalid_value_message(
+                        $valid['username'],
+                        'Username',
+                        'Allowed values are alphanumeric, _, @, +, . and - characters.'));
+        }
+        if (isset($input['api_key'])) {
+            $valid['api_key'] = trim($input['api_key']);
+            if (!empty($valid['api_key']) &&
+                !preg_match("/^[a-f0-9]{32}$/", $valid['api_key']))
+                add_settings_error(
+                    'api_key',
+                    'invalid_api_key',
+                    pdfcrowd_create_invalid_value_message(
+                        $valid['api_key'],
+                        'Username',
+                        'Must be 32-characters long and have only letters a-f and numbers.'));
+        }
+
         if (isset($input['page_size']) &&
             $input['page_size'] != '') {
             $page_size = $input['page_size'];
-            if (!preg_match("/(?i)^(A2|A3|A4|A5|A6|Letter)$/", $page_size))
+            if (!preg_match("/(?i)^(A0|A1|A2|A3|A4|A5|A6|Letter)$/", $page_size))
                 add_settings_error(
                 'page_size',
                 'empty_page_size',
-                pdfcrowd_create_invalid_value_message($page_size, 'Page Size', 'Allowed values are A2, A3, A4, A5, A6, Letter.'));
+                pdfcrowd_create_invalid_value_message($page_size, 'Page Size', 'Allowed values are A0, A1, A2, A3, A4, A5, A6, Letter.'));
             
         }
         $valid['page_size'] = isset($input['page_size']) ? $input['page_size'] : '';
@@ -216,7 +240,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if (isset($input['page_width']) &&
             $input['page_width'] != '') {
             $page_width = $input['page_width'];
-            if (!preg_match("/(?i)^[0-9]*(\.[0-9]+)?(pt|px|mm|cm|in)$/", $page_width))
+            if (!preg_match("/(?i)^0$|^[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $page_width))
                 add_settings_error(
                 'page_width',
                 'empty_page_width',
@@ -228,7 +252,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if (isset($input['page_height']) &&
             $input['page_height'] != '') {
             $page_height = $input['page_height'];
-            if (!preg_match("/(?i)^\-1$|^[0-9]*(\.[0-9]+)?(pt|px|mm|cm|in)$/", $page_height))
+            if (!preg_match("/(?i)^0$|^\-1$|^[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $page_height))
                 add_settings_error(
                 'page_height',
                 'empty_page_height',
@@ -252,7 +276,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if (isset($input['margin_top']) &&
             $input['margin_top'] != '') {
             $margin_top = $input['margin_top'];
-            if (!preg_match("/(?i)^[0-9]*(\.[0-9]+)?(pt|px|mm|cm|in)$/", $margin_top))
+            if (!preg_match("/(?i)^0$|^[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $margin_top))
                 add_settings_error(
                 'margin_top',
                 'empty_margin_top',
@@ -264,7 +288,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if (isset($input['margin_right']) &&
             $input['margin_right'] != '') {
             $margin_right = $input['margin_right'];
-            if (!preg_match("/(?i)^[0-9]*(\.[0-9]+)?(pt|px|mm|cm|in)$/", $margin_right))
+            if (!preg_match("/(?i)^0$|^[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $margin_right))
                 add_settings_error(
                 'margin_right',
                 'empty_margin_right',
@@ -276,7 +300,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if (isset($input['margin_bottom']) &&
             $input['margin_bottom'] != '') {
             $margin_bottom = $input['margin_bottom'];
-            if (!preg_match("/(?i)^[0-9]*(\.[0-9]+)?(pt|px|mm|cm|in)$/", $margin_bottom))
+            if (!preg_match("/(?i)^0$|^[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $margin_bottom))
                 add_settings_error(
                 'margin_bottom',
                 'empty_margin_bottom',
@@ -288,7 +312,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if (isset($input['margin_left']) &&
             $input['margin_left'] != '') {
             $margin_left = $input['margin_left'];
-            if (!preg_match("/(?i)^[0-9]*(\.[0-9]+)?(pt|px|mm|cm|in)$/", $margin_left))
+            if (!preg_match("/(?i)^0$|^[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $margin_left))
                 add_settings_error(
                 'margin_left',
                 'empty_margin_left',
@@ -326,7 +350,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if (isset($input['header_height']) &&
             $input['header_height'] != '') {
             $header_height = $input['header_height'];
-            if (!preg_match("/(?i)^[0-9]*(\.[0-9]+)?(pt|px|mm|cm|in)$/", $header_height))
+            if (!preg_match("/(?i)^0$|^[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $header_height))
                 add_settings_error(
                 'header_height',
                 'empty_header_height',
@@ -362,7 +386,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if (isset($input['footer_height']) &&
             $input['footer_height'] != '') {
             $footer_height = $input['footer_height'];
-            if (!preg_match("/(?i)^[0-9]*(\.[0-9]+)?(pt|px|mm|cm|in)$/", $footer_height))
+            if (!preg_match("/(?i)^0$|^[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $footer_height))
                 add_settings_error(
                 'footer_height',
                 'empty_footer_height',
@@ -371,38 +395,40 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         }
         $valid['footer_height'] = isset($input['footer_height']) ? $input['footer_height'] : '';
 
+        $valid['no_header_footer_horizontal_margins'] = (isset($input['no_header_footer_horizontal_margins']) && !empty($input['no_header_footer_horizontal_margins'])) ? 1: 0;
+
         if (isset($input['print_page_range']) &&
             $input['print_page_range'] != '') {
-            $pages = $input['print_page_range'];
-            if (!preg_match("/^(?:\s*(?:\d+|(?:\d*\s*\-\s*\d+)|(?:\d+\s*\-\s*\d*))\s*,\s*)*\s*(?:\d+|(?:\d*\s*\-\s*\d+)|(?:\d+\s*\-\s*\d*))\s*$/", $pages))
+            $print_page_range = $input['print_page_range'];
+            if (!preg_match("/^(?:\s*(?:\d+|(?:\d*\s*\-\s*\d+)|(?:\d+\s*\-\s*\d*))\s*,\s*)*\s*(?:\d+|(?:\d*\s*\-\s*\d+)|(?:\d+\s*\-\s*\d*))\s*$/", $print_page_range))
                 add_settings_error(
-                'pages',
-                'empty_pages',
-                pdfcrowd_create_invalid_value_message($pages, 'Print Page Range', 'A comma separated list of page numbers or ranges.'));
+                'print_page_range',
+                'empty_print_page_range',
+                pdfcrowd_create_invalid_value_message($print_page_range, 'Print Page Range', 'A comma separated list of page numbers or ranges.'));
             
         }
         $valid['print_page_range'] = isset($input['print_page_range']) ? $input['print_page_range'] : '';
 
         if (isset($input['exclude_header_on_pages']) &&
             $input['exclude_header_on_pages'] != '') {
-            $pages = $input['exclude_header_on_pages'];
-            if (!preg_match("/^(?:\s*\-?\d+\s*,)*\s*\-?\d+\s*$/", $pages))
+            $exclude_header_on_pages = $input['exclude_header_on_pages'];
+            if (!preg_match("/^(?:\s*\-?\d+\s*,)*\s*\-?\d+\s*$/", $exclude_header_on_pages))
                 add_settings_error(
-                'pages',
-                'empty_pages',
-                pdfcrowd_create_invalid_value_message($pages, 'Exclude Header On Pages', 'A comma separated list of page numbers.'));
+                'exclude_header_on_pages',
+                'empty_exclude_header_on_pages',
+                pdfcrowd_create_invalid_value_message($exclude_header_on_pages, 'Exclude Header On Pages', 'A comma separated list of page numbers.'));
             
         }
         $valid['exclude_header_on_pages'] = isset($input['exclude_header_on_pages']) ? $input['exclude_header_on_pages'] : '';
 
         if (isset($input['exclude_footer_on_pages']) &&
             $input['exclude_footer_on_pages'] != '') {
-            $pages = $input['exclude_footer_on_pages'];
-            if (!preg_match("/^(?:\s*\-?\d+\s*,)*\s*\-?\d+\s*$/", $pages))
+            $exclude_footer_on_pages = $input['exclude_footer_on_pages'];
+            if (!preg_match("/^(?:\s*\-?\d+\s*,)*\s*\-?\d+\s*$/", $exclude_footer_on_pages))
                 add_settings_error(
-                'pages',
-                'empty_pages',
-                pdfcrowd_create_invalid_value_message($pages, 'Exclude Footer On Pages', 'A comma separated list of page numbers.'));
+                'exclude_footer_on_pages',
+                'empty_exclude_footer_on_pages',
+                pdfcrowd_create_invalid_value_message($exclude_footer_on_pages, 'Exclude Footer On Pages', 'A comma separated list of page numbers.'));
             
         }
         $valid['exclude_footer_on_pages'] = isset($input['exclude_footer_on_pages']) ? $input['exclude_footer_on_pages'] : '';
@@ -412,7 +438,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if (isset($input['content_area_x']) &&
             $input['content_area_x'] != '') {
             $content_area_x = $input['content_area_x'];
-            if (!preg_match("/(?i)^\-?[0-9]*(\.[0-9]+)?(pt|px|mm|cm|in)$/", $content_area_x))
+            if (!preg_match("/(?i)^0$|^\-?[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $content_area_x))
                 add_settings_error(
                 'content_area_x',
                 'empty_content_area_x',
@@ -424,7 +450,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if (isset($input['content_area_y']) &&
             $input['content_area_y'] != '') {
             $content_area_y = $input['content_area_y'];
-            if (!preg_match("/(?i)^\-?[0-9]*(\.[0-9]+)?(pt|px|mm|cm|in)$/", $content_area_y))
+            if (!preg_match("/(?i)^0$|^\-?[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $content_area_y))
                 add_settings_error(
                 'content_area_y',
                 'empty_content_area_y',
@@ -436,7 +462,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if (isset($input['content_area_width']) &&
             $input['content_area_width'] != '') {
             $content_area_width = $input['content_area_width'];
-            if (!preg_match("/(?i)^[0-9]*(\.[0-9]+)?(pt|px|mm|cm|in)$/", $content_area_width))
+            if (!preg_match("/(?i)^0$|^[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $content_area_width))
                 add_settings_error(
                 'content_area_width',
                 'empty_content_area_width',
@@ -448,7 +474,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if (isset($input['content_area_height']) &&
             $input['content_area_height'] != '') {
             $content_area_height = $input['content_area_height'];
-            if (!preg_match("/(?i)^[0-9]*(\.[0-9]+)?(pt|px|mm|cm|in)$/", $content_area_height))
+            if (!preg_match("/(?i)^0$|^[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $content_area_height))
                 add_settings_error(
                 'content_area_height',
                 'empty_content_area_height',
@@ -456,6 +482,18 @@ class Save_As_Pdf_Pdfcrowd_Admin {
             
         }
         $valid['content_area_height'] = isset($input['content_area_height']) ? $input['content_area_height'] : '';
+
+        if (isset($input['css_page_rule_mode']) &&
+            $input['css_page_rule_mode'] != '') {
+            $css_page_rule_mode = $input['css_page_rule_mode'];
+            if (!preg_match("/(?i)^(default|mode1|mode2)$/", $css_page_rule_mode))
+                add_settings_error(
+                'css_page_rule_mode',
+                'empty_css_page_rule_mode',
+                pdfcrowd_create_invalid_value_message($css_page_rule_mode, 'Css Page Rule Mode', 'Allowed values are default, mode1, mode2.'));
+            
+        }
+        $valid['css_page_rule_mode'] = isset($input['css_page_rule_mode']) ? $input['css_page_rule_mode'] : '';
 
         $valid['data_string'] = isset($input['data_string']) ? $input['data_string'] : '';
 
@@ -591,6 +629,8 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         }
         $valid['page_background_color'] = isset($input['page_background_color']) ? $input['page_background_color'] : '';
 
+        $valid['use_print_media'] = (isset($input['use_print_media']) && !empty($input['use_print_media'])) ? 1: 0;
+
         $valid['no_background'] = (isset($input['no_background']) && !empty($input['no_background'])) ? 1: 0;
 
         $valid['disable_javascript'] = (isset($input['disable_javascript']) && !empty($input['disable_javascript'])) ? 1: 0;
@@ -599,17 +639,27 @@ class Save_As_Pdf_Pdfcrowd_Admin {
 
         $valid['disable_remote_fonts'] = (isset($input['disable_remote_fonts']) && !empty($input['disable_remote_fonts'])) ? 1: 0;
 
+        if (isset($input['load_iframes']) &&
+            $input['load_iframes'] != '') {
+            $load_iframes = $input['load_iframes'];
+            if (!preg_match("/(?i)^(all|same-origin|none)$/", $load_iframes))
+                add_settings_error(
+                'load_iframes',
+                'empty_load_iframes',
+                pdfcrowd_create_invalid_value_message($load_iframes, 'Load Iframes', 'Allowed values are all, same-origin, none.'));
+            
+        }
+        $valid['load_iframes'] = isset($input['load_iframes']) ? $input['load_iframes'] : '';
+
         $valid['block_ads'] = (isset($input['block_ads']) && !empty($input['block_ads'])) ? 1: 0;
 
         $valid['default_encoding'] = isset($input['default_encoding']) ? $input['default_encoding'] : '';
 
+        $valid['locale'] = isset($input['locale']) ? $input['locale'] : '';
+
         $valid['http_auth_user_name'] = isset($input['http_auth_user_name']) ? $input['http_auth_user_name'] : '';
 
         $valid['http_auth_password'] = isset($input['http_auth_password']) ? $input['http_auth_password'] : '';
-
-        $valid['use_print_media'] = (isset($input['use_print_media']) && !empty($input['use_print_media'])) ? 1: 0;
-
-        $valid['no_xpdfcrowd_header'] = (isset($input['no_xpdfcrowd_header']) && !empty($input['no_xpdfcrowd_header'])) ? 1: 0;
 
         $valid['cookies'] = isset($input['cookies']) ? $input['cookies'] : '';
 
@@ -618,6 +668,8 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         $valid['fail_on_main_url_error'] = (isset($input['fail_on_main_url_error']) && !empty($input['fail_on_main_url_error'])) ? 1: 0;
 
         $valid['fail_on_any_url_error'] = (isset($input['fail_on_any_url_error']) && !empty($input['fail_on_any_url_error'])) ? 1: 0;
+
+        $valid['no_xpdfcrowd_header'] = (isset($input['no_xpdfcrowd_header']) && !empty($input['no_xpdfcrowd_header'])) ? 1: 0;
 
         if (isset($input['custom_javascript']) &&
             $input['custom_javascript'] != '') {
@@ -669,36 +721,36 @@ class Save_As_Pdf_Pdfcrowd_Admin {
 
         if (isset($input['element_to_convert']) &&
             $input['element_to_convert'] != '') {
-            $selectors = $input['element_to_convert'];
-            if (!($selectors != null && $selectors !== ''))
+            $element_to_convert = $input['element_to_convert'];
+            if (!($element_to_convert != null && $element_to_convert !== ''))
                 add_settings_error(
-                'selectors',
-                'empty_selectors',
-                pdfcrowd_create_invalid_value_message($selectors, 'Element To Convert', 'The string must not be empty.'));
+                'element_to_convert',
+                'empty_element_to_convert',
+                pdfcrowd_create_invalid_value_message($element_to_convert, 'Element To Convert', 'The string must not be empty.'));
             
         }
         $valid['element_to_convert'] = isset($input['element_to_convert']) ? $input['element_to_convert'] : '';
 
         if (isset($input['element_to_convert_mode']) &&
             $input['element_to_convert_mode'] != '') {
-            $mode = $input['element_to_convert_mode'];
-            if (!preg_match("/(?i)^(cut-out|remove-siblings|hide-siblings)$/", $mode))
+            $element_to_convert_mode = $input['element_to_convert_mode'];
+            if (!preg_match("/(?i)^(cut-out|remove-siblings|hide-siblings)$/", $element_to_convert_mode))
                 add_settings_error(
-                'mode',
-                'empty_mode',
-                pdfcrowd_create_invalid_value_message($mode, 'Element To Convert Mode', 'Allowed values are cut-out, remove-siblings, hide-siblings.'));
+                'element_to_convert_mode',
+                'empty_element_to_convert_mode',
+                pdfcrowd_create_invalid_value_message($element_to_convert_mode, 'Element To Convert Mode', 'Allowed values are cut-out, remove-siblings, hide-siblings.'));
             
         }
         $valid['element_to_convert_mode'] = isset($input['element_to_convert_mode']) ? $input['element_to_convert_mode'] : '';
 
         if (isset($input['wait_for_element']) &&
             $input['wait_for_element'] != '') {
-            $selectors = $input['wait_for_element'];
-            if (!($selectors != null && $selectors !== ''))
+            $wait_for_element = $input['wait_for_element'];
+            if (!($wait_for_element != null && $wait_for_element !== ''))
                 add_settings_error(
-                'selectors',
-                'empty_selectors',
-                pdfcrowd_create_invalid_value_message($selectors, 'Wait For Element', 'The string must not be empty.'));
+                'wait_for_element',
+                'empty_wait_for_element',
+                pdfcrowd_create_invalid_value_message($wait_for_element, 'Wait For Element', 'The string must not be empty.'));
             
         }
         $valid['wait_for_element'] = isset($input['wait_for_element']) ? $input['wait_for_element'] : '';
@@ -742,11 +794,11 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if (isset($input['smart_scaling_mode']) &&
             $input['smart_scaling_mode'] != '') {
             $smart_scaling_mode = $input['smart_scaling_mode'];
-            if (!preg_match("/(?i)^(default|disabled|viewport-fit|content-fit|single-page-fit)$/", $smart_scaling_mode))
+            if (!preg_match("/(?i)^(default|disabled|viewport-fit|content-fit|single-page-fit|mode1)$/", $smart_scaling_mode))
                 add_settings_error(
                 'smart_scaling_mode',
                 'empty_smart_scaling_mode',
-                pdfcrowd_create_invalid_value_message($smart_scaling_mode, 'Smart Scaling Mode', 'Allowed values are default, disabled, viewport-fit, content-fit, single-page-fit.'));
+                pdfcrowd_create_invalid_value_message($smart_scaling_mode, 'Smart Scaling Mode', 'Allowed values are default, disabled, viewport-fit, content-fit, single-page-fit, mode1.'));
             
         }
         $valid['smart_scaling_mode'] = isset($input['smart_scaling_mode']) ? $input['smart_scaling_mode'] : '';
@@ -948,6 +1000,42 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         $valid['client_certificate'] = isset($input['client_certificate']) ? $input['client_certificate'] : '';
 
         $valid['client_certificate_password'] = isset($input['client_certificate_password']) ? $input['client_certificate_password'] : '';
+
+        if (isset($input['layout_dpi']) &&
+            $input['layout_dpi'] != '') {
+            $layout_dpi = $input['layout_dpi'];
+            if (!(intval($layout_dpi) >= 72 && intval($layout_dpi) <= 600))
+                add_settings_error(
+                'layout_dpi',
+                'empty_layout_dpi',
+                pdfcrowd_create_invalid_value_message($layout_dpi, 'Layout Dpi', 'The value must be in the range of 72-600.'));
+            
+        }
+        $valid['layout_dpi'] = isset($input['layout_dpi']) ? $input['layout_dpi'] : '';
+
+        $valid['contents_matrix'] = isset($input['contents_matrix']) ? $input['contents_matrix'] : '';
+
+        $valid['header_matrix'] = isset($input['header_matrix']) ? $input['header_matrix'] : '';
+
+        $valid['footer_matrix'] = isset($input['footer_matrix']) ? $input['footer_matrix'] : '';
+
+        $valid['disable_page_height_optimization'] = (isset($input['disable_page_height_optimization']) && !empty($input['disable_page_height_optimization'])) ? 1: 0;
+
+        $valid['main_document_css_annotation'] = (isset($input['main_document_css_annotation']) && !empty($input['main_document_css_annotation'])) ? 1: 0;
+
+        $valid['header_footer_css_annotation'] = (isset($input['header_footer_css_annotation']) && !empty($input['header_footer_css_annotation'])) ? 1: 0;
+
+        if (isset($input['converter_version']) &&
+            $input['converter_version'] != '') {
+            $converter_version = $input['converter_version'];
+            if (!preg_match("/(?i)^(latest|20.10|18.10)$/", $converter_version))
+                add_settings_error(
+                'converter_version',
+                'empty_converter_version',
+                pdfcrowd_create_invalid_value_message($converter_version, 'Converter Version', 'Allowed values are latest, 20.10, 18.10.'));
+            
+        }
+        $valid['converter_version'] = isset($input['converter_version']) ? $input['converter_version'] : '';
 
         $valid['use_http'] = (isset($input['use_http']) && !empty($input['use_http'])) ? 1: 0;
 

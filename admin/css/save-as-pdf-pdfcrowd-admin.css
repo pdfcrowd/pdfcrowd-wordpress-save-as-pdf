@@ -1,5 +1,9 @@
 .save-as-pdf-pdfcrowd-m-description {
-    max-height: 86px;
+    margin-top: .3em;
+}
+
+#save-as-pdf-pdfcrowd-page-setup .save-as-pdf-pdfcrowd-m-description {
+    max-height: 8em;
     overflow-y: auto;
 }
 
@@ -32,8 +36,12 @@
     all: initial;
 }
 
-.save-as-pdf-pdfcrowd-button-wrap {
+div.save-as-pdf-pdfcrowd-button-wrap {
     display: block;
+}
+
+span.save-as-pdf-pdfcrowd-button-wrap {
+    display: inline;
 }
 
 .save-as-pdf-pdfcrowd-button-wrap * {
@@ -97,4 +105,13 @@
 
 #save-as-pdf-pdfcrowd-support-notes {
     margin-top: 2em;
+}
+
+#save-as-pdf-pdfcrowd-lic-invalid {
+    background: #fefebb;
+    padding: 0.5em;
+}
+
+#save-as-pdf-pdfcrowd-lic-invalid .attention {
+    font-size: 110%;
 }

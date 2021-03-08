@@ -20,11 +20,11 @@
     </h2>
 
     <p>
-        Enter your Pdfcrowd username and API key if you have a <a href='https://pdfcrowd.com/user/account/api2-license/?ref=wordpress'>Pdfcrowd API license</a>. Leave the fields empty to run in a demo mode.
+        Enter your Pdfcrowd username and API key if you have a <a href='https://pdfcrowd.com/user/account/api2-license/?ref=wordpress'>Pdfcrowd API license</a>. Leave the fields empty to run in the DEMO mode.
     </p>
     <?php if($license_status['status'] != 'active') : ?>
     <p>
-        Pdfcrowd API license can be purchased by the following <a href='https://pdfcrowd.com/pricing/api/?api=v2&ref=wordpress'>link</a>.
+        Pdfcrowd API license can be purchased by the following <a href='https://pdfcrowd.com/pricing/api/?api=v2&ref=wordpress'>link</a>. The valid license removes the demo watermark and the footer ad from the output PDF.
     </p>
     <?php endif; ?>
 
@@ -37,7 +37,7 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-username" name="save-as-pdf-pdfcrowd[username]" value="<?php echo($username);?>" placeholder="<?php esc_attr_e('Your Pdfcrowd username', $this->plugin_name);?>" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-username" name="save-as-pdf-pdfcrowd[username]" value="<?php echo($username);?>" placeholder="<?php esc_attr_e('Your Pdfcrowd username, the default is demo', $this->plugin_name);?>" />
                 </td>
             </tr>
             <tr>
@@ -74,8 +74,17 @@
         <?php endif; ?>
     </table>
     <?php elseif($license_status['status'] == 'invalid') : ?>
-    <p>
-        Your Pdfcrowd username or <a href='https://pdfcrowd.com/user/account/api2-license/?ref=wordpress'>API key</a> is invalid.
-    </p>
+    <div id='save-as-pdf-pdfcrowd-lic-invalid'>
+        <p class='attention'>
+            Error: Your username or API key is invalid!
+        </p>
+        <p>
+            Check them by the following buttons:<br>
+            <a class='button-secondary' href='https://pdfcrowd.com/user/account/?ref=wordpress' target='blank'>Get username</a>
+            <a class='button-secondary' href='https://pdfcrowd.com/user/account/api2-license/?ref=wordpress' target='blank'>Get API key</a>
+            <br>
+            The username and API key are case sensitive.
+        </p>
+    </div>
     <?php endif; ?>
 </div>

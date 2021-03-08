@@ -4,8 +4,12 @@
     all: initial;
 }
 
-.save-as-pdf-pdfcrowd-button-wrap {
+div.save-as-pdf-pdfcrowd-button-wrap {
     display: block;
+}
+
+span.save-as-pdf-pdfcrowd-button-wrap {
+    display: inline;
 }
 
 .save-as-pdf-pdfcrowd-button-wrap * {

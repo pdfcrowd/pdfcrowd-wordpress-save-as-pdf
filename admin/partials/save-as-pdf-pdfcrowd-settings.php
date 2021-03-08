@@ -29,7 +29,9 @@
                 </th>
                 <td>
                     <select name="save-as-pdf-pdfcrowd[page_size]">
-                    <option value="" <?php selected($page_size, '');?>>-- default (A4) --</option>
+                    <option value="" <?php selected($page_size, '');?>>-- default --</option>
+                    <option value="A0" <?php selected($page_size, 'A0');?>>A0</option>
+                    <option value="A1" <?php selected($page_size, 'A1');?>>A1</option>
                     <option value="A2" <?php selected($page_size, 'A2');?>>A2</option>
                     <option value="A3" <?php selected($page_size, 'A3');?>>A3</option>
                     <option value="A4" <?php selected($page_size, 'A4');?>>A4</option>
@@ -39,7 +41,7 @@
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>page_size</strong>"<br>Possible values: "A2", "A3", "A4", "A5", "A6", "Letter"
+                            Shortcode & function parameter: "<strong>page_size</strong>"<br>Possible values: "A0", "A1", "A2", "A3", "A4", "A5", "A6", "Letter"
                         </div>
                         <div class='description'>
                             Set the output page size.
@@ -93,6 +95,7 @@
                 </th>
                 <td>
                     <select name="save-as-pdf-pdfcrowd[orientation]">
+                    <option value="" <?php selected($orientation, '');?>>-- default --</option>
                     <option value="landscape" <?php selected($orientation, 'landscape');?>>landscape</option>
                     <option value="portrait" <?php selected($orientation, 'portrait');?>>portrait</option>
                     </select>
@@ -316,6 +319,27 @@
             </tr>
             <tr>
                 <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-no_header_footer_horizontal_margins">
+                        No Header Footer Horizontal Margins
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-no_header_footer_horizontal_margins" name="save-as-pdf-pdfcrowd[no_header_footer_horizontal_margins]" value="1" <?php checked( $no_header_footer_horizontal_margins, 1 ); ?> />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>no_header_footer_horizontal_margins</strong>"<br>Possible values: 0, 1
+                        </div>
+                        <div class='description'>
+                            Disable horizontal page margins for header and footer. The header/footer contents width will be equal to the physical page width.
+                              <br>
+ It is applicable for converter version >= 20.10.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-print_page_range">
                         Print Page Range
                     </label>
@@ -461,6 +485,31 @@
                         <div class='description'>
                             Set the height of the content area. It should be at least 1 inch.
                             Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-css_page_rule_mode">
+                        Css Page Rule Mode
+                    </label>
+                </th>
+                <td>
+                    <select name="save-as-pdf-pdfcrowd[css_page_rule_mode]">
+                    <option value="default" <?php selected($css_page_rule_mode, 'default');?>>The Pdfcrowd API page settings are preferred.</option>
+                    <option value="mode1" <?php selected($css_page_rule_mode, 'mode1');?>>The converter version 18.10 mode.</option>
+                    <option value="mode2" <?php selected($css_page_rule_mode, 'mode2');?>>CSS @page rule is preferred.</option>
+                    </select>
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>css_page_rule_mode</strong>"<br>Possible values: <ul><li>"default" - The Pdfcrowd API page settings are preferred.</li><li>"mode1" - The converter version 18.10 mode.</li><li>"mode2" - CSS @page rule is preferred.</li></ul>
+                        </div>
+                        <div class='description'>
+                            Specifies behavior in presence of CSS @page rules. It may affect the page size, margins and orientation.
+                              <br>
+ It is applicable for converter version >= 20.10.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -639,7 +688,7 @@
     <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
 
     <p class='clear save-as-pdf-pdfcrowd-note'>PDF file used as a watermark or a background must exist on the file system. To apply WordPress uploaded media use a relative path. Example:
-        <br/>
+        <br>
         <strong>../wp-content/uploads/2019/06/watermark.pdf</strong>
     </p>
 
@@ -829,6 +878,24 @@
         <tbody>
             <tr>
                 <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-use_print_media">
+                        Use Print Media
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-use_print_media" name="save-as-pdf-pdfcrowd[use_print_media]" value="1" <?php checked( $use_print_media, 1 ); ?> />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>use_print_media</strong>"<br>Possible values: 0, 1
+                        </div>
+                        <div class='description'>
+                            Use the print version of the page if available (@media print).
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-no_background">
                         No Background
                     </label>
@@ -901,6 +968,31 @@
             </tr>
             <tr>
                 <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-load_iframes">
+                        Load Iframes
+                    </label>
+                </th>
+                <td>
+                    <select name="save-as-pdf-pdfcrowd[load_iframes]">
+                    <option value="all" <?php selected($load_iframes, 'all');?>>All iframes are loaded.</option>
+                    <option value="same-origin" <?php selected($load_iframes, 'same-origin');?>>Only iframes with the same origin as the main page are loaded.</option>
+                    <option value="none" <?php selected($load_iframes, 'none');?>>Iframe loading is disabled.</option>
+                    </select>
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>load_iframes</strong>"<br>Possible values: <ul><li>"all" - All iframes are loaded.</li><li>"same-origin" - Only iframes with the same origin as the main page are loaded.</li><li>"none" - Iframe loading is disabled.</li></ul>
+                        </div>
+                        <div class='description'>
+                            Specifies how iframes are handled.
+                              <br>
+ It is applicable for converter version >= 20.10.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-block_ads">
                         Block Ads
                     </label>
@@ -931,6 +1023,28 @@
                         </div>
                         <div class='description'>
                             Set the default HTML content text encoding.
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-locale">
+                        Locale
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-locale" name="save-as-pdf-pdfcrowd[locale]" value="<?php echo($locale); ?>" placeholder="en-US" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>locale</strong>"
+                        </div>
+                        <div class='description'>
+                            Set the locale for the conversion. This may affect the output format of dates, times and numbers.
+                              <br>
+ It is applicable for converter version >= 20.10.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
                             
                         </div>
                     </div>
@@ -970,42 +1084,6 @@
                         <div class='description'>
                             Set the HTTP authentication password.
                             
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-use_print_media">
-                        Use Print Media
-                    </label>
-                </th>
-                <td>
-                    <input type="checkbox" id="save-as-pdf-pdfcrowd-use_print_media" name="save-as-pdf-pdfcrowd[use_print_media]" value="1" <?php checked( $use_print_media, 1 ); ?> />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>use_print_media</strong>"<br>Possible values: 0, 1
-                        </div>
-                        <div class='description'>
-                            Use the print version of the page if available (@media print).
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-no_xpdfcrowd_header">
-                        No Xpdfcrowd Header
-                    </label>
-                </th>
-                <td>
-                    <input type="checkbox" id="save-as-pdf-pdfcrowd-no_xpdfcrowd_header" name="save-as-pdf-pdfcrowd[no_xpdfcrowd_header]" value="1" <?php checked( $no_xpdfcrowd_header, 1 ); ?> />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>no_xpdfcrowd_header</strong>"<br>Possible values: 0, 1
-                        </div>
-                        <div class='description'>
-                            Do not send the X-Pdfcrowd HTTP header in Pdfcrowd HTTP requests.
                         </div>
                     </div>
                 </td>
@@ -1079,6 +1157,24 @@
                         </div>
                         <div class='description'>
                             Abort the conversion if any of the sub-request HTTP status code is greater than or equal to 400 or if some sub-requests are still pending. See details in a debug log.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-no_xpdfcrowd_header">
+                        No Xpdfcrowd Header
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-no_xpdfcrowd_header" name="save-as-pdf-pdfcrowd[no_xpdfcrowd_header]" value="1" <?php checked( $no_xpdfcrowd_header, 1 ); ?> />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>no_xpdfcrowd_header</strong>"<br>Possible values: 0, 1
+                        </div>
+                        <div class='description'>
+                            Do not send the X-Pdfcrowd HTTP header in Pdfcrowd HTTP requests.
                         </div>
                     </div>
                 </td>
@@ -1187,11 +1283,11 @@
                     <select name="save-as-pdf-pdfcrowd[element_to_convert_mode]">
                     <option value="cut-out" <?php selected($element_to_convert_mode, 'cut-out');?>>The element and its children are cut out of the document.</option>
                     <option value="remove-siblings" <?php selected($element_to_convert_mode, 'remove-siblings');?>>All element's siblings are removed.</option>
-                    <option value="hide-siblings" <?php selected($element_to_convert_mode, 'hide-siblings');?>>All element's sibilings are hidden.</option>
+                    <option value="hide-siblings" <?php selected($element_to_convert_mode, 'hide-siblings');?>>All element's siblings are hidden.</option>
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>element_to_convert_mode</strong>"<br>Possible values: <ul><li>"cut-out" - The element and its children are cut out of the document.</li><li>"remove-siblings" - All element's siblings are removed.</li><li>"hide-siblings" - All element's sibilings are hidden.</li></ul>
+                            Shortcode & function parameter: "<strong>element_to_convert_mode</strong>"<br>Possible values: <ul><li>"cut-out" - The element and its children are cut out of the document.</li><li>"remove-siblings" - All element's siblings are removed.</li><li>"hide-siblings" - All element's siblings are hidden.</li></ul>
                         </div>
                         <div class='description'>
                             Specify the DOM handling when only a part of the document is converted.
@@ -1299,10 +1395,11 @@
                     <option value="viewport-fit" <?php selected($smart_scaling_mode, 'viewport-fit');?>>The viewport width fits the print area width.</option>
                     <option value="content-fit" <?php selected($smart_scaling_mode, 'content-fit');?>>The HTML contents width fits the print area width.</option>
                     <option value="single-page-fit" <?php selected($smart_scaling_mode, 'single-page-fit');?>>The whole HTML contents fits the print area of a single page.</option>
+                    <option value="mode1" <?php selected($smart_scaling_mode, 'mode1');?>>Scaling mode 1 is applied.</option>
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>smart_scaling_mode</strong>"<br>Possible values: <ul><li>"default" - The mode based on the standard browser print functionality.</li><li>"disabled" - No smart scaling is performed.</li><li>"viewport-fit" - The viewport width fits the print area width.</li><li>"content-fit" - The HTML contents width fits the print area width.</li><li>"single-page-fit" - The whole HTML contents fits the print area of a single page.</li></ul>
+                            Shortcode & function parameter: "<strong>smart_scaling_mode</strong>"<br>Possible values: <ul><li>"default" - The mode based on the standard browser print functionality.</li><li>"disabled" - No smart scaling is performed.</li><li>"viewport-fit" - The viewport width fits the print area width.</li><li>"content-fit" - The HTML contents width fits the print area width.</li><li>"single-page-fit" - The whole HTML contents fits the print area of a single page.</li><li>"mode1" - Scaling mode 1 is applied.</li></ul>
                         </div>
                         <div class='description'>
                             Specifies the scaling mode used for fitting the HTML contents to the print area.
@@ -1638,7 +1735,7 @@
                 </th>
                 <td>
                     <select name="save-as-pdf-pdfcrowd[page_layout]">
-                    <option value="" <?php selected($page_layout, '');?>>-- unset --</option>
+                    <option value="" <?php selected($page_layout, '');?>>-- default --</option>
                     <option value="single-page" <?php selected($page_layout, 'single-page');?>>Display one page at a time.</option>
                     <option value="one-column" <?php selected($page_layout, 'one-column');?>>Display the pages in one column.</option>
                     <option value="two-column-left" <?php selected($page_layout, 'two-column-left');?>>Display the pages in two columns, with odd-numbered pages on the left.</option>
@@ -1662,7 +1759,7 @@
                 </th>
                 <td>
                     <select name="save-as-pdf-pdfcrowd[page_mode]">
-                    <option value="" <?php selected($page_mode, '');?>>-- unset --</option>
+                    <option value="" <?php selected($page_mode, '');?>>-- default --</option>
                     <option value="full-screen" <?php selected($page_mode, 'full-screen');?>>Full-screen mode.</option>
                     <option value="thumbnails" <?php selected($page_mode, 'thumbnails');?>>Thumbnail images are visible.</option>
                     <option value="outlines" <?php selected($page_mode, 'outlines');?>>Document outline is visible.</option>
@@ -1685,7 +1782,7 @@
                 </th>
                 <td>
                     <select name="save-as-pdf-pdfcrowd[initial_zoom_type]">
-                    <option value="" <?php selected($initial_zoom_type, '');?>>-- unset --</option>
+                    <option value="" <?php selected($initial_zoom_type, '');?>>-- default --</option>
                     <option value="fit-width" <?php selected($initial_zoom_type, 'fit-width');?>>The page content is magnified just enough to fit the entire width of the page within the window.</option>
                     <option value="fit-height" <?php selected($initial_zoom_type, 'fit-height');?>>The page content is magnified just enough to fit the entire height of the page within the window.</option>
                     <option value="fit-page" <?php selected($initial_zoom_type, 'fit-page');?>>The page content is magnified just enough to fit the entire page within the window both horizontally and vertically.</option>
@@ -1989,6 +2086,185 @@
         </tbody>
     </table>
 </div>
+<div id="save-as-pdf-pdfcrowd-expert" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
+
+    <h2>Expert</h2>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
+
+
+    <table class="form-table">
+        <tbody>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-layout_dpi">
+                        Layout Dpi
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-layout_dpi" name="save-as-pdf-pdfcrowd[layout_dpi]" value="<?php echo($layout_dpi); ?>" placeholder="300" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>layout_dpi</strong>"
+                        </div>
+                        <div class='description'>
+                            Set the internal DPI resolution used for positioning of PDF contents. It can help in situations when there are small inaccuracies in the PDF. It is recommended to use values that are a multiple of 72, such as 288 or 360.
+                              <br>
+ It is applicable for converter version >= 20.10.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-contents_matrix">
+                        Contents Matrix
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-contents_matrix" name="save-as-pdf-pdfcrowd[contents_matrix]" value="<?php echo($contents_matrix); ?>" placeholder="1,0,0,0,1,0" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>contents_matrix</strong>"
+                        </div>
+                        <div class='description'>
+                            A 2D transformation matrix applied to the main contents on each page. The origin [0,0] is located at the top-left corner of the contents. The resolution is 72 dpi.
+                              <br>
+ It is applicable for converter version >= 20.10.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-header_matrix">
+                        Header Matrix
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-header_matrix" name="save-as-pdf-pdfcrowd[header_matrix]" value="<?php echo($header_matrix); ?>" placeholder="1,0,0,0,1,0" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>header_matrix</strong>"
+                        </div>
+                        <div class='description'>
+                            A 2D transformation matrix applied to the page header contents. The origin [0,0] is located at the top-left corner of the header. The resolution is 72 dpi.
+                              <br>
+ It is applicable for converter version >= 20.10.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-footer_matrix">
+                        Footer Matrix
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-footer_matrix" name="save-as-pdf-pdfcrowd[footer_matrix]" value="<?php echo($footer_matrix); ?>" placeholder="1,0,0,0,1,0" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>footer_matrix</strong>"
+                        </div>
+                        <div class='description'>
+                            A 2D transformation matrix applied to the page footer contents. The origin [0,0] is located at the top-left corner of the footer. The resolution is 72 dpi.
+                              <br>
+ It is applicable for converter version >= 20.10.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-disable_page_height_optimization">
+                        Disable Page Height Optimization
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-disable_page_height_optimization" name="save-as-pdf-pdfcrowd[disable_page_height_optimization]" value="1" <?php checked( $disable_page_height_optimization, 1 ); ?> />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>disable_page_height_optimization</strong>"<br>Possible values: 0, 1
+                        </div>
+                        <div class='description'>
+                            Disable automatic height adjustment that compensates for pixel to point rounding errors.
+                              <br>
+ It is applicable for converter version >= 20.10.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-main_document_css_annotation">
+                        Main Document Css Annotation
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-main_document_css_annotation" name="save-as-pdf-pdfcrowd[main_document_css_annotation]" value="1" <?php checked( $main_document_css_annotation, 1 ); ?> />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>main_document_css_annotation</strong>"<br>Possible values: 0, 1
+                        </div>
+                        <div class='description'>
+                            Add special CSS classes to the main document's body element. This allows applying custom styling based on these classes:
+  <ul>
+    <li><span class='field-value'>pdfcrowd-page-X</span> - where X is the current page number</li>
+    <li><span class='field-value'>pdfcrowd-page-odd</span> - odd page</li>
+    <li><span class='field-value'>pdfcrowd-page-even</span> - even page</li>
+  </ul>
+
+                              <br>
+ It is applicable for converter version >= 20.10.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                        </div>
+                            <div class='save-as-pdf-pdfcrowd-note'>
+                                <strong>Warning:</strong> If your custom styling affects the contents area size (e.g. by using different margins, padding, border width), the resulting PDF may contain duplicit contents or some contents may be missing.
+                            </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-header_footer_css_annotation">
+                        Header Footer Css Annotation
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-header_footer_css_annotation" name="save-as-pdf-pdfcrowd[header_footer_css_annotation]" value="1" <?php checked( $header_footer_css_annotation, 1 ); ?> />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>header_footer_css_annotation</strong>"<br>Possible values: 0, 1
+                        </div>
+                        <div class='description'>
+                            Add special CSS classes to the header/footer's body element. This allows applying custom styling based on these classes:
+  <ul>
+    <li><span class='field-value'>pdfcrowd-page-X</span> - where X is the current page number</li>
+    <li><span class='field-value'>pdfcrowd-page-count-X</span> - where X is the total page count</li>
+    <li><span class='field-value'>pdfcrowd-page-first</span> - the first page</li>
+    <li><span class='field-value'>pdfcrowd-page-last</span> - the last page</li>
+    <li><span class='field-value'>pdfcrowd-page-odd</span> - odd page</li>
+    <li><span class='field-value'>pdfcrowd-page-even</span> - even page</li>
+  </ul>
+
+                              <br>
+ It is applicable for converter version >= 20.10.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 <div id="save-as-pdf-pdfcrowd-api-client-options" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>API Client Options</h2>
@@ -1997,6 +2273,28 @@
 
     <table class="form-table">
         <tbody>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-converter_version">
+                        Converter Version
+                    </label>
+                </th>
+                <td>
+                    <select name="save-as-pdf-pdfcrowd[converter_version]">
+                    <option value="latest" <?php selected($converter_version, 'latest');?>>The latest converter version.</option>
+                    <option value="20.10" <?php selected($converter_version, '20.10');?>>Version 20.10.</option>
+                    <option value="18.10" <?php selected($converter_version, '18.10');?>>Version 18.10.</option>
+                    </select>
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>converter_version</strong>"<br>Possible values: <ul><li>"latest" - The latest converter version.</li><li>"20.10" - Version 20.10.</li><li>"18.10" - Version 18.10.</li></ul>
+                        </div>
+                        <div class='description'>
+                            Set the converter version. Different versions may produce different output. Choose which one provides the best output for your case.
+                        </div>
+                    </div>
+                </td>
+            </tr>
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-use_http">

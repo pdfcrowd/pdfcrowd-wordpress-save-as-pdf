@@ -95,7 +95,7 @@
                         <label for="save-as-pdf-pdfcrowd-custom-image">
                             <input type="radio" id="save-as-pdf-pdfcrowd-custom-image" name="save-as-pdf-pdfcrowd[button_image]" value="custom_image" <?php checked( $button_image, "custom_image" ); ?> />
                             Custom image URL
-                            <input id="save-as-pdf-pdfcrowd-custom-image-url" type="text" class="clear regular-text" name="save-as-pdf-pdfcrowd[button_image_url]" value="<?php echo($button_image_url);?>">
+                            <input id="save-as-pdf-pdfcrowd-custom-image-url" type="text" class="clear regular-text save-as-pdf-pdfcrowd-text-for-radio" name="save-as-pdf-pdfcrowd[button_image_url]" value="<?php echo($button_image_url);?>">
                             <p class='save-as-pdf-pdfcrowd-devi'>
                                 Shortcode & function parameter: "<strong>button_image_url</strong>"
                             </p>
@@ -118,7 +118,7 @@
                             <input type="radio" id="save-as-pdf-pdfcrowd-custom-image-h" name="save-as-pdf-pdfcrowd[button_image]" value="custom_html" <?php checked( $button_image, "custom_html" ); ?> />
                             Custom HTML
                             <br/>
-                            <textarea id="save-as-pdf-pdfcrowd-custom-html" name="save-as-pdf-pdfcrowd[button_custom_html]" rows=5 style='margin-left: 2em' cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($button_custom_html); ?></textarea>
+                            <textarea class="save-as-pdf-pdfcrowd-text-for-radio" id="save-as-pdf-pdfcrowd-custom-html" name="save-as-pdf-pdfcrowd[button_custom_html]" rows=5 style='margin-left: 2em' cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($button_custom_html); ?></textarea>
                             <p class='save-as-pdf-pdfcrowd-devi'>
                                 Shortcode & function parameter: "<strong>button_custom_html</strong>"
                             </p>
@@ -199,8 +199,8 @@
                         <label for="save-as-pdf-pdfcrowd-button-translation-domain">
                             <input type="radio" id="save-as-pdf-pdfcrowd-button-translation-domain" name="save-as-pdf-pdfcrowd[button_translation]" value="domain" <?php checked($button_translation, "domain"); ?> />
                             Look up in the <a href="https://developer.wordpress.org/themes/functionality/internationalization/#text-domain">text domain</a>
-                            <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-button-translation-domain" name="save-as-pdf-pdfcrowd[button_translation_domain]" value="<?php echo($button_translation_domain);?>" placeholder="<?php esc_attr_e('default, the slug of your theme or plugin', $this->plugin_name);?>" />
-                            <div class="save-as-pdf-pdfcrowd-m-description" style="padding-left: 2em; max-height: none;">
+                            <input type="text" class="regular-text save-as-pdf-pdfcrowd-text-for-radio" id="save-as-pdf-pdfcrowd-button-translation-domain" name="save-as-pdf-pdfcrowd[button_translation_domain]" value="<?php echo($button_translation_domain);?>" placeholder="<?php esc_attr_e('default, the slug of your theme or plugin', $this->plugin_name);?>" />
+                            <div class="save-as-pdf-pdfcrowd-m-description" style="padding-left: 2em">
                                 <p class='save-as-pdf-pdfcrowd-devi'>
                                     Shortcode & function parameter: "<strong>button_translation_domain</strong>"<br>Possible values: "default", the slug of your theme or plugin
                                 </p>
@@ -277,7 +277,7 @@
                             <input type="radio" id="save-as-pdf-pdfcrowd-html" name="save-as-pdf-pdfcrowd[button_indicator]" value="html" <?php checked( $button_indicator, "html" ); ?> />
                             Custom HTML
                             <br>
-                            <textarea id="save-as-pdf-pdfcrowd-custom-indicator-html" name="save-as-pdf-pdfcrowd[button_indicator_html]" rows=3 style='margin-left: 2em' cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo(esc_html($button_indicator_html));?></textarea>
+                            <textarea class="save-as-pdf-pdfcrowd-text-for-radio" id="save-as-pdf-pdfcrowd-custom-indicator-html" name="save-as-pdf-pdfcrowd[button_indicator_html]" rows=3 style='margin-left: 2em' cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo(esc_html($button_indicator_html));?></textarea>
                             <div style="padding-left: 2em;">
                                 <p class='save-as-pdf-pdfcrowd-devi'>
                                     Shortcode & function parameter: "<strong>button_indicator_html</strong>"<br>Possible values: your HTML code
@@ -288,13 +288,13 @@
                         <label for="save-as-pdf-pdfcrowd-custom">
                             <input type="radio" id="save-as-pdf-pdfcrowd-custom" name="save-as-pdf-pdfcrowd[button_indicator]" value="custom" <?php checked( $button_indicator, "custom" ); ?> />
                             Custom function
-                            <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-button-custom-indicator" name="save-as-pdf-pdfcrowd[button_custom_indicator]" value="<?php echo($button_custom_indicator);?>" placeholder="<?php esc_attr_e('Your JavaScript function name', $this->plugin_name);?>" />
-                            <div class="save-as-pdf-pdfcrowd-m-description" style="padding-left: 2em; max-height: none;">
+                            <input type="text" class="regular-text save-as-pdf-pdfcrowd-text-for-radio" id="save-as-pdf-pdfcrowd-button-custom-indicator" name="save-as-pdf-pdfcrowd[button_custom_indicator]" value="<?php echo($button_custom_indicator);?>" placeholder="<?php esc_attr_e('Your JavaScript function name', $this->plugin_name);?>" />
+                            <div class="save-as-pdf-pdfcrowd-m-description" style="padding-left: 2em">
                                 <p class='save-as-pdf-pdfcrowd-devi'>
                                     Shortcode & function parameter: "<strong>button_custom_indicator</strong>"<br>Possible values: your JavaScript function name
                                 </p>
                                 <p class="description">
-                                    The name of the function that will handle the appearance of the conversion indicator. The function must accept 2 parameters:
+                                    The name of the function which will handle the appearance of the conversion indicator. The function must accept 2 parameters:
                                 </p>
                                 <ul>
                                     <li>isStart - true if the conversion has started, false if it has finished</li>
@@ -344,9 +344,10 @@
                     <option value="above" <?php selected($button_position, 'above');?>>above content</option>
                     <option value="left" <?php selected($button_position, 'left');?>>left to content</option>
                     <option value="right" <?php selected($button_position, 'right');?>>right to content</option>
+                    <option value="inline" <?php selected($button_position, 'inline');?>>inline</option>
                     </select>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>button_position</strong>"<br>Possible values: "below", "above", "left", "right"
+                        Shortcode & function parameter: "<strong>button_position</strong>"<br>Possible values: "below", "above", "left", "right", "inline"
                     </p>
                 </td>
             </tr>

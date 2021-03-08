@@ -1,0 +1,55 @@
+.save-as-pdf-pdfcrowd-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 40vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.save-as-pdf-pdfcrowd-modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 1em;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+.save-as-pdf-pdfcrowd-modal-content button {
+    margin: 1px 0.2em;
+}
+
+.save-as-pdf-pdfcrowd-modal-content p {
+    margin: 0;
+}
+
+.save-as-pdf-pdfcrowd-modal-close {
+  color: #aaaaaa;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.save-as-pdf-pdfcrowd-modal-header {
+  text-align: right;
+}
+
+.save-as-pdf-pdfcrowd-modal-footer {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.save-as-pdf-pdfcrowd-modal-close:hover,
+.save-as-pdf-pdfcrowd-modal-close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#save-as-pdf-pdfcrowd-email-input {
+    width: 100%;
+}

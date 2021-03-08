@@ -29,6 +29,7 @@
 <a href="#save-as-pdf-pdfcrowd-pdf-format" class="nav-tab">PDF Format</a>
 <a href="#save-as-pdf-pdfcrowd-viewer-preferences" class="nav-tab">Viewer Preferences</a>
 <a href="#save-as-pdf-pdfcrowd-miscellaneous" class="nav-tab">Miscellaneous</a>
+<a href="#save-as-pdf-pdfcrowd-expert" class="nav-tab">Expert</a>
 <a href="#save-as-pdf-pdfcrowd-api-client-options" class="nav-tab">API Client Options</a>
   </h2>
 
@@ -82,7 +83,14 @@
         $button_translation = isset($options['button_translation']) ? $options['button_translation'] : '';
         $button_translation_domain = isset($options['button_translation_domain']) ? $options['button_translation_domain'] : '';
         $conversion_mode = isset($options['conversion_mode']) ? $options['conversion_mode'] : '';
+        $custom_data = isset($options['custom_data']) ? $options['custom_data'] : '';
         $dev_mode = isset($options['dev_mode']) ? $options['dev_mode'] : '';
+        $email_custom_dialogs = isset($options['email_custom_dialogs']) ? $options['email_custom_dialogs'] : '';
+        $email_dialogs = isset($options['email_dialogs']) ? $options['email_dialogs'] : '';
+        $email_message = isset($options['email_message']) ? $options['email_message'] : '';
+        $email_recipient = isset($options['email_recipient']) ? $options['email_recipient'] : '';
+        $email_recipient_address = isset($options['email_recipient_address']) ? $options['email_recipient_address'] : '';
+        $email_subject = isset($options['email_subject']) ? $options['email_subject'] : '';
         $no_margins = isset($options['no_margins']) ? $options['no_margins'] : '';
         $output_format = isset($options['output_format']) ? $options['output_format'] : '';
         $pdf_created_callback = isset($options['pdf_created_callback']) ? $options['pdf_created_callback'] : '';
@@ -107,6 +115,7 @@
         $footer_url = isset($options['footer_url']) ? $options['footer_url'] : '';
         $footer_html = isset($options['footer_html']) ? $options['footer_html'] : '';
         $footer_height = isset($options['footer_height']) ? $options['footer_height'] : '';
+        $no_header_footer_horizontal_margins = isset($options['no_header_footer_horizontal_margins']) ? $options['no_header_footer_horizontal_margins'] : '';
         $print_page_range = isset($options['print_page_range']) ? $options['print_page_range'] : '';
         $exclude_header_on_pages = isset($options['exclude_header_on_pages']) ? $options['exclude_header_on_pages'] : '';
         $exclude_footer_on_pages = isset($options['exclude_footer_on_pages']) ? $options['exclude_footer_on_pages'] : '';
@@ -115,6 +124,7 @@
         $content_area_y = isset($options['content_area_y']) ? $options['content_area_y'] : '';
         $content_area_width = isset($options['content_area_width']) ? $options['content_area_width'] : '';
         $content_area_height = isset($options['content_area_height']) ? $options['content_area_height'] : '';
+        $css_page_rule_mode = isset($options['css_page_rule_mode']) ? $options['css_page_rule_mode'] : 'default';
         $data_string = isset($options['data_string']) ? $options['data_string'] : '';
         $data_file = isset($options['data_file']) ? $options['data_file'] : '';
         $data_format = isset($options['data_format']) ? $options['data_format'] : 'auto';
@@ -132,20 +142,22 @@
         $multipage_background = isset($options['multipage_background']) ? $options['multipage_background'] : '';
         $multipage_background_url = isset($options['multipage_background_url']) ? $options['multipage_background_url'] : '';
         $page_background_color = isset($options['page_background_color']) ? $options['page_background_color'] : '';
+        $use_print_media = isset($options['use_print_media']) ? $options['use_print_media'] : '';
         $no_background = isset($options['no_background']) ? $options['no_background'] : '';
         $disable_javascript = isset($options['disable_javascript']) ? $options['disable_javascript'] : '';
         $disable_image_loading = isset($options['disable_image_loading']) ? $options['disable_image_loading'] : '';
         $disable_remote_fonts = isset($options['disable_remote_fonts']) ? $options['disable_remote_fonts'] : '';
+        $load_iframes = isset($options['load_iframes']) ? $options['load_iframes'] : 'all';
         $block_ads = isset($options['block_ads']) ? $options['block_ads'] : '';
         $default_encoding = isset($options['default_encoding']) ? $options['default_encoding'] : '';
+        $locale = isset($options['locale']) ? $options['locale'] : '';
         $http_auth_user_name = isset($options['http_auth_user_name']) ? $options['http_auth_user_name'] : '';
         $http_auth_password = isset($options['http_auth_password']) ? $options['http_auth_password'] : '';
-        $use_print_media = isset($options['use_print_media']) ? $options['use_print_media'] : '';
-        $no_xpdfcrowd_header = isset($options['no_xpdfcrowd_header']) ? $options['no_xpdfcrowd_header'] : '';
         $cookies = isset($options['cookies']) ? $options['cookies'] : '';
         $verify_ssl_certificates = isset($options['verify_ssl_certificates']) ? $options['verify_ssl_certificates'] : '';
         $fail_on_main_url_error = isset($options['fail_on_main_url_error']) ? $options['fail_on_main_url_error'] : '';
         $fail_on_any_url_error = isset($options['fail_on_any_url_error']) ? $options['fail_on_any_url_error'] : '';
+        $no_xpdfcrowd_header = isset($options['no_xpdfcrowd_header']) ? $options['no_xpdfcrowd_header'] : '';
         $custom_javascript = isset($options['custom_javascript']) ? $options['custom_javascript'] : '';
         $on_load_javascript = isset($options['on_load_javascript']) ? $options['on_load_javascript'] : '';
         $custom_http_header = isset($options['custom_http_header']) ? $options['custom_http_header'] : '';
@@ -187,6 +199,14 @@
         $https_proxy = isset($options['https_proxy']) ? $options['https_proxy'] : '';
         $client_certificate = isset($options['client_certificate']) ? $options['client_certificate'] : '';
         $client_certificate_password = isset($options['client_certificate_password']) ? $options['client_certificate_password'] : '';
+        $layout_dpi = isset($options['layout_dpi']) ? $options['layout_dpi'] : '';
+        $contents_matrix = isset($options['contents_matrix']) ? $options['contents_matrix'] : '';
+        $header_matrix = isset($options['header_matrix']) ? $options['header_matrix'] : '';
+        $footer_matrix = isset($options['footer_matrix']) ? $options['footer_matrix'] : '';
+        $disable_page_height_optimization = isset($options['disable_page_height_optimization']) ? $options['disable_page_height_optimization'] : '';
+        $main_document_css_annotation = isset($options['main_document_css_annotation']) ? $options['main_document_css_annotation'] : '';
+        $header_footer_css_annotation = isset($options['header_footer_css_annotation']) ? $options['header_footer_css_annotation'] : '';
+        $converter_version = isset($options['converter_version']) ? $options['converter_version'] : '20.10';
         $use_http = isset($options['use_http']) ? $options['use_http'] : '';
         $retry_count = isset($options['retry_count']) ? $options['retry_count'] : '';
 
@@ -206,7 +226,7 @@
 
         <script>
          function save_as_pdf_pdfcrowd_reset_settings() {
-             var r = confirm("<?php esc_attr_e('Save as PDF settings will be lost. Please confirm.'); ?>");
+             var r = confirm("<?php esc_attr_e('Save as PDF settings will be lost. Please confirm.', $this->plugin_name); ?>");
              if(r !== true) {
                  return false;
              }
@@ -219,10 +239,10 @@
         <input type="hidden" name="save-as-pdf-pdfcrowd[wp_reset_settings]" value="" />
 
         <p class="submit">
-            <input id="pdfcrowd-save" name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save All Changes'); ?>" />
-            <input name="Reset" type="submit" class="button-primary" value="<?php esc_attr_e('Reset to default values'); ?>"
+            <input id="pdfcrowd-save" name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save All Changes', $this->plugin_name); ?>" />
+            <input name="Reset" type="submit" class="button-primary" value="<?php esc_attr_e('Reset to default values', $this->plugin_name); ?>"
                    onclick="return save_as_pdf_pdfcrowd_reset_settings();" />
-            <input type="reset" class="button-secondary" value="<?php esc_attr_e('Cancel'); ?>">
+            <input type="reset" class="button-secondary" value="<?php esc_attr_e('Cancel', $this->plugin_name); ?>">
         </p>
 
     </form>
