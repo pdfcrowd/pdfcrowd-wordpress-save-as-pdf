@@ -129,6 +129,12 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.1.0 =
+* New "User-Created Drawings" option for the "Content" conversion mode. It helps to capture user-created canvas drawings.
+* New "Output Name" option - specifies the output filename directly in the plugin settings. It can still be rewritten with a shortcode or PHP function.
+* Fixed UTF-8 output filename for MS Edge.
+* Fixed error in "Send PDF via e-mail"
+
 = 2.0.0 =
 * New "Converter Version" option - specifies the version of the internal Pdfcrowd converter. Details about Pdfcrowd [versioning](https://pdfcrowd.com/doc/api/versioning/).
 * New "Load Iframes" option - specifies how iframes are handled.
