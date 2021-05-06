@@ -129,6 +129,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.1.1 =
+* New configuration wizard.
+
 = 2.1.0 =
 * New "User-Created Drawings" option for the "Content" conversion mode. It helps to capture user-created canvas drawings.
 * New "Output Name" option - specifies the output filename directly in the plugin settings. It can still be rewritten with a shortcode or PHP function.

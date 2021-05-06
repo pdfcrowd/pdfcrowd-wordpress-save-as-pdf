@@ -99,17 +99,23 @@ span.save-as-pdf-pdfcrowd-button-wrap {
 }
 
 .save-as-pdf-pdfcrowd-lic-stat {
-    padding-left: 6px;
+    padding-left: 2px;
     font-weight: bold;
 }
 
 #save-as-pdf-pdfcrowd-support-notes {
-    margin-top: 2em;
+    text-align: right;
+    line-height: 2.3;
+}
+
+#save-as-pdf-pdfcrowd-support-notes > div {
+    min-height: 22px;
 }
 
 #save-as-pdf-pdfcrowd-lic-invalid {
     background: #fefebb;
     padding: 0.5em;
+    text-align: center;
 }
 
 #save-as-pdf-pdfcrowd-lic-invalid .attention {
@@ -118,4 +124,59 @@ span.save-as-pdf-pdfcrowd-button-wrap {
 
 .save-as-pdf-pdfcrowd-sub-option {
     margin-left: 2em;
+}
+
+.save-as-pdf-pdfcrowd-wizard-step {
+    display: none;
+    margin-bottom: 1em;
+    max-width: 70%;
+}
+
+.save-as-pdf-pdfcrowd-wizard-step {
+    margin: 0 1em 1em 0;
+}
+
+.save-as-pdf-pdfcrowd-wizard-step-title {
+    font-weight: 600;
+}
+
+.save-as-pdf-pdfcrowd-wizard-step-span {
+    margin-left: .5em;
+}
+
+#save-as-pdf-pdfcrowd-wizard-cm-conf {
+    display: none;
+    margin-left: 2em;
+}
+
+#save-as-pdf-pdfcrowd-wizard-run img {
+    margin: 0 0 1px 0;
+    padding: 1px;
+    line-height: 1;
+    vertical-align: middle;
+    height: 22px;
+    min-height: 22px;
+}
+
+#save-as-pdf-pdfcrowd-lic-reg-ac a {
+    vertical-align: baseline;
+}
+
+#save-as-pdf-pdfcrowd-lic-cred {
+    margin-left: 2em;
+}
+
+#save-as-pdf-pdfcrowd-lic-stats {
+    text-align: center;
+    margin-top: .5em;
+    background-color: #ffffff;
+    padding: .5em;
+}
+
+#save-as-pdf-pdfcrowd-lic-stats p {
+    margin: 0;
+}
+
+#save-as-pdf-pdfcrowd-license-settings input::placeholder {
+    font-size: 80%;
 }

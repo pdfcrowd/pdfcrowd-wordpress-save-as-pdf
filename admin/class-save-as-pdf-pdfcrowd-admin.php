@@ -113,14 +113,16 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     * @since    1.0.0
     */
     public static function get_license_status($options) {
-        if((!isset($options['username']) || empty($options['username'])) &&
-           (!isset($options['api_key']) || empty($options['api_key']))) {
-            return self::build_status('active', 'Demo');
+        if($options['license_type'] === 'demo' ||
+           ((!isset($options['username']) || empty($options['username'])) &&
+            (!isset($options['api_key']) || empty($options['api_key'])))) {
+            return null;
         }
 
         if(empty($options['username'])) {
             $options['username'] = 'null';
-        } else if($options['username'] === 'demo') {
+        } else if($options['username'] === 'demo' ||
+                  $options['username'] === 'wp_demo') {
             return array('status' => 'invalid');
         }
 
@@ -149,13 +151,9 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         }
 
         $data = json_decode(wp_remote_retrieve_body($response));
-        $status = self::build_status($data->status,
-                                     $data->product->name,
-                                     $data->credits);
-        if($status['credits'] <= 0) {
-            $status['credits'] = "<span class='attention'>{$status['credits']}</span>";
-        }
-        return $status;
+        return self::build_status($data->status,
+                                  $data->product->name,
+                                  $data->credits);
     }
 
     /**
@@ -193,17 +191,37 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 2100;
+        $valid['version'] = 2110;
 
-        if(isset($input['wp_reset_settings']) &&
-           $input['wp_reset_settings'] === 'reset') {
-            delete_option('save-as-pdf-pdfcrowd');
-            return Save_As_Pdf_Pdfcrowd_Public::get_options();
+        if(isset($input['wp_submit_action'])) {
+            if($input['wp_submit_action'] === 'reset') {
+                delete_option('save-as-pdf-pdfcrowd');
+                $valid = Save_As_Pdf_Pdfcrowd_Public::get_options();
+                return $valid;
+            }
+
+            if($input['wp_submit_action'] === 'wizard') {
+                set_transient('save_as_pdf_pdfcrowd_show_wizard', true, 30);
+            }
         }
 
-        if (isset($input['username'])) {
+        if(isset($input['username'])) {
             $valid['username'] = trim($input['username']);
-            if (!preg_match("/^[\w.@+-]*$/", $valid['username']))
+        }
+
+        if(isset($input['api_key'])) {
+            $valid['api_key'] = trim($input['api_key']);
+        }
+
+        if(isset($input['license_type']) &&
+           $input['license_type'] === 'regular') {
+            // check syntax of credentials
+            if(!isset($valid['username']) || empty($valid['username'])) {
+                add_settings_error(
+                    'username',
+                    'empty_username',
+                    'Username can not be empty.');
+            } else if(!preg_match("/^[\w.@+-]*$/", $valid['username'])) {
                 add_settings_error(
                     'username',
                     'invalid_username',
@@ -211,18 +229,21 @@ class Save_As_Pdf_Pdfcrowd_Admin {
                         $valid['username'],
                         'Username',
                         'Allowed values are alphanumeric, _, @, +, . and - characters.'));
-        }
-        if (isset($input['api_key'])) {
-            $valid['api_key'] = trim($input['api_key']);
-            if (!empty($valid['api_key']) &&
-                !preg_match("/^[a-f0-9]{32}$/", $valid['api_key']))
+            }
+            if(!isset($valid['api_key']) || empty($valid['api_key'])) {
+                add_settings_error(
+                    'api_key',
+                    'empty_api_key',
+                    'API key can not be empty.');
+            } else if(!preg_match("/^[a-f0-9]{32}$/", $valid['api_key'])) {
                 add_settings_error(
                     'api_key',
                     'invalid_api_key',
                     pdfcrowd_create_invalid_value_message(
                         $valid['api_key'],
-                        'Username',
+                        'API key',
                         'Must be 32-characters long and have only letters a-f and numbers.'));
+            }
         }
 
         if (isset($input['page_size']) &&
@@ -1041,6 +1062,17 @@ class Save_As_Pdf_Pdfcrowd_Admin {
 
         $valid['retry_count'] = isset($input['retry_count']) ? $input['retry_count'] : '';
 
+
+        // check for empty fields
+        if(isset($valid['button_indicator']) &&
+           $valid['button_indicator'] == 'custom' &&
+           (!isset($valid['button_custom_indicator']) ||
+            empty($valid['button_custom_indicator']))) {
+            add_settings_error(
+                'button_custom_indicator',
+                'empty_button_custom_indicator',
+                    'Missing custom indicator function name.');
+        }
 
         return $valid;
     }
