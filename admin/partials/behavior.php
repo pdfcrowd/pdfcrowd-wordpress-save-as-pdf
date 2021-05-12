@@ -91,6 +91,32 @@
             </tr>
             <tr class="save-as-pdf-pdfcrowd-email-details">
                 <th>
+                    <label for="save-as-pdf-pdfcrowd-email-cc">
+                        Email Cc
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-email-cc" name="save-as-pdf-pdfcrowd[email_cc]" value="<?php echo($email_cc);?>" placeholder="<?php esc_attr_e('Carbon copy address', $this->plugin_name);?>" autocomplete="off" />
+                    <p class='save-as-pdf-pdfcrowd-devi'>
+                        Shortcode & function parameter: "<strong>email_cc</strong>"
+                    </p>
+                </td>
+            </tr>
+            <tr class="save-as-pdf-pdfcrowd-email-details">
+                <th>
+                    <label for="save-as-pdf-pdfcrowd-email-bcc">
+                        Email Bcc
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-email-bcc" name="save-as-pdf-pdfcrowd[email_bcc]" value="<?php echo($email_bcc);?>" placeholder="<?php esc_attr_e('Blind carbon copy address', $this->plugin_name);?>" autocomplete="off" />
+                    <p class='save-as-pdf-pdfcrowd-devi'>
+                        Shortcode & function parameter: "<strong>email_bcc</strong>"
+                    </p>
+                </td>
+            </tr>
+            <tr class="save-as-pdf-pdfcrowd-email-details">
+                <th>
                     <label for="save-as-pdf-pdfcrowd-email-subject">
                         Email Subject
                     </label>
@@ -170,6 +196,11 @@
                             Predefined modal dialogs
                         </label>
                         <br>
+                        <label for="save-as-pdf-pdfcrowd-edlg-none">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-edlg-none" name="save-as-pdf-pdfcrowd[email_dialogs]" value="none" <?php checked( $email_dialogs, "none" ); ?> autocomplete="off" />
+                            No dialogs
+                        </label>
+                        <br>
                         <label for="save-as-pdf-pdfcrowd-edlg-custom">
                             <input type="radio" id="save-as-pdf-pdfcrowd-edlg-custom" name="save-as-pdf-pdfcrowd[email_dialogs]" value="custom" <?php checked( $email_dialogs, "custom" ); ?> autocomplete="off" />
                             Custom dialogs
@@ -193,8 +224,9 @@
     success: function() {
         jQuery('#my-ok-dialog').show();
     },
-    fail: function() {
-        alert('email failed');
+    fail: function(error) {
+        alert('email failed ' +
+              (error ? error.code + ' ' + error.message : ''));
     },
     prompt: function(converter_callback) {
         var email = prompt('enter email');
@@ -208,7 +240,7 @@
                         <br>
                     </fieldset>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>email_dialogs</strong>"<br>Possible values: "system", "modal", "custom"
+                        Shortcode & function parameter: "<strong>email_dialogs</strong>"<br>Possible values: "system", "modal", "none", "custom"
                     </p>
                 </td>
             </tr>

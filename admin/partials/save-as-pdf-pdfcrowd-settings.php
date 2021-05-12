@@ -205,6 +205,155 @@
             </tr>
             <tr>
                 <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-print_page_range">
+                        Print Page Range
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-print_page_range" name="save-as-pdf-pdfcrowd[print_page_range]" value="<?php echo($print_page_range); ?>" placeholder="" autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>print_page_range</strong>"
+                        </div>
+                        <div class='description'>
+                            Set the page range to print.
+                            A comma separated list of page numbers or ranges.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-page_numbering_offset">
+                        Page Numbering Offset
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_numbering_offset" name="save-as-pdf-pdfcrowd[page_numbering_offset]" value="<?php echo($page_numbering_offset); ?>" placeholder="0" autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>page_numbering_offset</strong>"
+                        </div>
+                        <div class='description'>
+                            Set an offset between physical and logical page numbers.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-content_area_x">
+                        Content Area X
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area_x" name="save-as-pdf-pdfcrowd[content_area_x]" value="<?php echo($content_area_x); ?>" placeholder="0in" autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>content_area_x</strong>"
+                        </div>
+                        <div class='description'>
+                            Set the top left X coordinate of the content area. It is relative to the top left X coordinate of the print area.
+                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt). It may contain a negative value.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-content_area_y">
+                        Content Area Y
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area_y" name="save-as-pdf-pdfcrowd[content_area_y]" value="<?php echo($content_area_y); ?>" placeholder="0in" autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>content_area_y</strong>"
+                        </div>
+                        <div class='description'>
+                            Set the top left Y coordinate of the content area. It is relative to the top left Y coordinate of the print area.
+                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt). It may contain a negative value.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-content_area_width">
+                        Content Area Width
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area_width" name="save-as-pdf-pdfcrowd[content_area_width]" value="<?php echo($content_area_width); ?>" placeholder="The width of the print area." autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>content_area_width</strong>"
+                        </div>
+                        <div class='description'>
+                            Set the width of the content area. It should be at least 1 inch.
+                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-content_area_height">
+                        Content Area Height
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area_height" name="save-as-pdf-pdfcrowd[content_area_height]" value="<?php echo($content_area_height); ?>" placeholder="The height of the print area." autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>content_area_height</strong>"
+                        </div>
+                        <div class='description'>
+                            Set the height of the content area. It should be at least 1 inch.
+                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-css_page_rule_mode">
+                        Css Page Rule Mode
+                    </label>
+                </th>
+                <td>
+                    <select name="save-as-pdf-pdfcrowd[css_page_rule_mode]" id="save-as-pdf-pdfcrowd-css_page_rule_mode">
+                    <option value="default" <?php selected($css_page_rule_mode, 'default');?>>The Pdfcrowd API page settings are preferred.</option>
+                    <option value="mode1" <?php selected($css_page_rule_mode, 'mode1');?>>The converter version 18.10 mode.</option>
+                    <option value="mode2" <?php selected($css_page_rule_mode, 'mode2');?>>CSS @page rule is preferred.</option>
+                    </select>
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>css_page_rule_mode</strong>"<br>Possible values: <ul><li>"default" - The Pdfcrowd API page settings are preferred.</li><li>"mode1" - The converter version 18.10 mode.</li><li>"mode2" - CSS @page rule is preferred.</li></ul>
+                        </div>
+                        <div class='description'>
+                            Specifies behavior in presence of CSS @page rules. It may affect the page size, margins and orientation.
+                              <br>
+ It is applicable for converter version >= 20.10.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="save-as-pdf-pdfcrowd-header-and-footer" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
+
+    <h2>Header & Footer</h2>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
+
+
+    <table class="form-table">
+        <tbody>
+            <tr>
+                <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-header_url">
                         Header Url
                     </label>
@@ -340,25 +489,6 @@
             </tr>
             <tr>
                 <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-print_page_range">
-                        Print Page Range
-                    </label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-print_page_range" name="save-as-pdf-pdfcrowd[print_page_range]" value="<?php echo($print_page_range); ?>" placeholder="" autocomplete="off" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>print_page_range</strong>"
-                        </div>
-                        <div class='description'>
-                            Set the page range to print.
-                            A comma separated list of page numbers or ranges.
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-exclude_header_on_pages">
                         Exclude Header On Pages
                     </label>
@@ -397,284 +527,18 @@
             </tr>
             <tr>
                 <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-page_numbering_offset">
-                        Page Numbering Offset
+                    <label for="save-as-pdf-pdfcrowd-header_footer_scale_factor">
+                        Header Footer Scale Factor
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-page_numbering_offset" name="save-as-pdf-pdfcrowd[page_numbering_offset]" value="<?php echo($page_numbering_offset); ?>" placeholder="0" autocomplete="off" />
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-header_footer_scale_factor" name="save-as-pdf-pdfcrowd[header_footer_scale_factor]" value="<?php echo($header_footer_scale_factor); ?>" placeholder="100" autocomplete="off" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>page_numbering_offset</strong>"
+                            Shortcode & function parameter: "<strong>header_footer_scale_factor</strong>"
                         </div>
                         <div class='description'>
-                            Set an offset between physical and logical page numbers.
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-content_area_x">
-                        Content Area X
-                    </label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area_x" name="save-as-pdf-pdfcrowd[content_area_x]" value="<?php echo($content_area_x); ?>" placeholder="0in" autocomplete="off" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>content_area_x</strong>"
-                        </div>
-                        <div class='description'>
-                            Set the top left X coordinate of the content area. It is relative to the top left X coordinate of the print area.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt). It may contain a negative value.
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-content_area_y">
-                        Content Area Y
-                    </label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area_y" name="save-as-pdf-pdfcrowd[content_area_y]" value="<?php echo($content_area_y); ?>" placeholder="0in" autocomplete="off" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>content_area_y</strong>"
-                        </div>
-                        <div class='description'>
-                            Set the top left Y coordinate of the content area. It is relative to the top left Y coordinate of the print area.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt). It may contain a negative value.
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-content_area_width">
-                        Content Area Width
-                    </label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area_width" name="save-as-pdf-pdfcrowd[content_area_width]" value="<?php echo($content_area_width); ?>" placeholder="The width of the print area." autocomplete="off" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>content_area_width</strong>"
-                        </div>
-                        <div class='description'>
-                            Set the width of the content area. It should be at least 1 inch.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-content_area_height">
-                        Content Area Height
-                    </label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-content_area_height" name="save-as-pdf-pdfcrowd[content_area_height]" value="<?php echo($content_area_height); ?>" placeholder="The height of the print area." autocomplete="off" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>content_area_height</strong>"
-                        </div>
-                        <div class='description'>
-                            Set the height of the content area. It should be at least 1 inch.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-css_page_rule_mode">
-                        Css Page Rule Mode
-                    </label>
-                </th>
-                <td>
-                    <select name="save-as-pdf-pdfcrowd[css_page_rule_mode]" id="save-as-pdf-pdfcrowd-css_page_rule_mode">
-                    <option value="default" <?php selected($css_page_rule_mode, 'default');?>>The Pdfcrowd API page settings are preferred.</option>
-                    <option value="mode1" <?php selected($css_page_rule_mode, 'mode1');?>>The converter version 18.10 mode.</option>
-                    <option value="mode2" <?php selected($css_page_rule_mode, 'mode2');?>>CSS @page rule is preferred.</option>
-                    </select>
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>css_page_rule_mode</strong>"<br>Possible values: <ul><li>"default" - The Pdfcrowd API page settings are preferred.</li><li>"mode1" - The converter version 18.10 mode.</li><li>"mode2" - CSS @page rule is preferred.</li></ul>
-                        </div>
-                        <div class='description'>
-                            Specifies behavior in presence of CSS @page rules. It may affect the page size, margins and orientation.
-                              <br>
- It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<div id="save-as-pdf-pdfcrowd-data" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
-
-    <h2>Data</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
-
-
-    <table class="form-table">
-        <tbody>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-data_string">
-                        Data String
-                    </label>
-                </th>
-                <td>
-                    <textarea id="save-as-pdf-pdfcrowd-data_string" name="save-as-pdf-pdfcrowd[data_string]" placeholder="" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($data_string); ?></textarea>
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>data_string</strong>"
-                        </div>
-                        <div class='description'>
-                            Set the input data for template rendering. The data format can be JSON, XML, YAML or CSV.
-                            
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-data_file">
-                        Data File
-                    </label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-data_file" name="save-as-pdf-pdfcrowd[data_file]" value="<?php echo($data_file); ?>" placeholder="" autocomplete="off" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>data_file</strong>"
-                        </div>
-                        <div class='description'>
-                            Load the input data for template rendering from the specified file. The data format can be JSON, XML, YAML or CSV.
-                            
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-data_format">
-                        Data Format
-                    </label>
-                </th>
-                <td>
-                    <select name="save-as-pdf-pdfcrowd[data_format]" id="save-as-pdf-pdfcrowd-data_format">
-                    <option value="auto" <?php selected($data_format, 'auto');?>>the data format is auto detected</option>
-                    <option value="json" <?php selected($data_format, 'json');?>>json</option>
-                    <option value="xml" <?php selected($data_format, 'xml');?>>xml</option>
-                    <option value="yaml" <?php selected($data_format, 'yaml');?>>yaml</option>
-                    <option value="csv" <?php selected($data_format, 'csv');?>>csv</option>
-                    </select>
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>data_format</strong>"<br>Possible values: <ul><li>"auto" - the data format is auto detected</li><li>"json"</li><li>"xml"</li><li>"yaml"</li><li>"csv"</li></ul>
-                        </div>
-                        <div class='description'>
-                            Specify the input data format.
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-data_encoding">
-                        Data Encoding
-                    </label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-data_encoding" name="save-as-pdf-pdfcrowd[data_encoding]" value="<?php echo($data_encoding); ?>" placeholder="utf-8" autocomplete="off" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>data_encoding</strong>"
-                        </div>
-                        <div class='description'>
-                             Set the encoding of the data file set by <a href='https://pdfcrowd.com/doc/api/html-to-pdf/php/#set_data_file'>setDataFile</a>.
-                            
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-data_ignore_undefined">
-                        Data Ignore Undefined
-                    </label>
-                </th>
-                <td>
-                    <input type="checkbox" id="save-as-pdf-pdfcrowd-data_ignore_undefined" name="save-as-pdf-pdfcrowd[data_ignore_undefined]" value="1" <?php checked( $data_ignore_undefined, 1 ); ?> autocomplete="off" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>data_ignore_undefined</strong>"<br>Possible values: 0, 1
-                        </div>
-                        <div class='description'>
-                            Ignore undefined variables in the HTML template. The default mode is strict so any undefined variable causes the conversion to fail. You can use <span class='field-value text-nowrap'>&#x007b;&#x0025; if variable is defined &#x0025;&#x007d;</span> to check if the variable is defined.
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-data_auto_escape">
-                        Data Auto Escape
-                    </label>
-                </th>
-                <td>
-                    <input type="checkbox" id="save-as-pdf-pdfcrowd-data_auto_escape" name="save-as-pdf-pdfcrowd[data_auto_escape]" value="1" <?php checked( $data_auto_escape, 1 ); ?> autocomplete="off" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>data_auto_escape</strong>"<br>Possible values: 0, 1
-                        </div>
-                        <div class='description'>
-                            Auto escape HTML symbols in the input data before placing them into the output.
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-data_trim_blocks">
-                        Data Trim Blocks
-                    </label>
-                </th>
-                <td>
-                    <input type="checkbox" id="save-as-pdf-pdfcrowd-data_trim_blocks" name="save-as-pdf-pdfcrowd[data_trim_blocks]" value="1" <?php checked( $data_trim_blocks, 1 ); ?> autocomplete="off" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>data_trim_blocks</strong>"<br>Possible values: 0, 1
-                        </div>
-                        <div class='description'>
-                            Auto trim whitespace around each template command block.
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-data_options">
-                        Data Options
-                    </label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-data_options" name="save-as-pdf-pdfcrowd[data_options]" value="<?php echo($data_options); ?>" placeholder="" autocomplete="off" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>data_options</strong>"
-                        </div>
-                        <div class='description'>
-                            Set the advanced data options:<ul><li><span class='field-value'>csv_delimiter</span> - The CSV data delimiter, the default is <span class='field-value'>,</span>.</li><li><span class='field-value'>xml_remove_root</span> - Remove the root XML element from the input data.</li><li><span class='field-value'>data_root</span> - The name of the root element inserted into the input data without a root node (e.g. CSV), the default is <span class='field-value'>data</span>.</li></ul>
-                            
+                            Set the scaling factor (zoom) for the header and footer.
                         </div>
                     </div>
                 </td>
@@ -1427,24 +1291,6 @@
             </tr>
             <tr>
                 <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-header_footer_scale_factor">
-                        Header Footer Scale Factor
-                    </label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-header_footer_scale_factor" name="save-as-pdf-pdfcrowd[header_footer_scale_factor]" value="<?php echo($header_footer_scale_factor); ?>" placeholder="100" autocomplete="off" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>header_footer_scale_factor</strong>"
-                        </div>
-                        <div class='description'>
-                            Set the scaling factor (zoom) for the header and footer.
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-jpeg_quality">
                         Jpeg Quality
                     </label>
@@ -1955,6 +1801,171 @@
                         </div>
                         <div class='description'>
                             Set the predominant reading order for text to right-to-left. This option has no direct effect on the document's contents or page numbering but can be used to determine the relative positioning of pages when displayed side by side or printed n-up
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="save-as-pdf-pdfcrowd-data" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
+
+    <h2>Data</h2>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
+
+
+    <table class="form-table">
+        <tbody>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-data_string">
+                        Data String
+                    </label>
+                </th>
+                <td>
+                    <textarea id="save-as-pdf-pdfcrowd-data_string" name="save-as-pdf-pdfcrowd[data_string]" placeholder="" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($data_string); ?></textarea>
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>data_string</strong>"
+                        </div>
+                        <div class='description'>
+                            Set the input data for template rendering. The data format can be JSON, XML, YAML or CSV.
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-data_file">
+                        Data File
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-data_file" name="save-as-pdf-pdfcrowd[data_file]" value="<?php echo($data_file); ?>" placeholder="" autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>data_file</strong>"
+                        </div>
+                        <div class='description'>
+                            Load the input data for template rendering from the specified file. The data format can be JSON, XML, YAML or CSV.
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-data_format">
+                        Data Format
+                    </label>
+                </th>
+                <td>
+                    <select name="save-as-pdf-pdfcrowd[data_format]" id="save-as-pdf-pdfcrowd-data_format">
+                    <option value="auto" <?php selected($data_format, 'auto');?>>the data format is auto detected</option>
+                    <option value="json" <?php selected($data_format, 'json');?>>json</option>
+                    <option value="xml" <?php selected($data_format, 'xml');?>>xml</option>
+                    <option value="yaml" <?php selected($data_format, 'yaml');?>>yaml</option>
+                    <option value="csv" <?php selected($data_format, 'csv');?>>csv</option>
+                    </select>
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>data_format</strong>"<br>Possible values: <ul><li>"auto" - the data format is auto detected</li><li>"json"</li><li>"xml"</li><li>"yaml"</li><li>"csv"</li></ul>
+                        </div>
+                        <div class='description'>
+                            Specify the input data format.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-data_encoding">
+                        Data Encoding
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-data_encoding" name="save-as-pdf-pdfcrowd[data_encoding]" value="<?php echo($data_encoding); ?>" placeholder="utf-8" autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>data_encoding</strong>"
+                        </div>
+                        <div class='description'>
+                             Set the encoding of the data file set by <a href='https://pdfcrowd.com/doc/api/html-to-pdf/php/#set_data_file'>setDataFile</a>.
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-data_ignore_undefined">
+                        Data Ignore Undefined
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-data_ignore_undefined" name="save-as-pdf-pdfcrowd[data_ignore_undefined]" value="1" <?php checked( $data_ignore_undefined, 1 ); ?> autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>data_ignore_undefined</strong>"<br>Possible values: 0, 1
+                        </div>
+                        <div class='description'>
+                            Ignore undefined variables in the HTML template. The default mode is strict so any undefined variable causes the conversion to fail. You can use <span class='field-value text-nowrap'>&#x007b;&#x0025; if variable is defined &#x0025;&#x007d;</span> to check if the variable is defined.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-data_auto_escape">
+                        Data Auto Escape
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-data_auto_escape" name="save-as-pdf-pdfcrowd[data_auto_escape]" value="1" <?php checked( $data_auto_escape, 1 ); ?> autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>data_auto_escape</strong>"<br>Possible values: 0, 1
+                        </div>
+                        <div class='description'>
+                            Auto escape HTML symbols in the input data before placing them into the output.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-data_trim_blocks">
+                        Data Trim Blocks
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-data_trim_blocks" name="save-as-pdf-pdfcrowd[data_trim_blocks]" value="1" <?php checked( $data_trim_blocks, 1 ); ?> autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>data_trim_blocks</strong>"<br>Possible values: 0, 1
+                        </div>
+                        <div class='description'>
+                            Auto trim whitespace around each template command block.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-data_options">
+                        Data Options
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-data_options" name="save-as-pdf-pdfcrowd[data_options]" value="<?php echo($data_options); ?>" placeholder="" autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>data_options</strong>"
+                        </div>
+                        <div class='description'>
+                            Set the advanced data options:<ul><li><span class='field-value'>csv_delimiter</span> - The CSV data delimiter, the default is <span class='field-value'>,</span>.</li><li><span class='field-value'>xml_remove_root</span> - Remove the root XML element from the input data.</li><li><span class='field-value'>data_root</span> - The name of the root element inserted into the input data without a root node (e.g. CSV), the default is <span class='field-value'>data</span>.</li></ul>
+                            
                         </div>
                     </div>
                 </td>

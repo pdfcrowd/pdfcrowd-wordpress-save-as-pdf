@@ -191,7 +191,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 2110;
+        $valid['version'] = 2200;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {
@@ -213,36 +213,44 @@ class Save_As_Pdf_Pdfcrowd_Admin {
             $valid['api_key'] = trim($input['api_key']);
         }
 
-        if(isset($input['license_type']) &&
-           $input['license_type'] === 'regular') {
-            // check syntax of credentials
-            if(!isset($valid['username']) || empty($valid['username'])) {
-                add_settings_error(
-                    'username',
-                    'empty_username',
-                    'Username can not be empty.');
-            } else if(!preg_match("/^[\w.@+-]*$/", $valid['username'])) {
-                add_settings_error(
-                    'username',
-                    'invalid_username',
-                    pdfcrowd_create_invalid_value_message(
-                        $valid['username'],
-                        'Username',
-                        'Allowed values are alphanumeric, _, @, +, . and - characters.'));
-            }
-            if(!isset($valid['api_key']) || empty($valid['api_key'])) {
-                add_settings_error(
-                    'api_key',
-                    'empty_api_key',
-                    'API key can not be empty.');
-            } else if(!preg_match("/^[a-f0-9]{32}$/", $valid['api_key'])) {
-                add_settings_error(
-                    'api_key',
-                    'invalid_api_key',
-                    pdfcrowd_create_invalid_value_message(
-                        $valid['api_key'],
-                        'API key',
-                        'Must be 32-characters long and have only letters a-f and numbers.'));
+        if(isset($input['license_type'])) {
+            switch($input['license_type']) {
+            case 'regular':
+                // check syntax of credentials
+                if(!isset($valid['username']) || empty($valid['username'])) {
+                    add_settings_error(
+                        'username',
+                        'empty_username',
+                        'Username can not be empty.');
+                } else if(!preg_match("/^[\w.@+-]*$/", $valid['username'])) {
+                    add_settings_error(
+                        'username',
+                        'invalid_username',
+                        pdfcrowd_create_invalid_value_message(
+                            $valid['username'],
+                            'Username',
+                            'Allowed values are alphanumeric, _, @, +, . and - characters.'));
+                }
+                if(!isset($valid['api_key']) || empty($valid['api_key'])) {
+                    add_settings_error(
+                        'api_key',
+                        'empty_api_key',
+                        'API key can not be empty.');
+                } else if(!preg_match("/^[a-f0-9]{32}$/", $valid['api_key'])) {
+                    add_settings_error(
+                        'api_key',
+                        'invalid_api_key',
+                        pdfcrowd_create_invalid_value_message(
+                            $valid['api_key'],
+                            'API key',
+                            'Must be 32-characters long and have only letters a-f and numbers.'));
+                }
+                break;
+            case 'demo':
+                // reset credentials
+                $valid['username'] = '';
+                $valid['api_key'] = '';
+                break;
             }
         }
 
@@ -344,6 +352,80 @@ class Save_As_Pdf_Pdfcrowd_Admin {
 
         $valid['no_margins'] = (isset($input['no_margins']) && !empty($input['no_margins'])) ? 1: 0;
 
+        if (isset($input['print_page_range']) &&
+            $input['print_page_range'] != '') {
+            $print_page_range = $input['print_page_range'];
+            if (!preg_match("/^(?:\s*(?:\d+|(?:\d*\s*\-\s*\d+)|(?:\d+\s*\-\s*\d*))\s*,\s*)*\s*(?:\d+|(?:\d*\s*\-\s*\d+)|(?:\d+\s*\-\s*\d*))\s*$/", $print_page_range))
+                add_settings_error(
+                'print_page_range',
+                'empty_print_page_range',
+                pdfcrowd_create_invalid_value_message($print_page_range, 'Print Page Range', 'A comma separated list of page numbers or ranges.'));
+            
+        }
+        $valid['print_page_range'] = isset($input['print_page_range']) ? $input['print_page_range'] : '';
+
+        $valid['page_numbering_offset'] = isset($input['page_numbering_offset']) ? $input['page_numbering_offset'] : '';
+
+        if (isset($input['content_area_x']) &&
+            $input['content_area_x'] != '') {
+            $content_area_x = $input['content_area_x'];
+            if (!preg_match("/(?i)^0$|^\-?[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $content_area_x))
+                add_settings_error(
+                'content_area_x',
+                'empty_content_area_x',
+                pdfcrowd_create_invalid_value_message($content_area_x, 'Content Area X', 'Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt). It may contain a negative value.'));
+            
+        }
+        $valid['content_area_x'] = isset($input['content_area_x']) ? $input['content_area_x'] : '';
+
+        if (isset($input['content_area_y']) &&
+            $input['content_area_y'] != '') {
+            $content_area_y = $input['content_area_y'];
+            if (!preg_match("/(?i)^0$|^\-?[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $content_area_y))
+                add_settings_error(
+                'content_area_y',
+                'empty_content_area_y',
+                pdfcrowd_create_invalid_value_message($content_area_y, 'Content Area Y', 'Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt). It may contain a negative value.'));
+            
+        }
+        $valid['content_area_y'] = isset($input['content_area_y']) ? $input['content_area_y'] : '';
+
+        if (isset($input['content_area_width']) &&
+            $input['content_area_width'] != '') {
+            $content_area_width = $input['content_area_width'];
+            if (!preg_match("/(?i)^0$|^[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $content_area_width))
+                add_settings_error(
+                'content_area_width',
+                'empty_content_area_width',
+                pdfcrowd_create_invalid_value_message($content_area_width, 'Content Area Width', 'Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).'));
+            
+        }
+        $valid['content_area_width'] = isset($input['content_area_width']) ? $input['content_area_width'] : '';
+
+        if (isset($input['content_area_height']) &&
+            $input['content_area_height'] != '') {
+            $content_area_height = $input['content_area_height'];
+            if (!preg_match("/(?i)^0$|^[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $content_area_height))
+                add_settings_error(
+                'content_area_height',
+                'empty_content_area_height',
+                pdfcrowd_create_invalid_value_message($content_area_height, 'Content Area Height', 'Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).'));
+            
+        }
+        $valid['content_area_height'] = isset($input['content_area_height']) ? $input['content_area_height'] : '';
+
+        if (isset($input['css_page_rule_mode']) &&
+            $input['css_page_rule_mode'] != '') {
+            $css_page_rule_mode = $input['css_page_rule_mode'];
+            if (!preg_match("/(?i)^(default|mode1|mode2)$/", $css_page_rule_mode))
+                add_settings_error(
+                'css_page_rule_mode',
+                'empty_css_page_rule_mode',
+                pdfcrowd_create_invalid_value_message($css_page_rule_mode, 'Css Page Rule Mode', 'Allowed values are default, mode1, mode2.'));
+            
+        }
+        $valid['css_page_rule_mode'] = isset($input['css_page_rule_mode']) ? $input['css_page_rule_mode'] : '';
+
         if (isset($input['header_url']) &&
             $input['header_url'] != '') {
             $header_url = $input['header_url'];
@@ -418,18 +500,6 @@ class Save_As_Pdf_Pdfcrowd_Admin {
 
         $valid['no_header_footer_horizontal_margins'] = (isset($input['no_header_footer_horizontal_margins']) && !empty($input['no_header_footer_horizontal_margins'])) ? 1: 0;
 
-        if (isset($input['print_page_range']) &&
-            $input['print_page_range'] != '') {
-            $print_page_range = $input['print_page_range'];
-            if (!preg_match("/^(?:\s*(?:\d+|(?:\d*\s*\-\s*\d+)|(?:\d+\s*\-\s*\d*))\s*,\s*)*\s*(?:\d+|(?:\d*\s*\-\s*\d+)|(?:\d+\s*\-\s*\d*))\s*$/", $print_page_range))
-                add_settings_error(
-                'print_page_range',
-                'empty_print_page_range',
-                pdfcrowd_create_invalid_value_message($print_page_range, 'Print Page Range', 'A comma separated list of page numbers or ranges.'));
-            
-        }
-        $valid['print_page_range'] = isset($input['print_page_range']) ? $input['print_page_range'] : '';
-
         if (isset($input['exclude_header_on_pages']) &&
             $input['exclude_header_on_pages'] != '') {
             $exclude_header_on_pages = $input['exclude_header_on_pages'];
@@ -454,93 +524,17 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         }
         $valid['exclude_footer_on_pages'] = isset($input['exclude_footer_on_pages']) ? $input['exclude_footer_on_pages'] : '';
 
-        $valid['page_numbering_offset'] = isset($input['page_numbering_offset']) ? $input['page_numbering_offset'] : '';
-
-        if (isset($input['content_area_x']) &&
-            $input['content_area_x'] != '') {
-            $content_area_x = $input['content_area_x'];
-            if (!preg_match("/(?i)^0$|^\-?[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $content_area_x))
+        if (isset($input['header_footer_scale_factor']) &&
+            $input['header_footer_scale_factor'] != '') {
+            $header_footer_scale_factor = $input['header_footer_scale_factor'];
+            if (!(intval($header_footer_scale_factor) >= 10 && intval($header_footer_scale_factor) <= 500))
                 add_settings_error(
-                'content_area_x',
-                'empty_content_area_x',
-                pdfcrowd_create_invalid_value_message($content_area_x, 'Content Area X', 'Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt). It may contain a negative value.'));
+                'header_footer_scale_factor',
+                'empty_header_footer_scale_factor',
+                pdfcrowd_create_invalid_value_message($header_footer_scale_factor, 'Header Footer Scale Factor', 'The value must be in the range 10-500.'));
             
         }
-        $valid['content_area_x'] = isset($input['content_area_x']) ? $input['content_area_x'] : '';
-
-        if (isset($input['content_area_y']) &&
-            $input['content_area_y'] != '') {
-            $content_area_y = $input['content_area_y'];
-            if (!preg_match("/(?i)^0$|^\-?[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $content_area_y))
-                add_settings_error(
-                'content_area_y',
-                'empty_content_area_y',
-                pdfcrowd_create_invalid_value_message($content_area_y, 'Content Area Y', 'Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt). It may contain a negative value.'));
-            
-        }
-        $valid['content_area_y'] = isset($input['content_area_y']) ? $input['content_area_y'] : '';
-
-        if (isset($input['content_area_width']) &&
-            $input['content_area_width'] != '') {
-            $content_area_width = $input['content_area_width'];
-            if (!preg_match("/(?i)^0$|^[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $content_area_width))
-                add_settings_error(
-                'content_area_width',
-                'empty_content_area_width',
-                pdfcrowd_create_invalid_value_message($content_area_width, 'Content Area Width', 'Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).'));
-            
-        }
-        $valid['content_area_width'] = isset($input['content_area_width']) ? $input['content_area_width'] : '';
-
-        if (isset($input['content_area_height']) &&
-            $input['content_area_height'] != '') {
-            $content_area_height = $input['content_area_height'];
-            if (!preg_match("/(?i)^0$|^[0-9]*\.?[0-9]+(pt|px|mm|cm|in)$/", $content_area_height))
-                add_settings_error(
-                'content_area_height',
-                'empty_content_area_height',
-                pdfcrowd_create_invalid_value_message($content_area_height, 'Content Area Height', 'Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).'));
-            
-        }
-        $valid['content_area_height'] = isset($input['content_area_height']) ? $input['content_area_height'] : '';
-
-        if (isset($input['css_page_rule_mode']) &&
-            $input['css_page_rule_mode'] != '') {
-            $css_page_rule_mode = $input['css_page_rule_mode'];
-            if (!preg_match("/(?i)^(default|mode1|mode2)$/", $css_page_rule_mode))
-                add_settings_error(
-                'css_page_rule_mode',
-                'empty_css_page_rule_mode',
-                pdfcrowd_create_invalid_value_message($css_page_rule_mode, 'Css Page Rule Mode', 'Allowed values are default, mode1, mode2.'));
-            
-        }
-        $valid['css_page_rule_mode'] = isset($input['css_page_rule_mode']) ? $input['css_page_rule_mode'] : '';
-
-        $valid['data_string'] = isset($input['data_string']) ? $input['data_string'] : '';
-
-        $valid['data_file'] = isset($input['data_file']) ? $input['data_file'] : '';
-
-        if (isset($input['data_format']) &&
-            $input['data_format'] != '') {
-            $data_format = $input['data_format'];
-            if (!preg_match("/(?i)^(auto|json|xml|yaml|csv)$/", $data_format))
-                add_settings_error(
-                'data_format',
-                'empty_data_format',
-                pdfcrowd_create_invalid_value_message($data_format, 'Data Format', 'Allowed values are auto, json, xml, yaml, csv.'));
-            
-        }
-        $valid['data_format'] = isset($input['data_format']) ? $input['data_format'] : '';
-
-        $valid['data_encoding'] = isset($input['data_encoding']) ? $input['data_encoding'] : '';
-
-        $valid['data_ignore_undefined'] = (isset($input['data_ignore_undefined']) && !empty($input['data_ignore_undefined'])) ? 1: 0;
-
-        $valid['data_auto_escape'] = (isset($input['data_auto_escape']) && !empty($input['data_auto_escape'])) ? 1: 0;
-
-        $valid['data_trim_blocks'] = (isset($input['data_trim_blocks']) && !empty($input['data_trim_blocks'])) ? 1: 0;
-
-        $valid['data_options'] = isset($input['data_options']) ? $input['data_options'] : '';
+        $valid['header_footer_scale_factor'] = isset($input['header_footer_scale_factor']) ? $input['header_footer_scale_factor'] : '';
 
         if (isset($input['page_watermark']) &&
             $input['page_watermark'] != '') {
@@ -836,18 +830,6 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         }
         $valid['scale_factor'] = isset($input['scale_factor']) ? $input['scale_factor'] : '';
 
-        if (isset($input['header_footer_scale_factor']) &&
-            $input['header_footer_scale_factor'] != '') {
-            $header_footer_scale_factor = $input['header_footer_scale_factor'];
-            if (!(intval($header_footer_scale_factor) >= 10 && intval($header_footer_scale_factor) <= 500))
-                add_settings_error(
-                'header_footer_scale_factor',
-                'empty_header_footer_scale_factor',
-                pdfcrowd_create_invalid_value_message($header_footer_scale_factor, 'Header Footer Scale Factor', 'The value must be in the range 10-500.'));
-            
-        }
-        $valid['header_footer_scale_factor'] = isset($input['header_footer_scale_factor']) ? $input['header_footer_scale_factor'] : '';
-
         if (isset($input['jpeg_quality']) &&
             $input['jpeg_quality'] != '') {
             $jpeg_quality = $input['jpeg_quality'];
@@ -980,6 +962,32 @@ class Save_As_Pdf_Pdfcrowd_Admin {
 
         $valid['right_to_left'] = (isset($input['right_to_left']) && !empty($input['right_to_left'])) ? 1: 0;
 
+        $valid['data_string'] = isset($input['data_string']) ? $input['data_string'] : '';
+
+        $valid['data_file'] = isset($input['data_file']) ? $input['data_file'] : '';
+
+        if (isset($input['data_format']) &&
+            $input['data_format'] != '') {
+            $data_format = $input['data_format'];
+            if (!preg_match("/(?i)^(auto|json|xml|yaml|csv)$/", $data_format))
+                add_settings_error(
+                'data_format',
+                'empty_data_format',
+                pdfcrowd_create_invalid_value_message($data_format, 'Data Format', 'Allowed values are auto, json, xml, yaml, csv.'));
+            
+        }
+        $valid['data_format'] = isset($input['data_format']) ? $input['data_format'] : '';
+
+        $valid['data_encoding'] = isset($input['data_encoding']) ? $input['data_encoding'] : '';
+
+        $valid['data_ignore_undefined'] = (isset($input['data_ignore_undefined']) && !empty($input['data_ignore_undefined'])) ? 1: 0;
+
+        $valid['data_auto_escape'] = (isset($input['data_auto_escape']) && !empty($input['data_auto_escape'])) ? 1: 0;
+
+        $valid['data_trim_blocks'] = (isset($input['data_trim_blocks']) && !empty($input['data_trim_blocks'])) ? 1: 0;
+
+        $valid['data_options'] = isset($input['data_options']) ? $input['data_options'] : '';
+
         $valid['debug_log'] = (isset($input['debug_log']) && !empty($input['debug_log'])) ? 1: 0;
 
         $valid['tag'] = isset($input['tag']) ? $input['tag'] : '';
@@ -1062,17 +1070,6 @@ class Save_As_Pdf_Pdfcrowd_Admin {
 
         $valid['retry_count'] = isset($input['retry_count']) ? $input['retry_count'] : '';
 
-
-        // check for empty fields
-        if(isset($valid['button_indicator']) &&
-           $valid['button_indicator'] == 'custom' &&
-           (!isset($valid['button_custom_indicator']) ||
-            empty($valid['button_custom_indicator']))) {
-            add_settings_error(
-                'button_custom_indicator',
-                'empty_button_custom_indicator',
-                    'Missing custom indicator function name.');
-        }
 
         return $valid;
     }

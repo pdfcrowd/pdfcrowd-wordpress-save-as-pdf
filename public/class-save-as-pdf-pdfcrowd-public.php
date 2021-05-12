@@ -161,6 +161,8 @@ class Save_As_Pdf_Pdfcrowd_Public {
         'button_format' => 'image-text',
         'button_hidden' => '1',
         'button_hover' => '1',
+        'button_html_hidden' => '0',
+        'button_id' => '',
         'button_image' => 'pdf1.svg',
         'button_image_height' => '24',
         'button_image_url' => '',
@@ -193,10 +195,13 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'button_translation_domain' => '',
         'button_user_drawings' => '0',
         'conversion_mode' => 'auto',
+        'converter_version' => '20.10',
         'custom_data' => '',
         'dev_mode' => '0',
+        'email_bcc' => '',
+        'email_cc' => '',
         'email_custom_dialogs' => '',
-        'email_dialogs' => 'system',
+        'email_dialogs' => 'modal',
         'email_message' => '<p>Dear {{user_first_name}} {{user_last_name}},</p>
 <p>Please, find {{title}} attached.</p>
 <p>Best Regards,<br>
@@ -213,7 +218,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'rendering_mode' => 'viewport',
         'smart_scaling_mode' => 'viewport-fit',
         'username' => '',
-        'version' => '2110',
+        'version' => '2200',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -228,6 +233,13 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'margin_bottom',
         'margin_left',
         'no_margins',
+        'print_page_range',
+        'page_numbering_offset',
+        'content_area_x',
+        'content_area_y',
+        'content_area_width',
+        'content_area_height',
+        'css_page_rule_mode',
         'header_url',
         'header_html',
         'header_height',
@@ -235,23 +247,9 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'footer_html',
         'footer_height',
         'no_header_footer_horizontal_margins',
-        'print_page_range',
         'exclude_header_on_pages',
         'exclude_footer_on_pages',
-        'page_numbering_offset',
-        'content_area_x',
-        'content_area_y',
-        'content_area_width',
-        'content_area_height',
-        'css_page_rule_mode',
-        'data_string',
-        'data_file',
-        'data_format',
-        'data_encoding',
-        'data_ignore_undefined',
-        'data_auto_escape',
-        'data_trim_blocks',
-        'data_options',
+        'header_footer_scale_factor',
         'page_watermark',
         'page_watermark_url',
         'multipage_watermark',
@@ -289,7 +287,6 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'rendering_mode',
         'smart_scaling_mode',
         'scale_factor',
-        'header_footer_scale_factor',
         'jpeg_quality',
         'convert_images_to_jpeg',
         'image_dpi',
@@ -316,6 +313,14 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'center_window',
         'display_title',
         'right_to_left',
+        'data_string',
+        'data_file',
+        'data_format',
+        'data_encoding',
+        'data_ignore_undefined',
+        'data_auto_escape',
+        'data_trim_blocks',
+        'data_options',
         'debug_log',
         'tag',
         'http_proxy',
@@ -338,8 +343,8 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         '20.10' => array(
         ),
         '18.10' => array(
-            'no_header_footer_horizontal_margins',
             'css_page_rule_mode',
+            'no_header_footer_horizontal_margins',
             'load_iframes',
             'locale',
             'layout_dpi',
@@ -410,7 +415,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2110) {
+        if($options['version'] == 2200) {
             // error_log('the same version');
             return $options;
         }
@@ -430,7 +435,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         }
 
         // error_log('save new options');
-        $options['version'] = 2110;
+        $options['version'] = 2200;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -581,6 +586,10 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         }
 
         $div_style = '';
+        if(isset($options['button_html_hidden']) &&
+           $options['button_html_hidden'] == 1) {
+            $div_style = 'display: none !important;';
+        }
         $button_tag = 'div';
         if($options['button_alignment']) {
             $div_style .= "text-align: {$options['button_alignment']}; ";
@@ -615,7 +624,12 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
 
         $config = json_encode($config);
 
-        $button = "<{$button_tag} class='$classes'{$div_style}><{$button_tag} class='{$btn_classes}'{$btn_style} onclick='window.SaveAsPDFPdfcrowd(\"$custom_options\", $enc_data, $config, this);' data-pdfcrowd-flags='{$pflags}'>";
+        $button_id = isset($options['button_id']) &&
+                   !empty($options['button_id']) ?
+                   "id='" . $options['button_id'] . "'" :
+                   '';
+
+        $button = "<{$button_tag} class='$classes'{$div_style}><{$button_tag} {$button_id} class='{$btn_classes}'{$btn_style} onclick='window.SaveAsPDFPdfcrowd(\"$custom_options\", $enc_data, $config, this);' data-pdfcrowd-flags='{$pflags}'>";
 
         $button_content = '';
         switch($options['button_format']) {
@@ -735,6 +749,11 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
                 if(is_string($key)) {
                     // accept only string keys
                     if(self::starts_with($key, 'button_')) {
+                        if($key == 'button_disposition') {
+                            // button disposition is required in
+                            // coversion too
+                            $custom_options[$key] = $value;
+                        }
                         $options[$key] = $value;
                     } else {
                         if(self::starts_with($key, 'email_')) {
@@ -958,7 +977,8 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $files = array();
 
         $converter_version = '20.10';
-        if(isset($options['converter_version'])) {
+        if(isset($options['converter_version']) &&
+           !empty(isset($options['converter_version']))) {
             $converter_version = $options['converter_version'];
         }
 
@@ -979,11 +999,11 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
                     $fields[$key] = $value;
                 }
             } elseif(
-                $key == 'data_file' ||
                 $key == 'page_watermark' ||
                 $key == 'multipage_watermark' ||
                 $key == 'page_background' ||
                 $key == 'multipage_background' ||
+                $key == 'data_file' ||
                 $key == 'client_certificate' ||
                 $key == 'file'
             ) {
@@ -1005,7 +1025,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.1.1 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.2.0 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
@@ -1177,7 +1197,14 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         return $file_path;
     }
 
-    private static function send_email($options, $file_name, $output) {
+    private static function send_json_error($code, $message, $is_html=false) {
+        wp_send_json_error(array('code' => $code,
+                                 'message' => $message,
+                                 'isHtml' => $is_html));
+    }
+
+    private static function send_email($options, $file_name, $output,
+                                       $plugin_name) {
         // check empty filename
         if(empty($file_name)) {
             $format = isset($options['output_format'])
@@ -1188,8 +1215,8 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
 
         $tmp_file_name = self::make_temporary_file($file_name, $output);
         if(!$tmp_file_name) {
-            wp_send_json_error();
-            return;
+            return self::send_json_error(
+                455, __('Output file can not be prepared.', $plugin_name));
         }
 
         $email_to = null;
@@ -1220,6 +1247,12 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $message = self::string_subst($message, $email_data);
 
         $headers = array('Content-Type: text/html; charset=UTF-8');
+        if(isset($options['email_cc']) && !empty($options['email_cc'])) {
+            $headers[] = 'Cc: ' . $options['email_cc'];
+        }
+        if(isset($options['email_bcc']) && !empty($options['email_bcc'])) {
+            $headers[] = 'Bcc: ' . $options['email_bcc'];
+        }
         if(!wp_mail($email_to,
                     $subject,
                     $message,
@@ -1227,7 +1260,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
                     array($tmp_file_name))) {
             error_log('Pdfcrowd: send failed to ' . $email_to);
             self::delete_file($tmp_file_name);
-            wp_send_json_error();
+            self::send_json_error(455, __('Mail system error.', $plugin_name));
         } else {
             self::delete_file($tmp_file_name);
             wp_send_json_success();
@@ -1317,11 +1350,17 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         if(is_wp_error($output)) {
             $code = $output->get_error_code();
             $message = $output->get_error_message();
-            status_header($code, $message);
-            echo $this->get_error_page($code, $message);
+            if($options['button_disposition'] == 'email') {
+                self::send_json_error(
+                    $code, str_replace('h3', 'p', $message), true);
+            } else {
+                status_header($code, $message);
+                echo $this->get_error_page($code, $message);
+            }
         } else {
             if($options['button_disposition'] == 'email') {
-                self::send_email($options, $hook_data['file_name'], $output);
+                self::send_email($options, $hook_data['file_name'],
+                                 $output, $this->plugin_name);
             } else {
                 // send the generated file to the browser
                 header('Content-Type: application/pdf');

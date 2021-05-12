@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Save as PDF by Pdfcrowd plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Save as PDF by Pdfcrowd 2.1.1\n"
+"Project-Id-Version: Save as PDF by Pdfcrowd 2.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/save-as-pdf-pdfcrowd\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,6 +30,12 @@ msgid "Ok"
 msgstr ""
 
 msgid "Cancel"
+msgstr ""
+
+msgid "Output file can not be prepared."
+msgstr ""
+
+msgid "Mail system error."
 msgstr ""
 
 msgid "Configuration error. Refresh page and retry."

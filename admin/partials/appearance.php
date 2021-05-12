@@ -261,6 +261,38 @@
                     </p>
                 </td>
             </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-button-id">
+                        Button Id
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-button-id" name="save-as-pdf-pdfcrowd[button_id]" value="<?php echo($button_id);?>" placeholder="<?php esc_attr_e('Your id for the button', $this->plugin_name);?>" autocomplete="off">
+                    <p class='save-as-pdf-pdfcrowd-devi'>
+                        Shortcode & function parameter: "<strong>button_id</strong>"
+                    </p>
+                    <p class='description'>
+                        It is useful for custom button styling of JavaScript event handler.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="save-as-pdf-pdfcrowd-button-html-hidden">
+                        Hide Button in HTML
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-button-html-hidden" name="save-as-pdf-pdfcrowd[button_html_hidden]" value="1" <?php checked( $button_html_hidden, 1 ); ?> autocomplete="off">
+                    <p class='save-as-pdf-pdfcrowd-devi'>
+                        Shortcode & function parameter: "<strong>button_html_hidden</strong>"<br>Possible values: 0, 1
+                    </p>
+                    <p class='description'>
+                        It is useful together with Button Id for triggering a conversion from your JavaScript.
+                    </p>
+                </td>
+            </tr>
         </tbody>
     </table>
     <hr/>

@@ -129,6 +129,13 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.2.0 =
+* New "Email Cc" option.
+* New "Email Bcc" option.
+* New "Button Id" option.
+* New "Hide Button in HTML" option.
+* Fixes in email button disposition.
+
 = 2.1.1 =
 * New configuration wizard.
 

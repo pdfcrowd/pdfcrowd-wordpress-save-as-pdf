@@ -37,12 +37,13 @@
                 <a href="#save-as-pdf-pdfcrowd-appearance" class="nav-tab">Appearance</a>
                 <a href="#save-as-pdf-pdfcrowd-behavior" class="nav-tab">Behavior</a>
                 <a href="#save-as-pdf-pdfcrowd-page-setup" class="nav-tab">Page Setup</a>
-                <a href="#save-as-pdf-pdfcrowd-data" class="nav-tab">Data</a>
+                <a href="#save-as-pdf-pdfcrowd-header-and-footer" class="nav-tab">Header & Footer</a>
                 <a href="#save-as-pdf-pdfcrowd-watermark-and-background" class="nav-tab">Watermark & Background</a>
                 <a href="#save-as-pdf-pdfcrowd-general-options" class="nav-tab">General Options</a>
                 <a href="#save-as-pdf-pdfcrowd-print-resolution" class="nav-tab">Print Resolution</a>
                 <a href="#save-as-pdf-pdfcrowd-pdf-format" class="nav-tab">PDF Format</a>
                 <a href="#save-as-pdf-pdfcrowd-viewer-preferences" class="nav-tab">Viewer Preferences</a>
+                <a href="#save-as-pdf-pdfcrowd-data" class="nav-tab">Data</a>
                 <a href="#save-as-pdf-pdfcrowd-miscellaneous" class="nav-tab">Miscellaneous</a>
                 <a href="#save-as-pdf-pdfcrowd-expert" class="nav-tab">Expert</a>
                 <a href="#save-as-pdf-pdfcrowd-api-client-options" class="nav-tab">API Client Options</a>
@@ -67,6 +68,8 @@
         $button_format = isset($options['button_format']) ? $options['button_format'] : '';
         $button_hidden = isset($options['button_hidden']) ? $options['button_hidden'] : '';
         $button_hover = isset($options['button_hover']) ? $options['button_hover'] : '';
+        $button_html_hidden = isset($options['button_html_hidden']) ? $options['button_html_hidden'] : '';
+        $button_id = isset($options['button_id']) ? $options['button_id'] : '';
         $button_image = isset($options['button_image']) ? $options['button_image'] : '';
         $button_image_height = isset($options['button_image_height']) ? $options['button_image_height'] : '';
         $button_image_url = isset($options['button_image_url']) ? $options['button_image_url'] : '';
@@ -98,8 +101,11 @@
         $button_translation_domain = isset($options['button_translation_domain']) ? $options['button_translation_domain'] : '';
         $button_user_drawings = isset($options['button_user_drawings']) ? $options['button_user_drawings'] : '';
         $conversion_mode = isset($options['conversion_mode']) ? $options['conversion_mode'] : '';
+        $converter_version = isset($options['converter_version']) ? $options['converter_version'] : '';
         $custom_data = isset($options['custom_data']) ? $options['custom_data'] : '';
         $dev_mode = isset($options['dev_mode']) ? $options['dev_mode'] : '';
+        $email_bcc = isset($options['email_bcc']) ? $options['email_bcc'] : '';
+        $email_cc = isset($options['email_cc']) ? $options['email_cc'] : '';
         $email_custom_dialogs = isset($options['email_custom_dialogs']) ? $options['email_custom_dialogs'] : '';
         $email_dialogs = isset($options['email_dialogs']) ? $options['email_dialogs'] : '';
         $email_message = isset($options['email_message']) ? $options['email_message'] : '';
@@ -126,6 +132,13 @@
         $margin_right = isset($options['margin_right']) ? $options['margin_right'] : '';
         $margin_bottom = isset($options['margin_bottom']) ? $options['margin_bottom'] : '';
         $margin_left = isset($options['margin_left']) ? $options['margin_left'] : '';
+        $print_page_range = isset($options['print_page_range']) ? $options['print_page_range'] : '';
+        $page_numbering_offset = isset($options['page_numbering_offset']) ? $options['page_numbering_offset'] : '';
+        $content_area_x = isset($options['content_area_x']) ? $options['content_area_x'] : '';
+        $content_area_y = isset($options['content_area_y']) ? $options['content_area_y'] : '';
+        $content_area_width = isset($options['content_area_width']) ? $options['content_area_width'] : '';
+        $content_area_height = isset($options['content_area_height']) ? $options['content_area_height'] : '';
+        $css_page_rule_mode = isset($options['css_page_rule_mode']) ? $options['css_page_rule_mode'] : 'default';
         $header_url = isset($options['header_url']) ? $options['header_url'] : '';
         $header_html = isset($options['header_html']) ? $options['header_html'] : '';
         $header_height = isset($options['header_height']) ? $options['header_height'] : '';
@@ -133,23 +146,9 @@
         $footer_html = isset($options['footer_html']) ? $options['footer_html'] : '';
         $footer_height = isset($options['footer_height']) ? $options['footer_height'] : '';
         $no_header_footer_horizontal_margins = isset($options['no_header_footer_horizontal_margins']) ? $options['no_header_footer_horizontal_margins'] : '';
-        $print_page_range = isset($options['print_page_range']) ? $options['print_page_range'] : '';
         $exclude_header_on_pages = isset($options['exclude_header_on_pages']) ? $options['exclude_header_on_pages'] : '';
         $exclude_footer_on_pages = isset($options['exclude_footer_on_pages']) ? $options['exclude_footer_on_pages'] : '';
-        $page_numbering_offset = isset($options['page_numbering_offset']) ? $options['page_numbering_offset'] : '';
-        $content_area_x = isset($options['content_area_x']) ? $options['content_area_x'] : '';
-        $content_area_y = isset($options['content_area_y']) ? $options['content_area_y'] : '';
-        $content_area_width = isset($options['content_area_width']) ? $options['content_area_width'] : '';
-        $content_area_height = isset($options['content_area_height']) ? $options['content_area_height'] : '';
-        $css_page_rule_mode = isset($options['css_page_rule_mode']) ? $options['css_page_rule_mode'] : 'default';
-        $data_string = isset($options['data_string']) ? $options['data_string'] : '';
-        $data_file = isset($options['data_file']) ? $options['data_file'] : '';
-        $data_format = isset($options['data_format']) ? $options['data_format'] : 'auto';
-        $data_encoding = isset($options['data_encoding']) ? $options['data_encoding'] : '';
-        $data_ignore_undefined = isset($options['data_ignore_undefined']) ? $options['data_ignore_undefined'] : '';
-        $data_auto_escape = isset($options['data_auto_escape']) ? $options['data_auto_escape'] : '';
-        $data_trim_blocks = isset($options['data_trim_blocks']) ? $options['data_trim_blocks'] : '';
-        $data_options = isset($options['data_options']) ? $options['data_options'] : '';
+        $header_footer_scale_factor = isset($options['header_footer_scale_factor']) ? $options['header_footer_scale_factor'] : '';
         $page_watermark = isset($options['page_watermark']) ? $options['page_watermark'] : '';
         $page_watermark_url = isset($options['page_watermark_url']) ? $options['page_watermark_url'] : '';
         $multipage_watermark = isset($options['multipage_watermark']) ? $options['multipage_watermark'] : '';
@@ -183,7 +182,6 @@
         $element_to_convert_mode = isset($options['element_to_convert_mode']) ? $options['element_to_convert_mode'] : 'cut-out';
         $wait_for_element = isset($options['wait_for_element']) ? $options['wait_for_element'] : '';
         $scale_factor = isset($options['scale_factor']) ? $options['scale_factor'] : '';
-        $header_footer_scale_factor = isset($options['header_footer_scale_factor']) ? $options['header_footer_scale_factor'] : '';
         $jpeg_quality = isset($options['jpeg_quality']) ? $options['jpeg_quality'] : '';
         $convert_images_to_jpeg = isset($options['convert_images_to_jpeg']) ? $options['convert_images_to_jpeg'] : 'none';
         $image_dpi = isset($options['image_dpi']) ? $options['image_dpi'] : '';
@@ -210,6 +208,14 @@
         $center_window = isset($options['center_window']) ? $options['center_window'] : '';
         $display_title = isset($options['display_title']) ? $options['display_title'] : '';
         $right_to_left = isset($options['right_to_left']) ? $options['right_to_left'] : '';
+        $data_string = isset($options['data_string']) ? $options['data_string'] : '';
+        $data_file = isset($options['data_file']) ? $options['data_file'] : '';
+        $data_format = isset($options['data_format']) ? $options['data_format'] : 'auto';
+        $data_encoding = isset($options['data_encoding']) ? $options['data_encoding'] : '';
+        $data_ignore_undefined = isset($options['data_ignore_undefined']) ? $options['data_ignore_undefined'] : '';
+        $data_auto_escape = isset($options['data_auto_escape']) ? $options['data_auto_escape'] : '';
+        $data_trim_blocks = isset($options['data_trim_blocks']) ? $options['data_trim_blocks'] : '';
+        $data_options = isset($options['data_options']) ? $options['data_options'] : '';
         $debug_log = isset($options['debug_log']) ? $options['debug_log'] : '';
         $tag = isset($options['tag']) ? $options['tag'] : '';
         $http_proxy = isset($options['http_proxy']) ? $options['http_proxy'] : '';
@@ -223,7 +229,6 @@
         $disable_page_height_optimization = isset($options['disable_page_height_optimization']) ? $options['disable_page_height_optimization'] : '';
         $main_document_css_annotation = isset($options['main_document_css_annotation']) ? $options['main_document_css_annotation'] : '';
         $header_footer_css_annotation = isset($options['header_footer_css_annotation']) ? $options['header_footer_css_annotation'] : '';
-        $converter_version = isset($options['converter_version']) ? $options['converter_version'] : '20.10';
         $use_http = isset($options['use_http']) ? $options['use_http'] : '';
         $retry_count = isset($options['retry_count']) ? $options['retry_count'] : '';
 
