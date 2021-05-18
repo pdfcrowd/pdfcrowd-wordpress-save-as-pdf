@@ -218,7 +218,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'rendering_mode' => 'viewport',
         'smart_scaling_mode' => 'viewport-fit',
         'username' => '',
-        'version' => '2200',
+        'version' => '2210',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -415,7 +415,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2200) {
+        if($options['version'] == 2210) {
             // error_log('the same version');
             return $options;
         }
@@ -435,7 +435,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         }
 
         // error_log('save new options');
-        $options['version'] = 2200;
+        $options['version'] = 2210;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -676,6 +676,12 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
 
         $enc_data = '""';
         if($mode == 'content') {
+            // uncommment if you wish to disable page cache
+            // for content conversion mode
+            // if(!defined('DONOTCACHEPAGE')) {
+            //     define('DONOTCACHEPAGE', true);
+            // }
+
             if(!$custom_options) {
                 $custom_options = array();
             }
@@ -1025,7 +1031,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.2.0 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.2.1 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
@@ -1092,7 +1098,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
     }
 
     private static function validate_data($options, $data) {
-        if($options['_time'] < time()) {
+        if(!isset($options['_time']) || $options['_time'] < time()) {
             return null;
         }
 
@@ -1314,7 +1320,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
                 // text is set e.g. when block shortcode is used
                 $options['text'] = self::validate_data($options, $_POST['cdata']);
                 if(!$options['text']) {
-                    _e('Internal error. Refresh page and retry.',
+                    _e('Invalid token. Use Conversion Mode Url or disable cache for this page.',
                        $this->plugin_name);
                     wp_die();
                 }

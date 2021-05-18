@@ -129,6 +129,10 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.2.1 =
+* Predefined header and footer are available in the plugin settings.
+* Minor documentation and error message changes.
+
 = 2.2.0 =
 * New "Email Cc" option.
 * New "Email Bcc" option.

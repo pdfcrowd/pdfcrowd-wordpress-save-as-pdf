@@ -16,7 +16,7 @@
 <div id="save-as-pdf-pdfcrowd-page-setup" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Page Setup</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
 
 
     <table class="form-table">
@@ -319,7 +319,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-css_page_rule_mode">
-                        Css Page Rule Mode
+                        CSS Page Rule Mode
                     </label>
                 </th>
                 <td>
@@ -347,15 +347,23 @@
 <div id="save-as-pdf-pdfcrowd-header-and-footer" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Header & Footer</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
 
+    <div>
+        <span class="button-secondary" id="save-as-pdf-pdfcrowd-use-predefined-h-html">
+            Set predefined header HTML
+        </span>
+        <span class="button-secondary" id="save-as-pdf-pdfcrowd-use-predefined-f-html">
+            Set predefined footer HTML
+        </span>
+    </div>
 
     <table class="form-table">
         <tbody>
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-header_url">
-                        Header Url
+                        Header URL
                     </label>
                 </th>
                 <td>
@@ -374,7 +382,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-header_html">
-                        Header Html
+                        Header HTML
                     </label>
                 </th>
                 <td>
@@ -412,7 +420,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-footer_url">
-                        Footer Url
+                        Footer URL
                     </label>
                 </th>
                 <td>
@@ -431,7 +439,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-footer_html">
-                        Footer Html
+                        Footer HTML
                     </label>
                 </th>
                 <td>
@@ -549,7 +557,7 @@
 <div id="save-as-pdf-pdfcrowd-watermark-and-background" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Watermark & Background</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
 
     <p class='clear save-as-pdf-pdfcrowd-note'>PDF file used as a watermark or a background must exist on the file system. To apply WordPress uploaded media use a relative path. Example:
         <br>
@@ -580,7 +588,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-page_watermark_url">
-                        Page Watermark Url
+                        Page Watermark URL
                     </label>
                 </th>
                 <td>
@@ -618,7 +626,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-multipage_watermark_url">
-                        Multipage Watermark Url
+                        Multipage Watermark URL
                     </label>
                 </th>
                 <td>
@@ -656,7 +664,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-page_background_url">
-                        Page Background Url
+                        Page Background URL
                     </label>
                 </th>
                 <td>
@@ -694,7 +702,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-multipage_background_url">
-                        Multipage Background Url
+                        Multipage Background URL
                     </label>
                 </th>
                 <td>
@@ -735,7 +743,7 @@
 <div id="save-as-pdf-pdfcrowd-general-options" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>General Options</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
 
 
     <table class="form-table">
@@ -779,7 +787,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-disable_javascript">
-                        Disable Javascript
+                        Disable JavaScript
                     </label>
                 </th>
                 <td>
@@ -917,7 +925,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-http_auth_user_name">
-                        Http Auth User Name
+                        HTTP Auth User Name
                     </label>
                 </th>
                 <td>
@@ -936,7 +944,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-http_auth_password">
-                        Http Auth Password
+                        HTTP Auth Password
                     </label>
                 </th>
                 <td>
@@ -974,7 +982,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-verify_ssl_certificates">
-                        Verify Ssl Certificates
+                        Verify SSL Certificates
                     </label>
                 </th>
                 <td>
@@ -992,7 +1000,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-fail_on_main_url_error">
-                        Fail On Main Url Error
+                        Fail On Main URL Error
                     </label>
                 </th>
                 <td>
@@ -1010,7 +1018,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-fail_on_any_url_error">
-                        Fail On Any Url Error
+                        Fail On Any URL Error
                     </label>
                 </th>
                 <td>
@@ -1028,7 +1036,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-no_xpdfcrowd_header">
-                        No Xpdfcrowd Header
+                        No X-Pdfcrowd Header
                     </label>
                 </th>
                 <td>
@@ -1046,7 +1054,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-custom_javascript">
-                        Custom Javascript
+                        Custom JavaScript
                     </label>
                 </th>
                 <td>
@@ -1065,7 +1073,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-on_load_javascript">
-                        On Load Javascript
+                        On Load JavaScript
                     </label>
                 </th>
                 <td>
@@ -1084,7 +1092,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-custom_http_header">
-                        Custom Http Header
+                        Custom HTTP Header
                     </label>
                 </th>
                 <td>
@@ -1103,7 +1111,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-javascript_delay">
-                        Javascript Delay
+                        JavaScript Delay
                     </label>
                 </th>
                 <td>
@@ -1118,6 +1126,31 @@
                     </div>
                 </td>
             </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-wait_for_element">
+                        Wait For Element
+                    </label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-wait_for_element" name="save-as-pdf-pdfcrowd[wait_for_element]" value="<?php echo($wait_for_element); ?>" placeholder="" autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>wait_for_element</strong>"
+                        </div>
+                        <div class='description'>
+                            Wait for the specified element in a source document. The element is specified by one or more <a href='https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors'>CSS selectors</a>. The element is searched for in the main document and all iframes. If the element is not found, the conversion fails. Your API license defines the maximum wait time by "Max Delay" parameter.
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<fieldset class="save-as-pdf-pdfcrowd-fieldset">
+<legend>Partial Conversion</legend>
+    <table class="form-table">
+        <tbody>
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-element_to_convert">
@@ -1144,47 +1177,51 @@
                     </label>
                 </th>
                 <td>
-                    <select name="save-as-pdf-pdfcrowd[element_to_convert_mode]" id="save-as-pdf-pdfcrowd-element_to_convert_mode">
-                    <option value="cut-out" <?php selected($element_to_convert_mode, 'cut-out');?>>The element and its children are cut out of the document.</option>
-                    <option value="remove-siblings" <?php selected($element_to_convert_mode, 'remove-siblings');?>>All element's siblings are removed.</option>
-                    <option value="hide-siblings" <?php selected($element_to_convert_mode, 'hide-siblings');?>>All element's siblings are hidden.</option>
+                    <fieldset id="save-as-pdf-pdfcrowd-element_to_convert_mode">
+                        <legend class="screen-reader-text">
+                            <span>Element To Convert Mode</span>
+                        </legend>
+                        <label>
+                            <input type="radio" value="cut-out"
+                                   name="save-as-pdf-pdfcrowd[element_to_convert_mode]"
+                                   autocomplete="off"
+                                   <?php checked($element_to_convert_mode, 'cut-out');?>>
+                            The element and its children are cut out of the document.
+                        </label><br>
+                        <label>
+                            <input type="radio" value="remove-siblings"
+                                   name="save-as-pdf-pdfcrowd[element_to_convert_mode]"
+                                   autocomplete="off"
+                                   <?php checked($element_to_convert_mode, 'remove-siblings');?>>
+                            All element's siblings are removed.
+                        </label><br>
+                        <label>
+                            <input type="radio" value="hide-siblings"
+                                   name="save-as-pdf-pdfcrowd[element_to_convert_mode]"
+                                   autocomplete="off"
+                                   <?php checked($element_to_convert_mode, 'hide-siblings');?>>
+                            All element's siblings are hidden.
+                        </label><br>
+                    </fieldset>
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode & function parameter: "<strong>element_to_convert_mode</strong>"<br>Possible values: <ul><li>"cut-out" - The element and its children are cut out of the document.</li><li>"remove-siblings" - All element's siblings are removed.</li><li>"hide-siblings" - All element's siblings are hidden.</li></ul>
                         </div>
                         <div class='description'>
-                            Specify the DOM handling when only a part of the document is converted.
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-wait_for_element">
-                        Wait For Element
-                    </label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-wait_for_element" name="save-as-pdf-pdfcrowd[wait_for_element]" value="<?php echo($wait_for_element); ?>" placeholder="" autocomplete="off" />
-                    <div class='save-as-pdf-pdfcrowd-m-description'>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>wait_for_element</strong>"
-                        </div>
-                        <div class='description'>
-                            Wait for the specified element in a source document. The element is specified by one or more <a href='https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors'>CSS selectors</a>. The element is searched for in the main document and all iframes. If the element is not found, the conversion fails. Your API license defines the maximum wait time by "Max Delay" parameter.
-                            
+                            Specify the DOM handling when only a part of the document is converted. This can affect the CSS rules used.
                         </div>
                     </div>
                 </td>
             </tr>
         </tbody>
     </table>
+</fieldset>
 </div>
 <div id="save-as-pdf-pdfcrowd-print-resolution" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Print Resolution</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
 
 
     <table class="form-table">
@@ -1292,7 +1329,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-jpeg_quality">
-                        Jpeg Quality
+                        JPEG Quality
                     </label>
                 </th>
                 <td>
@@ -1310,7 +1347,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-convert_images_to_jpeg">
-                        Convert Images To Jpeg
+                        Convert Images To JPEG
                     </label>
                 </th>
                 <td>
@@ -1332,7 +1369,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-image_dpi">
-                        Image Dpi
+                        Image DPI
                     </label>
                 </th>
                 <td>
@@ -1353,7 +1390,7 @@
 <div id="save-as-pdf-pdfcrowd-pdf-format" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>PDF Format</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
 
 
     <table class="form-table">
@@ -1568,7 +1605,7 @@
 <div id="save-as-pdf-pdfcrowd-viewer-preferences" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Viewer Preferences</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
 
 
     <table class="form-table">
@@ -1718,7 +1755,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-hide_window_ui">
-                        Hide Window Ui
+                        Hide Window UI
                     </label>
                 </th>
                 <td>
@@ -1811,7 +1848,7 @@
 <div id="save-as-pdf-pdfcrowd-data" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Data</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
 
 
     <table class="form-table">
@@ -1976,7 +2013,7 @@
 <div id="save-as-pdf-pdfcrowd-miscellaneous" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Miscellaneous</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
 
 
     <table class="form-table">
@@ -2021,7 +2058,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-http_proxy">
-                        Http Proxy
+                        HTTP Proxy
                     </label>
                 </th>
                 <td>
@@ -2040,7 +2077,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-https_proxy">
-                        Https Proxy
+                        HTTPS Proxy
                     </label>
                 </th>
                 <td>
@@ -2100,7 +2137,7 @@
 <div id="save-as-pdf-pdfcrowd-expert" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Expert</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
 
 
     <table class="form-table">
@@ -2108,7 +2145,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-layout_dpi">
-                        Layout Dpi
+                        Layout DPI
                     </label>
                 </th>
                 <td>
@@ -2216,7 +2253,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-main_document_css_annotation">
-                        Main Document Css Annotation
+                        Main Document CSS Annotation
                     </label>
                 </th>
                 <td>
@@ -2246,7 +2283,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-header_footer_css_annotation">
-                        Header Footer Css Annotation
+                        Header Footer CSS Annotation
                     </label>
                 </th>
                 <td>
@@ -2279,7 +2316,7 @@
 <div id="save-as-pdf-pdfcrowd-api-client-options" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>API Client Options</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show Parameters</a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
 
 
     <table class="form-table">
@@ -2309,7 +2346,7 @@
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-use_http">
-                        Use Http
+                        Use HTTP
                     </label>
                 </th>
                 <td>

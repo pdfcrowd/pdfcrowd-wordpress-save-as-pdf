@@ -265,7 +265,7 @@
         <input type="hidden" name="save-as-pdf-pdfcrowd[wp_submit_action]" value="" />
 
         <p class="submit">
-            <input id="pdfcrowd-save" name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save All Changes', $this->plugin_name); ?>" />
+            <input id="pdfcrowd-save" name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save all changes', $this->plugin_name); ?>" />
             <input name="Reset" type="submit" class="button-primary" value="<?php esc_attr_e('Reset to default values', $this->plugin_name); ?>"
                    onclick="return save_as_pdf_pdfcrowd_reset_settings();" />
             <input type="reset" class="button-secondary" value="<?php esc_attr_e('Cancel', $this->plugin_name); ?>">
@@ -281,4 +281,58 @@
             </div>
         </div>
     </form>
+
+    <div style="display: none">
+        <input type="hidden" id="save-as-pdf-pdfcrowd-hidden-header"
+               value="<?php
+        $site_name = get_bloginfo('name');
+        $site_desc = get_bloginfo('description');
+        $site_css = get_bloginfo('stylesheet_url');
+        $site_url = get_bloginfo('url');
+        echo <<<EOT
+<html>
+  <head>
+    <link rel='stylesheet' href='$site_css'>
+    <style>
+      * { margin: 0; padding: 0; }
+    </style>
+  </head>
+  <body>
+    <div style='text-align: center'>
+      <p class='site-title'>
+        <a href='$site_url'>$site_name</a>
+      </p>
+      <p class='site-description'>
+        $site_desc
+      </p>
+    </div>
+  </body>
+</html>
+EOT;
+
+?>">
+        <input type="hidden" id="save-as-pdf-pdfcrowd-hidden-footer"
+               value="<?php
+        echo <<<EOT
+<html>
+  <head>
+    <link rel='stylesheet' href='$site_css'>
+    <style>
+      * { margin: 0; padding: 0; }
+    </style>
+  </head>
+  <body>
+    <div style='float: left'>
+      <a class='pdfcrowd-source-url' data-pdfcrowd-placement='href-and-content'></a>
+    </div>
+    </div>
+    <div style='float: right'>
+      <span class='pdfcrowd-page-number'></span>&#47;<span class='pdfcrowd-page-count'></span>
+    </div>
+  </body>
+</html>
+EOT;
+
+?>">
+    </div>
 </div>
