@@ -276,7 +276,7 @@
 
         <hr style="margin-top: 4em;"/>
         <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
-            <a href="https://pdfcrowd.com/contact/?ref=wordpress&pr=save-as-pdf-pdfcrowd" class="thickbox button-secondary" title="Help" target="_blank">
+            <a href="https://pdfcrowd.com/contact/?ref=wordpress&pr=save-as-pdf-pdfcrowd" class="button-secondary" title="Help" target="_blank">
                 Get help
             </a>
             <div id="save-as-pdf-pdfcrowd-support-notes">
