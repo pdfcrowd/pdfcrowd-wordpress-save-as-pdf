@@ -53,72 +53,56 @@
     <div id="save-as-pdf-pdfcrowd-wizard-step-3" class="save-as-pdf-pdfcrowd-wizard-step">
         <h2>Conversion Mode</h2>
         <div class="save-as-pdf-pdfcrowd-wizard-step-container">
-            Configure the conversion mode or use the automatic one.
-            <div id="save-as-pdf-pdfcrowd-wizard-cm">
-                <fieldset>
-                    <legend class="screen-reader-text">
-                        <span>Conversion mode setup</span>
-                    </legend>
-                    <p>
-                        <label>
-                            <input type="radio"
-                                   name="save-as-pdf-pdfcrowd-wizard-cm"
-                                   checked value="0">
-                            Automatic
-                        </input>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input type="radio"
-                                   name="save-as-pdf-pdfcrowd-wizard-cm"
-                                   id="save-as-pdf-pdfcrowd-wizard-cm-cfg"
-                                   value="1">
-                            Configure
-                            </input>
-                        </label>
-                    </p>
-                </fieldset>
-            </div>
+            Select option which describes your pages used for conversion. This will help you set the optimal mode.
             <div id="save-as-pdf-pdfcrowd-wizard-cm-conf">
-                Check one or more items which describe your web pages.
                 <p>
-                    <input type="checkbox"
-       id="save-as-pdf-pdfcrowd-wizard_cm_public"
-       name="save-as-pdf-pdfcrowd-wizard_cm_public"
-       value="1" autocomplete="off">
-
-                    <label for="save-as-pdf-pdfcrowd-wizard_cm_public">
+                    <label for="save-as-pdf-pdfcrowd-wizard-cm-public">
+                        <input type="radio"
+                               id="save-as-pdf-pdfcrowd-wizard-cm-public"
+                               name="save-as-pdf-pdfcrowd-wizard-cm"
+                               value="public"
+                               checked="checked"
+                               autocomplete="off">
                         Publicly accessible pages
                     </label>
                 </p>
                 <p>
-                    <input type="checkbox"
-       id="save-as-pdf-pdfcrowd-wizard_cm_pp"
-       name="save-as-pdf-pdfcrowd-wizard_cm_pp"
-       value="1" autocomplete="off">
-
-                    <label for="save-as-pdf-pdfcrowd-wizard_cm_pp">
+                    <label for="save-as-pdf-pdfcrowd-wizard-cm-private">
+                        <input type="radio"
+                               id="save-as-pdf-pdfcrowd-wizard-cm-private"
+                               name="save-as-pdf-pdfcrowd-wizard-cm"
+                               value="private"
+                               autocomplete="off">
+                        Intranet or localhost pages
+                    </label>
+                </p>
+                <p>
+                    <label for="save-as-pdf-pdfcrowd-wizard-cm-pp">
+                        <input type="radio"
+                               id="save-as-pdf-pdfcrowd-wizard-cm-pp"
+                               name="save-as-pdf-pdfcrowd-wizard-cm"
+                               value="pp"
+                               autocomplete="off">
                         Password protected pages
                     </label>
                 </p>
                 <p>
-                    <input type="checkbox"
-       id="save-as-pdf-pdfcrowd-wizard_cm_data"
-       name="save-as-pdf-pdfcrowd-wizard_cm_data"
-       value="1" autocomplete="off">
-
-                    <label for="save-as-pdf-pdfcrowd-wizard_cm_data">
+                    <label for="save-as-pdf-pdfcrowd-wizard-cm-data">
+                        <input type="radio"
+                               id="save-as-pdf-pdfcrowd-wizard-cm-data"
+                               name="save-as-pdf-pdfcrowd-wizard-cm"
+                               value="data"
+                               autocomplete="off">
                         Pages with data entered by users (web forms)
                     </label>
                 </p>
                 <p>
-                    <input type="checkbox"
-       id="save-as-pdf-pdfcrowd-wizard_cm_canvas"
-       name="save-as-pdf-pdfcrowd-wizard_cm_canvas"
-       value="1" autocomplete="off">
-
-                    <label for="save-as-pdf-pdfcrowd-wizard_cm_canvas">
+                    <label for="save-as-pdf-pdfcrowd-wizard-cm-canvas">
+                        <input type="radio"
+                               id="save-as-pdf-pdfcrowd-wizard-cm-canvas"
+                               name="save-as-pdf-pdfcrowd-wizard-cm"
+                               value="canvas"
+                               autocomplete="off">
                         Pages with canvas drawings created by users
                     </label>
                 </p>

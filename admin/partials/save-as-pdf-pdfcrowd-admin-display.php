@@ -36,6 +36,7 @@
                 <a href="#save-as-pdf-pdfcrowd-license-settings" class="nav-tab nav-tab-active">Basics</a>
                 <a href="#save-as-pdf-pdfcrowd-appearance" class="nav-tab">Appearance</a>
                 <a href="#save-as-pdf-pdfcrowd-behavior" class="nav-tab">Behavior</a>
+                <a href="#save-as-pdf-pdfcrowd-mode" class="nav-tab">Mode</a>
                 <a href="#save-as-pdf-pdfcrowd-page-setup" class="nav-tab">Page Setup</a>
                 <a href="#save-as-pdf-pdfcrowd-header-and-footer" class="nav-tab">Header & Footer</a>
                 <a href="#save-as-pdf-pdfcrowd-watermark-and-background" class="nav-tab">Watermark & Background</a>
@@ -108,6 +109,7 @@
         $email_cc = isset($options['email_cc']) ? $options['email_cc'] : '';
         $email_custom_dialogs = isset($options['email_custom_dialogs']) ? $options['email_custom_dialogs'] : '';
         $email_dialogs = isset($options['email_dialogs']) ? $options['email_dialogs'] : '';
+        $email_from = isset($options['email_from']) ? $options['email_from'] : '';
         $email_message = isset($options['email_message']) ? $options['email_message'] : '';
         $email_recipient = isset($options['email_recipient']) ? $options['email_recipient'] : '';
         $email_recipient_address = isset($options['email_recipient_address']) ? $options['email_recipient_address'] : '';
@@ -243,6 +245,7 @@
         require_once('license-settings.php');
         require_once('appearance.php');
         require_once('behavior.php');
+        require_once('mode.php');
         require_once('save-as-pdf-pdfcrowd-settings.php');
         ?>
 
@@ -273,7 +276,7 @@
 
         <hr style="margin-top: 4em;"/>
         <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
-            <a href="https://pdfcrowd.com/contact/?ref=wordpress&pr=save-as-pdf-pdfcrowd&u=<?php echo($username); ?>" class="thickbox button-secondary" title="Help" target="_blank">
+            <a href="https://pdfcrowd.com/contact/?ref=wordpress&pr=save-as-pdf-pdfcrowd" class="thickbox button-secondary" title="Help" target="_blank">
                 Get help
             </a>
             <div id="save-as-pdf-pdfcrowd-support-notes">

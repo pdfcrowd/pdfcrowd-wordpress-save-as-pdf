@@ -194,7 +194,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'button_translation' => '',
         'button_translation_domain' => '',
         'button_user_drawings' => '0',
-        'conversion_mode' => 'auto',
+        'conversion_mode' => 'upload',
         'converter_version' => '20.10',
         'custom_data' => '',
         'dev_mode' => '0',
@@ -202,6 +202,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'email_cc' => '',
         'email_custom_dialogs' => '',
         'email_dialogs' => 'modal',
+        'email_from' => '',
         'email_message' => '<p>Dear {{user_first_name}} {{user_last_name}},</p>
 <p>Please, find {{title}} attached.</p>
 <p>Best Regards,<br>
@@ -218,7 +219,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'rendering_mode' => 'viewport',
         'smart_scaling_mode' => 'viewport-fit',
         'username' => '',
-        'version' => '2210',
+        'version' => '2300',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -415,7 +416,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2210) {
+        if($options['version'] == 2300) {
             // error_log('the same version');
             return $options;
         }
@@ -435,7 +436,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         }
 
         // error_log('save new options');
-        $options['version'] = 2210;
+        $options['version'] = 2300;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -1031,7 +1032,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.2.1 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.3.0 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
@@ -1258,6 +1259,9 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         }
         if(isset($options['email_bcc']) && !empty($options['email_bcc'])) {
             $headers[] = 'Bcc: ' . $options['email_bcc'];
+        }
+        if(isset($options['email_from']) && !empty($options['email_from'])) {
+            $headers[] = 'From: ' . $options['email_from'];
         }
         if(!wp_mail($email_to,
                     $subject,

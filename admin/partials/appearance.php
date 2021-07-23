@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Partial of the clean up settings
+* Partial of the appearance settings
 *
 *
 *

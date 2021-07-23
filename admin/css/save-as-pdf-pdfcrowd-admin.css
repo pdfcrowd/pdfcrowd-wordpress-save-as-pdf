@@ -30,6 +30,14 @@
     margin: 0.5em 0 0 1em;
 }
 
+#save-as-pdf-pdfcrowd-options label {
+    margin-bottom: 0 !important;
+}
+
+#save-as-pdf-pdfcrowd-options .description {
+    margin-bottom: 1em;
+}
+
 
 .save-as-pdf-pdfcrowd-reset,
 .save-as-pdf-pdfcrowd-reset * {
@@ -143,11 +151,6 @@ span.save-as-pdf-pdfcrowd-button-wrap {
 
 .save-as-pdf-pdfcrowd-wizard-step-span {
     margin-left: .5em;
-}
-
-#save-as-pdf-pdfcrowd-wizard-cm-conf {
-    display: none;
-    margin-left: 2em;
 }
 
 #save-as-pdf-pdfcrowd-wizard-run img {
