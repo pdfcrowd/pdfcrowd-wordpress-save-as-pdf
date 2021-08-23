@@ -15,7 +15,15 @@
 
 <div id="save-as-pdf-pdfcrowd-mode" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
     <h2>Mode</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
+    
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-show button-secondary'>
+        Show parameters
+    </a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-hide button-secondary' style='display: none;'>
+        Hide parameters
+    </a>
+
+
     <p>
        The following settings affect the selection of the HTML source for conversion. By combining the parameters appropriately, you will get the desired output.
     </p>

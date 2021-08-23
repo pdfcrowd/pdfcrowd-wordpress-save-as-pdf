@@ -194,7 +194,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'button_translation' => '',
         'button_translation_domain' => '',
         'button_user_drawings' => '0',
-        'conversion_mode' => 'upload',
+        'conversion_mode' => 'url',
         'converter_version' => '20.10',
         'custom_data' => '',
         'dev_mode' => '0',
@@ -219,7 +219,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'rendering_mode' => 'viewport',
         'smart_scaling_mode' => 'viewport-fit',
         'username' => '',
-        'version' => '2300',
+        'version' => '2400',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -302,6 +302,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'subject',
         'author',
         'keywords',
+        'extract_meta_tags',
         'page_layout',
         'page_mode',
         'initial_zoom_type',
@@ -416,7 +417,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2300) {
+        if($options['version'] == 2400) {
             // error_log('the same version');
             return $options;
         }
@@ -436,7 +437,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         }
 
         // error_log('save new options');
-        $options['version'] = 2300;
+        $options['version'] = 2400;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -1032,7 +1033,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.3.0 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.4.0 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 

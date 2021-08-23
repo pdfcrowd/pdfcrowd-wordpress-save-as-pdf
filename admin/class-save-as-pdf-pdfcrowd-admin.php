@@ -191,7 +191,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 2300;
+        $valid['version'] = 2400;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {
@@ -887,6 +887,8 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         $valid['author'] = isset($input['author']) ? $input['author'] : '';
 
         $valid['keywords'] = isset($input['keywords']) ? $input['keywords'] : '';
+
+        $valid['extract_meta_tags'] = (isset($input['extract_meta_tags']) && !empty($input['extract_meta_tags'])) ? 1: 0;
 
         if (isset($input['page_layout']) &&
             $input['page_layout'] != '') {

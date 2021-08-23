@@ -16,7 +16,14 @@
 <div id="save-as-pdf-pdfcrowd-page-setup" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Page Setup</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
+    
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-show button-secondary'>
+        Show parameters
+    </a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-hide button-secondary' style='display: none;'>
+        Hide parameters
+    </a>
+
 
 
     <table class="form-table">
@@ -347,7 +354,14 @@
 <div id="save-as-pdf-pdfcrowd-header-and-footer" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Header & Footer</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
+    
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-show button-secondary'>
+        Show parameters
+    </a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-hide button-secondary' style='display: none;'>
+        Hide parameters
+    </a>
+
 
     <div>
         <span class="button-secondary" id="save-as-pdf-pdfcrowd-use-predefined-h-html">
@@ -557,7 +571,14 @@
 <div id="save-as-pdf-pdfcrowd-watermark-and-background" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Watermark & Background</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
+    
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-show button-secondary'>
+        Show parameters
+    </a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-hide button-secondary' style='display: none;'>
+        Hide parameters
+    </a>
+
 
     <p class='clear save-as-pdf-pdfcrowd-note'>PDF file used as a watermark or a background must exist on the file system. To apply WordPress uploaded media use a relative path. Example:
         <br>
@@ -743,7 +764,14 @@
 <div id="save-as-pdf-pdfcrowd-general-options" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>General Options</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
+    
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-show button-secondary'>
+        Show parameters
+    </a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-hide button-secondary' style='display: none;'>
+        Hide parameters
+    </a>
+
 
 
     <table class="form-table">
@@ -1221,7 +1249,14 @@
 <div id="save-as-pdf-pdfcrowd-print-resolution" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Print Resolution</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
+    
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-show button-secondary'>
+        Show parameters
+    </a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-hide button-secondary' style='display: none;'>
+        Hide parameters
+    </a>
+
 
 
     <table class="form-table">
@@ -1390,7 +1425,14 @@
 <div id="save-as-pdf-pdfcrowd-pdf-format" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>PDF Format</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
+    
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-show button-secondary'>
+        Show parameters
+    </a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-hide button-secondary' style='display: none;'>
+        Hide parameters
+    </a>
+
 
 
     <table class="form-table">
@@ -1599,13 +1641,38 @@
                     </div>
                 </td>
             </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-extract_meta_tags">
+                        Extract Meta Tags
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-extract_meta_tags" name="save-as-pdf-pdfcrowd[extract_meta_tags]" value="1" <?php checked( $extract_meta_tags, 1 ); ?> autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>extract_meta_tags</strong>"<br>Possible values: 0, 1
+                        </div>
+                        <div class='description'>
+                            Extract meta tags (author, keywords and description) from the input HTML and use them in the output PDF.
+                        </div>
+                    </div>
+                </td>
+            </tr>
         </tbody>
     </table>
 </div>
 <div id="save-as-pdf-pdfcrowd-viewer-preferences" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Viewer Preferences</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
+    
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-show button-secondary'>
+        Show parameters
+    </a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-hide button-secondary' style='display: none;'>
+        Hide parameters
+    </a>
+
 
 
     <table class="form-table">
@@ -1848,7 +1915,14 @@
 <div id="save-as-pdf-pdfcrowd-data" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Data</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
+    
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-show button-secondary'>
+        Show parameters
+    </a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-hide button-secondary' style='display: none;'>
+        Hide parameters
+    </a>
+
 
 
     <table class="form-table">
@@ -2013,7 +2087,14 @@
 <div id="save-as-pdf-pdfcrowd-miscellaneous" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Miscellaneous</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
+    
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-show button-secondary'>
+        Show parameters
+    </a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-hide button-secondary' style='display: none;'>
+        Hide parameters
+    </a>
+
 
 
     <table class="form-table">
@@ -2137,7 +2218,14 @@
 <div id="save-as-pdf-pdfcrowd-expert" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>Expert</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
+    
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-show button-secondary'>
+        Show parameters
+    </a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-hide button-secondary' style='display: none;'>
+        Hide parameters
+    </a>
+
 
 
     <table class="form-table">
@@ -2316,7 +2404,14 @@
 <div id="save-as-pdf-pdfcrowd-api-client-options" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
 
     <h2>API Client Options</h2>
-    <a href='#' class='save-as-pdf-pdfcrowd-expert button-secondary'>Show parameters</a>
+    
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-show button-secondary'>
+        Show parameters
+    </a>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-hide button-secondary' style='display: none;'>
+        Hide parameters
+    </a>
+
 
 
     <table class="form-table">

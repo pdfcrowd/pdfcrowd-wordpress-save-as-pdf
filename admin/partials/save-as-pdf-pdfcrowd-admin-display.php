@@ -198,6 +198,7 @@
         $subject = isset($options['subject']) ? $options['subject'] : '';
         $author = isset($options['author']) ? $options['author'] : '';
         $keywords = isset($options['keywords']) ? $options['keywords'] : '';
+        $extract_meta_tags = isset($options['extract_meta_tags']) ? $options['extract_meta_tags'] : '';
         $page_layout = isset($options['page_layout']) ? $options['page_layout'] : '';
         $page_mode = isset($options['page_mode']) ? $options['page_mode'] : '';
         $initial_zoom_type = isset($options['initial_zoom_type']) ? $options['initial_zoom_type'] : '';

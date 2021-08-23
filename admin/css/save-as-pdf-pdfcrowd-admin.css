@@ -91,7 +91,7 @@ span.save-as-pdf-pdfcrowd-button-wrap {
     vertical-align: middle;
 }
 
-.save-as-pdf-pdfcrowd-expert {
+.save-as-pdf-pdfcrowd-expert-show, .save-as-pdf-pdfcrowd-expert-hide {
     float: right;
 }
 
