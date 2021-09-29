@@ -16,8 +16,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 
 $options = get_option('save-as-pdf-pdfcrowd');
 
-if(isset($options['username']) && !empty($options['username']) &&
-   isset($options['api_key']) && !empty($options['api_key'])) {
+if(!empty($options['username']) && !empty($options['api_key'])) {
     // notify an user about removing Pdfcrowd plugin
     // so the user can delete Pdfcrowd API license
     $url = 'https://pdfcrowd.com/admin-api/api2/username:' . $options['username'] . '/wp-plugin-removed/';

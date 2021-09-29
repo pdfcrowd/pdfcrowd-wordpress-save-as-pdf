@@ -12,7 +12,7 @@ Let your visitors save pages as PDF in a single click. Reliable, fast and highly
 
 == Description ==
 
-The Save as PDF plugin is easy to use. Just install the plugin and activate it. The plugin puts a "Save to Pdf" button in your web pages. The button enables to save the current web page (the default), or only a part of the page or an arbitrary page in one click.
+The Save as PDF plugin is easy to use. Just install the plugin and activate it. The plugin puts a "Save as PDF" button in your web pages. The button enables to save the current web page (the default), or only a part of the page or an arbitrary page in one click.
 
 The plugin internally uses the Pdfcrowd API web service. The Pdfcrowd API is a professional solution for converting web pages and HTML documents to PDF and various image formats.
 
@@ -128,6 +128,11 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 2. Sample of settings.
 
 == Changelog ==
+
+= 2.4.1 =
+* "HTTP Auth User Name", "HTTP Auth Password", "Cookies", "Fail On Main URL Error" and "Fail On Any URL Error" options are applied for "Conversion Mode - Upload" too.
+* Fixes multiple line warning.
+* Minor code cleanup.
 
 = 2.4.0 =
 * New "Extract Meta Tags" option to use input HTML meta tag in the output PDF.
