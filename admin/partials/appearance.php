@@ -385,6 +385,22 @@
                     </p>
                 </td>
             </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-button-text-size">
+                        Indicator Timeout
+                    </label>
+                </th>
+                <td>
+                    <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-indicator-timeout" name="save-as-pdf-pdfcrowd[button_indicator_timeout]" value="<?php echo $button_indicator_timeout ?>" autocomplete="off" /> seconds
+                    <p class='save-as-pdf-pdfcrowd-devi'>
+                        Shortcode & function parameter: "<strong>button_indicator_timeout</strong>"<br>Possible values: any numeric value
+                    </p>
+                    <p class='description'>
+                        If the indicator remains active even after the conversion has finished, set a time limit on the conversion time of your typical document, e.g. 5 seconds. Otherwise, use the default value of 60 seconds.
+                    </p>
+                </td>
+            </tr>
         </tbody>
     </table>
     <hr/>

@@ -129,6 +129,10 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.5.0 =
+* New "Indicator Timeout" option to set the maximum time the conversion indicator is displayed.
+* Minor fix in the indicator code.
+
 = 2.4.1 =
 * "HTTP Auth User Name", "HTTP Auth Password", "Cookies", "Fail On Main URL Error" and "Fail On Any URL Error" options are applied for "Conversion Mode - Upload" too.
 * Fixes multiple line warning.

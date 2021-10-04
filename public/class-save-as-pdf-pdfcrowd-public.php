@@ -170,6 +170,7 @@ class Save_As_Pdf_Pdfcrowd_Public {
         'button_indicator' => 'ellipsis',
         'button_indicator_html' => '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
+        'button_indicator_timeout' => '60',
         'button_margin_bottom' => '6',
         'button_margin_left' => '6',
         'button_margin_right' => '6',
@@ -219,7 +220,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'rendering_mode' => 'viewport',
         'smart_scaling_mode' => 'viewport-fit',
         'username' => '',
-        'version' => '2410',
+        'version' => '2500',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -417,7 +418,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2410) {
+        if($options['version'] == 2500) {
             // error_log('the same version');
             return $options;
         }
@@ -435,7 +436,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         }
 
         // error_log('save new options');
-        $options['version'] = 2410;
+        $options['version'] = 2500;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -535,6 +536,9 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $config['indicator'] = isset($options['button_indicator'])
                              ? $options['button_indicator']
                              : '';
+        $config['indicator_timeout'] = !empty($options['button_indicator_timeout'])
+                                     ? $options['button_indicator_timeout']
+                                     : '60';
         if($config['indicator'] == 'custom') {
             $custom_indicator = true;
             $config['indicator'] = isset($options['button_custom_indicator'])
@@ -647,8 +651,8 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
             break;
         }
 
-        if(isset($options['button_indicator']) &&
-           isset($options['button_indicator']) == 'html' &&
+        if(!empty($options['button_indicator']) &&
+           $options['button_indicator'] == 'html' &&
            isset($options['button_indicator_html'])) {
             $button_content .= "<{$button_tag} class='save-as-pdf-pdfcrowd-ind save-as-pdf-pdfcrowd-ind-in' style='display: none !important;'>" .
                             $options['button_indicator_html'] . "</{$button_tag}>";
@@ -1072,7 +1076,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.4.1 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.5.0 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
