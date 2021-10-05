@@ -129,6 +129,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.5.1 =
+* Fix of the plugin options saving.
+
 = 2.5.0 =
 * New "Indicator Timeout" option to set the maximum time the conversion indicator is displayed.
 * Minor fix in the indicator code.
