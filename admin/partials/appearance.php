@@ -412,7 +412,7 @@
                     <label for="save-as-pdf-pdfcrowd[button_position]">Destination</label>
                 </th>
                 <td>
-                    <select id="save-as-pdf-pdfcrowd[button_position]" name="save-as-pdf-pdfcrowd[button_position]">
+                    <select id="save-as-pdf-pdfcrowd[button_position]" name="save-as-pdf-pdfcrowd[button_position]" autocomplete="off">
                     <option value="below" <?php selected($button_position, 'below');?>>below content</option>
                     <option value="above" <?php selected($button_position, 'above');?>>above content</option>
                     <option value="left" <?php selected($button_position, 'left');?>>left to content</option>
@@ -429,7 +429,7 @@
                     <label for="save-as-pdf-pdfcrowd[button_alignment]">Alignment</label>
                 </th>
                 <td>
-                    <select id="save-as-pdf-pdfcrowd[button_alignment]" name="save-as-pdf-pdfcrowd[button_alignment]">
+                    <select id="save-as-pdf-pdfcrowd[button_alignment]" name="save-as-pdf-pdfcrowd[button_alignment]" autocomplete="off">
                     <option value="" <?php selected($button_alignment, '');?>>-- unset --</option>
                     <option value="start" <?php selected($button_alignment, 'start');?>>start</option>
                     <option value="center" <?php selected($button_alignment, 'center');?>>center</option>
@@ -528,7 +528,7 @@
                         </label>
                     </th>
                     <td>
-                        <select name="save-as-pdf-pdfcrowd[button_text_weight]">
+                        <select name="save-as-pdf-pdfcrowd[button_text_weight]" autocomplete="off">
                             <option value="normal" <?php selected($button_text_weight, 'normal');?>>normal</option>
                             <option value="bold" <?php selected($button_text_weight, 'bold');?>>bold</option>
                             <option value="bolder" <?php selected($button_text_weight, 'bolder');?>>bolder</option>
@@ -594,7 +594,7 @@
                         </label>
                     </th>
                     <td>
-                        <select name="save-as-pdf-pdfcrowd[button_border_style]">
+                        <select name="save-as-pdf-pdfcrowd[button_border_style]" autocomplete="off">
                             <option value="dotted" <?php selected($button_border_style, 'dotted');?>>dotted</option>
                             <option value="dashed" <?php selected($button_border_style, 'dashed');?>>dashed</option>
                             <option value="solid" <?php selected($button_border_style, 'solid');?>>solid</option>

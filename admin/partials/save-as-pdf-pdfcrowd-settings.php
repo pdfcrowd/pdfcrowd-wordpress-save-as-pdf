@@ -35,7 +35,7 @@
                     </label>
                 </th>
                 <td>
-                    <select name="save-as-pdf-pdfcrowd[page_size]" id="save-as-pdf-pdfcrowd-page_size">
+                    <select name="save-as-pdf-pdfcrowd[page_size]" id="save-as-pdf-pdfcrowd-page_size" autocomplete="off">
                     <option value="" <?php selected($page_size, '');?>>-- default --</option>
                     <option value="A0" <?php selected($page_size, 'A0');?>>A0</option>
                     <option value="A1" <?php selected($page_size, 'A1');?>>A1</option>
@@ -101,7 +101,7 @@
                     </label>
                 </th>
                 <td>
-                    <select name="save-as-pdf-pdfcrowd[orientation]" id="save-as-pdf-pdfcrowd-orientation">
+                    <select name="save-as-pdf-pdfcrowd[orientation]" id="save-as-pdf-pdfcrowd-orientation" autocomplete="off">
                     <option value="" <?php selected($orientation, '');?>>-- default --</option>
                     <option value="landscape" <?php selected($orientation, 'landscape');?>>landscape</option>
                     <option value="portrait" <?php selected($orientation, 'portrait');?>>portrait</option>
@@ -330,7 +330,7 @@
                     </label>
                 </th>
                 <td>
-                    <select name="save-as-pdf-pdfcrowd[css_page_rule_mode]" id="save-as-pdf-pdfcrowd-css_page_rule_mode">
+                    <select name="save-as-pdf-pdfcrowd[css_page_rule_mode]" id="save-as-pdf-pdfcrowd-css_page_rule_mode" autocomplete="off">
                     <option value="default" <?php selected($css_page_rule_mode, 'default');?>>The Pdfcrowd API page settings are preferred.</option>
                     <option value="mode1" <?php selected($css_page_rule_mode, 'mode1');?>>The converter version 18.10 mode.</option>
                     <option value="mode2" <?php selected($css_page_rule_mode, 'mode2');?>>CSS @page rule is preferred.</option>
@@ -873,7 +873,7 @@
                     </label>
                 </th>
                 <td>
-                    <select name="save-as-pdf-pdfcrowd[load_iframes]" id="save-as-pdf-pdfcrowd-load_iframes">
+                    <select name="save-as-pdf-pdfcrowd[load_iframes]" id="save-as-pdf-pdfcrowd-load_iframes" autocomplete="off">
                     <option value="all" <?php selected($load_iframes, 'all');?>>All iframes are loaded.</option>
                     <option value="same-origin" <?php selected($load_iframes, 'same-origin');?>>Only iframes with the same origin as the main page are loaded.</option>
                     <option value="none" <?php selected($load_iframes, 'none');?>>Iframe loading is disabled.</option>
@@ -1304,7 +1304,7 @@
                     </label>
                 </th>
                 <td>
-                    <select name="save-as-pdf-pdfcrowd[rendering_mode]" id="save-as-pdf-pdfcrowd-rendering_mode">
+                    <select name="save-as-pdf-pdfcrowd[rendering_mode]" id="save-as-pdf-pdfcrowd-rendering_mode" autocomplete="off">
                     <option value="default" <?php selected($rendering_mode, 'default');?>>The mode based on the standard browser print functionality.</option>
                     <option value="viewport" <?php selected($rendering_mode, 'viewport');?>>The viewport width affects the @media min-width and max-width CSS properties.</option>
                     </select>
@@ -1325,7 +1325,7 @@
                     </label>
                 </th>
                 <td>
-                    <select name="save-as-pdf-pdfcrowd[smart_scaling_mode]" id="save-as-pdf-pdfcrowd-smart_scaling_mode">
+                    <select name="save-as-pdf-pdfcrowd[smart_scaling_mode]" id="save-as-pdf-pdfcrowd-smart_scaling_mode" autocomplete="off">
                     <option value="default" <?php selected($smart_scaling_mode, 'default');?>>The mode based on the standard browser print functionality.</option>
                     <option value="disabled" <?php selected($smart_scaling_mode, 'disabled');?>>No smart scaling is performed.</option>
                     <option value="viewport-fit" <?php selected($smart_scaling_mode, 'viewport-fit');?>>The viewport width fits the print area width.</option>
@@ -1386,7 +1386,7 @@
                     </label>
                 </th>
                 <td>
-                    <select name="save-as-pdf-pdfcrowd[convert_images_to_jpeg]" id="save-as-pdf-pdfcrowd-convert_images_to_jpeg">
+                    <select name="save-as-pdf-pdfcrowd[convert_images_to_jpeg]" id="save-as-pdf-pdfcrowd-convert_images_to_jpeg" autocomplete="off">
                     <option value="none" <?php selected($convert_images_to_jpeg, 'none');?>>No image conversion is done.</option>
                     <option value="opaque" <?php selected($convert_images_to_jpeg, 'opaque');?>>Only opaque images are converted to JPEG images.</option>
                     <option value="all" <?php selected($convert_images_to_jpeg, 'all');?>>All images are converted to JPEG images.</option>
@@ -1684,7 +1684,7 @@
                     </label>
                 </th>
                 <td>
-                    <select name="save-as-pdf-pdfcrowd[page_layout]" id="save-as-pdf-pdfcrowd-page_layout">
+                    <select name="save-as-pdf-pdfcrowd[page_layout]" id="save-as-pdf-pdfcrowd-page_layout" autocomplete="off">
                     <option value="" <?php selected($page_layout, '');?>>-- default --</option>
                     <option value="single-page" <?php selected($page_layout, 'single-page');?>>Display one page at a time.</option>
                     <option value="one-column" <?php selected($page_layout, 'one-column');?>>Display the pages in one column.</option>
@@ -1708,7 +1708,7 @@
                     </label>
                 </th>
                 <td>
-                    <select name="save-as-pdf-pdfcrowd[page_mode]" id="save-as-pdf-pdfcrowd-page_mode">
+                    <select name="save-as-pdf-pdfcrowd[page_mode]" id="save-as-pdf-pdfcrowd-page_mode" autocomplete="off">
                     <option value="" <?php selected($page_mode, '');?>>-- default --</option>
                     <option value="full-screen" <?php selected($page_mode, 'full-screen');?>>Full-screen mode.</option>
                     <option value="thumbnails" <?php selected($page_mode, 'thumbnails');?>>Thumbnail images are visible.</option>
@@ -1731,7 +1731,7 @@
                     </label>
                 </th>
                 <td>
-                    <select name="save-as-pdf-pdfcrowd[initial_zoom_type]" id="save-as-pdf-pdfcrowd-initial_zoom_type">
+                    <select name="save-as-pdf-pdfcrowd[initial_zoom_type]" id="save-as-pdf-pdfcrowd-initial_zoom_type" autocomplete="off">
                     <option value="" <?php selected($initial_zoom_type, '');?>>-- default --</option>
                     <option value="fit-width" <?php selected($initial_zoom_type, 'fit-width');?>>The page content is magnified just enough to fit the entire width of the page within the window.</option>
                     <option value="fit-height" <?php selected($initial_zoom_type, 'fit-height');?>>The page content is magnified just enough to fit the entire height of the page within the window.</option>
@@ -1972,7 +1972,7 @@
                     </label>
                 </th>
                 <td>
-                    <select name="save-as-pdf-pdfcrowd[data_format]" id="save-as-pdf-pdfcrowd-data_format">
+                    <select name="save-as-pdf-pdfcrowd[data_format]" id="save-as-pdf-pdfcrowd-data_format" autocomplete="off">
                     <option value="auto" <?php selected($data_format, 'auto');?>>the data format is auto detected</option>
                     <option value="json" <?php selected($data_format, 'json');?>>json</option>
                     <option value="xml" <?php selected($data_format, 'xml');?>>xml</option>
@@ -2423,7 +2423,7 @@
                     </label>
                 </th>
                 <td>
-                    <select name="save-as-pdf-pdfcrowd[converter_version]" id="save-as-pdf-pdfcrowd-converter_version">
+                    <select name="save-as-pdf-pdfcrowd[converter_version]" id="save-as-pdf-pdfcrowd-converter_version" autocomplete="off">
                     <option value="latest" <?php selected($converter_version, 'latest');?>>The latest converter version.</option>
                     <option value="20.10" <?php selected($converter_version, '20.10');?>>Version 20.10.</option>
                     <option value="18.10" <?php selected($converter_version, '18.10');?>>Version 18.10.</option>

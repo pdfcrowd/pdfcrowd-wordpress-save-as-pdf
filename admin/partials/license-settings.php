@@ -18,7 +18,7 @@
         Quick Setup
     </h2>
     <p>
-        Save as PDF by Pdfcrowd offers 170+ settings.
+        Save as PDF by Pdfcrowd offers 180+ settings.
         The setup wizard will help you to configure the most common ones.
         <div id="save-as-pdf-pdfcrowd-wizard-run" class="button-secondary"
              onclick="return save_as_pdf_pdfcrowd_submit_action('wizard');">

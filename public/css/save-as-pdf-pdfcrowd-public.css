@@ -40,3 +40,24 @@ span.save-as-pdf-pdfcrowd-button-wrap {
 .save-as-pdf-pdfcrowd-post-form {
     display: none !important;
 }
+
+.save-as-pdf-pdfcrowd-diag {
+    background-color: #eee;
+    padding: .5em;
+    clear: both;
+}
+
+.save-as-pdf-pdfcrowd-diag-tab {
+    width: auto;
+}
+
+.save-as-pdf-pdfcrowd-diag-tab th {
+    white-space: nowrap;
+    padding: 2px 8px;
+    text-align: start;
+}
+
+.save-as-pdf-pdfcrowd-diag-tab td {
+    white-space: pre-line;
+    padding: 2px 8px;
+}

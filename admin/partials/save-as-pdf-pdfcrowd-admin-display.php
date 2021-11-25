@@ -37,17 +37,39 @@
                 <a href="#save-as-pdf-pdfcrowd-appearance" class="nav-tab">Appearance</a>
                 <a href="#save-as-pdf-pdfcrowd-behavior" class="nav-tab">Behavior</a>
                 <a href="#save-as-pdf-pdfcrowd-mode" class="nav-tab">Mode</a>
-                <a href="#save-as-pdf-pdfcrowd-page-setup" class="nav-tab">Page Setup</a>
-                <a href="#save-as-pdf-pdfcrowd-header-and-footer" class="nav-tab">Header & Footer</a>
-                <a href="#save-as-pdf-pdfcrowd-watermark-and-background" class="nav-tab">Watermark & Background</a>
-                <a href="#save-as-pdf-pdfcrowd-general-options" class="nav-tab">General Options</a>
-                <a href="#save-as-pdf-pdfcrowd-print-resolution" class="nav-tab">Print Resolution</a>
-                <a href="#save-as-pdf-pdfcrowd-pdf-format" class="nav-tab">PDF Format</a>
-                <a href="#save-as-pdf-pdfcrowd-viewer-preferences" class="nav-tab">Viewer Preferences</a>
-                <a href="#save-as-pdf-pdfcrowd-data" class="nav-tab">Data</a>
-                <a href="#save-as-pdf-pdfcrowd-miscellaneous" class="nav-tab">Miscellaneous</a>
-                <a href="#save-as-pdf-pdfcrowd-expert" class="nav-tab">Expert</a>
-                <a href="#save-as-pdf-pdfcrowd-api-client-options" class="nav-tab">API Client Options</a>
+                <a href="#save-as-pdf-pdfcrowd-page-setup"
+                   id="nav-save-as-pdf-pdfcrowd-page-setup"
+                   class="nav-tab">Page Setup</a>
+                <a href="#save-as-pdf-pdfcrowd-header-and-footer"
+                   id="nav-save-as-pdf-pdfcrowd-header-and-footer"
+                   class="nav-tab">Header & Footer</a>
+                <a href="#save-as-pdf-pdfcrowd-watermark-and-background"
+                   id="nav-save-as-pdf-pdfcrowd-watermark-and-background"
+                   class="nav-tab">Watermark & Background</a>
+                <a href="#save-as-pdf-pdfcrowd-general-options"
+                   id="nav-save-as-pdf-pdfcrowd-general-options"
+                   class="nav-tab">General Options</a>
+                <a href="#save-as-pdf-pdfcrowd-print-resolution"
+                   id="nav-save-as-pdf-pdfcrowd-print-resolution"
+                   class="nav-tab">Print Resolution</a>
+                <a href="#save-as-pdf-pdfcrowd-pdf-format"
+                   id="nav-save-as-pdf-pdfcrowd-pdf-format"
+                   class="nav-tab">PDF Format</a>
+                <a href="#save-as-pdf-pdfcrowd-viewer-preferences"
+                   id="nav-save-as-pdf-pdfcrowd-viewer-preferences"
+                   class="nav-tab">Viewer Preferences</a>
+                <a href="#save-as-pdf-pdfcrowd-data"
+                   id="nav-save-as-pdf-pdfcrowd-data"
+                   class="nav-tab">Data</a>
+                <a href="#save-as-pdf-pdfcrowd-miscellaneous"
+                   id="nav-save-as-pdf-pdfcrowd-miscellaneous"
+                   class="nav-tab">Miscellaneous</a>
+                <a href="#save-as-pdf-pdfcrowd-expert"
+                   id="nav-save-as-pdf-pdfcrowd-expert"
+                   class="nav-tab">Expert</a>
+                <a href="#save-as-pdf-pdfcrowd-api-client-options"
+                   id="nav-save-as-pdf-pdfcrowd-api-client-options"
+                   class="nav-tab">API Client Options</a>
             </h2>
 
         <?php
@@ -106,6 +128,7 @@
         $converter_version = isset($options['converter_version']) ? $options['converter_version'] : '';
         $custom_data = isset($options['custom_data']) ? $options['custom_data'] : '';
         $dev_mode = isset($options['dev_mode']) ? $options['dev_mode'] : '';
+        $diagnostics = isset($options['diagnostics']) ? $options['diagnostics'] : '';
         $email_bcc = isset($options['email_bcc']) ? $options['email_bcc'] : '';
         $email_cc = isset($options['email_cc']) ? $options['email_cc'] : '';
         $email_custom_dialogs = isset($options['email_custom_dialogs']) ? $options['email_custom_dialogs'] : '';
@@ -122,6 +145,7 @@
         $pdf_created_callback = isset($options['pdf_created_callback']) ? $options['pdf_created_callback'] : '';
         $rendering_mode = isset($options['rendering_mode']) ? $options['rendering_mode'] : '';
         $smart_scaling_mode = isset($options['smart_scaling_mode']) ? $options['smart_scaling_mode'] : '';
+        $url_lookup = isset($options['url_lookup']) ? $options['url_lookup'] : '';
         $username = isset($options['username']) ? $options['username'] : '';
         $version = isset($options['version']) ? $options['version'] : '';
         $viewport_height = isset($options['viewport_height']) ? $options['viewport_height'] : '';

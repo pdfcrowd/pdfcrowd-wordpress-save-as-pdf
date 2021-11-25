@@ -199,6 +199,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'converter_version' => '20.10',
         'custom_data' => '',
         'dev_mode' => '0',
+        'diagnostics' => '0',
         'email_bcc' => '',
         'email_cc' => '',
         'email_custom_dialogs' => '',
@@ -219,8 +220,9 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'pdf_created_callback' => '',
         'rendering_mode' => 'viewport',
         'smart_scaling_mode' => 'viewport-fit',
+        'url_lookup' => 'auto',
         'username' => '',
-        'version' => '2510',
+        'version' => '2600',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -385,7 +387,6 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         457 => "The type of the input file is unknown. The file has no extension.",
         458 => "<p>The request was aborted because it took long time.</p> <p>A typical cause of this error is too many images in the HTML page which take too long to download. Another cause might be a long running JavaScript.</p> <p>Try to simplify your input data or speed up the page load time.</p>",
         459 => "The archive uploaded can not be accepted. It is too large, corrupted or contains symbolic links.",
-        460 => "The output is too large. Try to simplify your input data or compress images.",
         470 => "A conversion option is set to an invalid value.",
         471 => "The converted URL can not be navigated to.",
         472 => "Exceeded the maximum number of sub-requests during a conversion.",
@@ -405,11 +406,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
     public static function get_options() {
         $options = get_option('save-as-pdf-pdfcrowd', self::$DEFAULTS);
 
-        // error_log('upgrade');
-        // error_log(print_r($options, true));
-
         if(!isset($options['version'])) {
-            // error_log('the first version');
             if(isset($options['dev_mode']) && $options['dev_mode']) {
                 $options['conversion_mode'] = 'development';
             } else {
@@ -418,8 +415,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2510) {
-            // error_log('the same version');
+        if($options['version'] == 2600) {
             return $options;
         }
 
@@ -435,8 +431,11 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             }
         }
 
-        // error_log('save new options');
-        $options['version'] = 2510;
+        if($options['version'] < 2600) {
+            $options['url_lookup'] = 'location';
+        }
+
+        $options['version'] = 2600;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -660,10 +659,82 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
 
         $button .= $button_content . "</{$button_tag}></{$button_tag}>";
 
+        if(!empty($options['_diag'])) {
+            $button = $options['_diag'] . $button;
+        }
+
         if($options['button_position'] == 'below') {
             return $content . $button;
         }
         return $button . $content;
+    }
+
+    private static function diagnostics_options($options, $title) {
+        if(empty($options)) return '';
+
+        $data = '<table class="save-as-pdf-pdfcrowd-diag-tab">';
+        foreach($options as $key => $value) {
+            $data .= "<tr><th>{$key}</th><td>" . esc_html($value) . '</td></tr>';
+        }
+        $data .= "</table>";
+        return "<h4>{$title}</h4>" . $data;
+    }
+
+    private function get_diagnostics($options, $custom_options, $pflags, $mode) {
+        if(!isset($options['diagnostics']) || $options['diagnostics'] != 1) {
+            return '';
+        }
+
+        $diag = '<div class="save-as-pdf-pdfcrowd-diag"><h3>Pdfcrowd Diagnostics</h3>';
+
+        if(!empty($custom_options['api_key'])) {
+            $custom_options['api_key'] = '- secret -';
+        }
+        $diag .= self::diagnostics_options(
+            $custom_options, 'Custom options');
+
+        $d_config = self::prepare_conv(
+            wp_parse_args($custom_options, $options));
+        $diag .= self::diagnostics_options(
+            $d_config['fields'], 'API options');
+        $diag .= self::diagnostics_options(
+            $d_config['files'], 'API files');
+
+        $created_by = '';
+        switch($pflags) {
+        case 'sc': $created_by = 'shortcode'; break;
+        case 'bsc': $created_by = 'block shortcode'; break;
+        case 'fn': $created_by = 'function'; break;
+        case 'auto': $created_by = 'show button on'; break;
+        }
+
+        global $wp_version;
+        $diag .= self::diagnostics_options(
+            array(
+                'created by' => $created_by,
+                'conversion mode' => $mode,
+                'url lookup' => $options['url_lookup'],
+                'url home' => home_url(),
+                'url args' => add_query_arg(NULL, NULL),
+                'url check' => empty($custom_options['permalink']) || (
+                    parse_url(home_url(), PHP_URL_HOST) ==
+                    parse_url($custom_options['permalink'], PHP_URL_HOST)),
+                'converter version' => $d_config['converter_version'],
+                'plugin version' => $this->version,
+                'wp version' => $wp_version,
+                'settings version' => $options['version'],
+                'pdfcrowd license' => $options['license_type'],
+                'pdfcrowd username' => isset($options['username'])
+                ? $options['username'] : '',
+                'home page' => is_home(),
+                'front page' => is_front_page(),
+                'page' => is_page(),
+                'single' => is_single(),
+                'category' => is_category(),
+                'taxonomy' => is_tax(),
+            ), 'Extra');
+
+        return $diag . '</div>';
     }
 
     private function create_button($options, $custom_options, $content='',
@@ -675,6 +746,9 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         } else if(isset($options['conversion_mode'])) {
             $mode = $options['conversion_mode'];
         }
+
+        $options['_diag'] = $this->get_diagnostics(
+            $options, $custom_options, $pflags, $mode);
 
         $enc_data = '""';
         if($mode == 'content') {
@@ -730,8 +804,6 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
     function show_button($content) {
         $options = $this->get_options();
 
-        // error_log(print_r($options, true));
-
         if(!(
             (is_home() && isset($options['button_on_home']) && $options['button_on_home']) ||
             (is_front_page() && isset($options['button_on_front']) && $options['button_on_front']) ||
@@ -741,10 +813,17 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
             (is_tax() && isset($options['button_on_taxonomies']) && $options['button_on_taxonomies'])
         )) return $content;
 
-        return $this->create_button(
-            $options,
-            array('permalink' => $this->get_permalink_with_params()),
-            $content, 'auto');
+        $custom_options = array(
+            'permalink' => $this->get_permalink_with_params());
+        if(!empty($options['url_lookup'])) {
+            if($options['url_lookup'] === 'auto') {
+                // use permalinks for posts on the post lists
+                if(is_front_page() && is_home()) {
+                    $custom_options['url_lookup'] = 'permalink';
+                }
+            }
+        }
+        return $this->create_button($options, $custom_options, $content, 'auto');
     }
 
     private function eval_shortcode($attrs, $content, $custom_options,
@@ -840,7 +919,6 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
                 if(!self::starts_with($url, 'http')) {
                     $url = $protocol . ':' . $url;
                 }
-                // error_log('embed ' . $url);
                 $content = self::get_url($url, $args);
                 return '<style ' . $match['pre'] . $match['post'] . ">\r\n" . $content . '</style>';
             },
@@ -930,7 +1008,6 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
     }
 
     private static function collect_cookies() {
-        // error_log('use cookies');
         $cookies = array();
         foreach($_COOKIE as $name => $value) {
             $cookies[] = new WP_Http_Cookie(
@@ -1024,7 +1101,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         return self::convert($options);
     }
 
-    public static function convert($options) {
+    private static function prepare_conv($options) {
         $fields = array();
         $files = array();
 
@@ -1065,6 +1142,14 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
             }
         }
 
+        return array('fields' => $fields,
+                     'files' => $files,
+                     'converter_version' => $converter_version);
+    }
+
+    public static function convert($options) {
+        $config = self::prepare_conv($options);
+
         $auth = 'Basic ' . base64_encode(
             $options['username'] . ':' . $options['api_key']);
 
@@ -1076,7 +1161,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.5.1 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.6.0 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
@@ -1084,7 +1169,8 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
             'method' => 'POST',
             'timeout' => 300,
             'headers' => $headers,
-            'body' => self::build_body($fields, $files, $boundary)
+            'body' => self::build_body(
+                $config['fields'], $config['files'], $boundary)
         );
 
         $protocol = (isset($options['use_http']) && $options['use_http'] == 1)
@@ -1097,7 +1183,8 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $error = null;
         while($retry_count >= 0) {
             $response = wp_remote_post(
-                $protocol . '://api.pdfcrowd.com/convert/' . $converter_version . '/',
+                $protocol . '://api.pdfcrowd.com/convert/' .
+                $config['converter_version'] . '/',
                 $args);
             if(is_wp_error($response)) {
                 if($response->get_error_code() != 502) {
@@ -1192,7 +1279,8 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
             return $permalink;
         }
 
-        return $location;
+        return isset($options['url_lookup']) &&
+            $options['url_lookup'] === 'permalink' ? $permalink : $location;
     }
 
     private static function delete_file($file_path) {
@@ -1392,6 +1480,13 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
             'file_name' => $this->get_output_name($options),
             'error' => is_wp_error($output) ? $output : null
         );
+
+        if(isset($options['diagnostics']) && $options['diagnostics'] == 1) {
+            error_log('output_file_name: ' . $hook_data['file_name']);
+            if($hook_data['error']) {
+                error_log('error: ' . print_r($hook_data['error'], true));
+            }
+        }
 
         if(!empty($options['pdf_created_callback'])) {
             if($options['pdf_created_callback']($hook_data)) {

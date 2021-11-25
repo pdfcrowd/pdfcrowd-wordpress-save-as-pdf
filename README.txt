@@ -33,7 +33,7 @@ The **[save_as_pdf_pdfcrowd]** shortcode places a button in the web page. Clicki
 
 The enclosing **[block_save_as_pdf_pdfcrowd]** shortcode downloads the enclosed part of the page as PDF.
 
-The shortcodes can customize the button style and the conversion output by overriding the settings specified on the plugin Settings page.
+The shortcodes can customize the button style and conversion output by overriding the settings specified on the plugin Settings page.
 
 For example, to change the page size to Letter and create a red button use:
 
@@ -88,7 +88,7 @@ Pdfcrowd [API Playground](https://pdfcrowd.com/playground/) may help you to conf
 
 The plugin does not require any registrations. It is fully functional, the free version just adds a watermark over the content.
 
-A valid Pdfcrowd [API license](https://pdfcrowd.com/user/account/api2-license/?ref=wordpress) removes the demo watermark. To enable the API license on the plugin, just enter your Pdfcrowd username and the API key in the plugin settings in the Pdfcrowd API Credentials tab.
+A valid Pdfcrowd [API license](https://pdfcrowd.com/user/account/api2-license/?ref=wordpress) removes the demo watermark. To enable the API license on the plugin, just enter your Pdfcrowd username and the API key in plugin settings on the Basics tab.
 
 A single Pdfcrowd [API license](https://pdfcrowd.com/user/account/api2-license/?ref=wordpress) can be used for both our plugins on multiple WordPress websites. Moreover, the API license enables you to use Pdfcrowd [conversion API](https://pdfcrowd.com/doc/api/) directly.
 
@@ -129,6 +129,11 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.6.0 =
+* New "URL Lookup" option. It allows to choose how to retrieve URLs for the Conversion Mode-URL.
+* New "Diagnostics" option. It allows a developer to print some useful data.
+* Minor fix and text updates in plugin settings.
+
 = 2.5.1 =
 * Fix of the plugin options saving.
 
@@ -152,7 +157,7 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 * The "Conversion Mode" and "Automatically use cookies" options have been moved to a new "Mode" settings category.
 
 = 2.2.1 =
-* Predefined header and footer are available in the plugin settings.
+* Predefined header and footer are available in plugin settings.
 * Minor documentation and error message changes.
 
 = 2.2.0 =
@@ -167,7 +172,7 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 = 2.1.0 =
 * New "User-Created Drawings" option for the "Content" conversion mode. It helps to capture user-created canvas drawings.
-* New "Output Name" option - specifies the output filename directly in the plugin settings. It can still be rewritten with a shortcode or PHP function.
+* New "Output Name" option - specifies the output filename directly in plugin settings. It can still be rewritten with a shortcode or PHP function.
 * Fixed UTF-8 output filename for MS Edge.
 * Fixed error in "Send PDF via e-mail"
 
@@ -199,7 +204,7 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 = 1.10.0 =
 * New "Change on Mouse Over" option - highlights the button when the mouse pointer is hovering over it.
-* Fixed issue with external link to the plugin settings tab.
+* Fixed issue with external link to plugin settings tab.
 
 = 1.9.1 =
 * Fixed issue with missing assets in the plugin setup.
@@ -228,7 +233,7 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 * Added HTML template rendering with custom JSON, XML, YAML and CSV data.
 
 = 1.4.1 =
-* Button to reset settings to default values was added to the plugin settings page.
+* Button to reset settings to default values was added to plugin settings page.
 * Fix demo license usage.
 
 = 1.4.0 =
@@ -240,7 +245,7 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 * Fix of multiline shortcode parameters.
 
 = 1.2.2 =
-* Refactor description in the plugin settings.
+* Refactor description in plugin settings.
 * Added a flag describing the button creation mode.
 
 = 1.2.1 =

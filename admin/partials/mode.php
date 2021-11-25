@@ -64,7 +64,7 @@
                         </label>
                         </p>
                         <p class='description'>
-                            The current HTML contents shown in the browser is sent for conversion.<br>This mode is suitable for web forms and dynamic HTML contents.<br>This mode is not suitable for cached pages.
+                            The current HTML contents shown in the browser is sent for conversion.<br>This mode is suitable for web forms and dynamic HTML contents.<br>It is recommended to check <a href="#" onclick="jQuery('#nav-save-as-pdf-pdfcrowd-general-options').click();">Disable JavaScript</a> option too or disable WordPress caching.
                         </p>
                         <div id="save-as-pdf-pdfcrowd-cm-content-options" class="save-as-pdf-pdfcrowd-sub-option">
                             <input type="checkbox" id="save-as-pdf-pdfcrowd-button-user-drawings" name="save-as-pdf-pdfcrowd[button_user_drawings]" value="1" <?php checked( $button_user_drawings, 1 ); ?> autocomplete="off" />
@@ -87,7 +87,7 @@
                         </label>
                         </p>
                         <p class='description'>
-                            The contents of the web page and some local assets are uploaded for the conversion.<br>This mode is suitable for a website running on a localhost.<br>Local images may not appear in the converted document.
+                            The contents of the web page and some local assets are uploaded for the conversion.<br>This mode is suitable for a website which is not accessible from the Internet (e.g. localhost).<br>Local images and some CSS may not appear in the converted document.
                         </p>
                         <p>
                         <label for="save-as-pdf-pdfcrowd-conversion-mode-auto">
@@ -106,6 +106,43 @@
             </tr>
             <tr>
                 <th scope="row">
+                    URL Lookup
+                </th>
+                <td>
+                    <fieldset id="save-as-pdf-pdfcrowd-url-lookup">
+                        <legend class="screen-reader-text">
+                            <span>URL Lookup</span>
+                        </legend>
+                        <p>
+                        <label for="save-as-pdf-pdfcrowd-url-lookup-auto">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-url-lookup-auto" name="save-as-pdf-pdfcrowd[url_lookup]" value="auto" <?php checked( $url_lookup, "auto" ); ?> autocomplete="off" />
+                            Auto
+                        </label>
+                        </p>
+                        <p>
+                        <label for="save-as-pdf-pdfcrowd-url-lookup-location">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-url-lookup-location" name="save-as-pdf-pdfcrowd[url_lookup]" value="location" <?php checked( $url_lookup, "location" ); ?> autocomplete="off" />
+                            Location
+                        </label>
+                        </p>
+                        <p>
+                        <label for="save-as-pdf-pdfcrowd-url-lookup-permalink">
+                            <input type="radio" id="save-as-pdf-pdfcrowd-url-lookup-permalink" name="save-as-pdf-pdfcrowd[url_lookup]" value="permalink" <?php checked( $url_lookup, "permalink" ); ?> autocomplete="off" />
+                            Permalink
+                        </label>
+                        </p>
+                    </fieldset>
+                    <p class='save-as-pdf-pdfcrowd-devi'>
+                        Shortcode & function parameter: "<strong>url_lookup</strong>"<br>Possible values: "auto", "location", "permalink"
+                    </p>
+                    <p class='description'>
+                        It allows to choose how to retrieve URLs for the Conversion Mode-URL.
+                        It is suitable for a website using different location than permalink.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-auto-use-cookies">
                         Auto Use Cookies
                     </label>
@@ -116,8 +153,32 @@
                         Shortcode & function parameter: "<strong>auto_use_cookies</strong>"<br>Possible values: 0, 1
                     </p>
                     <p class='description'>
-                        All cookies are sent automatically into the conversion process. It is suitable for a password-protected website. These cookies are appended to the cookies defined on the "General Options" settings tab.
+                        All cookies are sent automatically into the conversion process. It is suitable for a password-protected website. These cookies are appended to the
+                        <a href="#" onclick="jQuery('#nav-save-as-pdf-pdfcrowd-general-options').click();">
+                            Cookies
+                        </a>
+                        option.
                     </p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-diagnostics">
+                        Diagnostics
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-diagnostics" name="save-as-pdf-pdfcrowd[diagnostics]" value="1" <?php checked( $diagnostics, 1 ); ?> autocomplete="off" />
+                    <p class='save-as-pdf-pdfcrowd-devi'>
+                        Shortcode & function parameter: "<strong>diagnostics</strong>"<br>Possible values: 0, 1
+                    </p>
+                    <p>
+                        <strong>Warning:</strong>
+                        for developers only
+                    </p>
+                    <p class='description'>
+                        Diagnostics data is displayed above the conversion button.
+                        It helps to identify the issue with the button.
                 </td>
             </tr>
         </tbody>
