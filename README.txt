@@ -129,6 +129,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.6.1 =
+* Minor update in links to the documentation.
+
 = 2.6.0 =
 * New "URL Lookup" option. It allows to choose how to retrieve URLs for the Conversion Mode-URL.
 * New "Diagnostics" option. It allows a developer to print some useful data.

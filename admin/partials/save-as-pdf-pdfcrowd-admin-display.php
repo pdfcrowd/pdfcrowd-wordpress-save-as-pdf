@@ -5,7 +5,7 @@
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
- * @link       https://pdfcrowd.com/save-as-pdf-image-wordpress-plugin/
+ * @link       https://pdfcrowd.com/save-as-pdf-wordpress-plugin/
  * @since      1.0.0
  *
  * @package    Save_As_Pdf_Pdfcrowd
