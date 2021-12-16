@@ -222,7 +222,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'smart_scaling_mode' => 'viewport-fit',
         'url_lookup' => 'auto',
         'username' => '',
-        'version' => '2610',
+        'version' => '2620',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -415,7 +415,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2610) {
+        if($options['version'] == 2620) {
             return $options;
         }
 
@@ -435,7 +435,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['url_lookup'] = 'location';
         }
 
-        $options['version'] = 2610;
+        $options['version'] = 2620;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -1161,7 +1161,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.6.1 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.6.2 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
@@ -1224,6 +1224,10 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
                   $cmode . ' on the ' .
                   $link . ' settings page of the "Save as PDF by Pdfcrowd" plugin.</p>';
             break;
+        default:
+            $text = preg_replace(
+                '/Details:\s(https:\/\/www.pdfcrowd.com\/[^\s<]*)/s',
+                '<br>Details: <a href="$1">$1</a>', $text);
         }
         return $text;
     }
@@ -1531,7 +1535,11 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
     private function get_error_page($code, $message) {
         $details = isset(self::$ERROR_MESSAGES[$code]) ? self::$ERROR_MESSAGES[$code] : '';
         return <<<HTML
+    <!DOCTYPE html>
     <html>
+    <head>
+    <title>Pdfcrowd API Error {$code}</title>
+    </head>
     <body>
     <h1>Pdfcrowd API Error {$code}</h1>
     <p>{$message}</p>

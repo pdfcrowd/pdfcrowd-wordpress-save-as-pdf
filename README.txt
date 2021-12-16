@@ -129,6 +129,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.6.2 =
+* Minor fix - the hyperlinks to the Pdfcrowd API documentation have been updated.
+
 = 2.6.1 =
 * Minor update in links to the documentation.
 

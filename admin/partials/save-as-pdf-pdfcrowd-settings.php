@@ -2002,7 +2002,7 @@
                             Shortcode & function parameter: "<strong>data_encoding</strong>"
                         </div>
                         <div class='description'>
-                             Set the encoding of the data file set by <a href='https://pdfcrowd.com/doc/api/html-to-pdf/php/#set_data_file'>setDataFile</a>.
+                             Set the encoding of the data file set by <a href='https://pdfcrowd.com/doc/api/html-to-pdf/php/ref/#set_data_file'>setDataFile</a>.
                             
                         </div>
                     </div>
@@ -2112,7 +2112,7 @@
                             Shortcode & function parameter: "<strong>debug_log</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
-                            Turn on the debug logging. Details about the conversion are stored in the debug log. The URL of the log can be obtained from the <a href='https://pdfcrowd.com/doc/api/html-to-pdf/php/#get_debug_log_url'>getDebugLogUrl</a> method or available in <a href='https://pdfcrowd.com/user/account/log/conversion/'>conversion statistics</a>.
+                            Turn on the debug logging. Details about the conversion are stored in the debug log. The debug log is available in <a href='https://pdfcrowd.com/user/account/log/conversion/'>conversion statistics</a>.
                         </div>
                     </div>
                 </td>
