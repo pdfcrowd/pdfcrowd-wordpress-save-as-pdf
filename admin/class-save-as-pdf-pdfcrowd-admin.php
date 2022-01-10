@@ -190,7 +190,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 2620;
+        $valid['version'] = 2700;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {
@@ -652,6 +652,8 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         $valid['disable_image_loading'] = empty($input['disable_image_loading']) ? 0 : 1;
 
         $valid['disable_remote_fonts'] = empty($input['disable_remote_fonts']) ? 0 : 1;
+
+        $valid['use_mobile_user_agent'] = empty($input['use_mobile_user_agent']) ? 0 : 1;
 
         if (isset($input['load_iframes']) &&
             $input['load_iframes'] != '') {

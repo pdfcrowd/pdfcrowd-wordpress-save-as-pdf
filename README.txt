@@ -129,6 +129,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.7.0 =
+* New "Use Mobile User Agent" option to use a mobile user agent for the conversion.
+
 = 2.6.2 =
 * Minor fix - the hyperlinks to the Pdfcrowd API documentation have been updated.
 

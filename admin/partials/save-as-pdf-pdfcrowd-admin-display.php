@@ -190,6 +190,7 @@
         $disable_javascript = isset($options['disable_javascript']) ? $options['disable_javascript'] : '';
         $disable_image_loading = isset($options['disable_image_loading']) ? $options['disable_image_loading'] : '';
         $disable_remote_fonts = isset($options['disable_remote_fonts']) ? $options['disable_remote_fonts'] : '';
+        $use_mobile_user_agent = isset($options['use_mobile_user_agent']) ? $options['use_mobile_user_agent'] : '';
         $load_iframes = isset($options['load_iframes']) ? $options['load_iframes'] : 'all';
         $block_ads = isset($options['block_ads']) ? $options['block_ads'] : '';
         $default_encoding = isset($options['default_encoding']) ? $options['default_encoding'] : '';

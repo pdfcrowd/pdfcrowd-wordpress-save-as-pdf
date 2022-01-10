@@ -868,6 +868,27 @@
             </tr>
             <tr>
                 <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-use_mobile_user_agent">
+                        Use Mobile User Agent
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-use_mobile_user_agent" name="save-as-pdf-pdfcrowd[use_mobile_user_agent]" value="1" <?php checked( $use_mobile_user_agent, 1 ); ?> autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>use_mobile_user_agent</strong>"<br>Possible values: 0, 1
+                        </div>
+                        <div class='description'>
+                            Use a mobile user agent.
+                              <br>
+ It is applicable for converter version >= 20.10.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-load_iframes">
                         Load Iframes
                     </label>
