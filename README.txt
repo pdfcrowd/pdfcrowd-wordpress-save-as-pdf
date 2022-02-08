@@ -129,6 +129,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.7.1 =
+* Minor update - error messages added for status code 432 and 483.
+
 = 2.7.0 =
 * New "Use Mobile User Agent" option to use a mobile user agent for the conversion.
 

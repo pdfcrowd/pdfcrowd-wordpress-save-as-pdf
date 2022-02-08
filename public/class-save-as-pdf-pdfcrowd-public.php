@@ -222,7 +222,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'smart_scaling_mode' => 'viewport-fit',
         'url_lookup' => 'auto',
         'username' => '',
-        'version' => '2700',
+        'version' => '2710',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -381,6 +381,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         413 => "<p>The size limit for the uploaded data is 100MB.</p> <p>You can zip your HTML to avoid this error.</p>",
         429 => "The user has sent too many requests in a given amount of time (rate limiting).",
         430 => "<p>The limit of max concurrent requests was exceeded.</p>",
+        432 => "The limit for the demo license has been exceeded. Use a Pdfcrowd API license credentials.",
         452 => "There is nothing specified to be converted.",
         453 => "Some conversion option is unknown. See details in HTTP response body.",
         454 => "The input is too complex or large. It can not be converted. Try to simplify your input data.",
@@ -402,6 +403,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         480 => "The converter could not establish an HTTPS connection because of an invalid SSL certificate.",
         481 => "<p>There was a problem connecting to Pdfcrowd servers over HTTPS. This could be caused by several reasons, one of them is that your local CA certificate store is out of date or not configured correctly.</p> <p>An alternative is to use the API over HTTP. The HTTP mode can be enabled by the <a href='/doc/api/method-index/#html_to_pdf_set_use_http'>setUseHttp</a> method.<p>",
         482 => "The input template or data is invalid.",
+        483 => "The input is password protected. Provide a valid password.",
         502 => "The 502 status code indicates a temporary network issue. Try the request again.",
     );
 
@@ -417,7 +419,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2700) {
+        if($options['version'] == 2710) {
             return $options;
         }
 
@@ -437,7 +439,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['url_lookup'] = 'location';
         }
 
-        $options['version'] = 2700;
+        $options['version'] = 2710;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -1163,7 +1165,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.7.0 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.7.1 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
