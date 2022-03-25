@@ -190,7 +190,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 2710;
+        $valid['version'] = 2800;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {
@@ -770,6 +770,20 @@ class Save_As_Pdf_Pdfcrowd_Admin {
             
         }
         $valid['wait_for_element'] = isset($input['wait_for_element']) ? $input['wait_for_element'] : '';
+
+        $valid['auto_detect_element_to_convert'] = empty($input['auto_detect_element_to_convert']) ? 0 : 1;
+
+        if (isset($input['readability_enhancements']) &&
+            $input['readability_enhancements'] != '') {
+            $readability_enhancements = $input['readability_enhancements'];
+            if (!preg_match("/(?i)^(none|readability-v1)$/", $readability_enhancements))
+                add_settings_error(
+                'readability_enhancements',
+                'empty_readability_enhancements',
+                pdfcrowd_create_invalid_value_message($readability_enhancements, 'Readability Enhancements', 'Allowed values are none, readability-v1.'));
+            
+        }
+        $valid['readability_enhancements'] = isset($input['readability_enhancements']) ? $input['readability_enhancements'] : '';
 
         if (isset($input['viewport_width']) &&
             $input['viewport_width'] != '') {

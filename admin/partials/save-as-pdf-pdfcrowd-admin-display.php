@@ -209,6 +209,8 @@
         $element_to_convert = isset($options['element_to_convert']) ? $options['element_to_convert'] : '';
         $element_to_convert_mode = isset($options['element_to_convert_mode']) ? $options['element_to_convert_mode'] : 'cut-out';
         $wait_for_element = isset($options['wait_for_element']) ? $options['wait_for_element'] : '';
+        $auto_detect_element_to_convert = isset($options['auto_detect_element_to_convert']) ? $options['auto_detect_element_to_convert'] : '';
+        $readability_enhancements = isset($options['readability_enhancements']) ? $options['readability_enhancements'] : 'none';
         $scale_factor = isset($options['scale_factor']) ? $options['scale_factor'] : '';
         $jpeg_quality = isset($options['jpeg_quality']) ? $options['jpeg_quality'] : '';
         $convert_images_to_jpeg = isset($options['convert_images_to_jpeg']) ? $options['convert_images_to_jpeg'] : 'none';

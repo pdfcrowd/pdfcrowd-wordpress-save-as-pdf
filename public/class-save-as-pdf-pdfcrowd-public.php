@@ -222,7 +222,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'smart_scaling_mode' => 'viewport-fit',
         'url_lookup' => 'auto',
         'username' => '',
-        'version' => '2710',
+        'version' => '2800',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -287,6 +287,8 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'element_to_convert',
         'element_to_convert_mode',
         'wait_for_element',
+        'auto_detect_element_to_convert',
+        'readability_enhancements',
         'viewport_width',
         'viewport_height',
         'rendering_mode',
@@ -354,6 +356,8 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             'use_mobile_user_agent',
             'load_iframes',
             'locale',
+            'auto_detect_element_to_convert',
+            'readability_enhancements',
             'layout_dpi',
             'contents_matrix',
             'header_matrix',
@@ -419,7 +423,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2710) {
+        if($options['version'] == 2800) {
             return $options;
         }
 
@@ -439,7 +443,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['url_lookup'] = 'location';
         }
 
-        $options['version'] = 2710;
+        $options['version'] = 2800;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -1165,7 +1169,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.7.1 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.8.0 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 

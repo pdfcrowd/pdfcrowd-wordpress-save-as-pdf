@@ -129,6 +129,12 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.8.0 =
+* New "Auto Detect Element To Convert" option to detect the main contents automatically.
+* New "Readability Enhancements" option to emphasize the main contents.
+* New "pdfcrowd-source-title" CSS class available for header and footer HTML.
+* Minor documentation updates.
+
 = 2.7.1 =
 * Minor update - error messages added for status code 432 and 483.
 
