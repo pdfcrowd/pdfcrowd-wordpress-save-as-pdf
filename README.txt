@@ -129,6 +129,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.8.1 =
+* Improved: Automatic conversion retry on HTTP status codes 429 and 430.
+
 = 2.8.0 =
 * New "Auto Detect Element To Convert" option to detect the main contents automatically.
 * New "Readability Enhancements" option to emphasize the main contents.

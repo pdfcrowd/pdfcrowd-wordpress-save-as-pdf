@@ -222,7 +222,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'smart_scaling_mode' => 'viewport-fit',
         'url_lookup' => 'auto',
         'username' => '',
-        'version' => '2800',
+        'version' => '2810',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -384,7 +384,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         405 => "The method specified in the request is not allowed. The request method must be POST.",
         413 => "<p>The size limit for the uploaded data is 100MB.</p> <p>You can zip your HTML to avoid this error.</p>",
         429 => "The user has sent too many requests in a given amount of time (rate limiting).",
-        430 => "<p>The limit of max concurrent requests was exceeded.</p>",
+        430 => "<p>The limit of max concurrent requests was exceeded.</p> <p>A higher Pdfcrowd API plan is recommended.</p>",
         432 => "The limit for the demo license has been exceeded. Use a Pdfcrowd API license credentials.",
         452 => "There is nothing specified to be converted.",
         453 => "Some conversion option is unknown. See details in HTTP response body.",
@@ -423,7 +423,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2800) {
+        if($options['version'] == 2810) {
             return $options;
         }
 
@@ -443,7 +443,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['url_lookup'] = 'location';
         }
 
-        $options['version'] = 2800;
+        $options['version'] = 2810;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -1169,7 +1169,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.8.0 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.8.1 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
@@ -1187,6 +1187,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $retry_count = (!empty($options['retry_count']) &&
                         $options['retry_count'] > 0)
                      ? $options['retry_count'] : 0;
+        $retry_attempt = 1;
 
         $error = null;
         while($retry_count >= 0) {
@@ -1204,6 +1205,15 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
                 if($code == 200) {
                     // conversion was ok
                     return wp_remote_retrieve_body($response);
+                }
+
+                // wait in case of the concurrency limit for 30 seconds
+                if($retry_attempt <= 15 && ($code == 430 || $code == 429)) {
+                    // give time to finish the previous conversion
+                    error_log("concurrency limit reached, attempt ${retry_attempt}/15, waiting, a higher Pdfcrowd API plan is recommended");
+                    sleep(2);
+                    $retry_attempt++;
+                    continue;
                 }
 
                 $error = new WP_Error(
