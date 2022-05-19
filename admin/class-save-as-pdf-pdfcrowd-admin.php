@@ -190,7 +190,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 2810;
+        $valid['version'] = 2900;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {
@@ -880,6 +880,8 @@ class Save_As_Pdf_Pdfcrowd_Admin {
             
         }
         $valid['image_dpi'] = isset($input['image_dpi']) ? $input['image_dpi'] : '';
+
+        $valid['enable_pdf_forms'] = empty($input['enable_pdf_forms']) ? 0 : 1;
 
         $valid['linearize'] = empty($input['linearize']) ? 0 : 1;
 

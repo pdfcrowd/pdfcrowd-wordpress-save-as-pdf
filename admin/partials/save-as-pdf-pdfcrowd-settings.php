@@ -1505,6 +1505,24 @@
         <tbody>
             <tr>
                 <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-enable_pdf_forms">
+                        Enable PDF Forms
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-enable_pdf_forms" name="save-as-pdf-pdfcrowd[enable_pdf_forms]" value="1" <?php checked( $enable_pdf_forms, 1 ); ?> autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode & function parameter: "<strong>enable_pdf_forms</strong>"<br>Possible values: 0, 1
+                        </div>
+                        <div class='description'>
+                            Convert HTML forms to fillable PDF forms. Details can be found in the <a href='https://pdfcrowd.com/blog/create-fillable-pdf-form/'>blog post</a>.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-linearize">
                         Linearize
                     </label>

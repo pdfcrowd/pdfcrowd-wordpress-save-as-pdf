@@ -215,6 +215,7 @@
         $jpeg_quality = isset($options['jpeg_quality']) ? $options['jpeg_quality'] : '';
         $convert_images_to_jpeg = isset($options['convert_images_to_jpeg']) ? $options['convert_images_to_jpeg'] : 'none';
         $image_dpi = isset($options['image_dpi']) ? $options['image_dpi'] : '';
+        $enable_pdf_forms = isset($options['enable_pdf_forms']) ? $options['enable_pdf_forms'] : '';
         $linearize = isset($options['linearize']) ? $options['linearize'] : '';
         $encrypt = isset($options['encrypt']) ? $options['encrypt'] : '';
         $user_password = isset($options['user_password']) ? $options['user_password'] : '';

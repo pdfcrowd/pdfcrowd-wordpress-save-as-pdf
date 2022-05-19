@@ -22,6 +22,7 @@ The plugin is highly customizable, you can:
 * choose between the "screen" and "print" layout (CSS @media)
 * convert password-protected pages
 * convert pages with data in forms
+* create interactive PDF forms
 * customize page size and margins, page orientation, header and footer, run custom JavaScript, add a watermark, and many more ...
 
 You can customize the plugin on the Settings page.
@@ -84,13 +85,13 @@ Pdfcrowd [API Playground](https://pdfcrowd.com/playground/) may help you to conf
 2. If you downloaded the zip, upload the save-as-pdf-pdfcrowd folder into wp-content/plugins folder.
 3. Activate the plugin.
 
-== Pdfcrowd License ==
+== Licensing ==
 
-The plugin does not require any registrations. It is fully functional, the free version just adds a watermark over the content.
+The plugin runs in the demo by default. It is fully functional but adds a watermark over the content.
 
-A valid Pdfcrowd [API license](https://pdfcrowd.com/user/account/api2-license/?ref=wordpress) removes the demo watermark. To enable the API license on the plugin, just enter your Pdfcrowd username and the API key in plugin settings on the Basics tab.
+You can purchase a Pdfcrowd [API license](https://pdfcrowd.com/user/account/api2-license/?ref=wordpress) to remove the demo watermark. To activate the license, enter your Pdfcrowd username and your API key in the plugin settings on the Basics tab.
 
-A single Pdfcrowd [API license](https://pdfcrowd.com/user/account/api2-license/?ref=wordpress) can be used for both our plugins on multiple WordPress websites. Moreover, the API license enables you to use Pdfcrowd [conversion API](https://pdfcrowd.com/doc/api/) directly.
+A single Pdfcrowd API license can be used for both our plugins on multiple WordPress websites. Moreover, the API license enables you to use the [Pdfcrowd conversion API](https://pdfcrowd.com/doc/api/) directly.
 
 == Frequently Asked Questions ==
 
@@ -128,6 +129,10 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 2. Sample of settings.
 
 == Changelog ==
+
+= 2.9.0 =
+* New "Enable PDF Forms" option to convert HTML forms to fillable PDF forms.
+* Minor update in error messages.
 
 = 2.8.1 =
 * Improved: Automatic conversion retry on HTTP status codes 429 and 430.

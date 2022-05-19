@@ -222,7 +222,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'smart_scaling_mode' => 'viewport-fit',
         'url_lookup' => 'auto',
         'username' => '',
-        'version' => '2810',
+        'version' => '2900',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -297,6 +297,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'jpeg_quality',
         'convert_images_to_jpeg',
         'image_dpi',
+        'enable_pdf_forms',
         'linearize',
         'encrypt',
         'user_password',
@@ -378,29 +379,29 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
     );
 
     private static $ERROR_MESSAGES = array(
-        400 => "The user sent an invalid request.",
-        401 => "Authentication is required and has failed or has not yet been provided or your license does not exist.",
-        403 => "Your license is suspended or there are no credits left.",
+        400 => "The client sent an invalid request.",
+        401 => "Authentication credentials were not provided or the API license is not active.",
+        403 => "The API service is suspended or there are no credits left.",
         405 => "The method specified in the request is not allowed. The request method must be POST.",
-        413 => "<p>The size limit for the uploaded data is 100MB.</p> <p>You can zip your HTML to avoid this error.</p>",
-        429 => "The user has sent too many requests in a given amount of time (rate limiting).",
-        430 => "<p>The limit of max concurrent requests was exceeded.</p> <p>A higher Pdfcrowd API plan is recommended.</p>",
-        432 => "The limit for the demo license has been exceeded. Use a Pdfcrowd API license credentials.",
-        452 => "There is nothing specified to be converted.",
-        453 => "Some conversion option is unknown. See details in HTTP response body.",
-        454 => "The input is too complex or large. It can not be converted. Try to simplify your input data.",
-        455 => "The conversion can not be finished due to a system error.",
-        456 => "The input file is not specified correctly. Files are accepted only in multipart POST requests.",
+        413 => "<p>The upload size limit is 100MB.</p> <p>You can zip uploaded HTML to avoid this error.</p>",
+        429 => "<p>The client has sent too many requests within a certain timeframe (rate limiting).</p> <p>Upgrade to a higher Pdfcrowd API plan to avoid this error.</p>",
+        430 => "<p>The client has sent too many concurrent requests at a time.</p> <p>Upgrade to a higher Pdfcrowd API plan to avoid this error.</p>",
+        432 => "<p>The limit for the demo license has been exceeded.</p> <p>Use your personal Pdfcrowd API credentials.</p>",
+        452 => "There is no input specified to be converted.",
+        453 => "Unknown conversion option. See details in the HTTP response body.",
+        454 => "The input is too complex or large. It can not be converted. Try to simplify the input data.",
+        455 => "The conversion can not be completed due to a system error.",
+        456 => "The input file is not specified correctly. Multipart/form-data is required for file upload.",
         457 => "The type of the input file is unknown. The file has no extension.",
-        458 => "<p>The request was aborted because it took long time.</p> <p>A typical cause of this error is too many images in the HTML page which take too long to download. Another cause might be a long running JavaScript.</p> <p>Try to simplify your input data or speed up the page load time.</p>",
-        459 => "The archive uploaded can not be accepted. It is too large, corrupted or contains symbolic links.",
+        458 => "<p>The request was aborted because it took a long time.</p> <p>The typical cause of this error is too many images in an HTML page that take too long to download. Another cause might be a long running JavaScript.</p> <p>Try to simplify your input data or speed up the page load time.</p>",
+        459 => "The uploaded archive can not be processed. It is too large, corrupted or contains symbolic links.",
         470 => "A conversion option is set to an invalid value.",
-        471 => "The converted URL can not be navigated to.",
-        472 => "Exceeded the maximum number of sub-requests during a conversion.",
-        473 => "The main frame loaded with an HTTP code >= 400.",
-        474 => "The URL loaded with an HTTP code >= 400 or some requests are still pending. See details in a debug log.",
-        475 => "The request was aborted because the custom JavaScript took long time.",
-        476 => "The element specified for print or wait was not found in the input document.",
+        471 => "The input URL can not be loaded.",
+        472 => "Exceeded the maximum number of subrequests during the conversion.",
+        473 => "The main frame failed with HTTP code >= 400.",
+        474 => "One or more subrequests failed with HTTP code >= 400 or some subrequests are still pending. See details in the debug log.",
+        475 => "The request was aborted because the custom JavaScript took a long time.",
+        476 => "The element specified for printing or waiting for was not found in the input document.",
         477 => "The input document type is unknown or not supported. For example, the HTML content type should be text/html.",
         478 => "The URL hostname could not be resolved.",
         479 => "The URL is invalid.",
@@ -423,7 +424,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2810) {
+        if($options['version'] == 2900) {
             return $options;
         }
 
@@ -443,7 +444,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['url_lookup'] = 'location';
         }
 
-        $options['version'] = 2810;
+        $options['version'] = 2900;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -1169,7 +1170,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.8.1 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.9.0 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
