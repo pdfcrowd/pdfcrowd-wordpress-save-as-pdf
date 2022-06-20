@@ -222,7 +222,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'smart_scaling_mode' => 'viewport-fit',
         'url_lookup' => 'auto',
         'username' => '',
-        'version' => '2900',
+        'version' => '2910',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -424,7 +424,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2900) {
+        if($options['version'] == 2910) {
             return $options;
         }
 
@@ -444,7 +444,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['url_lookup'] = 'location';
         }
 
-        $options['version'] = 2900;
+        $options['version'] = 2910;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -1026,14 +1026,14 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
     }
 
     private static function use_connection_args($options, &$args) {
+        $headers = array();
         if(isset($options['http_auth_user_name']) and
            $options['http_auth_user_name'] and
            isset($options['http_auth_password']) and
            $options['http_auth_password']) {
-            $args['headers'] = array(
-                'Authorization' => 'Basic ' . base64_encode(
-                    $options['http_auth_user_name'] . ':' .
-                    $options['http_auth_password']));
+            $headers['Authorization'] = 'Basic ' . base64_encode(
+                $options['http_auth_user_name'] . ':' .
+                $options['http_auth_password']);
         }
 
         if(isset($options['cookies']) and $options['cookies']) {
@@ -1048,6 +1048,12 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
                 }
             }
         }
+
+        if(isset($options['use_mobile_user_agent']) &&
+           $options['use_mobile_user_agent'] == 1) {
+            $headers['User-Agent'] = 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Mobile Safari/537.36';
+        }
+        $args['headers'] = $headers;
     }
 
     public static function do_post_request($options) {
@@ -1170,7 +1176,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.9.0 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.9.1 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
@@ -1471,8 +1477,6 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
             $options['conversion_mode'] = isset($options['url'])
                                         ? $default_conv_mode : 'upload';
         } else if($options['conversion_mode'] == 'content') {
-            $options['auto_use_cookies'] = false;
-
             if(!isset($options['text']) && !isset($options['file'])) {
                 // take data from the page if they are not set explicitelly
                 // text is set e.g. when block shortcode is used

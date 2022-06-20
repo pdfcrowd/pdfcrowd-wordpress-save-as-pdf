@@ -32,7 +32,7 @@ You can customize the plugin on the Settings page.
 
 The **[save_as_pdf_pdfcrowd]** shortcode places a button in the web page. Clicking the button downloads the page as PDF.
 
-The enclosing **[block_save_as_pdf_pdfcrowd]** shortcode downloads the enclosed part of the page as PDF.
+The enclosing **[block_save_as_pdf_pdfcrowd]** shortcode downloads just the enclosed part of the page as PDF. To style the part, include CSS rules inside the block shortcode.
 
 The shortcodes can customize the button style and conversion output by overriding the settings specified on the plugin Settings page.
 
@@ -119,6 +119,10 @@ The first thing to try is to play with the following configuration settings: "Co
 
 Add "pdfcrowd-remove" or "pdfcrowd-hide" CSS class to the HTML elements you want to remove or hide. Another option is to remove them using custom Javascript code set in the "Custom Javascript" option.
 
+= How to print HTML form with user data? =
+
+Use Conversion Mode - Content. If the data is still missing, it is probably reset by some caching mechanism on your site. Try disabling the cache for the page or check Disable JavaScript option on the plugin General Options tab.
+
 = Can you help me? =
 
 Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with any issue you may have.
@@ -129,6 +133,10 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 2. Sample of settings.
 
 == Changelog ==
+
+= 2.9.1 =
+* Fix: Auto Use Cookies option is applied to Conversion Mode Content.
+* Fix: Use Mobile User Agent option is applied to Conversion Mode Upload.
 
 = 2.9.0 =
 * New "Enable PDF Forms" option to convert HTML forms to fillable PDF forms.
