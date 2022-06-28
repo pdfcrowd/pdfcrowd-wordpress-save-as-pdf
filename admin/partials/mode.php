@@ -16,7 +16,7 @@
 <div id="save-as-pdf-pdfcrowd-mode" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
     <h2>Mode</h2>
     
-    <a href='#' class='save-as-pdf-pdfcrowd-expert-show button-secondary'>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-show button-secondary' title='Shortcode and PHP function parameters'>
         Show parameters
     </a>
     <a href='#' class='save-as-pdf-pdfcrowd-expert-hide button-secondary' style='display: none;'>
@@ -77,7 +77,7 @@
                                 Enable this option if you want to capture user-created canvas drawings.
                             </p>
                             <p class='save-as-pdf-pdfcrowd-devi'>
-                                Shortcode & function parameter: "<strong>button_user_drawings</strong>"<br>Possible values: 0, 1
+                                Shortcode and function parameter: "<strong>button_user_drawings</strong>"<br>Possible values: 0, 1
                             </p>
                         </div>
                         <p>
@@ -100,7 +100,7 @@
                         </p>
                     </fieldset>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>conversion_mode</strong>"<br>Possible values: "url", "upload", "content", "development", "auto"
+                        Shortcode and function parameter: "<strong>conversion_mode</strong>"<br>Possible values: "url", "upload", "content", "development", "auto"
                     </p>
                 </td>
             </tr>
@@ -133,7 +133,7 @@
                         </p>
                     </fieldset>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>url_lookup</strong>"<br>Possible values: "auto", "location", "permalink"
+                        Shortcode and function parameter: "<strong>url_lookup</strong>"<br>Possible values: "auto", "location", "permalink"
                     </p>
                     <p class='description'>
                         It allows to choose how to retrieve URLs for the Conversion Mode-URL.
@@ -150,7 +150,7 @@
                 <td>
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-auto-use-cookies" name="save-as-pdf-pdfcrowd[auto_use_cookies]" value="1" <?php checked( $auto_use_cookies, 1 ); ?> autocomplete="off" />
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>auto_use_cookies</strong>"<br>Possible values: 0, 1
+                        Shortcode and function parameter: "<strong>auto_use_cookies</strong>"<br>Possible values: 0, 1
                     </p>
                     <p class='description'>
                         All cookies are sent automatically into the conversion process. It is suitable for a password-protected website. These cookies are appended to the
@@ -170,7 +170,7 @@
                 <td>
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-diagnostics" name="save-as-pdf-pdfcrowd[diagnostics]" value="1" <?php checked( $diagnostics, 1 ); ?> autocomplete="off" />
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>diagnostics</strong>"<br>Possible values: 0, 1
+                        Shortcode and function parameter: "<strong>diagnostics</strong>"<br>Possible values: 0, 1
                     </p>
                     <p>
                         <strong>Warning:</strong>

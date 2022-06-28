@@ -16,7 +16,7 @@
 <div id="save-as-pdf-pdfcrowd-behavior" class="wrap metabox-holder columns-2 save-as-pdf-pdfcrowd-metaboxes hidden">
     <h2>Behavior</h2>
     
-    <a href='#' class='save-as-pdf-pdfcrowd-expert-show button-secondary'>
+    <a href='#' class='save-as-pdf-pdfcrowd-expert-show button-secondary' title='Shortcode and PHP function parameters'>
         Show parameters
     </a>
     <a href='#' class='save-as-pdf-pdfcrowd-expert-hide button-secondary' style='display: none;'>
@@ -53,7 +53,7 @@
                         </label><br>
                     </fieldset>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>button_disposition</strong>"<br>Possible values: "attachment", "inline", "inline_new_tab", "email"
+                        Shortcode and function parameter: "<strong>button_disposition</strong>"<br>Possible values: "attachment", "inline", "inline_new_tab", "email"
                     </p>
                     <p class='description'>
                         The action that is performed when the conversion button is clicked.
@@ -72,7 +72,7 @@
                         The sender can be empty if it is specified in your mailer plugin.
                     </p>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>email_from</strong>"
+                        Shortcode and function parameter: "<strong>email_from</strong>"
                     </p>
                 </td>
             </tr>
@@ -101,14 +101,14 @@
                             <input id="save-as-pdf-pdfcrowd-er-email-address" type="text" class="regular-text save-as-pdf-pdfcrowd-text-for-radio" name="save-as-pdf-pdfcrowd[email_recipient_address]" value="<?php echo($email_recipient_address);?>" placeholder="<?php esc_attr_e('info@example.com', $this->plugin_name);?>" autocomplete="off">
                             <div style='padding-left: 2em;'>
                                 <p class='save-as-pdf-pdfcrowd-devi'>
-                                    Shortcode & function parameter: "<strong>email_recipient_address</strong>"
+                                    Shortcode and function parameter: "<strong>email_recipient_address</strong>"
                                 </p>
                             </div>
                         </label>
                         <br>
                     </fieldset>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>email_recipient</strong>"<br>Possible values: "user", "prompt", "address"
+                        Shortcode and function parameter: "<strong>email_recipient</strong>"<br>Possible values: "user", "prompt", "address"
                     </p>
                 </td>
             </tr>
@@ -121,7 +121,7 @@
                 <td>
                     <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-email-cc" name="save-as-pdf-pdfcrowd[email_cc]" value="<?php echo($email_cc);?>" placeholder="<?php esc_attr_e('Carbon copy address', $this->plugin_name);?>" autocomplete="off" />
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>email_cc</strong>"
+                        Shortcode and function parameter: "<strong>email_cc</strong>"
                     </p>
                 </td>
             </tr>
@@ -134,7 +134,7 @@
                 <td>
                     <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-email-bcc" name="save-as-pdf-pdfcrowd[email_bcc]" value="<?php echo($email_bcc);?>" placeholder="<?php esc_attr_e('Blind carbon copy address', $this->plugin_name);?>" autocomplete="off" />
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>email_bcc</strong>"
+                        Shortcode and function parameter: "<strong>email_bcc</strong>"
                     </p>
                 </td>
             </tr>
@@ -147,7 +147,7 @@
                 <td>
                     <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-email-subject" name="save-as-pdf-pdfcrowd[email_subject]" value="<?php echo($email_subject);?>" placeholder="<?php esc_attr_e('Your subject', $this->plugin_name);?>" autocomplete="off" />
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>email_subject</strong>"
+                        Shortcode and function parameter: "<strong>email_subject</strong>"
                     </p>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
     <p class="description">
@@ -178,7 +178,7 @@
                 <td>
                     <textarea id="save-as-pdf-pdfcrowd-email-message" name="save-as-pdf-pdfcrowd[email_message]" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Your email message', $this->plugin_name);?>"><?php echo($email_message); ?></textarea>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>email_message</strong>"
+                        Shortcode and function parameter: "<strong>email_message</strong>"
                     </p>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
     <p class="description">
@@ -230,7 +230,7 @@
                             <input type="text" class="regular-text save-as-pdf-pdfcrowd-text-for-radio" id="save-as-pdf-pdfcrowd-custom-edlg" name="save-as-pdf-pdfcrowd[email_custom_dialogs]" value="<?php echo($email_custom_dialogs);?>" placeholder="<?php esc_attr_e('Your JavaScript object name, e.g. mySaveAsPDFPdfcrowdEmailDialogs', $this->plugin_name);?>" style="width: 70%" autocomplete="off"/>
                             <div class="save-as-pdf-pdfcrowd-m-description" style="padding-left: 2em">
                                 <p class='save-as-pdf-pdfcrowd-devi'>
-                                    Shortcode & function parameter: "<strong>email_custom_dialogs</strong>"<br>Possible values: your JavaScript function name
+                                    Shortcode and function parameter: "<strong>email_custom_dialogs</strong>"<br>Possible values: your JavaScript function name
                                 </p>
                                 <p class="description">
                                     The name of a JavaScript object that implements the following callbacks:
@@ -263,7 +263,7 @@
                         <br>
                     </fieldset>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>email_dialogs</strong>"<br>Possible values: "system", "modal", "none", "custom"
+                        Shortcode and function parameter: "<strong>email_dialogs</strong>"<br>Possible values: "system", "modal", "none", "custom"
                     </p>
                 </td>
             </tr>
@@ -277,7 +277,7 @@
                     <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-output-name" name="save-as-pdf-pdfcrowd[output_name]" value="<?php echo($output_name);?>" placeholder="<?php esc_attr_e('Output filename', $this->plugin_name);?>" autocomplete="off" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>output_name</strong>"
+                            Shortcode and function parameter: "<strong>output_name</strong>"
                         </p>
                         <p class='description'>
                             The name of the output file. The name may not be specified and will be automatically created according to the page URL.
@@ -295,7 +295,7 @@
                     <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-pdf-created-callback" name="save-as-pdf-pdfcrowd[pdf_created_callback]" value="<?php echo($pdf_created_callback);?>" placeholder="<?php esc_attr_e('Your function name', $this->plugin_name);?>" autocomplete="off" />
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <p class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode & function parameter: "<strong>pdf_created_callback</strong>"
+                            Shortcode and function parameter: "<strong>pdf_created_callback</strong>"
                         </p>
                         <p class='description'>
                             This PHP callback is invoked when the output pdf is created. The callback is useful for custom actions, e.g. saving the pdf to a local folder, setting a custom HTTP response header.
@@ -339,7 +339,7 @@
                 <td>
                     <textarea id="save-as-pdf-pdfcrowd-custom-data" name="save-as-pdf-pdfcrowd[custom_data]" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Your custom data', $this->plugin_name);?>"><?php echo($custom_data); ?></textarea>
                     <p class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode & function parameter: "<strong>custom_data</strong>"
+                        Shortcode and function parameter: "<strong>custom_data</strong>"
                     </p>
                     <p class='description'>
                         Data assigned to the conversion button.

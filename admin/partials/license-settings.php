@@ -26,10 +26,6 @@
             Run wizard
         </div>
     </p>
-    <h3 style='margin-top: 2em'>
-        API License
-    </h3>
-
     <h3>
         License
     </h3>
@@ -41,16 +37,16 @@
                     Demo
                 </span>
             </label>
-             - prints DEMO text over the output
+             - prints a demo watermark and Pdfcrowd branding over the output
         </p>
         <p>
             <label for="save-as-pdf-pdfcrowd-lic-regular">
                 <input type="radio" id="save-as-pdf-pdfcrowd-lic-regular" name="save-as-pdf-pdfcrowd[license_type]" value="regular" <?php checked( $license_type, "regular" ); ?> autocomplete="off" />
                 <span style="font-weight: bold">
-                    License
+                    Paid
                 </span>
             </label>
-            <span id="save-as-pdf-pdfcrowd-lic-reg-ac">
+            - <span id="save-as-pdf-pdfcrowd-lic-reg-ac">
                 <a class="button-secondary"
                    href="https://pdfcrowd.com/user/sign_up/?pid=api-trial2&ref=wordpress">
                     Free trial

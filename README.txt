@@ -87,9 +87,9 @@ Pdfcrowd [API Playground](https://pdfcrowd.com/playground/) may help you to conf
 
 == Licensing ==
 
-The plugin runs in the demo by default. It is fully functional but adds a watermark over the content.
+The plugin runs in the demo by default. It is fully functional but adds a watermark and Pdfcrowd branding over the content.
 
-You can purchase a Pdfcrowd [API license](https://pdfcrowd.com/user/account/api2-license/?ref=wordpress) to remove the demo watermark. To activate the license, enter your Pdfcrowd username and your API key in the plugin settings on the Basics tab.
+You can purchase a Pdfcrowd [API license](https://pdfcrowd.com/user/account/api2-license/?ref=wordpress) to remove the demo watermark and Pdfcrowd branding. To activate the license, enter your Pdfcrowd username and your API key in the plugin settings on the Basics tab.
 
 A single Pdfcrowd API license can be used for both our plugins on multiple WordPress websites. Moreover, the API license enables you to use the [Pdfcrowd conversion API](https://pdfcrowd.com/doc/api/) directly.
 
@@ -133,6 +133,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 2. Sample of settings.
 
 == Changelog ==
+
+= 2.9.2 =
+* Minor text update in plugin settings.
 
 = 2.9.1 =
 * Fix: Auto Use Cookies option is applied to Conversion Mode Content.
