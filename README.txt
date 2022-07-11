@@ -134,6 +134,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.9.3 =
+* Minor update of the text of the error message.
+
 = 2.9.2 =
 * Minor text update in plugin settings.
 

@@ -70,7 +70,7 @@
                         </div>
                         <div class='description'>
                             Set the output page width. The safe maximum is <span class='field-value'>200in</span> otherwise some PDF viewers may be unable to open the PDF.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
+                            The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".
                         </div>
                     </div>
                 </td>
@@ -89,7 +89,7 @@
                         </div>
                         <div class='description'>
                             Set the output page height. Use <span class='field-value'>-1</span> for a single page PDF. The safe maximum is <span class='field-value'>200in</span> otherwise some PDF viewers may be unable to open the PDF.
-                            Can be -1 or specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
+                            The value must be -1 or specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".
                         </div>
                     </div>
                 </td>
@@ -130,7 +130,7 @@
                         </div>
                         <div class='description'>
                             Set the output page top margin.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
+                            The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".
                         </div>
                     </div>
                 </td>
@@ -149,7 +149,7 @@
                         </div>
                         <div class='description'>
                             Set the output page right margin.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
+                            The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".
                         </div>
                     </div>
                 </td>
@@ -168,7 +168,7 @@
                         </div>
                         <div class='description'>
                             Set the output page bottom margin.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
+                            The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".
                         </div>
                     </div>
                 </td>
@@ -187,7 +187,7 @@
                         </div>
                         <div class='description'>
                             Set the output page left margin.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
+                            The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".
                         </div>
                     </div>
                 </td>
@@ -261,7 +261,7 @@
                         </div>
                         <div class='description'>
                             Set the top left X coordinate of the content area. It is relative to the top left X coordinate of the print area.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt). It may contain a negative value.
+                            The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt". It may contain a negative value.
                         </div>
                     </div>
                 </td>
@@ -280,7 +280,7 @@
                         </div>
                         <div class='description'>
                             Set the top left Y coordinate of the content area. It is relative to the top left Y coordinate of the print area.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt). It may contain a negative value.
+                            The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt". It may contain a negative value.
                         </div>
                     </div>
                 </td>
@@ -299,7 +299,7 @@
                         </div>
                         <div class='description'>
                             Set the width of the content area. It should be at least 1 inch.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
+                            The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".
                         </div>
                     </div>
                 </td>
@@ -318,7 +318,7 @@
                         </div>
                         <div class='description'>
                             Set the height of the content area. It should be at least 1 inch.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
+                            The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".
                         </div>
                     </div>
                 </td>
@@ -426,7 +426,7 @@
                         </div>
                         <div class='description'>
                             Set the header height.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
+                            The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".
                         </div>
                     </div>
                 </td>
@@ -483,7 +483,7 @@
                         </div>
                         <div class='description'>
                             Set the footer height.
-                            Can be specified in inches (in), millimeters (mm), centimeters (cm), or points (pt).
+                            The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".
                         </div>
                     </div>
                 </td>
