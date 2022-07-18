@@ -222,7 +222,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'smart_scaling_mode' => 'viewport-fit',
         'url_lookup' => 'auto',
         'username' => '',
-        'version' => '2930',
+        'version' => '2940',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -406,7 +406,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         478 => "The URL hostname could not be resolved.",
         479 => "The URL is invalid.",
         480 => "The converter could not establish an HTTPS connection because of an invalid SSL certificate.",
-        481 => "<p>There was a problem connecting to Pdfcrowd servers over HTTPS. This could be caused by several reasons, one of them is that your local CA certificate store is out of date or not configured correctly.</p> <p>An alternative is to use the API over HTTP. The HTTP mode can be enabled by the <a href='/doc/api/method-index/#html_to_pdf_set_use_http'>setUseHttp</a> method.<p>",
+        481 => "<p>There was a problem connecting to Pdfcrowd servers over HTTPS. This could be caused by several reasons, one of them is that your local CA certificate store is out of date or not configured correctly.</p> <p>An alternative is to use the API over HTTP. The HTTP mode can be enabled by the <a href='/api/method-index/#html_to_pdf_set_use_http'>setUseHttp</a> method.<p>",
         482 => "The input template or data is invalid.",
         483 => "The input is password protected. Provide a valid password.",
         484 => "The input contains an unsupported feature, typically a font type.",
@@ -425,7 +425,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2930) {
+        if($options['version'] == 2940) {
             return $options;
         }
 
@@ -445,7 +445,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['url_lookup'] = 'location';
         }
 
-        $options['version'] = 2930;
+        $options['version'] = 2940;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -1177,7 +1177,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.9.3 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.9.4 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 

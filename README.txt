@@ -91,7 +91,7 @@ The plugin runs in the demo by default. It is fully functional but adds a waterm
 
 You can purchase a Pdfcrowd [API license](https://pdfcrowd.com/user/account/api2-license/?ref=wordpress) to remove the demo watermark and Pdfcrowd branding. To activate the license, enter your Pdfcrowd username and your API key in the plugin settings on the Basics tab.
 
-A single Pdfcrowd API license can be used for both our plugins on multiple WordPress websites. Moreover, the API license enables you to use the [Pdfcrowd conversion API](https://pdfcrowd.com/doc/api/) directly.
+A single Pdfcrowd API license can be used for both our plugins on multiple WordPress websites. Moreover, the API license enables you to use the [Pdfcrowd conversion API](https://pdfcrowd.com/api/) directly.
 
 == Frequently Asked Questions ==
 
@@ -133,6 +133,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 2. Sample of settings.
 
 == Changelog ==
+
+= 2.9.4 =
+* Minor update of documentation links.
 
 = 2.9.3 =
 * Minor update of the text of the error message.
@@ -217,7 +220,7 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 * Fixed error in "Send PDF via e-mail"
 
 = 2.0.0 =
-* New "Converter Version" option - specifies the version of the internal Pdfcrowd converter. Details about Pdfcrowd [versioning](https://pdfcrowd.com/doc/api/versioning/).
+* New "Converter Version" option - specifies the version of the internal Pdfcrowd converter. Details about Pdfcrowd [versioning](https://pdfcrowd.com/api/versioning/).
 * New "Load Iframes" option - specifies how iframes are handled.
 * New "Locale" option - specifies the locale for conversions.
 * New value "Send PDF via e-mail" added to the "Button Click Action" options. It sends the output file via customized e-mail using these settings:

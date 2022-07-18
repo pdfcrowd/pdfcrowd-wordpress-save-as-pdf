@@ -343,7 +343,7 @@
                             Specifies behavior in presence of CSS @page rules. It may affect the page size, margins and orientation.
                               <br>
  It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -504,7 +504,7 @@
                             Disable horizontal page margins for header and footer. The header/footer contents width will be equal to the physical page width.
                               <br>
  It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -878,7 +878,7 @@
                             Use a mobile user agent.
                               <br>
  It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -903,7 +903,7 @@
                             Specifies how iframes are handled.
                               <br>
  It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -961,7 +961,7 @@
                             Set the locale for the conversion. This may affect the output format of dates, times and numbers.
                               <br>
  It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                             
                         </div>
                     </div>
@@ -1109,7 +1109,7 @@
                             Shortcode and function parameter: "<strong>custom_javascript</strong>"
                         </div>
                         <div class='description'>
-                            Run a custom JavaScript after the document is loaded and ready to print. The script is intended for post-load DOM manipulation (add/remove elements, update CSS, ...). In addition to the standard browser APIs, the custom JavaScript code can use helper functions from our <a href='https://pdfcrowd.com/doc/api/libpdfcrowd/'>JavaScript library</a>.
+                            Run a custom JavaScript after the document is loaded and ready to print. The script is intended for post-load DOM manipulation (add/remove elements, update CSS, ...). In addition to the standard browser APIs, the custom JavaScript code can use helper functions from our <a href='https://pdfcrowd.com/api/libpdfcrowd/'>JavaScript library</a>.
                             
                         </div>
                     </div>
@@ -1128,7 +1128,7 @@
                             Shortcode and function parameter: "<strong>on_load_javascript</strong>"
                         </div>
                         <div class='description'>
-                            Run a custom JavaScript right after the document is loaded. The script is intended for early DOM manipulation (add/remove elements, update CSS, ...). In addition to the standard browser APIs, the custom JavaScript code can use helper functions from our <a href='https://pdfcrowd.com/doc/api/libpdfcrowd/'>JavaScript library</a>.
+                            Run a custom JavaScript right after the document is loaded. The script is intended for early DOM manipulation (add/remove elements, update CSS, ...). In addition to the standard browser APIs, the custom JavaScript code can use helper functions from our <a href='https://pdfcrowd.com/api/libpdfcrowd/'>JavaScript library</a>.
                             
                         </div>
                     </div>
@@ -1275,7 +1275,7 @@
                             The main HTML element for conversion is detected automatically.
                               <br>
  It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -1299,7 +1299,7 @@
                             The input HTML is automatically enhanced to improve the readability.
                               <br>
  It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -2082,7 +2082,7 @@
                             Shortcode and function parameter: "<strong>data_encoding</strong>"
                         </div>
                         <div class='description'>
-                             Set the encoding of the data file set by <a href='https://pdfcrowd.com/doc/api/html-to-pdf/php/ref/#set_data_file'>setDataFile</a>.
+                             Set the encoding of the data file set by <a href='https://pdfcrowd.com/api/html-to-pdf-php/ref/#set_data_file'>setDataFile</a>.
                             
                         </div>
                     </div>
@@ -2326,7 +2326,7 @@
                             Set the internal DPI resolution used for positioning of PDF contents. It can help in situations when there are small inaccuracies in the PDF. It is recommended to use values that are a multiple of 72, such as 288 or 360.
                               <br>
  It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -2347,7 +2347,7 @@
                             A 2D transformation matrix applied to the main contents on each page. The origin [0,0] is located at the top-left corner of the contents. The resolution is 72 dpi.
                               <br>
  It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                             
                         </div>
                     </div>
@@ -2369,7 +2369,7 @@
                             A 2D transformation matrix applied to the page header contents. The origin [0,0] is located at the top-left corner of the header. The resolution is 72 dpi.
                               <br>
  It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                             
                         </div>
                     </div>
@@ -2391,7 +2391,7 @@
                             A 2D transformation matrix applied to the page footer contents. The origin [0,0] is located at the top-left corner of the footer. The resolution is 72 dpi.
                               <br>
  It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                             
                         </div>
                     </div>
@@ -2413,7 +2413,7 @@
                             Disable automatic height adjustment that compensates for pixel to point rounding errors.
                               <br>
  It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -2440,7 +2440,7 @@
 
                               <br>
  It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                             <div class='save-as-pdf-pdfcrowd-note'>
                                 <strong>Warning:</strong> If your custom styling affects the contents area size (e.g. by using different margins, padding, border width), the resulting PDF may contain duplicit contents or some contents may be missing.
@@ -2473,7 +2473,7 @@
 
                               <br>
  It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/doc/api/versioning/'>versioning details</a>.
+                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
