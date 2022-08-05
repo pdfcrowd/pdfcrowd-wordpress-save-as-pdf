@@ -341,9 +341,6 @@
                         </div>
                         <div class='description'>
                             Specifies behavior in presence of CSS @page rules. It may affect the page size, margins and orientation.
-                              <br>
- It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -502,9 +499,6 @@
                         </div>
                         <div class='description'>
                             Disable horizontal page margins for header and footer. The header/footer contents width will be equal to the physical page width.
-                              <br>
- It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -803,7 +797,7 @@
                             Shortcode and function parameter: "<strong>no_background</strong>"<br>Possible values: 0, 1
                         </div>
                         <div class='description'>
-                            Do not print the background graphics. Absolute or relative filepath can be used. To apply WordPress uploaded media use e.g. ../wp-content/uploads/2019/06/your-file.pdf.
+                            Do not print the background graphics.
                         </div>
                     </div>
                 </td>
@@ -876,9 +870,6 @@
                         </div>
                         <div class='description'>
                             Use a mobile user agent.
-                              <br>
- It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -901,9 +892,6 @@
                         </div>
                         <div class='description'>
                             Specifies how iframes are handled.
-                              <br>
- It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -959,9 +947,6 @@
                         </div>
                         <div class='description'>
                             Set the locale for the conversion. This may affect the output format of dates, times and numbers.
-                              <br>
- It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                             
                         </div>
                     </div>
@@ -1273,9 +1258,6 @@
                         </div>
                         <div class='description'>
                             The main HTML element for conversion is detected automatically.
-                              <br>
- It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -1288,18 +1270,17 @@
                 </th>
                 <td>
                     <select name="save-as-pdf-pdfcrowd[readability_enhancements]" id="save-as-pdf-pdfcrowd-readability_enhancements" autocomplete="off">
-                    <option value="none" <?php selected($readability_enhancements, 'none');?>>No enhancements are applied.</option>
-                    <option value="readability-v1" <?php selected($readability_enhancements, 'readability-v1');?>>Enhancements are applied.</option>
+                    <option value="none" <?php selected($readability_enhancements, 'none');?>>No enhancements are used.</option>
+                    <option value="readability-v1" <?php selected($readability_enhancements, 'readability-v1');?>>Version 1 of the enhancements is used.</option>
+                    <option value="readability-v2" <?php selected($readability_enhancements, 'readability-v2');?>>Version 2 of the enhancements is used.</option>
+                    <option value="readability-v3" <?php selected($readability_enhancements, 'readability-v3');?>>Version 3 of the enhancements is used.</option>
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode and function parameter: "<strong>readability_enhancements</strong>"<br>Possible values: <ul><li>"none" - No enhancements are applied.</li><li>"readability-v1" - Enhancements are applied.</li></ul>
+                            Shortcode and function parameter: "<strong>readability_enhancements</strong>"<br>Possible values: <ul><li>"none" - No enhancements are used.</li><li>"readability-v1" - Version 1 of the enhancements is used.</li><li>"readability-v2" - Version 2 of the enhancements is used.</li><li>"readability-v3" - Version 3 of the enhancements is used.</li></ul>
                         </div>
                         <div class='description'>
                             The input HTML is automatically enhanced to improve the readability.
-                              <br>
- It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -2324,9 +2305,6 @@
                         </div>
                         <div class='description'>
                             Set the internal DPI resolution used for positioning of PDF contents. It can help in situations when there are small inaccuracies in the PDF. It is recommended to use values that are a multiple of 72, such as 288 or 360.
-                              <br>
- It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -2345,9 +2323,6 @@
                         </div>
                         <div class='description'>
                             A 2D transformation matrix applied to the main contents on each page. The origin [0,0] is located at the top-left corner of the contents. The resolution is 72 dpi.
-                              <br>
- It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                             
                         </div>
                     </div>
@@ -2367,9 +2342,6 @@
                         </div>
                         <div class='description'>
                             A 2D transformation matrix applied to the page header contents. The origin [0,0] is located at the top-left corner of the header. The resolution is 72 dpi.
-                              <br>
- It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                             
                         </div>
                     </div>
@@ -2389,9 +2361,6 @@
                         </div>
                         <div class='description'>
                             A 2D transformation matrix applied to the page footer contents. The origin [0,0] is located at the top-left corner of the footer. The resolution is 72 dpi.
-                              <br>
- It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                             
                         </div>
                     </div>
@@ -2411,9 +2380,6 @@
                         </div>
                         <div class='description'>
                             Disable automatic height adjustment that compensates for pixel to point rounding errors.
-                              <br>
- It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>
@@ -2438,9 +2404,6 @@
     <li><span class='field-value'>pdfcrowd-page-even</span> - even page</li>
   </ul>
 
-                              <br>
- It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                             <div class='save-as-pdf-pdfcrowd-note'>
                                 <strong>Warning:</strong> If your custom styling affects the contents area size (e.g. by using different margins, padding, border width), the resulting PDF may contain duplicit contents or some contents may be missing.
@@ -2471,9 +2434,6 @@
     <li><span class='field-value'>pdfcrowd-page-even</span> - even page</li>
   </ul>
 
-                              <br>
- It is applicable for converter version >= 20.10.
-                              More Pdfcrowd <a href='https://pdfcrowd.com/api/versioning/'>versioning details</a>.
                         </div>
                     </div>
                 </td>

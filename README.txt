@@ -134,6 +134,10 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.10.0 =
+* New "readability-v2" and "readability-v3" modes for "Readability Enhancements" option.
+* Minor text update in plugin settings.
+
 = 2.9.4 =
 * Minor update of documentation links.
 

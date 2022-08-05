@@ -83,7 +83,7 @@ class Save_As_Pdf_Pdfcrowd {
             return SAVE_AS_PDF_VERSION;
         }
 
-        return '2.9.4';
+        return '2.10.0';
     }
 
     /**
