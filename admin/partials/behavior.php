@@ -298,9 +298,10 @@
                             Shortcode and function parameter: "<strong>pdf_created_callback</strong>"
                         </p>
                         <p class='description'>
-                            This PHP callback is invoked when the output pdf is created. The callback is useful for custom actions, e.g. saving the pdf to a local folder, setting a custom HTTP response header.
+                            This PHP callback is invoked when the output pdf is created. The callback is useful for custom actions, e.g. saving the pdf to a local folder, setting a custom HTTP response header,
+                            collecting email entered by user.
                             <br>
-                            Return <strong>true</strong> from your custom callback if you wish to skip the default functionality. The default functionality returns the created pdf to the client in an HTTP response.
+                            Return <strong>true</strong> from your custom callback if you wish to skip the default functionality. The default functionality depends on the Button Click Action option and is either an HTTP response or email with the created pdf.
                         </p>
                         <p class='description'>
                             The callback must be a valid PHP function name. The function <strong>must</strong> accept 1 argument - an array with keys:

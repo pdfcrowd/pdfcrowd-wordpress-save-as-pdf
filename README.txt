@@ -134,6 +134,11 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.11.0 =
+* Update: Images can be used as a watermark and a background in Save as PDF plugin.
+* New: added "email_to" record to $data['options'] argument of PDF Created Callback
+* Minor Update: text in plugin settings.
+
 = 2.10.0 =
 * New "readability-v2" and "readability-v3" modes for "Readability Enhancements" option.
 * Minor text update in plugin settings.

@@ -222,7 +222,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'smart_scaling_mode' => 'viewport-fit',
         'url_lookup' => 'auto',
         'username' => '',
-        'version' => '2100',
+        'version' => '2110',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -425,7 +425,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2100) {
+        if($options['version'] == 2110) {
             return $options;
         }
 
@@ -445,7 +445,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['url_lookup'] = 'location';
         }
 
-        $options['version'] = 2100;
+        $options['version'] = 2110;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -1178,7 +1178,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.10.0 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.11.0 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
@@ -1388,20 +1388,15 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
                 455, __('Output file can not be prepared.', $plugin_name));
         }
 
-        $email_to = null;
+        $email_to = $options['email_to'];
         $email_data = json_decode($options['email_data'], true);
         $email_data['user_name'] = '';
         $email_data['user_first_name'] = '';
         $email_data['user_last_name'] = '';
         $email_data['user_display_name'] = '';
 
-        if($options['email_recipient'] == 'prompt') {
-            $email_to = $_POST['recipient'];
-        } else if($options['email_recipient'] == 'address') {
-            $email_to = $options['email_recipient_address'];
-        } else {
+        if($options['email_recipient'] == 'user') {
             $curr_user = wp_get_current_user();
-            $email_to = $curr_user->user_email;
             $email_data['user_name'] = $curr_user->user_nicename;
             $email_data['user_first_name'] = $curr_user->user_firstname;
             $email_data['user_last_name'] = $curr_user->user_lastname;
@@ -1437,6 +1432,18 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
             self::delete_file($tmp_file_name);
             wp_send_json_success();
         }
+    }
+
+    private static function get_email_recipient($options) {
+        if($options['email_recipient'] == 'prompt') {
+            return $_POST['recipient'];
+        }
+
+        if($options['email_recipient'] == 'address') {
+            return $options['email_recipient_address'];
+        }
+
+        return wp_get_current_user()->user_email;
     }
 
     function save_as_pdf_pdfcrowd() {
@@ -1515,6 +1522,10 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
             if($hook_data['error']) {
                 error_log('error: ' . print_r($hook_data['error'], true));
             }
+        }
+
+        if($options['button_disposition'] == 'email') {
+            $options['email_to'] = self::get_email_recipient($options);
         }
 
         if(!empty($options['pdf_created_callback'])) {

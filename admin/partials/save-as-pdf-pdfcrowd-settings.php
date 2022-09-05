@@ -590,7 +590,7 @@
                             Shortcode and function parameter: "<strong>page_watermark</strong>"
                         </div>
                         <div class='description'>
-                            Apply the first page of the watermark PDF to every page of the output PDF. Absolute or relative filepath can be used. To apply WordPress uploaded media use e.g. ../wp-content/uploads/2019/06/your-file.pdf.
+                            Apply a watermark to each page of the output PDF file. A watermark can be either a PDF or an image. If a multi-page file (PDF or TIFF) is used, the first page is used as the watermark. Absolute or relative filepath can be used. To apply WordPress uploaded media use e.g. ../wp-content/uploads/2019/06/your-file.pdf.
                             The file must exist and not be empty.
                         </div>
                     </div>
@@ -609,7 +609,7 @@
                             Shortcode and function parameter: "<strong>page_watermark_url</strong>"
                         </div>
                         <div class='description'>
-                            Load a watermark PDF from the specified URL and apply the first page of the watermark PDF to every page of the output PDF.
+                            Load a file from the specified URL and apply the file as a watermark to each page of the output PDF. A watermark can be either a PDF or an image. If a multi-page file (PDF or TIFF) is used, the first page is used as the watermark.
                             The supported protocols are http:// and https://.
                         </div>
                     </div>
@@ -628,7 +628,7 @@
                             Shortcode and function parameter: "<strong>multipage_watermark</strong>"
                         </div>
                         <div class='description'>
-                            Apply each page of the specified watermark PDF to the corresponding page of the output PDF. Absolute or relative filepath can be used. To apply WordPress uploaded media use e.g. ../wp-content/uploads/2019/06/your-file.pdf.
+                            Apply each page of a watermark to the corresponding page of the output PDF. A watermark can be either a PDF or an image. Absolute or relative filepath can be used. To apply WordPress uploaded media use e.g. ../wp-content/uploads/2019/06/your-file.pdf.
                             The file must exist and not be empty.
                         </div>
                     </div>
@@ -647,7 +647,7 @@
                             Shortcode and function parameter: "<strong>multipage_watermark_url</strong>"
                         </div>
                         <div class='description'>
-                            Load a watermark PDF from the specified URL and apply each page of the specified watermark PDF to the corresponding page of the output PDF.
+                            Load a file from the specified URL and apply each page of the file as a watermark to the corresponding page of the output PDF. A watermark can be either a PDF or an image.
                             The supported protocols are http:// and https://.
                         </div>
                     </div>
@@ -666,7 +666,7 @@
                             Shortcode and function parameter: "<strong>page_background</strong>"
                         </div>
                         <div class='description'>
-                            Apply the first page of the specified PDF to the background of every page of the output PDF. Absolute or relative filepath can be used. To apply WordPress uploaded media use e.g. ../wp-content/uploads/2019/06/your-file.pdf.
+                            Apply a background to each page of the output PDF file. A background can be either a PDF or an image. If a multi-page file (PDF or TIFF) is used, the first page is used as the background. Absolute or relative filepath can be used. To apply WordPress uploaded media use e.g. ../wp-content/uploads/2019/06/your-file.pdf.
                             The file must exist and not be empty.
                         </div>
                     </div>
@@ -685,7 +685,7 @@
                             Shortcode and function parameter: "<strong>page_background_url</strong>"
                         </div>
                         <div class='description'>
-                            Load a background PDF from the specified URL and apply the first page of the background PDF to every page of the output PDF.
+                            Load a file from the specified URL and apply the file as a background to each page of the output PDF. A background can be either a PDF or an image. If a multi-page file (PDF or TIFF) is used, the first page is used as the background.
                             The supported protocols are http:// and https://.
                         </div>
                     </div>
@@ -704,7 +704,7 @@
                             Shortcode and function parameter: "<strong>multipage_background</strong>"
                         </div>
                         <div class='description'>
-                            Apply each page of the specified PDF to the background of the corresponding page of the output PDF. Absolute or relative filepath can be used. To apply WordPress uploaded media use e.g. ../wp-content/uploads/2019/06/your-file.pdf.
+                            Apply each page of a background to the corresponding page of the output PDF. A background can be either a PDF or an image. Absolute or relative filepath can be used. To apply WordPress uploaded media use e.g. ../wp-content/uploads/2019/06/your-file.pdf.
                             The file must exist and not be empty.
                         </div>
                     </div>
@@ -723,7 +723,7 @@
                             Shortcode and function parameter: "<strong>multipage_background_url</strong>"
                         </div>
                         <div class='description'>
-                            Load a background PDF from the specified URL and apply each page of the specified background PDF to the corresponding page of the output PDF.
+                            Load a file from the specified URL and apply each page of the file as a background to the corresponding page of the output PDF. A background can be either a PDF or an image.
                             The supported protocols are http:// and https://.
                         </div>
                     </div>
