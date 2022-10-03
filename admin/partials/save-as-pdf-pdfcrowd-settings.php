@@ -1274,10 +1274,11 @@
                     <option value="readability-v1" <?php selected($readability_enhancements, 'readability-v1');?>>Version 1 of the enhancements is used.</option>
                     <option value="readability-v2" <?php selected($readability_enhancements, 'readability-v2');?>>Version 2 of the enhancements is used.</option>
                     <option value="readability-v3" <?php selected($readability_enhancements, 'readability-v3');?>>Version 3 of the enhancements is used.</option>
+                    <option value="readability-v4" <?php selected($readability_enhancements, 'readability-v4');?>>Version 4 of the enhancements is used.</option>
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode and function parameter: "<strong>readability_enhancements</strong>"<br>Possible values: <ul><li>"none" - No enhancements are used.</li><li>"readability-v1" - Version 1 of the enhancements is used.</li><li>"readability-v2" - Version 2 of the enhancements is used.</li><li>"readability-v3" - Version 3 of the enhancements is used.</li></ul>
+                            Shortcode and function parameter: "<strong>readability_enhancements</strong>"<br>Possible values: <ul><li>"none" - No enhancements are used.</li><li>"readability-v1" - Version 1 of the enhancements is used.</li><li>"readability-v2" - Version 2 of the enhancements is used.</li><li>"readability-v3" - Version 3 of the enhancements is used.</li><li>"readability-v4" - Version 4 of the enhancements is used.</li></ul>
                         </div>
                         <div class='description'>
                             The input HTML is automatically enhanced to improve the readability.

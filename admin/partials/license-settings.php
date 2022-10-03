@@ -37,7 +37,8 @@
                     Demo
                 </span>
             </label>
-             - prints a demo watermark and Pdfcrowd branding over the output
+             - prints a demo watermark and Pdfcrowd branding over the output.
+             The demo license is suitable only for non-production environments.
         </p>
         <p>
             <label for="save-as-pdf-pdfcrowd-lic-regular">

@@ -190,7 +190,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 2110;
+        $valid['version'] = 2120;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {
@@ -776,11 +776,11 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if (isset($input['readability_enhancements']) &&
             $input['readability_enhancements'] != '') {
             $readability_enhancements = $input['readability_enhancements'];
-            if (!preg_match("/(?i)^(none|readability-v1|readability-v2|readability-v3)$/", $readability_enhancements))
+            if (!preg_match("/(?i)^(none|readability-v1|readability-v2|readability-v3|readability-v4)$/", $readability_enhancements))
                 add_settings_error(
                 'readability_enhancements',
                 'empty_readability_enhancements',
-                pdfcrowd_create_invalid_value_message($readability_enhancements, 'Readability Enhancements', 'Allowed values are none, readability-v1, readability-v2, readability-v3.'));
+                pdfcrowd_create_invalid_value_message($readability_enhancements, 'Readability Enhancements', 'Allowed values are none, readability-v1, readability-v2, readability-v3, readability-v4.'));
             
         }
         $valid['readability_enhancements'] = isset($input['readability_enhancements']) ? $input['readability_enhancements'] : '';
