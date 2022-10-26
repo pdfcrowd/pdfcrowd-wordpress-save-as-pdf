@@ -3,7 +3,7 @@ Contributors: Pdfcrowd
 Tags: pdf, print, save, page, save to pdf, save as pdf, convert to pdf, pdf print, pdf button, pdf widget, pdf plugin, pdfcrowd, html, page as pdf
 Requires PHP: 5.1
 Requires at least: 4.0
-Tested up to: 6.0
+Tested up to: 6.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
