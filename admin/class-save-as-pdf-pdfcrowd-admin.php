@@ -190,7 +190,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 2120;
+        $valid['version'] = 2130;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {
@@ -824,11 +824,11 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if (isset($input['smart_scaling_mode']) &&
             $input['smart_scaling_mode'] != '') {
             $smart_scaling_mode = $input['smart_scaling_mode'];
-            if (!preg_match("/(?i)^(default|disabled|viewport-fit|content-fit|single-page-fit|mode1)$/", $smart_scaling_mode))
+            if (!preg_match("/(?i)^(default|disabled|viewport-fit|content-fit|single-page-fit|single-page-fit-ex|mode1)$/", $smart_scaling_mode))
                 add_settings_error(
                 'smart_scaling_mode',
                 'empty_smart_scaling_mode',
-                pdfcrowd_create_invalid_value_message($smart_scaling_mode, 'Smart Scaling Mode', 'Allowed values are default, disabled, viewport-fit, content-fit, single-page-fit, mode1.'));
+                pdfcrowd_create_invalid_value_message($smart_scaling_mode, 'Smart Scaling Mode', 'Allowed values are default, disabled, viewport-fit, content-fit, single-page-fit, single-page-fit-ex, mode1.'));
             
         }
         $valid['smart_scaling_mode'] = isset($input['smart_scaling_mode']) ? $input['smart_scaling_mode'] : '';

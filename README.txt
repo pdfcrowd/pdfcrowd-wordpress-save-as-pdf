@@ -134,6 +134,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.13.0 =
+* New "The whole HTML contents fits the print area of a single page with respect to the page height/width ratio." mode for "Smart Scaling Mode" option.
+
 = 2.12.0 =
 * New "readability-v4" mode for "Readability Enhancements" option.
 * Minor text update in plugin settings.

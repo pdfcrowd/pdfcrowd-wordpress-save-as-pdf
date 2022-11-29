@@ -1375,11 +1375,12 @@
                     <option value="viewport-fit" <?php selected($smart_scaling_mode, 'viewport-fit');?>>The viewport width fits the print area width.</option>
                     <option value="content-fit" <?php selected($smart_scaling_mode, 'content-fit');?>>The HTML contents width fits the print area width.</option>
                     <option value="single-page-fit" <?php selected($smart_scaling_mode, 'single-page-fit');?>>The whole HTML contents fits the print area of a single page.</option>
+                    <option value="single-page-fit-ex" <?php selected($smart_scaling_mode, 'single-page-fit-ex');?>>The whole HTML contents fits the print area of a single page with respect to the page height/width ratio.</option>
                     <option value="mode1" <?php selected($smart_scaling_mode, 'mode1');?>>Scaling mode 1 is applied.</option>
                     </select>
                     <div class='save-as-pdf-pdfcrowd-m-description'>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode and function parameter: "<strong>smart_scaling_mode</strong>"<br>Possible values: <ul><li>"default" - The mode based on the standard browser print functionality.</li><li>"disabled" - No smart scaling is performed.</li><li>"viewport-fit" - The viewport width fits the print area width.</li><li>"content-fit" - The HTML contents width fits the print area width.</li><li>"single-page-fit" - The whole HTML contents fits the print area of a single page.</li><li>"mode1" - Scaling mode 1 is applied.</li></ul>
+                            Shortcode and function parameter: "<strong>smart_scaling_mode</strong>"<br>Possible values: <ul><li>"default" - The mode based on the standard browser print functionality.</li><li>"disabled" - No smart scaling is performed.</li><li>"viewport-fit" - The viewport width fits the print area width.</li><li>"content-fit" - The HTML contents width fits the print area width.</li><li>"single-page-fit" - The whole HTML contents fits the print area of a single page.</li><li>"single-page-fit-ex" - The whole HTML contents fits the print area of a single page with respect to the page height/width ratio.</li><li>"mode1" - Scaling mode 1 is applied.</li></ul>
                         </div>
                         <div class='description'>
                             Specifies the scaling mode used for fitting the HTML contents to the print area.
