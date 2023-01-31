@@ -190,7 +190,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 2130;
+        $valid['version'] = 2140;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {
@@ -272,7 +272,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
                 add_settings_error(
                 'page_width',
                 'empty_page_width',
-                pdfcrowd_create_invalid_value_message($page_width, 'Page Width', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".'));
+                pdfcrowd_create_invalid_value_message($page_width, 'Page Width', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", pixels "px", or points "pt".'));
             
         }
         $valid['page_width'] = isset($input['page_width']) ? $input['page_width'] : '';
@@ -284,7 +284,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
                 add_settings_error(
                 'page_height',
                 'empty_page_height',
-                pdfcrowd_create_invalid_value_message($page_height, 'Page Height', 'The value must be -1 or specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".'));
+                pdfcrowd_create_invalid_value_message($page_height, 'Page Height', 'The value must be -1 or specified in inches "in", millimeters "mm", centimeters "cm", pixels "px", or points "pt".'));
             
         }
         $valid['page_height'] = isset($input['page_height']) ? $input['page_height'] : '';
@@ -308,7 +308,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
                 add_settings_error(
                 'margin_top',
                 'empty_margin_top',
-                pdfcrowd_create_invalid_value_message($margin_top, 'Margin Top', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".'));
+                pdfcrowd_create_invalid_value_message($margin_top, 'Margin Top', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", pixels "px", or points "pt".'));
             
         }
         $valid['margin_top'] = isset($input['margin_top']) ? $input['margin_top'] : '';
@@ -320,7 +320,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
                 add_settings_error(
                 'margin_right',
                 'empty_margin_right',
-                pdfcrowd_create_invalid_value_message($margin_right, 'Margin Right', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".'));
+                pdfcrowd_create_invalid_value_message($margin_right, 'Margin Right', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", pixels "px", or points "pt".'));
             
         }
         $valid['margin_right'] = isset($input['margin_right']) ? $input['margin_right'] : '';
@@ -332,7 +332,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
                 add_settings_error(
                 'margin_bottom',
                 'empty_margin_bottom',
-                pdfcrowd_create_invalid_value_message($margin_bottom, 'Margin Bottom', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".'));
+                pdfcrowd_create_invalid_value_message($margin_bottom, 'Margin Bottom', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", pixels "px", or points "pt".'));
             
         }
         $valid['margin_bottom'] = isset($input['margin_bottom']) ? $input['margin_bottom'] : '';
@@ -344,7 +344,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
                 add_settings_error(
                 'margin_left',
                 'empty_margin_left',
-                pdfcrowd_create_invalid_value_message($margin_left, 'Margin Left', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".'));
+                pdfcrowd_create_invalid_value_message($margin_left, 'Margin Left', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", pixels "px", or points "pt".'));
             
         }
         $valid['margin_left'] = isset($input['margin_left']) ? $input['margin_left'] : '';
@@ -372,7 +372,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
                 add_settings_error(
                 'content_area_x',
                 'empty_content_area_x',
-                pdfcrowd_create_invalid_value_message($content_area_x, 'Content Area X', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt". It may contain a negative value.'));
+                pdfcrowd_create_invalid_value_message($content_area_x, 'Content Area X', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", pixels "px", or points "pt". It may contain a negative value.'));
             
         }
         $valid['content_area_x'] = isset($input['content_area_x']) ? $input['content_area_x'] : '';
@@ -384,7 +384,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
                 add_settings_error(
                 'content_area_y',
                 'empty_content_area_y',
-                pdfcrowd_create_invalid_value_message($content_area_y, 'Content Area Y', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt". It may contain a negative value.'));
+                pdfcrowd_create_invalid_value_message($content_area_y, 'Content Area Y', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", pixels "px", or points "pt". It may contain a negative value.'));
             
         }
         $valid['content_area_y'] = isset($input['content_area_y']) ? $input['content_area_y'] : '';
@@ -396,7 +396,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
                 add_settings_error(
                 'content_area_width',
                 'empty_content_area_width',
-                pdfcrowd_create_invalid_value_message($content_area_width, 'Content Area Width', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".'));
+                pdfcrowd_create_invalid_value_message($content_area_width, 'Content Area Width', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", pixels "px", or points "pt".'));
             
         }
         $valid['content_area_width'] = isset($input['content_area_width']) ? $input['content_area_width'] : '';
@@ -408,7 +408,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
                 add_settings_error(
                 'content_area_height',
                 'empty_content_area_height',
-                pdfcrowd_create_invalid_value_message($content_area_height, 'Content Area Height', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".'));
+                pdfcrowd_create_invalid_value_message($content_area_height, 'Content Area Height', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", pixels "px", or points "pt".'));
             
         }
         $valid['content_area_height'] = isset($input['content_area_height']) ? $input['content_area_height'] : '';
@@ -456,7 +456,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
                 add_settings_error(
                 'header_height',
                 'empty_header_height',
-                pdfcrowd_create_invalid_value_message($header_height, 'Header Height', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".'));
+                pdfcrowd_create_invalid_value_message($header_height, 'Header Height', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", pixels "px", or points "pt".'));
             
         }
         $valid['header_height'] = isset($input['header_height']) ? $input['header_height'] : '';
@@ -492,7 +492,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
                 add_settings_error(
                 'footer_height',
                 'empty_footer_height',
-                pdfcrowd_create_invalid_value_message($footer_height, 'Footer Height', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", or points "pt".'));
+                pdfcrowd_create_invalid_value_message($footer_height, 'Footer Height', 'The value must be specified in inches "in", millimeters "mm", centimeters "cm", pixels "px", or points "pt".'));
             
         }
         $valid['footer_height'] = isset($input['footer_height']) ? $input['footer_height'] : '';

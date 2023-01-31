@@ -138,6 +138,7 @@
         $email_recipient = isset($options['email_recipient']) ? $options['email_recipient'] : '';
         $email_recipient_address = isset($options['email_recipient_address']) ? $options['email_recipient_address'] : '';
         $email_subject = isset($options['email_subject']) ? $options['email_subject'] : '';
+        $enable_cookies_opt = isset($options['enable_cookies_opt']) ? $options['enable_cookies_opt'] : '';
         $license_type = isset($options['license_type']) ? $options['license_type'] : '';
         $no_margins = isset($options['no_margins']) ? $options['no_margins'] : '';
         $output_format = isset($options['output_format']) ? $options['output_format'] : '';

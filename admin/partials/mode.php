@@ -141,6 +141,7 @@
                     </p>
                 </td>
             </tr>
+            <?php if($enable_cookies_opt): ?>
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-auto-use-cookies">
@@ -161,6 +162,7 @@
                     </p>
                 </td>
             </tr>
+            <?php endif; ?>
             <tr>
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-diagnostics">
