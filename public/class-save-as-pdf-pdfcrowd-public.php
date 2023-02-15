@@ -223,7 +223,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'smart_scaling_mode' => 'viewport-fit',
         'url_lookup' => 'auto',
         'username' => '',
-        'version' => '2140',
+        'version' => '2141',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -412,7 +412,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         483 => "The input is password protected. Provide a valid password.",
         484 => "The input contains an unsupported feature, typically a font type.",
         485 => "An error occurred while executing the OnLoad JavaScript. See details in the debug log.",
-        502 => "The 502 status code indicates a temporary network issue. Try the request again.",
+        503 => "The 503 status code indicates a temporary network issue. Try the request again.",
     );
 
     public static function get_options() {
@@ -427,7 +427,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2140) {
+        if($options['version'] == 2141) {
             return $options;
         }
 
@@ -452,7 +452,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['url_lookup'] = 'location';
         }
 
-        $options['version'] = 2140;
+        $options['version'] = 2141;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -949,7 +949,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
 
         $output = preg_replace(
             "`(?im)(\<(?:a|img|link|iframe|input|body|base|script|embed)\s+[^\>]*(?:src|href|background)\s*=\s*[\'\"])(?:\/\/)`",
-            '${1}' . $protocol . '://',
+            '$1' . $protocol . '://',
             $html);
         return $output ? $output : $html;
     }
@@ -1185,7 +1185,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.14.0 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.14.1 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
@@ -1212,7 +1212,8 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
                 $config['converter_version'] . '/',
                 $args);
             if(is_wp_error($response)) {
-                if($response->get_error_code() != 502) {
+                if($response->get_error_code() != 502 &&
+                   $response->get_error_code() != 503) {
                     return $response;
                 }
                 $error = $response;
@@ -1226,7 +1227,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
                 // wait in case of the concurrency limit for 30 seconds
                 if($retry_attempt <= 15 && ($code == 430 || $code == 429)) {
                     // give time to finish the previous conversion
-                    error_log("concurrency limit reached, attempt ${retry_attempt}/15, waiting, a higher Pdfcrowd API plan is recommended");
+                    error_log("concurrency limit reached, attempt {$retry_attempt}/15, waiting, a higher Pdfcrowd API plan is recommended");
                     sleep(2);
                     $retry_attempt++;
                     continue;
@@ -1236,11 +1237,11 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
                     $code, self::prepare_error_message(
                         $code, wp_remote_retrieve_body($response),
                         '<b>"upload"</b> or <b>"development"</b>'));
-                if($code != 502) {
+                if($code != 502 && $code != 503) {
                     return $error;
                 }
             }
-            // only 502 error is used for retry
+            // only 502 and 503 error is used for retry
             $retry_count--;
         };
         return $error;

@@ -2516,7 +2516,7 @@
                             Shortcode and function parameter: "<strong>retry_count</strong>"
                         </div>
                         <div class='description'>
-                            Specifies the number of automatic retries when the 502 HTTP status code is received. The 502 status code indicates a temporary network issue. This feature can be disabled by setting to 0.
+                            Specifies the number of automatic retries when the 502 or 503 HTTP status code is received. The status code indicates a temporary network issue. This feature can be disabled by setting to 0.
                         </div>
                     </div>
                 </td>

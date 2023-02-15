@@ -134,6 +134,10 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.14.1 =
+* Retry conversion on error 503.
+* Deprecated string interpolation in PHP code was replaced.
+
 = 2.14.0 =
 * Removed deprecated options "Auto Use Cookies" and "Use HTTP".
 
