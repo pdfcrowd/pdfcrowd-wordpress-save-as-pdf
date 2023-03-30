@@ -134,6 +134,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.15.0 =
+* New "Remove Blank Pages" option to choose which empty pages should be removed from the output PDF.
+
 = 2.14.1 =
 * Retry conversion on error 503.
 * Deprecated string interpolation in PHP code was replaced.

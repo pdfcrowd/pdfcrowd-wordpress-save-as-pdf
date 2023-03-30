@@ -190,7 +190,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 2141;
+        $valid['version'] = 2150;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {
@@ -424,6 +424,18 @@ class Save_As_Pdf_Pdfcrowd_Admin {
             
         }
         $valid['css_page_rule_mode'] = isset($input['css_page_rule_mode']) ? $input['css_page_rule_mode'] : '';
+
+        if (isset($input['remove_blank_pages']) &&
+            $input['remove_blank_pages'] != '') {
+            $remove_blank_pages = $input['remove_blank_pages'];
+            if (!preg_match("/(?i)^(trailing|none)$/", $remove_blank_pages))
+                add_settings_error(
+                'remove_blank_pages',
+                'empty_remove_blank_pages',
+                pdfcrowd_create_invalid_value_message($remove_blank_pages, 'Remove Blank Pages', 'Allowed values are trailing, none.'));
+            
+        }
+        $valid['remove_blank_pages'] = isset($input['remove_blank_pages']) ? $input['remove_blank_pages'] : '';
 
         if (isset($input['header_url']) &&
             $input['header_url'] != '') {

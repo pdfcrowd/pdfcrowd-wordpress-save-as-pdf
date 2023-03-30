@@ -167,6 +167,7 @@
         $content_area_width = isset($options['content_area_width']) ? $options['content_area_width'] : '';
         $content_area_height = isset($options['content_area_height']) ? $options['content_area_height'] : '';
         $css_page_rule_mode = isset($options['css_page_rule_mode']) ? $options['css_page_rule_mode'] : 'default';
+        $remove_blank_pages = isset($options['remove_blank_pages']) ? $options['remove_blank_pages'] : 'trailing';
         $header_url = isset($options['header_url']) ? $options['header_url'] : '';
         $header_html = isset($options['header_html']) ? $options['header_html'] : '';
         $header_height = isset($options['header_height']) ? $options['header_height'] : '';

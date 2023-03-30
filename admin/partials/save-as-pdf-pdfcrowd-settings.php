@@ -345,6 +345,27 @@
                     </div>
                 </td>
             </tr>
+            <tr>
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-remove_blank_pages">
+                        Remove Blank Pages
+                    </label>
+                </th>
+                <td>
+                    <select name="save-as-pdf-pdfcrowd[remove_blank_pages]" id="save-as-pdf-pdfcrowd-remove_blank_pages" autocomplete="off">
+                    <option value="trailing" <?php selected($remove_blank_pages, 'trailing');?>>Trailing blank pages are removed from the document.</option>
+                    <option value="none" <?php selected($remove_blank_pages, 'none');?>>No blank page is removed from the document.</option>
+                    </select>
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode and function parameter: "<strong>remove_blank_pages</strong>"<br>Possible values: <ul><li>"trailing" - Trailing blank pages are removed from the document.</li><li>"none" - No blank page is removed from the document.</li></ul>
+                        </div>
+                        <div class='description'>
+                            Specifies which blank pages to exclude from the output document.
+                        </div>
+                    </div>
+                </td>
+            </tr>
         </tbody>
     </table>
 </div>
