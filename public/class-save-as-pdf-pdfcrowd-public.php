@@ -41,6 +41,15 @@ class Save_As_Pdf_Pdfcrowd_Public {
     private $version;
 
     /**
+     * The table name for plugin settings.
+     *
+     * @since    1.0.0
+     * @access   private
+     * @var      string    $table_name    The table name for plugin settings.
+     */
+    private $table_name;
+
+    /**
      * Initialize the class and set its properties.
      *
      * @since    1.0.0
@@ -59,8 +68,6 @@ class Save_As_Pdf_Pdfcrowd_Public {
             add_filter('the_excerpt', array(&$this, 'show_button'));
         }
     }
-
-    private $table_name;
 
     /**
      * Register the stylesheets for the public-facing side of the site.
@@ -223,7 +230,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'smart_scaling_mode' => 'viewport-fit',
         'url_lookup' => 'auto',
         'username' => '',
-        'version' => '2150',
+        'version' => '2151',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -429,7 +436,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2150) {
+        if($options['version'] == 2151) {
             return $options;
         }
 
@@ -454,7 +461,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['url_lookup'] = 'location';
         }
 
-        $options['version'] = 2150;
+        $options['version'] = 2151;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -1187,7 +1194,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.15.0 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.15.1 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
@@ -1520,9 +1527,13 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
 
         $output = self::do_post_request($options);
 
+
+        // take options by reference so email_to can be read in callback too
+        // and even callback can update options, e.g. change output name by
+        // some logic or fix email address et
         $hook_data = array(
             'output' => $output,
-            'options' => $options,
+            'options' => &$options,
             'file_name' => $this->get_output_name($options),
             'error' => is_wp_error($output) ? $output : null
         );

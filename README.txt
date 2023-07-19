@@ -134,6 +134,10 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.15.1 =
+* Fix PDF callback function can access email_to field.
+* Fix deprecation warnings for PHP 8.2.7.
+
 = 2.15.0 =
 * New "Remove Blank Pages" option to choose which empty pages should be removed from the output PDF.
 

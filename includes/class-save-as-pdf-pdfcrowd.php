@@ -58,6 +58,15 @@ class Save_As_Pdf_Pdfcrowd {
     protected $version;
 
     /**
+     * The slug of the plugin screen.
+     *
+     * @since    1.0.0
+     * @access   protected
+     * @var      string    $plugin_screen_hook_suffix    The slug of the plugin screen.
+     */
+    protected $plugin_screen_hook_suffix;
+
+    /**
      * Define the core functionality of the plugin.
      *
      * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -83,7 +92,7 @@ class Save_As_Pdf_Pdfcrowd {
             return SAVE_AS_PDF_VERSION;
         }
 
-        return '2.15.0';
+        return '2.15.1';
     }
 
     /**
