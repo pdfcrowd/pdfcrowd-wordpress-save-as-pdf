@@ -230,7 +230,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'smart_scaling_mode' => 'viewport-fit',
         'url_lookup' => 'auto',
         'username' => '',
-        'version' => '2151',
+        'version' => '2160',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -289,6 +289,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'fail_on_main_url_error',
         'fail_on_any_url_error',
         'no_xpdfcrowd_header',
+        'custom_css',
         'custom_javascript',
         'on_load_javascript',
         'custom_http_header',
@@ -367,6 +368,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             'use_mobile_user_agent',
             'load_iframes',
             'locale',
+            'custom_css',
             'auto_detect_element_to_convert',
             'readability_enhancements',
             'layout_dpi',
@@ -436,7 +438,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2151) {
+        if($options['version'] == 2160) {
             return $options;
         }
 
@@ -461,7 +463,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['url_lookup'] = 'location';
         }
 
-        $options['version'] = 2151;
+        $options['version'] = 2160;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -1194,7 +1196,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.15.1 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.16.0 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 

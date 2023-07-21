@@ -190,7 +190,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 2151;
+        $valid['version'] = 2160;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {
@@ -698,6 +698,18 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         $valid['fail_on_any_url_error'] = empty($input['fail_on_any_url_error']) ? 0 : 1;
 
         $valid['no_xpdfcrowd_header'] = empty($input['no_xpdfcrowd_header']) ? 0 : 1;
+
+        if (isset($input['custom_css']) &&
+            $input['custom_css'] != '') {
+            $custom_css = $input['custom_css'];
+            if (!($custom_css != null && $custom_css !== ''))
+                add_settings_error(
+                'custom_css',
+                'empty_custom_css',
+                pdfcrowd_create_invalid_value_message($custom_css, 'Custom Css', 'The string must not be empty.'));
+            
+        }
+        $valid['custom_css'] = isset($input['custom_css']) ? $input['custom_css'] : '';
 
         if (isset($input['custom_javascript']) &&
             $input['custom_javascript'] != '') {

@@ -204,6 +204,7 @@
         $fail_on_main_url_error = isset($options['fail_on_main_url_error']) ? $options['fail_on_main_url_error'] : '';
         $fail_on_any_url_error = isset($options['fail_on_any_url_error']) ? $options['fail_on_any_url_error'] : '';
         $no_xpdfcrowd_header = isset($options['no_xpdfcrowd_header']) ? $options['no_xpdfcrowd_header'] : '';
+        $custom_css = isset($options['custom_css']) ? $options['custom_css'] : '';
         $custom_javascript = isset($options['custom_javascript']) ? $options['custom_javascript'] : '';
         $on_load_javascript = isset($options['on_load_javascript']) ? $options['on_load_javascript'] : '';
         $custom_http_header = isset($options['custom_http_header']) ? $options['custom_http_header'] : '';

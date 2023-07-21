@@ -134,6 +134,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.16.0 =
+* New "Custom CSS" option to apply custom CSS to the input HTML document.
+
 = 2.15.1 =
 * Fix PDF callback function can access email_to field.
 * Fix deprecation warnings for PHP 8.2.7.

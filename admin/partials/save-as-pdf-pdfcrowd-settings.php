@@ -1104,6 +1104,25 @@
             </tr>
             <tr>
                 <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-custom_css">
+                        Custom CSS
+                    </label>
+                </th>
+                <td>
+                    <textarea id="save-as-pdf-pdfcrowd-custom_css" name="save-as-pdf-pdfcrowd[custom_css]" placeholder="" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($custom_css); ?></textarea>
+                    <div class='save-as-pdf-pdfcrowd-m-description'>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode and function parameter: "<strong>custom_css</strong>"
+                        </div>
+                        <div class='description'>
+                            Apply custom CSS to the input HTML document. It allows you to modify the visual appearance and layout of your HTML content dynamically. Tip: Using <span class='field-value'>!important</span> in custom CSS provides a way to prioritize and override conflicting styles.
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-custom_javascript">
                         Custom JavaScript
                     </label>
