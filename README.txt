@@ -134,6 +134,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.16.1 =
+* Fix XSS on the Appearance tab of plugin settings.
+
 = 2.16.0 =
 * New "Custom CSS" option to apply custom CSS to the input HTML document.
 

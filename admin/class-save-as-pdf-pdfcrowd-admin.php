@@ -190,7 +190,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 2160;
+        $valid['version'] = 2161;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {
@@ -1113,6 +1113,133 @@ class Save_As_Pdf_Pdfcrowd_Admin {
 
         $valid['retry_count'] = isset($input['retry_count']) ? $input['retry_count'] : '';
 
+
+        if(isset($valid['button_disposition'])) {
+            $valid['button_disposition'] = esc_html($valid['button_disposition']);
+        }
+        if(isset($valid['button_position'])) {
+            $valid['button_position'] = esc_html($valid['button_position']);
+        }
+        if(isset($valid['button_alignment'])) {
+            $valid['button_alignment'] = esc_html($valid['button_alignment']);
+        }
+        if(isset($valid['button_on_home'])) {
+            $valid['button_on_home'] = esc_html($valid['button_on_home']);
+        }
+        if(isset($valid['button_on_front'])) {
+            $valid['button_on_front'] = esc_html($valid['button_on_front']);
+        }
+        if(isset($valid['button_on_pages'])) {
+            $valid['button_on_pages'] = esc_html($valid['button_on_pages']);
+        }
+        if(isset($valid['button_on_posts'])) {
+            $valid['button_on_posts'] = esc_html($valid['button_on_posts']);
+        }
+        if(isset($valid['button_on_categories'])) {
+            $valid['button_on_categories'] = esc_html($valid['button_on_categories']);
+        }
+        if(isset($valid['button_on_taxonomies'])) {
+            $valid['button_on_taxonomies'] = esc_html($valid['button_on_taxonomies']);
+        }
+        if(isset($valid['button_text'])) {
+            $valid['button_text'] = esc_html($valid['button_text']);
+        }
+        if(isset($valid['button_text_size'])) {
+            $valid['button_text_size'] = esc_html($valid['button_text_size']);
+        }
+        if(isset($valid['button_text_weight'])) {
+            $valid['button_text_weight'] = esc_html($valid['button_text_weight']);
+        }
+        if(isset($valid['button_translation'])) {
+            $valid['button_translation'] = esc_html($valid['button_translation']);
+        }
+        if(isset($valid['button_translation_domain'])) {
+            $valid['button_translation_domain'] = esc_html($valid['button_translation_domain']);
+        }
+        if(isset($valid['button_image'])) {
+            $valid['button_image'] = esc_html($valid['button_image']);
+        }
+        if(isset($valid['button_image_url'])) {
+            $valid['button_image_url'] = esc_html($valid['button_image_url']);
+        }
+        if(isset($valid['button_image_width'])) {
+            $valid['button_image_width'] = esc_html($valid['button_image_width']);
+        }
+        if(isset($valid['button_image_height'])) {
+            $valid['button_image_height'] = esc_html($valid['button_image_height']);
+        }
+        if(isset($valid['button_padding_left'])) {
+            $valid['button_padding_left'] = esc_html($valid['button_padding_left']);
+        }
+        if(isset($valid['button_padding_right'])) {
+            $valid['button_padding_right'] = esc_html($valid['button_padding_right']);
+        }
+        if(isset($valid['button_padding_top'])) {
+            $valid['button_padding_top'] = esc_html($valid['button_padding_top']);
+        }
+        if(isset($valid['button_padding_bottom'])) {
+            $valid['button_padding_bottom'] = esc_html($valid['button_padding_bottom']);
+        }
+        if(isset($valid['button_radius'])) {
+            $valid['button_radius'] = esc_html($valid['button_radius']);
+        }
+        if(isset($valid['button_margin_left'])) {
+            $valid['button_margin_left'] = esc_html($valid['button_margin_left']);
+        }
+        if(isset($valid['button_margin_right'])) {
+            $valid['button_margin_right'] = esc_html($valid['button_margin_right']);
+        }
+        if(isset($valid['button_margin_top'])) {
+            $valid['button_margin_top'] = esc_html($valid['button_margin_top']);
+        }
+        if(isset($valid['button_margin_bottom'])) {
+            $valid['button_margin_bottom'] = esc_html($valid['button_margin_bottom']);
+        }
+        if(isset($valid['button_format'])) {
+            $valid['button_format'] = esc_html($valid['button_format']);
+        }
+        if(isset($valid['button_styling'])) {
+            $valid['button_styling'] = esc_html($valid['button_styling']);
+        }
+        if(isset($valid['button_text_color'])) {
+            $valid['button_text_color'] = esc_html($valid['button_text_color']);
+        }
+        if(isset($valid['button_background_color'])) {
+            $valid['button_background_color'] = esc_html($valid['button_background_color']);
+        }
+        if(isset($valid['button_border_color'])) {
+            $valid['button_border_color'] = esc_html($valid['button_border_color']);
+        }
+        if(isset($valid['button_border_style'])) {
+            $valid['button_border_style'] = esc_html($valid['button_border_style']);
+        }
+        if(isset($valid['button_border_width'])) {
+            $valid['button_border_width'] = esc_html($valid['button_border_width']);
+        }
+        if(isset($valid['button_hidden'])) {
+            $valid['button_hidden'] = esc_html($valid['button_hidden']);
+        }
+        if(isset($valid['button_html_hidden'])) {
+            $valid['button_html_hidden'] = esc_html($valid['button_html_hidden']);
+        }
+        if(isset($valid['button_indicator'])) {
+            $valid['button_indicator'] = esc_html($valid['button_indicator']);
+        }
+        if(isset($valid['button_indicator_timeout'])) {
+            $valid['button_indicator_timeout'] = esc_html($valid['button_indicator_timeout']);
+        }
+        if(isset($valid['button_custom_indicator'])) {
+            $valid['button_custom_indicator'] = esc_html($valid['button_custom_indicator']);
+        }
+        if(isset($valid['button_hover'])) {
+            $valid['button_hover'] = esc_html($valid['button_hover']);
+        }
+        if(isset($valid['button_id'])) {
+            $valid['button_id'] = esc_html($valid['button_id']);
+        }
+        if(isset($valid['button_user_drawings'])) {
+            $valid['button_user_drawings'] = esc_html($valid['button_user_drawings']);
+        }
 
         return $valid;
     }
