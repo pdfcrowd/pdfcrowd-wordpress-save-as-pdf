@@ -348,12 +348,55 @@
                     </p>
                     <p class='description'>
                         Dynamic data may be used when the button is created by shortcode or function call. Example for assigning the current post ID and user email in JSON format with the conversion button created by a PHP function call:
-                        <pre>&lt;? echo create_save_as_pdf_pdfcrowd_button(
+                      <pre>&lt;?php
+echo create_save_as_pdf_pdfcrowd_button(
     array('custom_data' => json_encode(
         array('post_id' => get_the_ID(),
-              'user_email' => wp_get_current_user()->user_email)))); ?&gt;</pre>
+              'user_email' => wp_get_current_user()->user_email))));
+?&gt;</pre>
                     </p>
                 </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <label for="save-as-pdf-pdfcrowd-error-page">
+                  Error Page
+                </label>
+              </th>
+              <td>
+                <p>
+                  <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-error-page" name="save-as-pdf-pdfcrowd[error_page]" value="<?php echo($error_page);?>" placeholder="<?php esc_attr_e('URL or slug', $this->plugin_name);?>" autocomplete="off" />
+                </p>
+                <p class='save-as-pdf-pdfcrowd-devi'>
+                  Shortcode and function parameter: "<strong>error_page</strong>"
+                </p>
+                <p class='description'>
+                  Webpage used when the plugin raises an error.
+                  You can specify either a URL or a WordPress page slug name.
+                  If left empty, the default error page will be shown.
+                </p>
+                <p class='description'>
+                  The details about the error can be accessed via
+                  <code>$_GET['error-code']</code>,
+                  <code>$_GET['error-message']</code> and
+                  <code>$_GET['error-details']</code>. An example:
+                </p>
+                <pre>&lt;h1&gt;Download Error&lt;/h1&gt;
+&lt;p&gt;
+    Something wrong happened. Error Code:
+    &lt;?php
+    echo sanitize_text_field($_GET['error-code']);
+    ?&gt;
+&lt;/p&gt;
+&lt;p class="error"&gt;
+    Message:
+    &lt;?php
+    echo !empty($_GET['error-message'])
+        ? sanitize_text_field(stripslashes($_GET['error-message']))
+        : 'An unknown error occurred.';
+    ?&gt;
+&lt;/p&gt;</pre>
+              </td>
             </tr>
         </tbody>
     </table>

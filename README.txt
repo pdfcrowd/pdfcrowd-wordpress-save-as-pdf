@@ -134,6 +134,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 2.17.0 =
+* New "Error Page" option to define custom error page.
+
 = 2.16.1 =
 * Fix XSS on the Appearance tab of plugin settings.
 

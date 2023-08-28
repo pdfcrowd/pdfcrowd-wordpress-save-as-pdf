@@ -221,6 +221,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'email_recipient_address' => '',
         'email_subject' => '{{site}} - {{title}} PDF',
         'enable_cookies_opt' => '0',
+        'error_page' => '',
         'license_type' => 'demo',
         'no_margins' => '0',
         'output_format' => 'pdf',
@@ -230,7 +231,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'smart_scaling_mode' => 'viewport-fit',
         'url_lookup' => 'auto',
         'username' => '',
-        'version' => '2161',
+        'version' => '2170',
         'viewport_height' => '15000',
         'viewport_width' => '993',
     );
@@ -438,7 +439,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 2161) {
+        if($options['version'] == 2170) {
             return $options;
         }
 
@@ -463,7 +464,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['url_lookup'] = 'location';
         }
 
-        $options['version'] = 2161;
+        $options['version'] = 2170;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -912,16 +913,21 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
     }
 
     private static function get_url(
-        $url, $args, $throw_error = false, $throw_on_400 = false) {
+        $options, $url, $args, $throw_error = false, $throw_on_400 = false) {
         $response = wp_remote_get($url, $args);
+        $msg = '';
         if(is_wp_error($response)) {
             $msg = $response->get_error_message() . ' ' . $url;
             error_log("Pdfcrowd: failed to get URL {$url}. " . $msg);
             if($throw_error) {
-                throw new Exception(
-                    self::prepare_error_message(
+                if(empty($options['error_page'])) {
+                    $msg = self::prepare_error_message(
                         471, $msg, '<b>"URL" or "Content"</b>') .
-                    '<p>Or check your network and PHP configuration.</p>');
+                         '<p>Or check your network and PHP configuration.</p>';
+                } else {
+                    $msg .= ' Please, check your network.';
+                }
+                return new WP_Error(471, $msg);
             }
             return '';
         }
@@ -929,26 +935,34 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         if($throw_on_400) {
             $status_code = wp_remote_retrieve_response_code($response);
             if($status_code && $status_code >= 400) {
-                throw new Exception(
-                    self::prepare_error_message(473, 'URL Load Error') .
-                    "<p>Failed url is <a href='$url'>$url</a> with status $status_code.</p>" .
-                '<h3>Response</h3><div style="background-color: #eee">' . wp_remote_retrieve_body($response) . '</div>');
+                if(empty($options['error_page'])) {
+                    $msg = self::prepare_error_message(473, 'URL Load Error') .
+                         "<p>Failed url is <a href='$url'>$url</a> with status $status_code.</p>" .
+                         '<h3>Response</h3><div style="background-color: #eee">' . wp_remote_retrieve_body($response) .
+                         '</div>';
+                } else {
+                    $msg = "URL Load Error $status_code: $url";
+                }
+                return new WP_Error(473, $msg);
             }
         }
         return wp_remote_retrieve_body($response);
     }
 
-    private static function embed_styles($html, $site, $args) {
+    private static function embed_styles($options, $html, $site, $args) {
         $protocol = !empty($_SERVER['HTTPS']) ? 'https' : 'http';
 
         $output = preg_replace_callback(
             "`(?i)\<link rel=[\'\"]stylesheet[\'\"](?<pre>.*?)href=[\'\"](?<url>(?:http:|https:)?\/\/{$site}.*?)[\'\"](?<post>.*?)\s*\/\s*\>`",
-            function ($match) use($args) {
+            function ($match) use($options, $args) {
                 $url = $match['url'];
                 if(!self::starts_with($url, 'http')) {
                     $url = $protocol . ':' . $url;
                 }
-                $content = self::get_url($url, $args);
+                $content = self::get_url($options, $url, $args);
+                if(is_wp_error($content)) {
+                    return $content;
+                }
                 return '<style ' . $match['pre'] . $match['post'] . ">\r\n" . $content . '</style>';
             },
             $html);
@@ -1096,28 +1110,30 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
 
                 self::use_connection_args($options, $args);
 
-                try {
-                    $html = self::get_url(
-                        $options['url'],
-                        $args,
-                        true,
-                        (isset($options['fail_on_main_url_error']) &&
-                         $options['fail_on_main_url_error'] == 1) ||
-                        (isset($options['fail_on_any_url_error']) &&
-                         $options['fail_on_any_url_error'] == 1));
-                } catch (Exception $ex) {
-                    $error = new WP_Error(471, $ex->getMessage());
-                    return $error;
+                $html = self::get_url(
+                    $options,
+                    $options['url'],
+                    $args,
+                    true,
+                    (isset($options['fail_on_main_url_error']) &&
+                     $options['fail_on_main_url_error'] == 1) ||
+                    (isset($options['fail_on_any_url_error']) &&
+                     $options['fail_on_any_url_error'] == 1));
+                if(is_wp_error($html)) {
+                    return self::check_error($options, $html);
                 }
             }
 
             // add http:// or https:// to links without it
             $html = self::add_missing_protocol($html);
 
-            $options['text'] = $site &&
-                             $options['conversion_mode'] == 'development'
-                             ? self::embed_styles($html, $site, $args)
-                             : $html;
+            if($site && $options['conversion_mode'] == 'development') {
+                $html = self::embed_styles($options, $html, $site, $args);
+                if(is_wp_error($html)) {
+                    return self::check_error($options, $html);
+                }
+            }
+            $options['text'] = $html;
         }
 
         if(isset($options['auto_use_cookies']) &&
@@ -1196,7 +1212,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.16.1 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/2.17.0 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 
@@ -1223,11 +1239,11 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
                 $config['converter_version'] . '/',
                 $args);
             if(is_wp_error($response)) {
+                $error = $response;
                 if($response->get_error_code() != 502 &&
                    $response->get_error_code() != 503) {
-                    return $response;
+                    break;
                 }
-                $error = $response;
             } else {
                 $code = wp_remote_retrieve_response_code($response);
                 if($code == 200) {
@@ -1244,36 +1260,59 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
                     continue;
                 }
 
-                $error = new WP_Error(
-                    $code, self::prepare_error_message(
-                        $code, wp_remote_retrieve_body($response),
-                        '<b>"upload"</b> or <b>"development"</b>'));
+                $msg = wp_remote_retrieve_body($response);
+                if(empty($options['error_page'])) {
+                    $msg = self::prepare_error_message(
+                        $code, $msg, '<b>"upload"</b> or <b>"development"</b>');
+                }
+                $error = new WP_Error($code, $msg);
                 if($code != 502 && $code != 503) {
-                    return $error;
+                    break;
                 }
             }
             // only 502 and 503 error is used for retry
             $retry_count--;
         };
-        return $error;
+
+        return self::check_error($options, $error);
+    }
+
+    private static function check_error($options, $error) {
+        if(!$error || empty($options['error_page'])) {
+            return $error;
+        }
+
+        // redirect to error page
+        $code = $error->get_error_code();
+        $message = urlencode($error->get_error_message());
+        $details = '';
+        if(isset(self::$ERROR_MESSAGES[$code])) {
+            $details = $message;
+            $message = urlencode(self::$ERROR_MESSAGES[$code]);
+        }
+        $url = $options['error_page'];
+        if(!filter_var($url, FILTER_VALIDATE_URL)) {
+            $url = get_permalink(get_page_by_path($url));
+        }
+        wp_redirect($url .
+                    "?error-code={$code}&error-message={$message}&error-details={$details}");
+        exit;
     }
 
     private static function prepare_error_message($code, $text, $cmode = null) {
-        $text = '<h3>' . $text . '</h3>';
+        $details = isset(self::$ERROR_MESSAGES[$code]) ?
+                 '<p>' . self::$ERROR_MESSAGES[$code] . '</p>' : '';
+        $text = $details . '<p>' . $text . '</p>';
         switch($code) {
         case 471:
         case 478:
-            $link = '<a href="' .
-                  admin_url('options-general.php?page=save-as-pdf-pdfcrowd#save-as-pdf-pdfcrowd-mode') .
-                  '"><b>Mode</b></a>';
             $text = $text . '<p>Set <b>"Conversion Mode"</b> to ' .
-                  $cmode . ' on the ' .
-                  $link . ' settings page of the "Save as PDF by Pdfcrowd" plugin.</p>';
+                  $cmode . ' on the <b>Mode</b> settings page of the "Save as PDF by Pdfcrowd" plugin.</p>';
             break;
         default:
             $text = preg_replace(
                 '/Details:\s(https:\/\/www.pdfcrowd.com\/[^\s<]*)/s',
-                '<br>Details: <a href="$1">$1</a>', $text);
+                '<br>More: <a href="$1">$1</a>', $text);
         }
         return $text;
     }
@@ -1561,16 +1600,15 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
             $code = $output->get_error_code();
             $message = $output->get_error_message();
             if($options['button_disposition'] == 'email') {
-                self::send_json_error(
-                    $code, str_replace('h3', 'p', $message), true);
+                self::send_json_error($code, $message, true);
             } else {
                 // use just the main error status for a status_header
                 $status_text = $message;
-                if(preg_match('/<h3>(.*?)<\/h3>/', $message, $matches)) {
+                if(preg_match('/<p>(.*?)<\/p>/', $message, $matches)) {
                     $status_text = $matches[1];
                 }
                 status_header($code, $status_text);
-                echo $this->get_error_page($code, $message);
+                echo $this->get_error_page($options, $code, $message);
             }
         } else {
             if($options['button_disposition'] == 'email') {
@@ -1591,18 +1629,27 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         wp_die();
     }
 
-    private function get_error_page($code, $message) {
-        $details = isset(self::$ERROR_MESSAGES[$code]) ? self::$ERROR_MESSAGES[$code] : '';
+    private function get_error_page($options, $code, $message) {
+        $back = (empty($options['button_disposition']) ||
+                 $options['button_disposition'] === 'attachment' ||
+                 $options['button_disposition'] === 'inline')
+              ? '<a href="javascript:history.go(-1)">Go Back</a>'
+              : '';
         return <<<HTML
     <!DOCTYPE html>
     <html>
     <head>
-    <title>Pdfcrowd API Error {$code}</title>
+    <title>PDF Download Failed</title>
     </head>
-    <body>
-    <h1>Pdfcrowd API Error {$code}</h1>
+    <body class="save-as-pdf-pdfcrowd-err">
+    <h1>PDF Download Failed</h1>
+    <p>Please try again later.</p>
+    {$back}
+    <div class="save-as-pdf-pdfcrowd-err-admin" style="margin-top: 2em">
+    <h2>Details for Administrator</h2>
+    <p>Code: {$code}</p>
     <p>{$message}</p>
-    <p>{$details}</p>
+    </div>
     </body>
     </html>
 HTML;
