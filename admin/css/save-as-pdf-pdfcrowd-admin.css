@@ -1,27 +1,63 @@
-.save-as-pdf-pdfcrowd-m-description {
-    margin-top: .3em;
+.save-as-pdf-pdfcrowd-email-details {
+    display: none;
 }
 
-#save-as-pdf-pdfcrowd-header-and-footer .save-as-pdf-pdfcrowd-m-description {
-    max-height: 8em;
-    overflow-y: auto;
+.save-as-pdf-pdfcrowd-email-details.save-as-pdf-pdfcrowd-show-email {
+    display: block;
 }
 
-.save-as-pdf-pdfcrowd-m-description ul {
+.save-as-pdf-pdfcrowd-mb-2 {
+    margin-bottom: .5em !important;
+}
+
+td .save-as-pdf-pdfcrowd-devi:first-child {
+    margin-top: 0 !important;
+    margin-bottom: .5em !important;
+}
+
+.save-as-pdf-pdfcrowd-description,
+.save-as-pdf-pdfcrowd-devi {
+    position: relative;
+    padding-left: 1em;
+    margin-top: 1em;
+    line-height: 1.5em;
+    margin-left: 1px;
+}
+
+.save-as-pdf-pdfcrowd-description::before, .save-as-pdf-pdfcrowd-devi::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 100%;
+    background-color: #cacaca;
+}
+
+.save-as-pdf-pdfcrowd-devi::before {
+    background-color: #e6ba48;
+}
+
+.save-as-pdf-pdfcrowd-description ul {
     list-style: disc;
     margin: 0 0 0 30px;
 }
 
-.save-as-pdf-pdfcrowd-m-description ul ul {
+.save-as-pdf-pdfcrowd-description ul ul {
     list-style: circle;
 }
 
-.save-as-pdf-pdfcrowd-m-description ul ul ul {
+.save-as-pdf-pdfcrowd-description ul ul ul {
     list-style: square;
 }
 
-#save-as-pdf-pdfcrowd-options select {
-    max-width: 500px !important;
+.save-as-pdf-pdfcrowd-nested-dsc {
+    margin-left: 1.75em;
+}
+
+.save-as-pdf-pdfcrowd-nested-dsc .save-as-pdf-pdfcrowd-description {
+    margin-bottom: .5em;
 }
 
 #save-as-pdf-pdfcrowd-options pre {
@@ -34,8 +70,12 @@
     margin-bottom: 0 !important;
 }
 
+#save-as-pdf-pdfcrowd-options th {
+    font-weight: 500;
+}
+
 #save-as-pdf-pdfcrowd-options .description {
-    margin-bottom: 1em;
+    margin: .5em 0 .25em 0;
 }
 
 
@@ -80,10 +120,11 @@ span.save-as-pdf-pdfcrowd-button-wrap {
 .save-as-pdf-pdfcrowd-inner-table {
     margin: 0;
     padding: 0;
+    line-height: 1;
 }
 
 .save-as-pdf-pdfcrowd-inner-table td {
-    padding: 0 3em 0 0;
+    padding: 0 3em 0 0 !important;
 }
 
 #save-as-pdf-pdfcrowd-images img {
@@ -91,20 +132,9 @@ span.save-as-pdf-pdfcrowd-button-wrap {
     vertical-align: middle;
 }
 
-.save-as-pdf-pdfcrowd-expert-show, .save-as-pdf-pdfcrowd-expert-hide {
-    float: right;
-}
-
 .save-as-pdf-pdfcrowd-devi {
     display: none;
-}
-
-.save-as-pdf-pdfcrowd-devi,
-.save-as-pdf-pdfcrowd-note {
-    padding: .5em;
-    color: #856000;
-    background-color: #fefebb;
-    font-size: 13px !important;
+    font-style: italic;
 }
 
 .save-as-pdf-pdfcrowd-lic-stat {
@@ -113,7 +143,6 @@ span.save-as-pdf-pdfcrowd-button-wrap {
 }
 
 #save-as-pdf-pdfcrowd-support-notes {
-    text-align: right;
     line-height: 2.3;
 }
 
@@ -132,16 +161,13 @@ span.save-as-pdf-pdfcrowd-button-wrap {
 }
 
 .save-as-pdf-pdfcrowd-sub-option {
-    margin-left: 2em;
+    margin: .5em 0 .5em 1.75em;
 }
 
 .save-as-pdf-pdfcrowd-wizard-step {
     display: none;
-    margin-bottom: 1em;
     max-width: 70%;
-}
-
-.save-as-pdf-pdfcrowd-wizard-step {
+    font-size: 110%;
     margin: 0 1em 1em 0;
 }
 
@@ -150,7 +176,15 @@ span.save-as-pdf-pdfcrowd-button-wrap {
 }
 
 .save-as-pdf-pdfcrowd-wizard-step-span {
-    margin-left: .5em;
+    margin: .5em;
+}
+
+.save-as-pdf-pdfcrowd-wizard-step-row {
+    margin: 1em 0;
+}
+
+#save-as-pdf-pdfcrowd-wizard-run {
+    margin-bottom: 1em;
 }
 
 #save-as-pdf-pdfcrowd-wizard-run img {
@@ -185,11 +219,317 @@ span.save-as-pdf-pdfcrowd-button-wrap {
     font-size: 80%;
 }
 
+#save-as-pdf-pdfcrowd-license-settings,
+#save-as-pdf-pdfcrowd-help {
+    line-height: 3;
+    font-size: 14px;
+    padding-left: 1rem;
+}
+
+#save-as-pdf-pdfcrowd-help ul {
+    list-style: disc;
+    line-height: normal;
+    padding-left: 1rem;
+}
+
+
+
 .save-as-pdf-pdfcrowd-fieldset {
     border: revert;
     padding: 0 1em;
-    margin: -1em;
     border: 1px solid #aaa;
+    margin-bottom: 1em;
 }
 
+.save-as-pdf-pdfcrowd-hidden-set {
+    display: none;
+}
+
+#save-as-pdf-pdfcrowd-settings-cfg-area {
+    background-color: #d7d7d7;
+    padding: 1em 1.5em;
+    border-bottom: 1px solid #ccc;
+}
+
+#save-as-pdf-pdfcrowd-settings-cfg-area svg {
+    fill: #2271b1;
+}
+
+#save-as-pdf-pdfcrowd-settings-cfg-area label {
+    margin-right: 1em;
+    white-space: nowrap;
+    display: block;
+}
+
+#save-as-pdf-pdfcrowd-settings-cfg-area td {
+    padding: .25em .5em;
+}
+
+#save-as-pdf-pdfcrowd-settings-cfg-area th {
+    padding: .25em 0;
+    text-align: left;
+}
+
+.save-as-pdf-pdfcrowd-clearable-input {
+    padding-right: 25px;
+}
+
+.save-as-pdf-pdfcrowd-clear-button {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: none;
+    font-size: 130%;
+}
+
+#save-as-pdf-pdfcrowd-close-preview {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+#save-as-pdf-pdfcrowd-button-preview {
+    display: block;
+}
+
+.save-as-pdf-pdfcrowd-filter-applied .save-as-pdf-pdfcrowd-not-filtered,
+.save-as-pdf-pdfcrowd-filter-applied legend,
+.save-as-pdf-pdfcrowd-basic-mode .save-as-pdf-pdfcrowd-adv-input,
+.save-as-pdf-pdfcrowd-basic-mode legend,
+.save-as-pdf-pdfcrowd-basic-mode.save-as-pdf-pdfcrowd-settings-set hr,
+.save-as-pdf-pdfcrowd-basic-mode .save-as-pdf-pdfcrowd-heading-wrap:not(.save-as-pdf-pdfcrowd-basic-heading-wrap),
+.save-as-pdf-pdfcrowd-expert-mode .save-as-pdf-pdfcrowd-basic-input,
+.save-as-pdf-pdfcrowd-filter-applied .save-as-pdf-pdfcrowd-heading-wrap,
+.save-as-pdf-pdfcrowd-changes-only .save-as-pdf-pdfcrowd-heading-wrap {
+    display: none;
+}
+
+.save-as-pdf-pdfcrowd-must-visible {
+    display: block !important;
+}
+
+.save-as-pdf-pdfcrowd-filter-applied fieldset,
+.save-as-pdf-pdfcrowd-changes-only fieldset,
+.save-as-pdf-pdfcrowd-basic-mode fieldset {
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+.save-as-pdf-pdfcrowd-input-hi {
+    border-color: green !important;
+    outline: 1px solid green !important;
+}
+
+.save-as-pdf-pdfcrowd-heading-wrap {
+    padding: .75em 0;
+    text-align: center;
+    background-color: #e7e7e7;
+}
+
+.save-as-pdf-pdfcrowd-heading-wrap h2 {
+    margin: 0;
+    font-style: italic;
+    font-weight: 400;
+}
+
+#save-as-pdf-pdfcrowd-options .form-table {
+    margin: 0;
+}
+
+.save-as-pdf-pdfcrowd-changes-only .save-as-pdf-pdfcrowd-set-group:not(.save-as-pdf-pdfcrowd-not-default-set),
+.save-as-pdf-pdfcrowd-changes-only .save-as-pdf-pdfcrowd-not-filtered,
+.save-as-pdf-pdfcrowd-changes-only legend,
+.save-as-pdf-pdfcrowd-changes-only .save-as-pdf-pdfcrowd-email-details:not(.save-as-pdf-pdfcrowd-show-email) {
+    display: none;
+}
+
+.save-as-pdf-pdfcrowd-no-setting-res {
+    display: none;
+    font-size: 130%;
+    margin: 2em 0;
+}
+
+.save-as-pdf-pdfcrowd-no-filter-res #save-as-pdf-pdfcrowd-no-filter-res,
+.save-as-pdf-pdfcrowd-no-changes #save-as-pdf-pdfcrowd-no-changes {
+    display: block;
+}
+
+@media only screen and (max-width: 600px) {
+    #save-as-pdf-pdfcrowd-sticky {
+        position: static !important;
+    }
+}
+
+#save-as-pdf-pdfcrowd-button-preview {
+    position: fixed;
+    bottom: .5em;
+    right: .5em;
+    background-color: #fefefe;
+    padding: .5em 1em 1em 1em;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px #555;
+    z-index: 1000;
+}
+
+#save-as-pdf-pdfcrowd-settings-cfg-area input[type="checkbox"] {
+    margin-top: .25em;
+    margin-bottom: .25em;
+}
+
+.save-as-pdf-pdfcrowd-tab-content {
+    padding-top: 1em;
+}
+
+.save-as-pdf-pdfcrowd-switch {
+    position: relative;
+    width: 36px;
+    height: 20px;
+}
+
+.save-as-pdf-pdfcrowd-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.save-as-pdf-pdfcrowd-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #888;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.save-as-pdf-pdfcrowd-slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+}
+
+input:checked + .save-as-pdf-pdfcrowd-slider {
+    background-color: #2196F3 !important;
+}
+
+input:focus + .save-as-pdf-pdfcrowd-slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .save-as-pdf-pdfcrowd-slider:before {
+    -webkit-transform: translateX(14px);
+    -ms-transform: translateX(14px);
+    transform: translateX(14px);
+}
+
+.save-as-pdf-pdfcrowd-slider.save-as-pdf-pdfcrowd-round {
+    border-radius: 26px;
+}
+
+.save-as-pdf-pdfcrowd-slider.save-as-pdf-pdfcrowd-round:before {
+    border-radius: 50%;
+}
+
+#save-as-pdf-pdfcrowd-switch-wrap {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+#save-as-pdf-pdfcrowd-switch-wrap label {
+    margin: 0;
+}
+
+#save-as-pdf-pdfcrowd-options-filter-icon {
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#save-as-pdf-pdfcrowd-admin-settings .nav-tab {
+    padding-top: .5em;
+    background-color: unset;
+    margin-bottom: 0 !important;
+}
+
+#save-as-pdf-pdfcrowd-admin-settings .nav-tab:hover {
+    border-bottom: 4px solid #9ACDFF;
+}
+
+#save-as-pdf-pdfcrowd-admin-settings .nav-tab-active {
+    border-bottom: 4px solid #2196F3 !important;
+}
+
+#save-as-pdf-pdfcrowd-admin-settings .nav-tab-active:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+#save-as-pdf-pdfcrowd-options-filter-icon {
+    color: #888;
+}
+
+#save-as-pdf-pdfcrowd-admin-settings .form-table th,
+#save-as-pdf-pdfcrowd-admin-settings .form-table td {
+    padding: 1em 1em 1em 0;
+}
+
+#save-as-pdf-pdfcrowd-save-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+#pdfcrowd-save {
+    margin-right: 1em;
+}
+
+#save-as-pdf-pdfcrowd-dirty-flag {
+    position: absolute;
+    top: 0;
+    right: 1.25em;
+    color: #fff;
+}
+
+.save-as-pdf-pdfcrowd-dirty-flag {
+    display: none;
+}
+
+#save-as-pdf-pdfcrowd-dirty-flag-text {
+    display: inline-block;
+}
+
+@media only screen and (max-width: 720px) {
+    #save-as-pdf-pdfcrowd-dirty-flag-text {
+        display: none !important;
+    }
+}
+
+#save-as-pdf-pdfcrowd-cfg-area-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#save-as-pdf-pdfcrowd-cfg-area-row > div {
+    margin: .5em 0;
+}
+
+.save-as-pdf-pdfcrowd-set-group input,
+.save-as-pdf-pdfcrowd-set-group textarea,
+.save-as-pdf-pdfcrowd-set-group select,
+.save-as-pdf-pdfcrowd-category-wrap,
+.save-as-pdf-pdfcrowd-heading-wrap {
+    scroll-margin-top: 200px;
 }

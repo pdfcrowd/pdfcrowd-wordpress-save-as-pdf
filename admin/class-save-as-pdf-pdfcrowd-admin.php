@@ -88,7 +88,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     */
     public function add_plugin_admin_menu() {
         $plugin_screen_hook_suffix = add_options_page(
-            'Save as PDF Setup',
+            'Save as PDF Settings',
             'Save as PDF',
             'manage_options',
             $this->plugin_name,
@@ -190,7 +190,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 2170;
+        $valid['version'] = 3000;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {

@@ -13,38 +13,24 @@
 */
 ?>
 
-<div id="save-as-pdf-pdfcrowd-license-settings" class="wrap metabox-holder save-as-pdf-pdfcrowd-metaboxes">
-    <h2>
-        Quick Setup
-    </h2>
-    <p>
-        Save as PDF by Pdfcrowd offers 180+ settings.
-        The setup wizard will help you to configure the most common ones.
-        <div id="save-as-pdf-pdfcrowd-wizard-run" class="button-secondary"
-             onclick="return save_as_pdf_pdfcrowd_submit_action('wizard');">
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogIDxnIHRyYW5zZm9ybT0ic2NhbGUoMC4xOCAwLjE4KSI+CiAgICA8ZyB0cmFuc2Zvcm09InJvdGF0ZSg0NSAxODguOTkgNDMuOTQxKSI+CiAgICAgIDxnIGlkPSJhIj4KICAgICAgICA8cmVjdCB4PSI5NC44ODEiIHk9IjEyMS42NyIgd2lkdGg9IjEzLjA5NiIgaGVpZ2h0PSI5NC44ODEiIGZpbGw9IiM3MDgwOTAiIHN0eWxlPSJwYWludC1vcmRlcjpub3JtYWwiLz4KICAgICAgICA8cGF0aCBkPSJtNzguMDQzIDkzLjM0MSA0OC4xMDktMC41MzQ1NC00MC42MjUgMzEuMDAzIDE3LjEwNS00OS43MTIgMTQuMTY1IDQ5LjE3OHoiIGZpbGw9IiNmNWJjMTEiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+Cg==">
-            Run wizard
-        </div>
-    </p>
-    <h3>
-        License
-    </h3>
+<div
+  id="save-as-pdf-pdfcrowd-license-settings"
+  class="save-as-pdf-pdfcrowd-metaboxes save-as-pdf-pdfcrowd-tab-content hidden">
     <div>
-        <p>
+        <div>
             <label for="save-as-pdf-pdfcrowd-lic-demo">
                 <input type="radio" id="save-as-pdf-pdfcrowd-lic-demo" name="save-as-pdf-pdfcrowd[license_type]" value="demo" <?php checked( $license_type, "demo" ); ?> autocomplete="off" />
                 <span style="font-weight: bold">
                     Demo
                 </span>
             </label>
-             - prints a demo watermark and Pdfcrowd branding over the output.
-             The demo license is suitable only for non-production environments.
-        </p>
-        <p>
+             - Places a demo watermark and Pdfcrowd branding on the output.
+        </div>
+        <div>
             <label for="save-as-pdf-pdfcrowd-lic-regular">
                 <input type="radio" id="save-as-pdf-pdfcrowd-lic-regular" name="save-as-pdf-pdfcrowd[license_type]" value="regular" <?php checked( $license_type, "regular" ); ?> autocomplete="off" />
                 <span style="font-weight: bold">
-                    Paid
+                    Commercial
                 </span>
             </label>
             - <span id="save-as-pdf-pdfcrowd-lic-reg-ac">
@@ -57,7 +43,7 @@
                     Purchase
                 </a>
             </span>
-        </p>
+        </div>
     </div>
     <div id="save-as-pdf-pdfcrowd-lic-cred" class="hidden">
         <table>
@@ -96,25 +82,25 @@
                     <tr>
                         <td></td>
                         <td id="save-as-pdf-pdfcrowd-lic-stats">
-                            <p>
+                            <div>
                                 License:
                                 <span class='save-as-pdf-pdfcrowd-lic-stat'>
                                     <?php echo $license_status['product']; ?>
                                 </span>
-                            </p>
-                            <p>
+                            </div>
+                            <div>
                                 Status:
                                 <span class='save-as-pdf-pdfcrowd-lic-stat'>
                                     <?php echo $license_status['status']; ?>
                                 </span>
-                            </p>
+                            </div>
                             <?php if(isset($license_status['credits'])) : ?>
-                                <p>
+                                <div>
                                     Remaining credits:
                                     <span class='save-as-pdf-pdfcrowd-lic-stat <?php if($license_status['credits'] <= 0) echo 'attention' ?>'>
                                         <?php echo number_format_i18n($license_status['credits']); ?>
                                     </span>
-                                </p>
+                                </div>
                             <?php endif; ?>
                         </td>
                     </tr>
@@ -122,9 +108,9 @@
                     <tr>
                         <td id="save-as-pdf-pdfcrowd-lic-invalid" colspan=2
                             class="align-center">
-                            <p class='attention'>
+                            <div class='attention'>
                                 Error: Entered username or API key is not valid!
-                            </p>
+                            </div>
                         </td>
                     </tr>
                 <?php endif; ?>

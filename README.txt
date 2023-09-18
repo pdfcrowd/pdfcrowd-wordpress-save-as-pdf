@@ -89,7 +89,7 @@ Pdfcrowd [API Playground](https://pdfcrowd.com/playground/) may help you to conf
 
 The plugin runs in the demo by default. It is fully functional but adds a watermark and Pdfcrowd branding over the content.
 
-You can purchase a Pdfcrowd [API license](https://pdfcrowd.com/user/account/api2-license/?ref=wordpress) to remove the demo watermark and Pdfcrowd branding. To activate the license, enter your Pdfcrowd username and your API key in the plugin settings on the Basics tab.
+You can purchase a Pdfcrowd [API license](https://pdfcrowd.com/user/account/api2-license/?ref=wordpress) to remove the demo watermark and Pdfcrowd branding. To activate the license, enter your Pdfcrowd username and your API key in the plugin settings on the License tab.
 
 A single Pdfcrowd API license can be used for both our plugins on multiple WordPress websites. Moreover, the API license enables you to use the [Pdfcrowd conversion API](https://pdfcrowd.com/api/) directly.
 
@@ -121,7 +121,7 @@ Add "pdfcrowd-remove" or "pdfcrowd-hide" CSS class to the HTML elements you want
 
 = How to print HTML form with user data? =
 
-Use Conversion Mode - Content. If the data is still missing, it is probably reset by some caching mechanism on your site. Try disabling the cache for the page or check Disable JavaScript option on the plugin General Options tab.
+Use Conversion Mode - Content. If the data is still missing, it is probably reset by some caching mechanism on your site. Try disabling the cache for the page or check Disable JavaScript option on the plugin Expert Settings - General Options section.
 
 = Can you help me? =
 
@@ -134,11 +134,16 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 3.0.0 =
+* Revamped the plugin settings page, now featuring Basic and Expert modes.
+* Added controls to filter options and display only the changed ones.
+* Added notification of unsaved changes.
+
 = 2.17.0 =
 * New "Error Page" option to define custom error page.
 
 = 2.16.1 =
-* Fix XSS on the Appearance tab of plugin settings.
+* Fix XSS on the Appearance section of plugin settings.
 
 = 2.16.0 =
 * New "Custom CSS" option to apply custom CSS to the input HTML document.
@@ -286,7 +291,7 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 = 1.10.0 =
 * New "Change on Mouse Over" option - highlights the button when the mouse pointer is hovering over it.
-* Fixed issue with external link to plugin settings tab.
+* Fixed issue with external link to plugin settings section.
 
 = 1.9.1 =
 * Fixed issue with missing assets in the plugin setup.
