@@ -25,7 +25,7 @@
           <tr class="save-as-pdf-pdfcrowd-set-group"
               data-default="1">
                 <th>
-                    Show Button on
+                  Show Button on
                 </th>
                 <td>
                   <input
@@ -59,22 +59,21 @@
                     </label>
                     <div class="save-as-pdf-pdfcrowd-description">
                       <div>
-                        Select where you want to display the conversion button.
-                      </div>
-                      <div>
-                        You can also manually add the
-                        <strong>[save_as_pdf_pdfcrowd]</strong>
-                        shortcode to your page to display the button, see
-                        <a href='https://pdfcrowd.com/save-as-pdf-wordpress-plugin/#shortcodes' target='_blank'>
-                          details,
-                        </a>
-                        or add
-                        <strong>create_save_as_pdf_pdfcrowd_button</strong>
-                        the function call to your PHP code, see
-                        <a href='https://pdfcrowd.com/save-as-pdf-wordpress-plugin/#function' target='_blank'>
-                          details.
-                        </a>
-                      </div>
+    Choose where you want the button to appear automatically.
+</div> <div>
+    You can also manually add the
+    <code>[save_as_pdf_pdfcrowd]</code>
+    shortcode to your page to display the button, see
+    <a href="https://pdfcrowd.com/save-as-pdf-wordpress-plugin/#shortcodes">
+        details,
+    </a>
+    or add
+    <code>create_save_as_pdf_pdfcrowd_button</code>
+    the function call to your PHP code, see
+    <a href="https://pdfcrowd.com/save-as-pdf-wordpress-plugin/#function">
+        details.
+    </a>
+</div>
                     </div>
                 </td>
             </tr>
@@ -82,7 +81,7 @@
               data-default="1">
                 <th>
                   <label for="save-as-pdf-pdfcrowd-button-hidden">
-                    Hide Button in Output PDF
+                      Hide Button in Output PDF
                   </label>
                 </th>
                 <td>
@@ -91,8 +90,7 @@
                     id="save-as-pdf-pdfcrowd-button-hidden"
                     name="save-as-pdf-pdfcrowd[button_hidden]" value="1" <?php checked( $button_hidden, 1 ); ?> autocomplete="off" />
                     <div class="save-as-pdf-pdfcrowd-description">
-                      Choose whether to show the conversion button in
-                      the output PDF.
+                        Choose whether to show the button in the output PDF.
                     </div>
                     <div class='save-as-pdf-pdfcrowd-devi'>
                         Shortcode and function parameter: "<strong>button_hidden</strong>"<br>Possible values: 0, 1
@@ -102,9 +100,12 @@
             <tr class="save-as-pdf-pdfcrowd-set-group"
               data-default="image-text">
                 <th scope="row">
-                    Button Display Format
+                  Button Display Format
                 </th>
                 <td>
+                    <div class='save-as-pdf-pdfcrowd-devi'>
+                        Shortcode and function parameter: "<strong>button_format</strong>"<br>Possible values: "image-text", "text-image", "image", "text"
+                    </div>
                     <fieldset>
                         <legend class="screen-reader-text">
                             <span>Button Display Format</span>
@@ -138,8 +139,8 @@
                             Text only
                         </label><br>
                     </fieldset>
-                    <div class='save-as-pdf-pdfcrowd-devi'>
-                        Shortcode and function parameter: "<strong>button_format</strong>"<br>Possible values: "image-text", "text-image", "image", "text"
+                    <div class="save-as-pdf-pdfcrowd-description">
+                      Choose the arrangement of icons and text within the button.
                     </div>
                 </td>
             </tr>
@@ -147,7 +148,7 @@
               data-default="Save as PDF">
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-button-text">
-                        Button Text
+                      Button Text
                     </label>
                 </th>
                 <td>
@@ -158,6 +159,9 @@
                     name="save-as-pdf-pdfcrowd[button_text]"
                     data-empty-is-not-def="1"
                     value="<?php echo($button_text);?>" placeholder="<?php esc_attr_e('Your text', $this->plugin_name);?>" autocomplete="off" />
+                    <div class="save-as-pdf-pdfcrowd-description">
+                      The text to be displayed on the button.
+                    </div>
                     <div class='save-as-pdf-pdfcrowd-devi'>
                         Shortcode and function parameter: "<strong>button_text</strong>"
                     </div>
@@ -166,7 +170,7 @@
             <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
               data-default="">
                 <th scope="row">
-                    Button Text Translation
+                  Button Text Translation
                 </th>
                 <td>
                   <div class="save-as-pdf-pdfcrowd-devi save-as-pdf-pdfcrowd-mb-2">
@@ -203,12 +207,15 @@
                               </div>
                         <br>
                     </fieldset>
+                  <div class="save-as-pdf-pdfcrowd-description">
+                    Specify whether to translate the button text.
+                  </div>
                 </td>
             </tr>
             <tr class="save-as-pdf-pdfcrowd-set-group"
               data-default="pdf1.svg">
                 <th scope="row">
-                    Button Image
+                  Button Image
                 </th>
                 <td id='save-as-pdf-pdfcrowd-images'>
                   <div class="save-as-pdf-pdfcrowd-devi save-as-pdf-pdfcrowd-mb-2">
@@ -254,7 +261,7 @@
                               class="clear regular-text save-as-pdf-pdfcrowd-text-for-radio" name="save-as-pdf-pdfcrowd[button_image_url]" value="<?php echo($button_image_url);?>"  autocomplete="off" />
                         </label>
                         <div class="save-as-pdf-pdfcrowd-nested-dsc">
-                          <div class='save-as-pdf-pdfcrowd-description'>
+                          <div class="save-as-pdf-pdfcrowd-description">
                             <div>
                               Examples:
                               <ul>
@@ -289,7 +296,7 @@
                               data-empty-is-not-def="1"
                               rows=5
                               cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($button_custom_html); ?></textarea>
-                        <div class='save-as-pdf-pdfcrowd-description'>
+                        <div class="save-as-pdf-pdfcrowd-description">
                           <div>
                             Examples:
                             <ul>
@@ -307,17 +314,23 @@
                         </div>
                         </div>
                     </fieldset>
+                    <div class="save-as-pdf-pdfcrowd-description">
+                      The image to be displayed on the button.
+                    </div>
                 </td>
             </tr>
             <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
               data-default="24">
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-button-image-width">
-                        Button Image Width
+                      Button Image Width
                     </label>
                 </th>
                 <td>
-                    <input type="number" class="small-text" min="6" id="save-as-pdf-pdfcrowd-button-image-width" name="save-as-pdf-pdfcrowd[button_image_width]" value="<?php echo $button_image_width ?>" autocomplete="off" />px
+                  <input type="number" class="small-text" min="6" id="save-as-pdf-pdfcrowd-button-image-width" name="save-as-pdf-pdfcrowd[button_image_width]" value="<?php echo $button_image_width ?>" autocomplete="off" />px
+                  <div class="save-as-pdf-pdfcrowd-description">
+                    The width of the image on the button.
+                  </div>
                     <div class='save-as-pdf-pdfcrowd-devi'>
                         Shortcode and function parameter: "<strong>button_image_width</strong>"<br>Possible values: any numeric value
                     </div>
@@ -332,6 +345,9 @@
                 </th>
                 <td>
                     <input type="number" class="small-text" min="6" id="save-as-pdf-pdfcrowd-button-image-height" name="save-as-pdf-pdfcrowd[button_image_height]" value="<?php echo $button_image_height ?>" autocomplete="off" />px
+                  <div class="save-as-pdf-pdfcrowd-description">
+                    The height of the image on the button.
+                  </div>
                     <div class='save-as-pdf-pdfcrowd-devi'>
                         Shortcode and function parameter: "<strong>button_image_height</strong>"<br>Possible values: any numeric value
                     </div>
@@ -340,16 +356,14 @@
             <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
               data-default="">
                 <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-button-id">
-                        Button ID
-                    </label>
+                  <label for="save-as-pdf-pdfcrowd-button-id">
+                    Button ID
+                  </label>
                 </th>
                 <td>
                     <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-button-id" name="save-as-pdf-pdfcrowd[button_id]" value="<?php echo($button_id);?>" placeholder="<?php esc_attr_e('Your id for the button', $this->plugin_name);?>" autocomplete="off">
-                    <div class='save-as-pdf-pdfcrowd-description'>
-                      The ID used for the conversion button in HTML to
-                      be used for the custom button styling or
-                      JavaScript event handler.
+                    <div class="save-as-pdf-pdfcrowd-description">
+                      The ID used for the button in HTML to be used for the custom button styling or JavaScript event handler.
                     </div>
                     <div class='save-as-pdf-pdfcrowd-devi'>
                         Shortcode and function parameter: "<strong>button_id</strong>"
@@ -360,14 +374,13 @@
               data-default="">
                 <th>
                     <label for="save-as-pdf-pdfcrowd-button-html-hidden">
-                        Hide Button in HTML
+                      Hide Button in HTML
                     </label>
                 </th>
                 <td>
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-button-html-hidden" name="save-as-pdf-pdfcrowd[button_html_hidden]" value="1" <?php checked( $button_html_hidden, 1 ); ?> autocomplete="off">
-                    <div class='save-as-pdf-pdfcrowd-description'>
-                      It is useful together with Button ID for
-                      triggering a conversion from your JavaScript.
+                    <div class="save-as-pdf-pdfcrowd-description">
+                      The ID used for the button in HTML to be used for the custom button styling or JavaScript event handler.
                     </div>
                     <div class='save-as-pdf-pdfcrowd-devi'>
                         Shortcode and function parameter: "<strong>button_html_hidden</strong>"<br>Possible values: 0, 1
@@ -388,7 +401,7 @@
               data-default="below">
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd[button_position]">
-                        Destination
+                      Destination
                     </label>
                 </th>
                 <td>
@@ -400,8 +413,7 @@
                     <option value="inline" <?php selected($button_position, 'inline');?>>inline</option>
                     </select>
                     <div class="save-as-pdf-pdfcrowd-description">
-                      The position of the conversion button relative
-                      to the content.
+                      The position of the button relative to the content.
                     </div>
                     <div class='save-as-pdf-pdfcrowd-devi'>
                         Shortcode and function parameter: "<strong>button_position</strong>"<br>Possible values: "below", "above", "left", "right", "inline"
@@ -411,7 +423,9 @@
             <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
               data-default="center">
                 <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd[button_alignment]">Alignment</label>
+                  <label for="save-as-pdf-pdfcrowd[button_alignment]">
+                    Alignment
+                  </label>
                 </th>
                 <td>
                     <select id="save-as-pdf-pdfcrowd[button_alignment]" name="save-as-pdf-pdfcrowd[button_alignment]" autocomplete="off">
@@ -423,7 +437,7 @@
                     <option value="end" <?php selected($button_alignment, 'end');?>>end</option>
                     </select>
                     <div class="save-as-pdf-pdfcrowd-description">
-                      The alignment of the conversion button.
+                      The alignment of the button.
                     </div>
                     <div class='save-as-pdf-pdfcrowd-devi'>
                         Shortcode and function parameter: "<strong>button_alignment</strong>"<br>Possible values: "", "start", "center", "left", "right", "end"
@@ -474,7 +488,7 @@
             <tr class="save-as-pdf-pdfcrowd-set-group"
               data-default="custom">
                 <th scope="row">
-                    Styling is
+                  Styling is
                 </th>
                 <td>
                     <fieldset>
@@ -490,9 +504,9 @@
                             Custom
                         </label>
                     </fieldset>
-                    <div class='save-as-pdf-pdfcrowd-description'>
-                      The style can also be changed using the
-                      .save-as-pdf-pdfcrowd-button CSS rule.<br/>
+                    <div class="save-as-pdf-pdfcrowd-description">
+                      The style can also be changed using the <code>.save-as-pdf-pdfcrowd-button</code> CSS rule.
+                      <br/>
                       For example, add the following line to your CSS
                       to italicize the button text.
                       <br/>
@@ -516,17 +530,20 @@
                         </label>
                     </th>
                     <td>
-                        <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-text-size" name="save-as-pdf-pdfcrowd[button_text_size]" value="<?php echo $button_text_size ?>" autocomplete="off" />px
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode and function parameter: "<strong>button_text_size</strong>"<br>Possible values: any numeric value
-                        </div>
+                      <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-text-size" name="save-as-pdf-pdfcrowd[button_text_size]" value="<?php echo $button_text_size ?>" autocomplete="off" />px
+                      <div class="save-as-pdf-pdfcrowd-description">
+                        The font size for the button.
+                      </div>
+                      <div class='save-as-pdf-pdfcrowd-devi'>
+                        Shortcode and function parameter: "<strong>button_text_size</strong>"<br>Possible values: any numeric value
+                      </div>
                     </td>
                 </tr>
                 <tr class="save-as-pdf-pdfcrowd-set-group"
                     data-default="bold">
                     <th scope="row">
                         <label for="save-as-pdf-pdfcrowd-button-text-weight">
-                            Text Weight
+                          Text Weight
                         </label>
                     </th>
                     <td>
@@ -547,6 +564,9 @@
                             <option value="800" <?php selected($button_text_weight, '800');?>>800</option>
                             <option value="900" <?php selected($button_text_weight, '900');?>>900</option>
                         </select>
+                      <div class="save-as-pdf-pdfcrowd-description">
+                        The font weight for the button.
+                      </div>
                         <div class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode and function parameter: "<strong>button_text_weight</strong>"<br>Possible values: any CSS font-weight
                         </div>
@@ -555,9 +575,9 @@
                 <tr class="save-as-pdf-pdfcrowd-set-group"
                     data-default="#ffffff">
                     <th scope="row">
-                        <label for="save-as-pdf-pdfcrowd-text-color">
-                            Text Color
-                        </label>
+                      <label for="save-as-pdf-pdfcrowd-text-color">
+                        Text Color
+                      </label>
                     </th>
                     <td>
                       <input
@@ -567,6 +587,9 @@
                         name="save-as-pdf-pdfcrowd[button_text_color]"
                         value="<?php echo $button_text_color;?>"
                         data-default-color="#ffffff" autocomplete="off" />
+                      <div class="save-as-pdf-pdfcrowd-description">
+                        The font color for the button.
+                      </div>
                         <div class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode and function parameter: "<strong>button_text_color</strong>"<br>Possible values: any HTML color code
                         </div>
@@ -576,11 +599,14 @@
                     data-default="#007bff">
                     <th scope="row">
                         <label for="save-as-pdf-pdfcrowd-background-color">
-                            Background Color
+                          Background Color
                         </label>
                     </th>
                     <td>
                         <input type="text" class="save-as-pdf-pdfcrowd-color-field" id="save-as-pdf-pdfcrowd-button-background-color" name="save-as-pdf-pdfcrowd[button_background_color]" value="<?php echo($button_background_color);?>" data-default-color="#007bff" autocomplete="off" />
+                      <div class="save-as-pdf-pdfcrowd-description">
+                        The background color of the button.
+                      </div>
                         <div class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode and function parameter: "<strong>button_background_color</strong>"<br>Possible values: any HTML color code
                         </div>
@@ -589,12 +615,15 @@
                 <tr class="save-as-pdf-pdfcrowd-set-group"
                     data-default="#007bff">
                     <th scope="row">
-                        <label for="save-as-pdf-pdfcrowd-border-color">
-                            Border Color
-                        </label>
+                      <label for="save-as-pdf-pdfcrowd-border-color">
+                        Border Color
+                      </label>
                     </th>
                     <td>
                         <input type="text" class="save-as-pdf-pdfcrowd-color-field" id="save-as-pdf-pdfcrowd-button-border-color" name="save-as-pdf-pdfcrowd[button_border_color]" value="<?php echo($button_border_color);?>" data-default-color="#007bff" autocomplete="off" />
+                      <div class="save-as-pdf-pdfcrowd-description">
+                        The border color of the button.
+                      </div>
                         <div class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode and function parameter: "<strong>button_border_color</strong>"<br>Possible values: any HTML color code
                         </div>
@@ -603,9 +632,9 @@
                 <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
                     data-default="solid">
                     <th scope="row">
-                        <label for="save-as-pdf-pdfcrowd-border-style">
-                            Border Style
-                        </label>
+                      <label for="save-as-pdf-pdfcrowd-border-style">
+                        Border Style
+                      </label>
                     </th>
                     <td>
                       <select
@@ -622,7 +651,10 @@
                             <option value="outset" <?php selected($button_border_style, 'outset');?>>outset</option>
                             <option value="none" <?php selected($button_border_style, 'none');?>>none</option>
                             <option value="hidden" <?php selected($button_border_style, 'hidden');?>>hidden</option>
-                        </select>
+                      </select>
+                      <div class="save-as-pdf-pdfcrowd-description">
+                        The border style of the button.
+                      </div>
                         <div class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode and function parameter: "<strong>button_border_style</strong>"<br>Possible values: "dotted", "dashed", "solid", "double", "groove", "ridge", "inset", "outset", "none", "hidden"
                         </div>
@@ -632,11 +664,14 @@
                     data-default="1">
                     <th scope="row">
                         <label for="save-as-pdf-pdfcrowd-button-border-width">
-                            Button Border Width
+                          Button Border Width
                         </label>
                     </th>
                     <td>
                         <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-border-width" name="save-as-pdf-pdfcrowd[button_border_width]" value="<?php echo $button_border_width ?>" autocomplete="off" />px
+                      <div class="save-as-pdf-pdfcrowd-description">
+                        The border width of the button.
+                      </div>
                         <div class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode and function parameter: "<strong>button_border_width</strong>"<br>Possible values: any numeric value
                         </div>
@@ -675,11 +710,14 @@
                     data-default="3">
                     <th scope="row">
                         <label for="save-as-pdf-pdfcrowd-button-radius">
-                            Radius
+                          Radius
                         </label>
                     </th>
                     <td>
                         <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-radius" name="save-as-pdf-pdfcrowd[button_radius]" value="<?php echo $button_radius ?>" autocomplete="off" />px
+                      <div class="save-as-pdf-pdfcrowd-description">
+                        The radius of the button.
+                      </div>
                         <div class='save-as-pdf-pdfcrowd-devi'>
                             Shortcode and function parameter: "<strong>button_radius</strong>"<br>Possible values: any numeric value
                         </div>
@@ -688,14 +726,15 @@
                 <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
                     data-default="1">
                     <th>
-                        Change on Mouse Over
+                      Change on Mouse Over
                     </th>
                     <td>
                         <input type="checkbox" id="save-as-pdf-pdfcrowd-button-hover" name="save-as-pdf-pdfcrowd[button_hover]" value="1" <?php checked( $button_hover, 1 ); ?> autocomplete="off" />
                         <div class="save-as-pdf-pdfcrowd-description">
-                        <div>
-                            The mouse over default style may be altered by CSS, e.g.
-                        </div>
+                          <div>
+                            The mouse over style may be altered by your CSS rules <code>.save-as-pdf-pdfcrowd-button-hover</code>, <code>.save-as-pdf-pdfcrowd-has-indicator-func:hover</code>.
+                            For example:
+                          </div>
                         <pre>
 .save-as-pdf-pdfcrowd-button-hover, .save-as-pdf-pdfcrowd-has-indicator-func:hover {
     filter: invert(100%) !important;
@@ -720,7 +759,7 @@
             <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
                 data-default="ellipsis">
                 <th scope="row">
-                    Type
+                  Type
                 </th>
                 <td>
                   <div class="save-as-pdf-pdfcrowd-devi save-as-pdf-pdfcrowd-mb-2">
@@ -837,19 +876,22 @@
                         </label>
                         <br>
                     </fieldset>
+                    <div class="save-as-pdf-pdfcrowd-description">
+                      The type of indicator that appears above the button while the conversion is in progress.
+                    </div>
                 </td>
             </tr>
             <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
                 data-default="60">
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-button-text-size">
-                        Indicator Timeout
+                      Indicator Timeout
                     </label>
                 </th>
                 <td>
                     <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-indicator-timeout" name="save-as-pdf-pdfcrowd[button_indicator_timeout]" value="<?php echo $button_indicator_timeout ?>" autocomplete="off" /> seconds
-                    <div class='save-as-pdf-pdfcrowd-description'>
-                        If the indicator remains active even after the conversion has finished, set a time limit on the conversion time of your typical document, e.g. 5 seconds. Otherwise, use the default value of 60 seconds.
+                    <div class="save-as-pdf-pdfcrowd-description">
+                      If the indicator remains active even after the conversion has finished, set a time limit on the conversion time of your typical document, e.g. 5 seconds. Otherwise, use the default value of 60 seconds.
                     </div>
                     <div class='save-as-pdf-pdfcrowd-devi'>
                         Shortcode and function parameter: "<strong>button_indicator_timeout</strong>"<br>Possible values: any numeric value

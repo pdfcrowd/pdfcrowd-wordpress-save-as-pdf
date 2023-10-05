@@ -134,6 +134,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 3.0.1 =
+* Minor update in the plugin documentation.
+
 = 3.0.0 =
 * Revamped the plugin settings page, now featuring Basic and Expert modes.
 * Added controls to filter options and display only the changed ones.

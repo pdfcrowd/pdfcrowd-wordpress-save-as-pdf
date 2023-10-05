@@ -24,7 +24,7 @@
           <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
               data-default="attachment">
                 <th scope="row">
-                    Button Click Action
+                  Button Click Action
                 </th>
                 <td>
                   <div class="save-as-pdf-pdfcrowd-devi save-as-pdf-pdfcrowd-mb-2">
@@ -52,7 +52,7 @@
                         </label><br>
                     </fieldset>
                     <div class='save-as-pdf-pdfcrowd-description'>
-                        The action that is performed when the conversion button is clicked.
+                      The action that is performed when the button is clicked.
                     </div>
                 </td>
           </tr>
@@ -64,7 +64,7 @@
               data-default="">
                 <th>
                     <label for="save-as-pdf-pdfcrowd-email-from">
-                        Email From
+                      Email From
                     </label>
                 </th>
                 <td>
@@ -76,7 +76,7 @@
                     name="save-as-pdf-pdfcrowd[email_from]"
                     value="<?php echo($email_from);?>" placeholder="<?php esc_attr_e('Sender address', $this->plugin_name);?>" autocomplete="off" />
                     <div class='save-as-pdf-pdfcrowd-description'>
-                        The sender can be empty if it is specified in your mailer plugin.
+                      The sender email. It can be empty if specified in your mailer plugin.
                     </div>
                     <div class='save-as-pdf-pdfcrowd-devi'>
                         Shortcode and function parameter: "<strong>email_from</strong>"
@@ -86,7 +86,7 @@
           <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
               data-default="user">
                 <th scope="row">
-                    Email Recipient
+                  Email Recipient
                 </th>
                 <td>
                   <div class="save-as-pdf-pdfcrowd-devi save-as-pdf-pdfcrowd-mb-2">
@@ -135,13 +135,16 @@
                         </label>
                         <br>
                     </fieldset>
+                    <div class='save-as-pdf-pdfcrowd-description'>
+                      Choose how to get the recipient's email. It can be dynamic or fixed. The fixed value may contain either a single email address or a comma-separated list of email addresses.
+                    </div>
                 </td>
             </tr>
           <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
               data-default="">
                 <th>
                     <label for="save-as-pdf-pdfcrowd-email-cc">
-                        Email Cc
+                      Email Cc
                     </label>
                 </th>
                 <td>
@@ -152,6 +155,9 @@
                     name="save-as-pdf-pdfcrowd[email_cc]"
                     data-parent-opt="#save-as-pdf-pdfcrowd-button-disp-email"
                     value="<?php echo($email_cc);?>" placeholder="<?php esc_attr_e('Carbon copy address', $this->plugin_name);?>" autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-description'>
+                      Additional recipients who will receive a copy of the email. It can be either a single email address or a comma-separated list of email addresses.
+                    </div>
                     <div class='save-as-pdf-pdfcrowd-devi'>
                         Shortcode and function parameter: "<strong>email_cc</strong>"
                     </div>
@@ -161,7 +167,7 @@
               data-default="">
                 <th>
                     <label for="save-as-pdf-pdfcrowd-email-bcc">
-                        Email Bcc
+                      Email Bcc
                     </label>
                 </th>
                 <td>
@@ -172,6 +178,9 @@
                     name="save-as-pdf-pdfcrowd[email_bcc]"
                     data-parent-opt="#save-as-pdf-pdfcrowd-button-disp-email"
                     value="<?php echo($email_bcc);?>" placeholder="<?php esc_attr_e('Blind carbon copy address', $this->plugin_name);?>" autocomplete="off" />
+                    <div class='save-as-pdf-pdfcrowd-description'>
+                      Additional recipients who will receive a copy of the email without revealing their email addresses to the other recipients. It can be either a single email address or a comma-separated list of email addresses.
+                    </div>
                     <div class='save-as-pdf-pdfcrowd-devi'>
                         Shortcode and function parameter: "<strong>email_bcc</strong>"
                     </div>
@@ -181,7 +190,7 @@
               data-default="{{site}} - {{title}} PDF">
                 <th>
                     <label for="save-as-pdf-pdfcrowd-email-subject">
-                        Email Subject
+                      Email Subject
                     </label>
                 </th>
                 <td>
@@ -192,28 +201,9 @@
                     name="save-as-pdf-pdfcrowd[email_subject]"
                     data-parent-opt="#save-as-pdf-pdfcrowd-button-disp-email"
                     value="<?php echo($email_subject);?>" placeholder="<?php esc_attr_e('Your subject', $this->plugin_name);?>" autocomplete="off" />
-                    <div class="save-as-pdf-pdfcrowd-description">
-    <div>
-        The email subject template. The template may contain predefined variables enclosed in {{ }} that are dynamically expanded. Available variables are:
-    </div>
-    <ul>
-        <li>site - site name</li>
-        <li>site_url - site url</li>
-        <li>title - current page title</li>
-    </ul>
-    <div>
-      Available variables for logged in user:
-    </div>
-    <ul>
-        <li>user_name - user's login name</li>
-        <li>user_first_name - user's first name</li>
-        <li>user_last_name - user's last name</li>
-        <li>user_display_name - user's display name</li>
-    </ul>
-    <div class="small-text">
-       If you need custom variables in the template, place "Save as" button into your code by PHP method with the template argument.
-    </div>
-  </div>
+                    <div class='save-as-pdf-pdfcrowd-description'>
+                       <div> The email subject template. The template may contain predefined variables enclosed in <code>{{ }}</code> that are dynamically expanded. Available variables are: </div> <ul> <li>site - site name</li> <li>site_url - site url</li> <li>title - current page title</li> </ul> <div> Available variables for logged in user: </div> <ul> <li>user_name - user's login name</li> <li>user_first_name - user's first name</li> <li>user_last_name - user's last name</li> <li>user_display_name - user's display name</li> </ul> <div class='small-text'> If you need custom variables in the template, place <em>Save as</em> button into your code by PHP method with the template argument. </div>
+                    </div>
                     <div class='save-as-pdf-pdfcrowd-devi'>
                         Shortcode and function parameter: "<strong>email_subject</strong>"
                     </div>
@@ -223,7 +213,7 @@
               data-default="%3Cp%3EDear%20%7B%7Buser_first_name%7D%7D%20%7B%7Buser_last_name%7D%7D%2C%3C/p%3E%0A%3Cp%3EPlease%2C%20find%20%7B%7Btitle%7D%7D%20attached.%3C/p%3E%0A%3Cp%3EBest%20Regards%2C%3Cbr%3E%0A%3Ca%20href%3D%22%7B%7Bsite_url%7D%7D%22%3E%7B%7Bsite%7D%7D%3C/a%3E%3C/p%3E">
                 <th>
                     <label for="save-as-pdf-pdfcrowd-email-message">
-                        Email Message
+                      Email Message
                     </label>
                 </th>
                 <td>
@@ -232,28 +222,9 @@
                     name="save-as-pdf-pdfcrowd[email_message]"
                     data-parent-opt="#save-as-pdf-pdfcrowd-button-disp-email"
                     rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Your email message', $this->plugin_name);?>"><?php echo($email_message); ?></textarea>
-                    <div class="save-as-pdf-pdfcrowd-description">
-    <div>
-        The email message template. The template may contain predefined variables enclosed in {{ }} that are dynamically expanded. Available variables are:
-    </div>
-    <ul>
-        <li>site - site name</li>
-        <li>site_url - site url</li>
-        <li>title - current page title</li>
-    </ul>
-    <div>
-      Available variables for logged in user:
-    </div>
-    <ul>
-        <li>user_name - user's login name</li>
-        <li>user_first_name - user's first name</li>
-        <li>user_last_name - user's last name</li>
-        <li>user_display_name - user's display name</li>
-    </ul>
-    <div class="small-text">
-       If you need custom variables in the template, place "Save as" button into your code by PHP method with the template argument.
-    </div>
-  </div>
+                    <div class='save-as-pdf-pdfcrowd-description'>
+                       <div> The email message template. HTML tags may be used in it. The template may contain predefined variables enclosed in <code>{{ }}</code> that are dynamically expanded. Available variables are: </div> <ul> <li>site - site name</li> <li>site_url - site url</li> <li>title - current page title</li> </ul> <div> Available variables for logged in user: </div> <ul> <li>user_name - user's login name</li> <li>user_first_name - user's first name</li> <li>user_last_name - user's last name</li> <li>user_display_name - user's display name</li> </ul> <div class='small-text'> If you need custom variables in the template, place <em>Save as</em> button into your code by PHP method with the template argument. </div>
+                    </div>
                     <div class='save-as-pdf-pdfcrowd-devi'>
                         Shortcode and function parameter: "<strong>email_message</strong>"
                     </div>
@@ -262,7 +233,7 @@
           <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
               data-default="modal">
                 <th scope="row">
-                    Email Dialogs
+                  Email Dialogs
                 </th>
                 <td>
                   <div class="save-as-pdf-pdfcrowd-devi save-as-pdf-pdfcrowd-mb-2">
@@ -353,6 +324,9 @@
                         </label>
                         <br>
                     </fieldset>
+                    <div class='save-as-pdf-pdfcrowd-description'>
+                      Specify how to display a dialog when the mail configuration requires it. Such cases are Success dialog, Error dialog and Prompt dialog for recipient email.
+                    </div>
                 </td>
           </tr>
       </table>
@@ -362,7 +336,7 @@
               data-default="">
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-output-name">
-                        Output Name
+                      Output Name
                     </label>
                 </th>
                 <td>
@@ -378,82 +352,84 @@
           <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
               data-default="">
                 <th scope="row">
-                    <label for="save-as-pdf-pdfcrowd-pdf-created-callback">
-                        PDF Created Callback
-                    </label>
+                  <label for="save-as-pdf-pdfcrowd-pdf-created-callback">
+                      PDF Created Callback
+                  </label>
                 </th>
                 <td>
                     <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-pdf-created-callback" name="save-as-pdf-pdfcrowd[pdf_created_callback]" value="<?php echo($pdf_created_callback);?>" placeholder="<?php esc_attr_e('Your function name', $this->plugin_name);?>" autocomplete="off" />
-                        <div class="save-as-pdf-pdfcrowd-description">
-                          <div>
-                            Specify the name of your PHP function to be invoked
-                            when the output pdf is created.
-                            <br>
-                            The callback function is useful for custom actions,
-                            e.g. saving the pdf to a local
-                            folder, setting a custom HTTP response header,
-                            collecting email entered by user.
-                            <br>
-                            The callback function must be accessible to the
-                            plugin, with the recommended location being either
-                            the functions.php file or within the page contents.
-                            <br>
-                            Return <strong>true</strong> from your custom callback if you wish to skip the default functionality. The default functionality depends on the Button Click Action option and is either an HTTP response or email with the created pdf.
-                        </div>
+                    <div class="save-as-pdf-pdfcrowd-description">
                         <div>
-                            The callback must be a valid PHP function name. The function <strong>must</strong> accept 1 argument - an array with keys:
-                        </div>
-                        <ul>
-                            <li>
-                                output - the generated pdf data
-                            </li>
-                            <li>
-                                options - options used for the conversion
-                            </li>
-                            <li>
-                                file_name - the pdf filename
-                            </li>
-                            <li>
-                                error - <i>null</i> for a successful conversion otherwise WP_Error
-                            </li>
-                        </ul>
-                        <div>
-                            Example for a custom callback saving the file to the upload folder:
-                            <pre>function save_to_local($data) {
+    Specify the name of your PHP function to be invoked
+    when the output pdf is created.
+    <br>
+    The callback function is useful for custom actions,
+    e.g. saving the pdf to a local
+    folder, setting a custom HTTP response header,
+    collecting email entered by user.
+    <br>
+    The callback function must be accessible to the
+    plugin, with the recommended location being either
+    the functions.php file or within the page contents.
+    <br>
+    Return <strong>true</strong> from your custom callback if you wish to skip the default functionality. The default functionality depends on the Button Click Action option and is either an HTTP response or email with the created pdf.
+</div> <div>
+    The callback must be a valid PHP function name. The function <strong>must</strong> accept 1 argument - an array with keys:
+</div> <ul>
+    <li>
+        output - the generated pdf data
+    </li>
+    <li>
+        options - options used for the conversion
+    </li>
+    <li>
+        file_name - the pdf filename
+    </li>
+    <li>
+        error - <i>null</i> for a successful conversion otherwise WP_Error
+    </li>
+</ul>
+                      <div>
+                        Example for a custom callback saving the file to the upload folder:
+                      </div>
+                      <pre>&lt;?php
+function save_to_local($data) {
     if(!$data['error']) {
         wp_upload_bits($data['file_name'], null, $data['output']);
     }
-}</pre>
-                        </div>
-                        </div>
-                        <div class='save-as-pdf-pdfcrowd-devi'>
-                          Shortcode and function parameter: "<strong>pdf_created_callback</strong>"
-                        </div>
+}
+?&gt;</pre>
+                    </div>
+                    <div class='save-as-pdf-pdfcrowd-devi'>
+                      Shortcode and function parameter: "<strong>pdf_created_callback</strong>"
+                    </div>
                 </td>
             </tr>
           <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
               data-default="">
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-custom-data">
-                        Custom Data
+                      Custom Data
                     </label>
                 </th>
                 <td>
                     <textarea id="save-as-pdf-pdfcrowd-custom-data" name="save-as-pdf-pdfcrowd[custom_data]" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Your custom data', $this->plugin_name);?>"><?php echo($custom_data); ?></textarea>
                     <div class="save-as-pdf-pdfcrowd-description">
-                    <div>
-                        Data assigned to the conversion button.
-                        They are sent to the PDF Created Callback method and are accessible in the callback options['custom_data'] field.
-                    </div>
-                    <div>
-                        Dynamic data may be used when the button is created by shortcode or function call. Example for assigning the current post ID and user email in JSON format with the conversion button created by a PHP function call:
+                      <div>
+    Data assigned to the button.
+    They are sent to the PDF Created Callback method and are accessible in the callback options['custom_data'] field.
+</div> <div>
+  Dynamic data may be used when the button is created by shortcode or function call.
+</div>
+                      <div>
+                        Example for assigning the current post ID and user email in JSON format with the conversion button created by a PHP function call:
+                      </div>
                       <pre>&lt;?php
 echo create_save_as_pdf_pdfcrowd_button(
     array('custom_data' => json_encode(
         array('post_id' => get_the_ID(),
               'user_email' => wp_get_current_user()->user_email))));
 ?&gt;</pre>
-                    </div>
                     </div>
                     <div class='save-as-pdf-pdfcrowd-devi'>
                       Shortcode and function parameter: "<strong>custom_data</strong>"
@@ -472,18 +448,18 @@ echo create_save_as_pdf_pdfcrowd_button(
                   <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-error-page" name="save-as-pdf-pdfcrowd[error_page]" value="<?php echo($error_page);?>" placeholder="<?php esc_attr_e('URL or slug', $this->plugin_name);?>" autocomplete="off" />
                 </div>
                 <div class="save-as-pdf-pdfcrowd-description">
-                <div>
-                  Webpage used when the plugin raises an error.
-                  You can specify either a URL or a WordPress page slug name.
-                  If left empty, the default error page will be shown.
-                </div>
-                <div>
-                  The details about the error can be accessed via
-                  <code>$_GET['error-code']</code>,
-                  <code>$_GET['error-message']</code> and
-                  <code>$_GET['error-details']</code>. An example:
-                </div>
-                <pre>&lt;h1&gt;Download Error&lt;/h1&gt;
+                  <div>
+  Webpage used when the plugin raises an error.
+  You can specify either a URL or a WordPress page slug name.
+  If left empty, the default error page will be shown.
+</div> <div>
+  The details about the error can be accessed via
+  <code>$_GET['error-code']</code>,
+  <code>$_GET['error-message']</code> and
+  <code>$_GET['error-details']</code>.
+</div>
+                  <div>Example page:</div>
+                  <pre>&lt;h1&gt;Download Error&lt;/h1&gt;
 &lt;p&gt;
     Something wrong happened. Error Code:
     &lt;?php

@@ -24,7 +24,7 @@
           <tr class="save-as-pdf-pdfcrowd-set-group"
               data-default="url">
                 <th scope="row">
-                    Conversion Mode
+                  Conversion Mode
                 </th>
                 <td>
                     <div class="save-as-pdf-pdfcrowd-devi save-as-pdf-pdfcrowd-mb-2">
@@ -109,7 +109,7 @@
           <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
               data-default="auto">
                 <th scope="row">
-                    URL Lookup
+                  URL Lookup
                 </th>
                 <td>
                     <div class='save-as-pdf-pdfcrowd-devi'>
@@ -139,8 +139,7 @@
                         </div>
                     </fieldset>
                     <div class='save-as-pdf-pdfcrowd-description'>
-                        It allows to choose how to retrieve URLs for the Conversion Mode-URL.
-                        It is suitable for a website using different location than permalink.
+                      It allows to choose how to retrieve URLs for the Conversion Mode-URL. It is suitable for a website using different location than permalink.
                     </div>
                 </td>
             </tr>
@@ -171,20 +170,20 @@
               data-default="">
                 <th scope="row">
                     <label for="save-as-pdf-pdfcrowd-diagnostics">
-                        Diagnostics
+                      Diagnostics
                     </label>
                 </th>
                 <td>
                     <input type="checkbox" id="save-as-pdf-pdfcrowd-diagnostics" name="save-as-pdf-pdfcrowd[diagnostics]" value="1" <?php checked( $diagnostics, 1 ); ?> autocomplete="off" />
                     <div class="save-as-pdf-pdfcrowd-description">
                       <div>
-                        <strong>Warning:</strong>
-                        for developers only
-                      </div>
-                      <div>
-                        Diagnostics data is displayed above the conversion button.
-                        It helps to identify the issue with the button.
-                      </div>
+  <strong>Warning:</strong>
+  for developers only
+</div> <div>
+  Diagnostics data is displayed above the button.
+  It helps to identify the issue with the button appearance or
+  the conversion process.
+</div>
                     </div>
                     <div class='save-as-pdf-pdfcrowd-devi'>
                       Shortcode and function parameter: "<strong>diagnostics</strong>"<br>Possible values: 0, 1
