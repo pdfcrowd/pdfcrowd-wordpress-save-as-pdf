@@ -190,7 +190,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 3010;
+        $valid['version'] = 3100;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {
@@ -1096,6 +1096,18 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         $valid['main_document_css_annotation'] = empty($input['main_document_css_annotation']) ? 0 : 1;
 
         $valid['header_footer_css_annotation'] = empty($input['header_footer_css_annotation']) ? 0 : 1;
+
+        if (isset($input['max_loading_time']) &&
+            $input['max_loading_time'] != '') {
+            $max_loading_time = $input['max_loading_time'];
+            if (!(intval($max_loading_time) >= 10 && intval($max_loading_time) <= 30))
+                add_settings_error(
+                'max_loading_time',
+                'empty_max_loading_time',
+                pdfcrowd_create_invalid_value_message($max_loading_time, 'Max Loading Time', 'The value must be in the range 10-30.'));
+            
+        }
+        $valid['max_loading_time'] = isset($input['max_loading_time']) ? $input['max_loading_time'] : '';
 
         if (isset($input['converter_version']) &&
             $input['converter_version'] != '') {

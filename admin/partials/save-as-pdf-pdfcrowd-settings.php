@@ -2950,6 +2950,31 @@
                         </div>
                 </td>
             </tr>
+            <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
+                data-default="">
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-max_loading_time">
+                        Max Loading Time
+                    </label>
+                </th>
+                <td>
+                      <input
+                        type="text"
+                        class="regular-text"
+                        id="save-as-pdf-pdfcrowd-max_loading_time"
+                        name="save-as-pdf-pdfcrowd[max_loading_time]"
+                        value="<?php echo($max_loading_time); ?>"
+                        placeholder="" autocomplete="off" />
+                        <div class="save-as-pdf-pdfcrowd-description">
+                          <div>
+                            Set the maximum time to load the page and its resources. After this time, all requests will be considered successful. This can be useful to ensure that the conversion does not timeout. Use this method if there is no other way to fix page loading.
+                          </div>
+                        </div>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode and function parameter: "<strong>max_loading_time</strong>"
+                        </div>
+                </td>
+            </tr>
         </tbody>
     </table>
      </div>

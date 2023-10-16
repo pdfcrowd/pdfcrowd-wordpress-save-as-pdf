@@ -285,6 +285,7 @@
                  $disable_page_height_optimization = isset($options['disable_page_height_optimization']) ? $options['disable_page_height_optimization'] : '';
                  $main_document_css_annotation = isset($options['main_document_css_annotation']) ? $options['main_document_css_annotation'] : '';
                  $header_footer_css_annotation = isset($options['header_footer_css_annotation']) ? $options['header_footer_css_annotation'] : '';
+                 $max_loading_time = isset($options['max_loading_time']) ? $options['max_loading_time'] : '';
                  $use_http = isset($options['use_http']) ? $options['use_http'] : '';
                  $retry_count = isset($options['retry_count']) ? $options['retry_count'] : '';
 

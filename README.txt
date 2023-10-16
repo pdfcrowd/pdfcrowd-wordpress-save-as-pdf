@@ -134,6 +134,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 3.1.0 =
+* New "Max Loading Time" expert option to set the load time for the page and its assets. 
+
 = 3.0.1 =
 * Minor update in the plugin documentation.
 
