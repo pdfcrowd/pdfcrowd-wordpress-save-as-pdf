@@ -379,6 +379,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             'disable_page_height_optimization',
             'main_document_css_annotation',
             'header_footer_css_annotation',
+            'max_loading_time',
         ),
         'latest' => array()
     );
