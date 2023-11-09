@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Save as PDF by Pdfcrowd plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Save as PDF by Pdfcrowd 3.1.0\n"
+"Project-Id-Version: Save as PDF by Pdfcrowd 3.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/save-as-pdf-pdfcrowd\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"

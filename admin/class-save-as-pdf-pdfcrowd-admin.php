@@ -190,7 +190,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 3100;
+        $valid['version'] = 3200;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {
@@ -1251,6 +1251,11 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         }
         if(isset($valid['button_user_drawings'])) {
             $valid['button_user_drawings'] = esc_html($valid['button_user_drawings']);
+        }
+
+        if(!current_user_can('unfiltered_html')) {
+            $valid['button_custom_html'] = isset($options['button_custom_html']) ? $options['button_custom_html'] : '';
+            $valid['button_indicator_html'] = isset($options['button_indicator_html']) ? $options['button_indicator_html'] : '';
         }
 
         return $valid;

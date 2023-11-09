@@ -134,6 +134,10 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 3.2.0 =
+* Fix XSS in the Custom HTML options of the plugin settings.
+* Fix warning in the debug log in case of error.
+
 = 3.1.0 =
 * New "Max Loading Time" expert option to set the load time for the page and its assets. 
 
@@ -149,7 +153,7 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 * New "Error Page" option to define custom error page.
 
 = 2.16.1 =
-* Fix XSS on the Appearance section of plugin settings.
+* Fix XSS on the Appearance section of the plugin settings.
 
 = 2.16.0 =
 * New "Custom CSS" option to apply custom CSS to the input HTML document.
