@@ -92,7 +92,7 @@ class Save_As_Pdf_Pdfcrowd {
             return SAVE_AS_PDF_VERSION;
         }
 
-        return '3.2.0';
+        return '3.2.1';
     }
 
     /**
@@ -236,11 +236,20 @@ class Save_As_Pdf_Pdfcrowd {
     }
 
     public function create_sample_button() {
-        $_POST = stripslashes_deep($_POST);
-        $out = Save_As_Pdf_Pdfcrowd_Public::create_button_from_style(
-            $_POST['style']);
-        echo $out;
-        die();
+        if(!wp_verify_nonce($_POST['nonce'],
+                            'wp_ajax_save_as_pdf_pdfcrowd_create_button' )) {
+            // nonce is not valid
+            die('error, refresh the page');
+        } if(!current_user_can('manage_options')) {
+            // missing right
+            die('access denied');
+        } else {
+            $_POST = stripslashes_deep($_POST);
+            $out = Save_As_Pdf_Pdfcrowd_Public::create_button_from_style(
+                $_POST['style']);
+            echo $out;
+            die();
+        }
     }
 }
 

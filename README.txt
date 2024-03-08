@@ -134,6 +134,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 3.2.1 =
+* Fix XSS in the button preview in the plugin settings.
+
 = 3.2.0 =
 * Fix XSS in the Custom HTML options of the plugin settings.
 * Fix warning in the debug log in case of error.
