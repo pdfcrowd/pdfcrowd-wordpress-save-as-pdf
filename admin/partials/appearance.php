@@ -305,7 +305,7 @@ function unfiltered_html_notice($option) {
                               data-empty-is-not-def="1"
                               rows=5
                               <?php if(!current_user_can('unfiltered_html')) echo('readonly'); ?>
-                              cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($button_custom_html); ?></textarea>
+                              cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo(esc_html($button_custom_html)); ?></textarea>
                         <div class="save-as-pdf-pdfcrowd-description">
                           <div>
                             Examples:

@@ -544,7 +544,10 @@
                     </label>
                 </th>
                 <td>
-                    <textarea id="save-as-pdf-pdfcrowd-header_html" name="save-as-pdf-pdfcrowd[header_html]" placeholder="" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($header_html); ?></textarea>
+                    <textarea id="save-as-pdf-pdfcrowd-header_html" name="save-as-pdf-pdfcrowd[header_html]" placeholder=""
+                    rows=5
+                    <?php if(!current_user_can('unfiltered_html')) echo('readonly'); ?>
+                    cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo(esc_html($header_html)); ?></textarea>
                         <div class="save-as-pdf-pdfcrowd-description">
                           <div>
                             Use the specified HTML code as the page header. The following classes can be used in the HTML. The content of the respective elements will be expanded as follows: <ul> <li><span class='field-value'>pdfcrowd-page-count</span> - the total page count of printed pages</li> <li><span class='field-value'>pdfcrowd-page-number</span> - the current page number</li> <li><span class='field-value'>pdfcrowd-source-url</span> - the source URL of the converted document</li> <li><span class='field-value'>pdfcrowd-source-title</span> - the title of the converted document</li> </ul> The following attributes can be used: <ul> <li><span class='field-value'>data-pdfcrowd-number-format</span> - specifies the type of the used numerals. Allowed values: <ul> <li><span class='field-value'>arabic</span> - Arabic numerals, they are used by default</li> <li><span class='field-value'>roman</span> - Roman numerals</li> <li><span class='field-value'>eastern-arabic</span> - Eastern Arabic numerals</li> <li><span class='field-value'>bengali</span> - Bengali numerals</li> <li><span class='field-value'>devanagari</span> - Devanagari numerals</li> <li><span class='field-value'>thai</span> - Thai numerals</li> <li><span class='field-value'>east-asia</span> - Chinese, Vietnamese, Japanese and Korean numerals</li> <li><span class='field-value'>chinese-formal</span> - Chinese formal numerals</li> </ul> Please contact us if you need another type of numerals.<br> Example:<br> &lt;span class='pdfcrowd-page-number' data-pdfcrowd-number-format='roman'&gt;&lt;/span&gt; </li> <li><span class='field-value'>data-pdfcrowd-placement</span> - specifies where to place the source URL. Allowed values: <ul> <li>The URL is inserted to the content <ul> <li> Example: &lt;span class='pdfcrowd-source-url'&gt;&lt;/span&gt;<br> will produce &lt;span&gt;http://example.com&lt;/span&gt; </li> </ul> </li> <li><span class='field-value'>href</span> - the URL is set to the href attribute <ul> <li> Example: &lt;a class='pdfcrowd-source-url' data-pdfcrowd-placement='href'&gt;Link to source&lt;/a&gt;<br> will produce &lt;a href='http://example.com'&gt;Link to source&lt;/a&gt; </li> </ul> </li> <li><span class='field-value'>href-and-content</span> - the URL is set to the href attribute and to the content <ul> <li> Example: &lt;a class='pdfcrowd-source-url' data-pdfcrowd-placement='href-and-content'&gt;&lt;/a&gt;<br> will produce &lt;a href='http://example.com'&gt;http://example.com&lt;/a&gt; </li> </ul> </li> </ul> </li> </ul>
@@ -616,7 +619,10 @@
                     </label>
                 </th>
                 <td>
-                    <textarea id="save-as-pdf-pdfcrowd-footer_html" name="save-as-pdf-pdfcrowd[footer_html]" placeholder="" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($footer_html); ?></textarea>
+                    <textarea id="save-as-pdf-pdfcrowd-footer_html" name="save-as-pdf-pdfcrowd[footer_html]" placeholder=""
+                    rows=5
+                    <?php if(!current_user_can('unfiltered_html')) echo('readonly'); ?>
+                    cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo(esc_html($footer_html)); ?></textarea>
                         <div class="save-as-pdf-pdfcrowd-description">
                           <div>
                             Use the specified HTML as the page footer. The following classes can be used in the HTML. The content of the respective elements will be expanded as follows: <ul> <li><span class='field-value'>pdfcrowd-page-count</span> - the total page count of printed pages</li> <li><span class='field-value'>pdfcrowd-page-number</span> - the current page number</li> <li><span class='field-value'>pdfcrowd-source-url</span> - the source URL of the converted document</li> <li><span class='field-value'>pdfcrowd-source-title</span> - the title of the converted document</li> </ul> The following attributes can be used: <ul> <li><span class='field-value'>data-pdfcrowd-number-format</span> - specifies the type of the used numerals. Allowed values: <ul> <li><span class='field-value'>arabic</span> - Arabic numerals, they are used by default</li> <li><span class='field-value'>roman</span> - Roman numerals</li> <li><span class='field-value'>eastern-arabic</span> - Eastern Arabic numerals</li> <li><span class='field-value'>bengali</span> - Bengali numerals</li> <li><span class='field-value'>devanagari</span> - Devanagari numerals</li> <li><span class='field-value'>thai</span> - Thai numerals</li> <li><span class='field-value'>east-asia</span> - Chinese, Vietnamese, Japanese and Korean numerals</li> <li><span class='field-value'>chinese-formal</span> - Chinese formal numerals</li> </ul> Please contact us if you need another type of numerals.<br> Example:<br> &lt;span class='pdfcrowd-page-number' data-pdfcrowd-number-format='roman'&gt;&lt;/span&gt; </li> <li><span class='field-value'>data-pdfcrowd-placement</span> - specifies where to place the source URL. Allowed values: <ul> <li>The URL is inserted to the content <ul> <li> Example: &lt;span class='pdfcrowd-source-url'&gt;&lt;/span&gt;<br> will produce &lt;span&gt;http://example.com&lt;/span&gt; </li> </ul> </li> <li><span class='field-value'>href</span> - the URL is set to the href attribute <ul> <li> Example: &lt;a class='pdfcrowd-source-url' data-pdfcrowd-placement='href'&gt;Link to source&lt;/a&gt;<br> will produce &lt;a href='http://example.com'&gt;Link to source&lt;/a&gt; </li> </ul> </li> <li><span class='field-value'>href-and-content</span> - the URL is set to the href attribute and to the content <ul> <li> Example: &lt;a class='pdfcrowd-source-url' data-pdfcrowd-placement='href-and-content'&gt;&lt;/a&gt;<br> will produce &lt;a href='http://example.com'&gt;http://example.com&lt;/a&gt; </li> </ul> </li> </ul> </li> </ul>
@@ -1378,7 +1384,10 @@
                     </label>
                 </th>
                 <td>
-                    <textarea id="save-as-pdf-pdfcrowd-custom_css" name="save-as-pdf-pdfcrowd[custom_css]" placeholder="" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($custom_css); ?></textarea>
+                    <textarea id="save-as-pdf-pdfcrowd-custom_css" name="save-as-pdf-pdfcrowd[custom_css]" placeholder=""
+                    rows=5
+                    <?php if(!current_user_can('unfiltered_html')) echo('readonly'); ?>
+                    cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo(esc_html($custom_css)); ?></textarea>
                         <div class="save-as-pdf-pdfcrowd-description">
                           <div>
                             Apply custom CSS to the input HTML document. It allows you to modify the visual appearance and layout of your HTML content dynamically. Tip: Using <span class='field-value'>!important</span> in custom CSS provides a way to prioritize and override conflicting styles.
@@ -1398,7 +1407,10 @@
                     </label>
                 </th>
                 <td>
-                    <textarea id="save-as-pdf-pdfcrowd-custom_javascript" name="save-as-pdf-pdfcrowd[custom_javascript]" placeholder="" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($custom_javascript); ?></textarea>
+                    <textarea id="save-as-pdf-pdfcrowd-custom_javascript" name="save-as-pdf-pdfcrowd[custom_javascript]" placeholder=""
+                    rows=5
+                    <?php if(!current_user_can('unfiltered_html')) echo('readonly'); ?>
+                    cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo(esc_html($custom_javascript)); ?></textarea>
                         <div class="save-as-pdf-pdfcrowd-description">
                           <div>
                             Run a custom JavaScript after the document is loaded and ready to print. The script is intended for post-load DOM manipulation (add/remove elements, update CSS, ...). In addition to the standard browser APIs, the custom JavaScript code can use helper functions from our <a href='https://pdfcrowd.com/api/libpdfcrowd/'>JavaScript library</a>.
@@ -1418,7 +1430,10 @@
                     </label>
                 </th>
                 <td>
-                    <textarea id="save-as-pdf-pdfcrowd-on_load_javascript" name="save-as-pdf-pdfcrowd[on_load_javascript]" placeholder="" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($on_load_javascript); ?></textarea>
+                    <textarea id="save-as-pdf-pdfcrowd-on_load_javascript" name="save-as-pdf-pdfcrowd[on_load_javascript]" placeholder=""
+                    rows=5
+                    <?php if(!current_user_can('unfiltered_html')) echo('readonly'); ?>
+                    cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo(esc_html($on_load_javascript)); ?></textarea>
                         <div class="save-as-pdf-pdfcrowd-description">
                           <div>
                             Run a custom JavaScript right after the document is loaded. The script is intended for early DOM manipulation (add/remove elements, update CSS, ...). In addition to the standard browser APIs, the custom JavaScript code can use helper functions from our <a href='https://pdfcrowd.com/api/libpdfcrowd/'>JavaScript library</a>.
@@ -2427,7 +2442,10 @@
                     </label>
                 </th>
                 <td>
-                    <textarea id="save-as-pdf-pdfcrowd-data_string" name="save-as-pdf-pdfcrowd[data_string]" placeholder="" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo($data_string); ?></textarea>
+                    <textarea id="save-as-pdf-pdfcrowd-data_string" name="save-as-pdf-pdfcrowd[data_string]" placeholder=""
+                    rows=5
+                    <?php if(!current_user_can('unfiltered_html')) echo('readonly'); ?>
+                    cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo(esc_html($data_string)); ?></textarea>
                         <div class="save-as-pdf-pdfcrowd-description">
                           <div>
                             Set the input data for template rendering. The data format can be JSON, XML, YAML or CSV.

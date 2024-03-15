@@ -134,6 +134,9 @@ Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with
 
 == Changelog ==
 
+= 3.2.2 =
+* Fix an issue with entering invalid HTML into the textarea plugin options.
+
 = 3.2.1 =
 * Fix XSS in the button preview in the plugin settings.
 

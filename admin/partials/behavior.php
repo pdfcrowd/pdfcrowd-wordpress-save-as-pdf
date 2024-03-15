@@ -221,7 +221,9 @@
                     id="save-as-pdf-pdfcrowd-email-message"
                     name="save-as-pdf-pdfcrowd[email_message]"
                     data-parent-opt="#save-as-pdf-pdfcrowd-button-disp-email"
-                    rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Your email message', $this->plugin_name);?>"><?php echo($email_message); ?></textarea>
+                    rows=5
+                    <?php if(!current_user_can('unfiltered_html')) echo('readonly'); ?>
+                    cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Your email message', $this->plugin_name);?>"><?php echo(esc_html($email_message)); ?></textarea>
                     <div class='save-as-pdf-pdfcrowd-description'>
                        <div> The email message template. HTML tags may be used in it. The template may contain predefined variables enclosed in <code>{{ }}</code> that are dynamically expanded. Available variables are: </div> <ul> <li>site - site name</li> <li>site_url - site url</li> <li>title - current page title</li> </ul> <div> Available variables for logged in user: </div> <ul> <li>user_name - user's login name</li> <li>user_first_name - user's first name</li> <li>user_last_name - user's last name</li> <li>user_display_name - user's display name</li> </ul> <div class='small-text'> If you need custom variables in the template, place <em>Save as</em> button into your code by PHP method with the template argument. </div>
                     </div>
@@ -413,7 +415,10 @@ function save_to_local($data) {
                     </label>
                 </th>
                 <td>
-                    <textarea id="save-as-pdf-pdfcrowd-custom-data" name="save-as-pdf-pdfcrowd[custom_data]" rows=5 cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Your custom data', $this->plugin_name);?>"><?php echo($custom_data); ?></textarea>
+                    <textarea id="save-as-pdf-pdfcrowd-custom-data" name="save-as-pdf-pdfcrowd[custom_data]"
+                    rows=5
+                    <?php if(!current_user_can('unfiltered_html')) echo('readonly'); ?>
+                    cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Your custom data', $this->plugin_name);?>"><?php echo(esc_html($custom_data)); ?></textarea>
                     <div class="save-as-pdf-pdfcrowd-description">
                       <div>
     Data assigned to the button.
