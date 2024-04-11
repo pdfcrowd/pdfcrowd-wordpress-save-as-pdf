@@ -1,6 +1,6 @@
-=== Save as PDF plugin by Pdfcrowd ===
+=== Save as PDF Plugin by Pdfcrowd ===
 Contributors: Pdfcrowd
-Tags: pdf, print, save, page, save to pdf, save as pdf, convert to pdf, pdf print, pdf button, pdf widget, pdf plugin, pdfcrowd, html, page as pdf
+Tags: pdf conversion, web to pdf, content export, pdf widget, printable content
 Requires PHP: 5.1
 Requires at least: 4.0
 Tested up to: 6.5
