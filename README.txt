@@ -111,8 +111,11 @@ In essence, the plugin sends a request to the Pdfcrowd API with either the URL o
 
 == Changelog ==
 
+= 3.3.1 =
+* Minor: Added a link to instructions for resolving an issue with the API license in the plugin settings.
+
 = 3.3.0 =
-* New: Show the API license error on the plugins dashboard and in the plugin details if this error occurs..
+* New: Show the API license error on the plugins dashboard and in the plugin details if this error occurs.
 * Fix an issue with entering invalid HTML into the button style options.
 
 = 3.2.3 =

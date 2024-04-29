@@ -16,7 +16,7 @@
 <?php if(get_option('save_as_pdf_pdfcrowd_error_code')) : ?>
 <div class='notice notice-error'><p><strong>
 <?php echo(get_option('save_as_pdf_pdfcrowd_error_code')) ?>
-</strong></p></div>
+ <a href="https://pdfcrowd.com/faq/how-to-resolve-plugin-license-errors/" target="_blank">Resolve</a> this issue.</strong></p></div>
 <?php endif; ?>
 
 <div
