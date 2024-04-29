@@ -170,12 +170,17 @@ class Save_As_Pdf_Pdfcrowd_Admin {
      * @since    1.0.0
      */
     public function add_action_links( $links ) {
-        return array_merge(
-            array(
-                'settings' => '<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_name ) . '">' . __( 'Settings', $this->plugin_name ) . '</a>'
-            ),
-            $links
+        $href = admin_url('options-general.php?page=' . $this->plugin_name);
+        $our_links = array(
+            'settings' => '<a href="' .  $href . '">' . __( 'Settings', $this->plugin_name ) . '</a>'
         );
+        $error_code = get_option('save_as_pdf_pdfcrowd_error_code');
+        if($error_code) {
+            $our_links[] = "<a id='save-as-pdf-pdfcrowd-lic-error' href='{$href}#save-as-pdf-pdfcrowd-license-settings' style='color: #b32d2e; font-weight: bolder;' title='{$error_code}'>" .
+                         __('License error', $this->plugin_name) .
+                         '</a>';
+        }
+        return array_merge($our_links, $links);
     }
 
     /**
@@ -187,10 +192,32 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         register_setting($this->plugin_name, $this->plugin_name, array($this, 'validate'));
     }
 
+    private function check_lic_change($new, $old) {
+        $keysToCheck = ['username', 'api_key'];
+
+        foreach ($keysToCheck as $key) {
+            if (isset($new[$key]) && !isset($old[$key])) {
+                return true;
+            }
+
+            if (!isset($new[$key]) && isset($old[$key])) {
+                return true;
+            }
+
+            if (isset($new[$key]) && isset($old[$key])) {
+                if ($new[$key] !== $old[$key]) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 3230;
+        $valid['version'] = 3300;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {
@@ -1256,6 +1283,10 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if(!current_user_can('unfiltered_html')) {
             $valid['button_custom_html'] = isset($options['button_custom_html']) ? $options['button_custom_html'] : '';
             $valid['button_indicator_html'] = isset($options['button_indicator_html']) ? $options['button_indicator_html'] : '';
+        }
+
+        if($this->check_lic_change($valid, $options)) {
+            delete_option('save_as_pdf_pdfcrowd_error_code');
         }
 
         return $valid;

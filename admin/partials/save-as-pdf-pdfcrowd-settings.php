@@ -13,6 +13,12 @@
 */
 ?>
 
+<?php if(get_option('save_as_pdf_pdfcrowd_error_code')) : ?>
+<div class='notice notice-error'><p><strong>
+<?php echo(get_option('save_as_pdf_pdfcrowd_error_code')) ?>
+</strong></p></div>
+<?php endif; ?>
+
 <div
   id="save-as-pdf-pdfcrowd-settings-set"
   class="save-as-pdf-pdfcrowd-metaboxes">

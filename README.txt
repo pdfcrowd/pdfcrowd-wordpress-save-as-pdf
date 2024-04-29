@@ -13,7 +13,7 @@ Enable visitors to download your webpages as PDF with just one click.
 == Description ==
 
 
-The "Save as PDF" plugin adds a convenient button to your WordPress website, allowing visitors to save the content of the webpage as a PDF file with just a click. This plugin is perfect for users who wish to read your content offline or share it easily with others. Whether it's articles, posts, or product pages, "Save as PDF" ensures your website's content is accessible in a widely used format.
+The "Save as PDF" plugin adds a convenient button to your WordPress website, allowing visitors to save the content of the webpage as a PDF file with just a click. This provides the option to read your content offline or share it easily with others. Whether it's articles, posts, or product pages, "Save as PDF" ensures your website's content is accessible in a widely used format.
 
 === Features ==
 
@@ -40,11 +40,11 @@ The plugin offers various customization options accessible through the WordPress
 
 == Licensing ==
 
-The plugin operates in demo mode by default. While fully functional, it adds a watermark and Pdfcrowd branding over the content.
+By default, the plugin operates in demo mode, which, while fully functional, adds a watermark and Pdfcrowd branding to the content.
 
 To remove the demo watermark and Pdfcrowd branding, you can purchase an [API license](https://pdfcrowd.com/pricing/api/?api=v2&ref=wordpress). Activate the license by entering your Pdfcrowd username and API key in the plugin settings under the License tab.
 
-A Pdfcrowd API license is versatile, allowing use across multiple WordPress websites for our [plugins](https://pdfcrowd.com/save-as-pdf-image-wordpress-plugin/). Additionally, the API license grants direct access to the [Pdfcrowd API](https://pdfcrowd.com/api/) for broader range of applications.
+A Pdfcrowd API license is versatile, allowing use across multiple WordPress websites for our [plugins](https://pdfcrowd.com/save-as-pdf-image-wordpress-plugin/). Additionally, the API license grants direct access to the [Pdfcrowd API](https://pdfcrowd.com/api/) for a broader range of applications.
 
 
 == Basic Troubleshooting ==
@@ -110,6 +110,10 @@ In essence, the plugin sends a request to the Pdfcrowd API with either the URL o
 
 
 == Changelog ==
+
+= 3.3.0 =
+* New: Show the API license error on the plugins dashboard and in the plugin details if this error occurs..
+* Fix an issue with entering invalid HTML into the button style options.
 
 = 3.2.3 =
 * Fix an issue when the error in a plugin option is displayed.
