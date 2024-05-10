@@ -1722,15 +1722,15 @@
                 <td>
                     <select name="save-as-pdf-pdfcrowd[rendering_mode]" id="save-as-pdf-pdfcrowd-rendering_mode" autocomplete="off">
                     <option value="default" <?php selected($rendering_mode, 'default');?>>The mode based on the standard browser print functionality.</option>
-                    <option value="viewport" <?php selected($rendering_mode, 'viewport');?>>The viewport width affects the @media min-width and max-width CSS properties.</option>
+                    <option value="viewport" <?php selected($rendering_mode, 'viewport');?>>Adapts the rendering according to the specified viewport width, influencing the @media (min-width) and @media (max-width) CSS properties.</option>
                     </select>
                         <div class="save-as-pdf-pdfcrowd-description">
                           <div>
-                            Set the rendering mode.
+                            Set the rendering mode of the page, allowing control over how content is displayed.
                           </div>
                         </div>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode and function parameter: "<strong>rendering_mode</strong>"<br>Possible values: <ul><li>"default" - The mode based on the standard browser print functionality.</li><li>"viewport" - The viewport width affects the @media min-width and max-width CSS properties. This mode can be used to choose a particular version (mobile, desktop, ..) of a responsive page.</li></ul>
+                            Shortcode and function parameter: "<strong>rendering_mode</strong>"<br>Possible values: <ul><li>"default" - The mode based on the standard browser print functionality.</li><li>"viewport" - Adapts the rendering according to the specified viewport width, influencing the @media (min-width) and @media (max-width) CSS properties. This mode is ideal for previewing different responsive designs of a web page, such as mobile or desktop views, by choosing the appropriate viewport size.</li></ul>
                         </div>
                 </td>
             </tr>
@@ -3020,7 +3020,8 @@
                 </th>
                 <td>
                     <select name="save-as-pdf-pdfcrowd[converter_version]" id="save-as-pdf-pdfcrowd-converter_version" autocomplete="off">
-                    <option value="latest" <?php selected($converter_version, 'latest');?>>The latest converter version.</option>
+                    <option value="latest" <?php selected($converter_version, 'latest');?>>The latest stable converter version - 20.10.</option>
+                    <option value="24.04" <?php selected($converter_version, '24.04');?>>Version 24.04. Currently in Beta.</option>
                     <option value="20.10" <?php selected($converter_version, '20.10');?>>Version 20.10.</option>
                     <option value="18.10" <?php selected($converter_version, '18.10');?>>Version 18.10.</option>
                     </select>
@@ -3030,7 +3031,7 @@
                           </div>
                         </div>
                         <div class='save-as-pdf-pdfcrowd-devi'>
-                            Shortcode and function parameter: "<strong>converter_version</strong>"<br>Possible values: <ul><li>"latest" - The latest converter version.</li><li>"20.10" - Version 20.10.</li><li>"18.10" - Version 18.10.</li></ul>
+                            Shortcode and function parameter: "<strong>converter_version</strong>"<br>Possible values: <ul><li>"latest" - The latest stable converter version - 20.10.</li><li>"24.04" - Version 24.04. Currently in Beta.</li><li>"20.10" - Version 20.10.</li><li>"18.10" - Version 18.10.</li></ul>
                         </div>
                 </td>
             </tr>

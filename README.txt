@@ -111,6 +111,9 @@ In essence, the plugin sends a request to the Pdfcrowd API with either the URL o
 
 == Changelog ==
 
+= 3.4.0 =
+* New value "24.04" for the "Converter Version" option allows you to try a beta version of the new converter.
+
 = 3.3.1 =
 * Minor: Added a link to instructions for resolving an issue with the API license in the plugin settings.
 

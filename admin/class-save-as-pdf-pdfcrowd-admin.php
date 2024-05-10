@@ -217,7 +217,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 3310;
+        $valid['version'] = 3400;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {
@@ -1139,11 +1139,11 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         if (isset($input['converter_version']) &&
             $input['converter_version'] != '') {
             $converter_version = $input['converter_version'];
-            if (!preg_match("/(?i)^(latest|20.10|18.10)$/", $converter_version))
+            if (!preg_match("/(?i)^(latest|24.04|20.10|18.10)$/", $converter_version))
                 add_settings_error(
                 'converter_version',
                 'empty_converter_version',
-                pdfcrowd_create_invalid_value_message($converter_version, 'Converter Version', 'Allowed values are latest, 20.10, 18.10.'));
+                pdfcrowd_create_invalid_value_message($converter_version, 'Converter Version', 'Allowed values are latest, 24.04, 20.10, 18.10.'));
             
         }
         $valid['converter_version'] = isset($input['converter_version']) ? $input['converter_version'] : '';
