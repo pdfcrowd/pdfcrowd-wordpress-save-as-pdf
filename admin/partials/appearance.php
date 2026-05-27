@@ -12,10 +12,13 @@
 * @subpackage Save_As_Pdf_Pdfcrowd/admin/partials
 */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 function unfiltered_html_notice($option) {
     if(!current_user_can('unfiltered_html')) {
-        echo('<div style="margin: 1rem 0;"><span class="notice notice-info" style="padding: 0.5rem">Only users with <code>unfiltered_html</code> capability can edit the '
-             . $option . ' option.</span></div>');
+        echo '<div style="margin: 1rem 0;"><span class="notice notice-info" style="padding: 0.5rem">Only users with <code>unfiltered_html</code> capability can edit the '
+             . esc_html($option) . ' option.</span></div>';
     }
 }
 
@@ -166,7 +169,9 @@ function unfiltered_html_notice($option) {
                     id="save-as-pdf-pdfcrowd-button-text"
                     name="save-as-pdf-pdfcrowd[button_text]"
                     data-empty-is-not-def="1"
-                    value="<?php echo($button_text);?>" placeholder="<?php esc_attr_e('Your text', $this->plugin_name);?>" autocomplete="off" />
+                    value="<?php esc_attr_e($button_text); ?>"
+                    placeholder="<?php esc_attr_e('Your text', $this->plugin_name); ?>" 
+                    autocomplete="off" />
                     <div class="save-as-pdf-pdfcrowd-description">
                       The text to be displayed on the button.
                     </div>
@@ -208,7 +213,7 @@ function unfiltered_html_notice($option) {
                                 class="regular-text save-as-pdf-pdfcrowd-text-for-radio"
                                 name="save-as-pdf-pdfcrowd[button_translation_domain]"
                                 data-parent-opt="#save-as-pdf-pdfcrowd-button-translation-domain"
-                                value="<?php echo($button_translation_domain);?>" placeholder="<?php esc_attr_e('default, the slug of your theme or plugin', $this->plugin_name);?>" autocomplete="off" />
+                                value="<?php esc_attr_e($button_translation_domain); ?>" placeholder="<?php esc_attr_e('default, the slug of your theme or plugin', $this->plugin_name);?>" autocomplete="off" />
                               </label>
                               <div class='save-as-pdf-pdfcrowd-devi save-as-pdf-pdfcrowd-nested-dsc'>
                                 Shortcode and function parameter: "<strong>button_translation_domain</strong>"<br>Possible values: "default", the slug of your theme or plugin
@@ -266,7 +271,8 @@ function unfiltered_html_notice($option) {
                               id="save-as-pdf-pdfcrowd-custom-image-url"
                               type="text"
                               data-parent-opt="#save-as-pdf-pdfcrowd-custom-image"
-                              class="clear regular-text save-as-pdf-pdfcrowd-text-for-radio" name="save-as-pdf-pdfcrowd[button_image_url]" value="<?php echo($button_image_url);?>"  autocomplete="off" />
+                              class="clear regular-text save-as-pdf-pdfcrowd-text-for-radio" name="save-as-pdf-pdfcrowd[button_image_url]"
+                              value="<?php esc_attr_e($button_image_url); ?>"  autocomplete="off" />
                         </label>
                         <div class="save-as-pdf-pdfcrowd-nested-dsc">
                           <div class="save-as-pdf-pdfcrowd-description">
@@ -304,8 +310,8 @@ function unfiltered_html_notice($option) {
                               data-parent-opt="#save-as-pdf-pdfcrowd-custom-image-h"
                               data-empty-is-not-def="1"
                               rows=5
-                              <?php if(!current_user_can('unfiltered_html')) echo('readonly'); ?>
-                              cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo(esc_html($button_custom_html)); ?></textarea>
+                              <?php if(!current_user_can('unfiltered_html')) echo 'readonly'; ?>
+                              cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php esc_html_e($button_custom_html); ?></textarea>
                         <div class="save-as-pdf-pdfcrowd-description">
                           <div>
                             Examples:
@@ -337,7 +343,7 @@ function unfiltered_html_notice($option) {
                     </label>
                 </th>
                 <td>
-                  <input type="number" class="small-text" min="6" id="save-as-pdf-pdfcrowd-button-image-width" name="save-as-pdf-pdfcrowd[button_image_width]" value="<?php echo $button_image_width ?>" autocomplete="off" />px
+                  <input type="number" class="small-text" min="6" id="save-as-pdf-pdfcrowd-button-image-width" name="save-as-pdf-pdfcrowd[button_image_width]" value="<?php esc_attr_e($button_image_width); ?>" autocomplete="off" />px
                   <div class="save-as-pdf-pdfcrowd-description">
                     The width of the image on the button.
                   </div>
@@ -354,7 +360,7 @@ function unfiltered_html_notice($option) {
                     </label>
                 </th>
                 <td>
-                    <input type="number" class="small-text" min="6" id="save-as-pdf-pdfcrowd-button-image-height" name="save-as-pdf-pdfcrowd[button_image_height]" value="<?php echo $button_image_height ?>" autocomplete="off" />px
+                    <input type="number" class="small-text" min="6" id="save-as-pdf-pdfcrowd-button-image-height" name="save-as-pdf-pdfcrowd[button_image_height]" value="<?php esc_attr_e($button_image_height); ?>" autocomplete="off" />px
                   <div class="save-as-pdf-pdfcrowd-description">
                     The height of the image on the button.
                   </div>
@@ -371,7 +377,13 @@ function unfiltered_html_notice($option) {
                   </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-button-id" name="save-as-pdf-pdfcrowd[button_id]" value="<?php echo($button_id);?>" placeholder="<?php esc_attr_e('Your id for the button', $this->plugin_name);?>" autocomplete="off">
+                  <input type="text"
+                         class="regular-text"
+                         id="save-as-pdf-pdfcrowd-button-id"
+                         name="save-as-pdf-pdfcrowd[button_id]"
+                         value="<?php esc_attr_e($button_id); ?>"
+                         placeholder="<?php esc_attr_e('Your id for the button', $this->plugin_name);?>"
+                         autocomplete="off">
                     <div class="save-as-pdf-pdfcrowd-description">
                       The ID used for the button in HTML to be used for the custom button styling or JavaScript event handler.
                     </div>
@@ -462,18 +474,18 @@ function unfiltered_html_notice($option) {
                     <table class="save-as-pdf-pdfcrowd-inner-table">
                         <tr>
                             <td>
-                                Top <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-margin-top" name="save-as-pdf-pdfcrowd[button_margin_top]" value="<?php echo $button_margin_top ?>" autocomplete="off" />px
+                                Top <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-margin-top" name="save-as-pdf-pdfcrowd[button_margin_top]" value="<?php esc_attr_e($button_margin_top); ?>" autocomplete="off" />px
                             </td>
                             <td>
-                                Right <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-margin-right" name="save-as-pdf-pdfcrowd[button_margin_right]" value="<?php echo $button_margin_right ?>" autocomplete="off" />px
+                                Right <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-margin-right" name="save-as-pdf-pdfcrowd[button_margin_right]" value="<?php esc_attr_e($button_margin_right); ?>" autocomplete="off" />px
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Bottom <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-margin-bottom" name="save-as-pdf-pdfcrowd[button_margin_bottom]" value="<?php echo $button_margin_bottom ?>" autocomplete="off" />px
+                                Bottom <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-margin-bottom" name="save-as-pdf-pdfcrowd[button_margin_bottom]" value="<?php esc_attr_e($button_margin_bottom); ?>" autocomplete="off" />px
                             </td>
                             <td>
-                                Left <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-margin-left" name="save-as-pdf-pdfcrowd[button_margin_left]" value="<?php echo $button_margin_left ?>" autocomplete="off" />px
+                                Left <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-margin-left" name="save-as-pdf-pdfcrowd[button_margin_left]" value="<?php esc_attr_e($button_margin_left); ?>" autocomplete="off" />px
                             </td>
                         </tr>
                     </table>
@@ -540,7 +552,7 @@ function unfiltered_html_notice($option) {
                         </label>
                     </th>
                     <td>
-                      <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-text-size" name="save-as-pdf-pdfcrowd[button_text_size]" value="<?php echo $button_text_size ?>" autocomplete="off" />px
+                      <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-text-size" name="save-as-pdf-pdfcrowd[button_text_size]" value="<?php esc_attr_e($button_text_size); ?>" autocomplete="off" />px
                       <div class="save-as-pdf-pdfcrowd-description">
                         The font size for the button.
                       </div>
@@ -595,7 +607,7 @@ function unfiltered_html_notice($option) {
                         class="save-as-pdf-pdfcrowd-color-field"
                         id="save-as-pdf-pdfcrowd-button-text-color"
                         name="save-as-pdf-pdfcrowd[button_text_color]"
-                        value="<?php echo $button_text_color;?>"
+                        value="<?php esc_attr_e($button_text_color); ?>"
                         data-default-color="#ffffff" autocomplete="off" />
                       <div class="save-as-pdf-pdfcrowd-description">
                         The font color for the button.
@@ -613,7 +625,7 @@ function unfiltered_html_notice($option) {
                         </label>
                     </th>
                     <td>
-                        <input type="text" class="save-as-pdf-pdfcrowd-color-field" id="save-as-pdf-pdfcrowd-button-background-color" name="save-as-pdf-pdfcrowd[button_background_color]" value="<?php echo($button_background_color);?>" data-default-color="#007bff" autocomplete="off" />
+                        <input type="text" class="save-as-pdf-pdfcrowd-color-field" id="save-as-pdf-pdfcrowd-button-background-color" name="save-as-pdf-pdfcrowd[button_background_color]" value="<?php esc_attr_e($button_background_color); ?>" data-default-color="#007bff" autocomplete="off" />
                       <div class="save-as-pdf-pdfcrowd-description">
                         The background color of the button.
                       </div>
@@ -630,7 +642,7 @@ function unfiltered_html_notice($option) {
                       </label>
                     </th>
                     <td>
-                        <input type="text" class="save-as-pdf-pdfcrowd-color-field" id="save-as-pdf-pdfcrowd-button-border-color" name="save-as-pdf-pdfcrowd[button_border_color]" value="<?php echo($button_border_color);?>" data-default-color="#007bff" autocomplete="off" />
+                        <input type="text" class="save-as-pdf-pdfcrowd-color-field" id="save-as-pdf-pdfcrowd-button-border-color" name="save-as-pdf-pdfcrowd[button_border_color]" value="<?php esc_attr_e($button_border_color); ?>" data-default-color="#007bff" autocomplete="off" />
                       <div class="save-as-pdf-pdfcrowd-description">
                         The border color of the button.
                       </div>
@@ -678,7 +690,7 @@ function unfiltered_html_notice($option) {
                         </label>
                     </th>
                     <td>
-                        <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-border-width" name="save-as-pdf-pdfcrowd[button_border_width]" value="<?php echo $button_border_width ?>" autocomplete="off" />px
+                        <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-border-width" name="save-as-pdf-pdfcrowd[button_border_width]" value="<?php esc_attr_e($button_border_width); ?>" autocomplete="off" />px
                       <div class="save-as-pdf-pdfcrowd-description">
                         The border width of the button.
                       </div>
@@ -696,18 +708,18 @@ function unfiltered_html_notice($option) {
                         <table class="save-as-pdf-pdfcrowd-inner-table">
                             <tr>
                                 <td>
-                                    Top <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-padding-top" name="save-as-pdf-pdfcrowd[button_padding_top]" value="<?php echo $button_padding_top ?>" autocomplete="off" />px
+                                    Top <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-padding-top" name="save-as-pdf-pdfcrowd[button_padding_top]" value="<?php esc_attr_e($button_padding_top); ?>" autocomplete="off" />px
                                 </td>
                                 <td>
-                                    Right <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-padding-right" name="save-as-pdf-pdfcrowd[button_padding_right]" value="<?php echo $button_padding_right ?>" autocomplete="off" />px
+                                    Right <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-padding-right" name="save-as-pdf-pdfcrowd[button_padding_right]" value="<?php esc_attr_e($button_padding_right); ?>" autocomplete="off" />px
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    Bottom <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-padding-bottom" name="save-as-pdf-pdfcrowd[button_padding_bottom]" value="<?php echo $button_padding_bottom ?>" autocomplete="off" />px
+                                    Bottom <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-padding-bottom" name="save-as-pdf-pdfcrowd[button_padding_bottom]" value="<?php esc_attr_e($button_padding_bottom); ?>" autocomplete="off" />px
                                 </td>
                                 <td>
-                                    Left <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-padding-left" name="save-as-pdf-pdfcrowd[button_padding_left]" value="<?php echo $button_padding_left ?>" autocomplete="off" />px
+                                    Left <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-padding-left" name="save-as-pdf-pdfcrowd[button_padding_left]" value="<?php esc_attr_e($button_padding_left); ?>" autocomplete="off" />px
                                 </td>
                             </tr>
                         </table>
@@ -724,7 +736,7 @@ function unfiltered_html_notice($option) {
                         </label>
                     </th>
                     <td>
-                        <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-radius" name="save-as-pdf-pdfcrowd[button_radius]" value="<?php echo $button_radius ?>" autocomplete="off" />px
+                        <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-radius" name="save-as-pdf-pdfcrowd[button_radius]" value="<?php esc_attr_e($button_radius); ?>" autocomplete="off" />px
                       <div class="save-as-pdf-pdfcrowd-description">
                         The radius of the button.
                       </div>
@@ -825,8 +837,8 @@ function unfiltered_html_notice($option) {
                               name="save-as-pdf-pdfcrowd[button_indicator_html]"
                               data-parent-opt="#save-as-pdf-pdfcrowd-button-indicator-html"
                               rows=3
-                              <?php if(!current_user_can('unfiltered_html')) echo('readonly'); ?>
-                              cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo(esc_html($button_indicator_html));?></textarea>
+                              <?php if(!current_user_can('unfiltered_html')) echo 'readonly'; ?>
+                              cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?php esc_html_e($button_indicator_html); ?></textarea>
                               <div class="save-as-pdf-pdfcrowd-devi save-as-pdf-pdfcrowd-mb-2">
                                 Shortcode and function parameter: "<strong>button_indicator_html</strong>"<br>Possible values: your HTML code
                               </div>
@@ -846,7 +858,7 @@ function unfiltered_html_notice($option) {
                                 class="regular-text save-as-pdf-pdfcrowd-text-for-radio"
                                 id="save-as-pdf-pdfcrowd-button-custom-indicator"
                                 data-parent-opt="#save-as-pdf-pdfcrowd-button-indicator-custom"
-                                name="save-as-pdf-pdfcrowd[button_custom_indicator]" value="<?php echo($button_custom_indicator);?>" placeholder="<?php esc_attr_e('Your JavaScript function name', $this->plugin_name);?>" autocomplete="off" />
+                                name="save-as-pdf-pdfcrowd[button_custom_indicator]" value="<?php esc_attr_e($button_custom_indicator); ?>" placeholder="<?php esc_attr_e('Your JavaScript function name', $this->plugin_name);?>" autocomplete="off" />
                             <div class="save-as-pdf-pdfcrowd-nested-dsc">
                                 <div class="save-as-pdf-pdfcrowd-description">
                                 <div>
@@ -901,7 +913,7 @@ function unfiltered_html_notice($option) {
                     </label>
                 </th>
                 <td>
-                    <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-indicator-timeout" name="save-as-pdf-pdfcrowd[button_indicator_timeout]" value="<?php echo $button_indicator_timeout ?>" autocomplete="off" /> seconds
+                    <input type="number" class="small-text" min="0" id="save-as-pdf-pdfcrowd-button-indicator-timeout" name="save-as-pdf-pdfcrowd[button_indicator_timeout]" value="<?php esc_attr_e($button_indicator_timeout); ?>" autocomplete="off" /> seconds
                     <div class="save-as-pdf-pdfcrowd-description">
                       If the indicator remains active even after the conversion has finished, set a time limit on the conversion time of your typical document, e.g. 5 seconds. Otherwise, use the default value of 60 seconds.
                     </div>

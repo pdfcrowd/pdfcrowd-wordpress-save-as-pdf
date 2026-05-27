@@ -11,6 +11,9 @@
  * @package    Save_As_Pdf_Pdfcrowd
  * @subpackage Save_As_Pdf_Pdfcrowd/admin/partials
  */
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 ?>
 
 <div class="wrap">
@@ -19,7 +22,7 @@
     method="post"
     id="save-as-pdf-pdfcrowd-options"
     name="save-as-pdf-pdfcrowd-options"
-    data-nonce="<?php echo wp_create_nonce('wp_ajax_save_as_pdf_pdfcrowd_create_button'); ?>"
+    data-nonce="<?php esc_attr_e(wp_create_nonce('wp_ajax_save_as_pdf_pdfcrowd_create_button')); ?>"
     action="options.php">
 
         <?php
@@ -35,7 +38,8 @@
              class="save-as-pdf-pdfcrowd-basic-mode">
           <h1>
             <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTkuMjI3IiBoZWlnaHQ9IjQzLjI1NiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03My44MDIgLTM4Ni4wNikiPjxnIHRyYW5zZm9ybT0ibWF0cml4KDEuNzk0OCAwIDAgMS43OTQ4IC0yNjI2LjUgLTIxMi4wNikiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmOTUwMCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0ibTE1MTQuNSAzMzUuODZjMC40NDI2IDAuMDU0IDEuMjM2Ni0wLjI0MzM2IDEuMDAwMiAwLjQ4OTY1djE4LjUxMWMtMC40NDI2LTAuMDU0LTEuMjM2NiAwLjI0MzM3LTEuMDAwMi0wLjQ4OTY1di0xOC41MTF6IiBvcGFjaXR5PSIuOTkiIHN0cm9rZS13aWR0aD0iNC45OTk4Ii8+PHBhdGggZD0ibTE1MDYuMyAzNDQuNTRoMS40NzQ4djEwLjU1NWgtMS40NzQ4di0xMC41NTV6IiBvcGFjaXR5PSIuOTkiIHN0cm9rZS13aWR0aD0iNC41MjUxIi8+PHBhdGggZD0ibTE1MjIuNCAzMzkuNzhjMC4zNzU1IDAuMTIzMSAxLjI5ODYtMC4zMDEzMyAxLjE2OTQgMC4zMjY0M3YxNC44NDNjLTAuMzc1NS0wLjEyMzExLTEuMjk4NiAwLjMwMTMzLTEuMTY5NC0wLjMyNjQzdi0xNC44NDN6IiBvcGFjaXR5PSIuOTkiIHN0cm9rZS13aWR0aD0iNC44MzA2Ii8+PHBhdGggZD0ibTE1MzUuMSAzNTMuMjh2Mi4xNjQ5aC01LjE2NDl2LTIuMTY0OWg1LjE2NDl6IiBvcGFjaXR5PSIuOTkiIHN0cm9rZS13aWR0aD0iMy44MzUxIi8+PC9nPjwvZz48L3N2Zz4K" style="height: 24px;"/>
-            <?php echo esc_html( get_admin_page_title() ); ?>
+            <?php esc_html_e( get_admin_page_title() ); ?>
+            <span id="save-as-pdf-pdfcrowd-version">v4.5.8</span>
           </h1>
 
           <div id="save-as-pdf-pdfcrowd-sticky">
@@ -145,7 +149,9 @@
                $button_translation = isset($options['button_translation']) ? $options['button_translation'] : '';
                $button_translation_domain = isset($options['button_translation_domain']) ? $options['button_translation_domain'] : '';
                $button_user_drawings = isset($options['button_user_drawings']) ? $options['button_user_drawings'] : '';
+               $content_viewport_height = isset($options['content_viewport_height']) ? $options['content_viewport_height'] : '';
                $conversion_mode = isset($options['conversion_mode']) ? $options['conversion_mode'] : '';
+               $converter_user_agent = isset($options['converter_user_agent']) ? $options['converter_user_agent'] : '';
                $converter_version = isset($options['converter_version']) ? $options['converter_version'] : '';
                $custom_data = isset($options['custom_data']) ? $options['custom_data'] : '';
                $dev_mode = isset($options['dev_mode']) ? $options['dev_mode'] : '';
@@ -171,8 +177,6 @@
                $url_lookup = isset($options['url_lookup']) ? $options['url_lookup'] : '';
                $username = isset($options['username']) ? $options['username'] : '';
                $version = isset($options['version']) ? $options['version'] : '';
-               $viewport_height = isset($options['viewport_height']) ? $options['viewport_height'] : '';
-               $viewport_width = isset($options['viewport_width']) ? $options['viewport_width'] : '';
 
                  $page_size = isset($options['page_size']) ? $options['page_size'] : 'A4';
                  $page_width = isset($options['page_width']) ? $options['page_width'] : '';
@@ -183,12 +187,8 @@
                  $margin_bottom = isset($options['margin_bottom']) ? $options['margin_bottom'] : '';
                  $margin_left = isset($options['margin_left']) ? $options['margin_left'] : '';
                  $print_page_range = isset($options['print_page_range']) ? $options['print_page_range'] : '';
-                 $page_numbering_offset = isset($options['page_numbering_offset']) ? $options['page_numbering_offset'] : '';
-                 $content_area_x = isset($options['content_area_x']) ? $options['content_area_x'] : '';
-                 $content_area_y = isset($options['content_area_y']) ? $options['content_area_y'] : '';
-                 $content_area_width = isset($options['content_area_width']) ? $options['content_area_width'] : '';
-                 $content_area_height = isset($options['content_area_height']) ? $options['content_area_height'] : '';
-                 $css_page_rule_mode = isset($options['css_page_rule_mode']) ? $options['css_page_rule_mode'] : 'default';
+                 $content_viewport_width = isset($options['content_viewport_width']) ? $options['content_viewport_width'] : 'medium';
+                 $content_fit_mode = isset($options['content_fit_mode']) ? $options['content_fit_mode'] : 'auto';
                  $remove_blank_pages = isset($options['remove_blank_pages']) ? $options['remove_blank_pages'] : 'trailing';
                  $header_url = isset($options['header_url']) ? $options['header_url'] : '';
                  $header_html = isset($options['header_html']) ? $options['header_html'] : '';
@@ -200,6 +200,7 @@
                  $exclude_header_on_pages = isset($options['exclude_header_on_pages']) ? $options['exclude_header_on_pages'] : '';
                  $exclude_footer_on_pages = isset($options['exclude_footer_on_pages']) ? $options['exclude_footer_on_pages'] : '';
                  $header_footer_scale_factor = isset($options['header_footer_scale_factor']) ? $options['header_footer_scale_factor'] : '';
+                 $page_numbering_offset = isset($options['page_numbering_offset']) ? $options['page_numbering_offset'] : '';
                  $page_watermark = isset($options['page_watermark']) ? $options['page_watermark'] : '';
                  $page_watermark_url = isset($options['page_watermark_url']) ? $options['page_watermark_url'] : '';
                  $multipage_watermark = isset($options['multipage_watermark']) ? $options['multipage_watermark'] : '';
@@ -226,6 +227,7 @@
                  $fail_on_main_url_error = isset($options['fail_on_main_url_error']) ? $options['fail_on_main_url_error'] : '';
                  $fail_on_any_url_error = isset($options['fail_on_any_url_error']) ? $options['fail_on_any_url_error'] : '';
                  $no_xpdfcrowd_header = isset($options['no_xpdfcrowd_header']) ? $options['no_xpdfcrowd_header'] : '';
+                 $css_page_rule_mode = isset($options['css_page_rule_mode']) ? $options['css_page_rule_mode'] : 'default';
                  $custom_css = isset($options['custom_css']) ? $options['custom_css'] : '';
                  $custom_javascript = isset($options['custom_javascript']) ? $options['custom_javascript'] : '';
                  $on_load_javascript = isset($options['on_load_javascript']) ? $options['on_load_javascript'] : '';
@@ -236,6 +238,8 @@
                  $wait_for_element = isset($options['wait_for_element']) ? $options['wait_for_element'] : '';
                  $auto_detect_element_to_convert = isset($options['auto_detect_element_to_convert']) ? $options['auto_detect_element_to_convert'] : '';
                  $readability_enhancements = isset($options['readability_enhancements']) ? $options['readability_enhancements'] : 'none';
+                 $viewport_width = isset($options['viewport_width']) ? $options['viewport_width'] : '';
+                 $viewport_height = isset($options['viewport_height']) ? $options['viewport_height'] : '';
                  $scale_factor = isset($options['scale_factor']) ? $options['scale_factor'] : '';
                  $jpeg_quality = isset($options['jpeg_quality']) ? $options['jpeg_quality'] : '';
                  $convert_images_to_jpeg = isset($options['convert_images_to_jpeg']) ? $options['convert_images_to_jpeg'] : 'none';
@@ -280,6 +284,10 @@
                  $client_certificate = isset($options['client_certificate']) ? $options['client_certificate'] : '';
                  $client_certificate_password = isset($options['client_certificate_password']) ? $options['client_certificate_password'] : '';
                  $layout_dpi = isset($options['layout_dpi']) ? $options['layout_dpi'] : '';
+                 $content_area_x = isset($options['content_area_x']) ? $options['content_area_x'] : '';
+                 $content_area_y = isset($options['content_area_y']) ? $options['content_area_y'] : '';
+                 $content_area_width = isset($options['content_area_width']) ? $options['content_area_width'] : '';
+                 $content_area_height = isset($options['content_area_height']) ? $options['content_area_height'] : '';
                  $contents_matrix = isset($options['contents_matrix']) ? $options['contents_matrix'] : '';
                  $header_matrix = isset($options['header_matrix']) ? $options['header_matrix'] : '';
                  $footer_matrix = isset($options['footer_matrix']) ? $options['footer_matrix'] : '';
@@ -287,6 +295,9 @@
                  $main_document_css_annotation = isset($options['main_document_css_annotation']) ? $options['main_document_css_annotation'] : '';
                  $header_footer_css_annotation = isset($options['header_footer_css_annotation']) ? $options['header_footer_css_annotation'] : '';
                  $max_loading_time = isset($options['max_loading_time']) ? $options['max_loading_time'] : '';
+                 $conversion_config = isset($options['conversion_config']) ? $options['conversion_config'] : '';
+                 $conversion_config_file = isset($options['conversion_config_file']) ? $options['conversion_config_file'] : '';
+                 $subprocess_referrer = isset($options['subprocess_referrer']) ? $options['subprocess_referrer'] : '';
                  $use_http = isset($options['use_http']) ? $options['use_http'] : '';
                  $retry_count = isset($options['retry_count']) ? $options['retry_count'] : '';
 
@@ -406,7 +417,7 @@
                          class="save-as-pdf-pdfcrowd-clearable-input"
                          autocomplete="off"
                          style="width: 100%;"
-                         placeholder="     Filter options by name">
+                         placeholder="Filter options by name">
                          <svg id="save-as-pdf-pdfcrowd-options-filter-icon"
                               xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
   <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
@@ -501,9 +512,7 @@
                   You can also use our
                <a href="https://pdfcrowd.com/contact/?ref=wordpress&pr=save-as-pdf-pdfcrowd"
                   title="Contact us"
-                  target="_blank">
-                  contact form
-               </a>.
+                  target="_blank">contact form</a>.
              </div>
 
              <div style="line-height: normal; margin-top:1em;">
@@ -572,7 +581,7 @@
 
              <hr style="margin-top: 2em">
              <div id="save-as-pdf-pdfcrowd-support-notes">
-               If you like "Save as PDF by Pdfcrowd", please rate it using
+               If you like "Save as PDF by PDFCrowd", please rate it using
                <a href='https://wordpress.org/support/plugin/save-as-pdf-by-pdfcrowd/reviews/#new-post' target='_blank'>★★★★★</a>.
              </div>
         </div>
@@ -581,10 +590,11 @@
     <div style="display: none">
         <input type="hidden" id="save-as-pdf-pdfcrowd-hidden-header"
                value="<?php
-        $site_name = get_bloginfo('name');
-        $site_desc = get_bloginfo('description');
-        $site_css = get_bloginfo('stylesheet_url');
-        $site_url = get_bloginfo('url');
+        $site_name = esc_html(get_bloginfo('name'));
+        $site_desc = esc_html(get_bloginfo('description'));
+        $site_css = esc_url(get_bloginfo('stylesheet_url'));
+        $site_url = esc_url(get_bloginfo('url'));
+        // variables are escaped prior the echo command
         echo <<<EOT
 <html>
   <head>

@@ -11,6 +11,9 @@
 * @package    Save_As_Pdf_Pdfcrowd
 * @subpackage Save_As_Pdf_Pdfcrowd/admin/partials
 */
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 ?>
 
  <div id="save-as-pdf-pdfcrowd-mode"

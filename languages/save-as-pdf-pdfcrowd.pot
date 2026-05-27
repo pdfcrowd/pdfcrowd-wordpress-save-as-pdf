@@ -1,8 +1,8 @@
-# Copyright (C) 2020 Pdfcrowd <support@pdfcrowd.com>
-# This file is distributed under the same license as the Save as PDF by Pdfcrowd plugin.
+# Copyright (C) 2020 PDFCrowd <support@pdfcrowd.com>
+# This file is distributed under the same license as the Save as PDF by PDFCrowd plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Save as PDF by Pdfcrowd 3.4.0\n"
+"Project-Id-Version: Save as PDF by PDFCrowd 4.5.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/save-as-pdf-pdfcrowd\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +14,19 @@ msgstr ""
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: save_as_pdf_pdfcrowd\n"
 
-msgid "Save as PDF by Pdfcrowd"
+msgid "Save as PDF by PDFCrowd"
+msgstr ""
+
+msgid "The plugin is currently configured to use converter version %1$s. The latest version, 24.04, is now available."
+msgstr ""
+
+msgid "To upgrade, press the button below."
+msgstr ""
+
+msgid "Auto-upgrade to 24.04"
+msgstr ""
+
+msgid "Never show again"
 msgstr ""
 
 msgid "Settings"

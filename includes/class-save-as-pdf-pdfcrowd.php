@@ -13,6 +13,9 @@
  * @subpackage Save_As_Pdf_Pdfcrowd/includes
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 /**
  * The core plugin class.
  *
@@ -25,7 +28,7 @@
  * @since      1.0.0
  * @package    Save_As_Pdf_Pdfcrowd
  * @subpackage Save_As_Pdf_Pdfcrowd/includes
- * @author     Pdfcrowd <support@pdfcrowd.com>
+ * @author     PDFCrowd <support@pdfcrowd.com>
  */
 class Save_As_Pdf_Pdfcrowd {
 
@@ -92,7 +95,7 @@ class Save_As_Pdf_Pdfcrowd {
             return SAVE_AS_PDF_VERSION;
         }
 
-        return '3.4.0';
+        return '4.5.8';
     }
 
     /**
@@ -172,11 +175,16 @@ class Save_As_Pdf_Pdfcrowd {
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_menu' );
         $this->loader->add_action( 'admin_init', $plugin_admin, 'options_update');
 
+        $this->loader->add_action( 'admin_notices', $plugin_admin, 'plugin_admin_notices');
+
         $plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . 'save-as-pdf-pdfcrowd.php' );
         $this->loader->add_filter( 'plugin_action_links_' . $plugin_basename, $plugin_admin, 'add_action_links' );
 
         $this->loader->add_action('wp_ajax_save_as_pdf_pdfcrowd_create_button',
                                   $this, 'create_sample_button');
+
+        $this->loader->add_action('wp_ajax_save_as_pdf_pdfcrowd_dismiss_upgrade',
+                                  $this, 'dismiss_upgrade');
     }
 
     /**
@@ -247,9 +255,19 @@ class Save_As_Pdf_Pdfcrowd {
             $_POST = stripslashes_deep($_POST);
             $out = Save_As_Pdf_Pdfcrowd_Public::create_button_from_style(
                 $_POST['style']);
+
+            // $out contains HTML code with Save as PDF button
+            // it can not be escaped
             echo $out;
             die();
         }
+    }
+
+    public function dismiss_upgrade() {
+        update_user_meta(get_current_user_id(),
+                         'save_as_pdf_pdfcrowd_dismissed_upgrade',
+                         true);
+        wp_die();
     }
 }
 

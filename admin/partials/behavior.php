@@ -11,6 +11,9 @@
 * @package    Save_As_Pdf_Pdfcrowd
 * @subpackage Save_As_Pdf_Pdfcrowd/admin/partials
 */
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 ?>
 
  <div id="save-as-pdf-pdfcrowd-behavior"
@@ -74,7 +77,9 @@
                     id="save-as-pdf-pdfcrowd-email-from"
                     data-parent-opt="#save-as-pdf-pdfcrowd-button-disp-email"
                     name="save-as-pdf-pdfcrowd[email_from]"
-                    value="<?php echo($email_from);?>" placeholder="<?php esc_attr_e('Sender address', $this->plugin_name);?>" autocomplete="off" />
+                    value="<?php esc_attr_e($email_from); ?>"
+                    placeholder="<?php esc_attr_e('Sender address', $this->plugin_name); ?>"
+                    autocomplete="off" />
                     <div class='save-as-pdf-pdfcrowd-description'>
                       The sender email. It can be empty if specified in your mailer plugin.
                     </div>
@@ -128,7 +133,10 @@
                                 id="save-as-pdf-pdfcrowd-er-email-address"
                                 type="text"
                                 data-parent-opt="#save-as-pdf-pdfcrowd-er-address"
-                                class="regular-text save-as-pdf-pdfcrowd-text-for-radio" name="save-as-pdf-pdfcrowd[email_recipient_address]" value="<?php echo($email_recipient_address);?>" placeholder="<?php esc_attr_e('info@example.com', $this->plugin_name);?>" autocomplete="off">
+                                class="regular-text save-as-pdf-pdfcrowd-text-for-radio" name="save-as-pdf-pdfcrowd[email_recipient_address]"
+                                value="<?php esc_attr_e($email_recipient_address); ?>"
+                                placeholder="<?php esc_attr_e('info@example.com', $this->plugin_name); ?>"
+                                autocomplete="off">
                                 <div class='save-as-pdf-pdfcrowd-devi save-as-pdf-pdfcrowd-nested-dsc'>
                                     Shortcode and function parameter: "<strong>email_recipient_address</strong>"
                                 </div>
@@ -154,7 +162,9 @@
                     id="save-as-pdf-pdfcrowd-email-cc"
                     name="save-as-pdf-pdfcrowd[email_cc]"
                     data-parent-opt="#save-as-pdf-pdfcrowd-button-disp-email"
-                    value="<?php echo($email_cc);?>" placeholder="<?php esc_attr_e('Carbon copy address', $this->plugin_name);?>" autocomplete="off" />
+                    value="<?php esc_attr_e($email_cc); ?>"
+                    placeholder="<?php esc_attr_e('Carbon copy address', $this->plugin_name); ?>"
+                    autocomplete="off" />
                     <div class='save-as-pdf-pdfcrowd-description'>
                       Additional recipients who will receive a copy of the email. It can be either a single email address or a comma-separated list of email addresses.
                     </div>
@@ -177,7 +187,9 @@
                     id="save-as-pdf-pdfcrowd-email-bcc"
                     name="save-as-pdf-pdfcrowd[email_bcc]"
                     data-parent-opt="#save-as-pdf-pdfcrowd-button-disp-email"
-                    value="<?php echo($email_bcc);?>" placeholder="<?php esc_attr_e('Blind carbon copy address', $this->plugin_name);?>" autocomplete="off" />
+                    value="<?php esc_attr_e($email_bcc); ?>"
+                    placeholder="<?php esc_attr_e('Blind carbon copy address', $this->plugin_name); ?>"
+                    autocomplete="off" />
                     <div class='save-as-pdf-pdfcrowd-description'>
                       Additional recipients who will receive a copy of the email without revealing their email addresses to the other recipients. It can be either a single email address or a comma-separated list of email addresses.
                     </div>
@@ -200,7 +212,9 @@
                     id="save-as-pdf-pdfcrowd-email-subject"
                     name="save-as-pdf-pdfcrowd[email_subject]"
                     data-parent-opt="#save-as-pdf-pdfcrowd-button-disp-email"
-                    value="<?php echo($email_subject);?>" placeholder="<?php esc_attr_e('Your subject', $this->plugin_name);?>" autocomplete="off" />
+                    value="<?php esc_attr_e($email_subject); ?>"
+                    placeholder="<?php esc_attr_e('Your subject', $this->plugin_name); ?>"
+                    autocomplete="off" />
                     <div class='save-as-pdf-pdfcrowd-description'>
                        <div> The email subject template. The template may contain predefined variables enclosed in <code>{{ }}</code> that are dynamically expanded. Available variables are: </div> <ul> <li>site - site name</li> <li>site_url - site url</li> <li>title - current page title</li> </ul> <div> Available variables for logged in user: </div> <ul> <li>user_name - user's login name</li> <li>user_first_name - user's first name</li> <li>user_last_name - user's last name</li> <li>user_display_name - user's display name</li> </ul> <div class='small-text'> If you need custom variables in the template, place <em>Save as</em> button into your code by PHP method with the template argument. </div>
                     </div>
@@ -222,8 +236,8 @@
                     name="save-as-pdf-pdfcrowd[email_message]"
                     data-parent-opt="#save-as-pdf-pdfcrowd-button-disp-email"
                     rows=5
-                    <?php if(!current_user_can('unfiltered_html')) echo('readonly'); ?>
-                    cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Your email message', $this->plugin_name);?>"><?php echo(esc_html($email_message)); ?></textarea>
+                    <?php if(!current_user_can('unfiltered_html')) echo 'readonly'; ?>
+                    cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Your email message', $this->plugin_name); ?>"><?php esc_html_e($email_message); ?></textarea>
                     <div class='save-as-pdf-pdfcrowd-description'>
                        <div> The email message template. HTML tags may be used in it. The template may contain predefined variables enclosed in <code>{{ }}</code> that are dynamically expanded. Available variables are: </div> <ul> <li>site - site name</li> <li>site_url - site url</li> <li>title - current page title</li> </ul> <div> Available variables for logged in user: </div> <ul> <li>user_name - user's login name</li> <li>user_first_name - user's first name</li> <li>user_last_name - user's last name</li> <li>user_display_name - user's display name</li> </ul> <div class='small-text'> If you need custom variables in the template, place <em>Save as</em> button into your code by PHP method with the template argument. </div>
                     </div>
@@ -289,7 +303,10 @@
                                 id="save-as-pdf-pdfcrowd-custom-edlg"
                                 name="save-as-pdf-pdfcrowd[email_custom_dialogs]"
                                 data-parent-opt="#save-as-pdf-pdfcrowd-edlg-custom"
-                                value="<?php echo($email_custom_dialogs);?>" placeholder="<?php esc_attr_e('Your JavaScript object name, e.g. mySaveAsPDFPdfcrowdEmailDialogs', $this->plugin_name);?>" style="min-width: 500px" autocomplete="off"/>
+                                value="<?php esc_attr_e($email_custom_dialogs); ?>"
+                                placeholder="<?php esc_attr_e('Your JavaScript object name, e.g. mySaveAsPDFPdfcrowdEmailDialogs', $this->plugin_name); ?>"
+                                style="min-width: 500px"
+                                autocomplete="off"/>
                             <div class="save-as-pdf-pdfcrowd-nested-dsc">
                                 <div class="save-as-pdf-pdfcrowd-description">
                                   <div>
@@ -342,7 +359,13 @@
                     </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-output-name" name="save-as-pdf-pdfcrowd[output_name]" value="<?php echo($output_name);?>" placeholder="<?php esc_attr_e('Output filename', $this->plugin_name);?>" autocomplete="off" />
+                    <input type="text"
+                           class="regular-text"
+                           id="save-as-pdf-pdfcrowd-output-name"
+                           name="save-as-pdf-pdfcrowd[output_name]"
+                           value="<?php esc_attr_e($output_name); ?>"
+                           placeholder="<?php esc_attr_e('Output filename', $this->plugin_name); ?>"
+                           autocomplete="off" />
                     <div class='save-as-pdf-pdfcrowd-description'>
                       The name of the output file. The name may not be specified and will be automatically created according to the page URL.
                     </div>
@@ -359,7 +382,13 @@
                   </label>
                 </th>
                 <td>
-                    <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-pdf-created-callback" name="save-as-pdf-pdfcrowd[pdf_created_callback]" value="<?php echo($pdf_created_callback);?>" placeholder="<?php esc_attr_e('Your function name', $this->plugin_name);?>" autocomplete="off" />
+                  <input type="text"
+                         class="regular-text"
+                         id="save-as-pdf-pdfcrowd-pdf-created-callback"
+                         name="save-as-pdf-pdfcrowd[pdf_created_callback]"
+                         value="<?php esc_attr_e($pdf_created_callback); ?>"
+                         placeholder="<?php esc_attr_e('Your function name', $this->plugin_name); ?>"
+                         autocomplete="off" />
                     <div class="save-as-pdf-pdfcrowd-description">
                         <div>
     Specify the name of your PHP function to be invoked
@@ -417,8 +446,8 @@ function save_to_local($data) {
                 <td>
                     <textarea id="save-as-pdf-pdfcrowd-custom-data" name="save-as-pdf-pdfcrowd[custom_data]"
                     rows=5
-                    <?php if(!current_user_can('unfiltered_html')) echo('readonly'); ?>
-                    cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Your custom data', $this->plugin_name);?>"><?php echo(esc_html($custom_data)); ?></textarea>
+                    <?php if(!current_user_can('unfiltered_html')) echo 'readonly'; ?>
+                    cols=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Your custom data', $this->plugin_name);?>"><?php esc_html_e($custom_data); ?></textarea>
                     <div class="save-as-pdf-pdfcrowd-description">
                       <div>
     Data assigned to the button.
@@ -450,7 +479,13 @@ echo create_save_as_pdf_pdfcrowd_button(
               </th>
               <td>
                 <div>
-                  <input type="text" class="regular-text" id="save-as-pdf-pdfcrowd-error-page" name="save-as-pdf-pdfcrowd[error_page]" value="<?php echo($error_page);?>" placeholder="<?php esc_attr_e('URL or slug', $this->plugin_name);?>" autocomplete="off" />
+                  <input type="text"
+                         class="regular-text"
+                         id="save-as-pdf-pdfcrowd-error-page"
+                         name="save-as-pdf-pdfcrowd[error_page]"
+                         value="<?php esc_attr_e($error_page); ?>"
+                         placeholder="<?php esc_attr_e('URL or slug', $this->plugin_name); ?>"
+                         autocomplete="off" />
                 </div>
                 <div class="save-as-pdf-pdfcrowd-description">
                   <div>

@@ -451,11 +451,20 @@ input:checked + .save-as-pdf-pdfcrowd-slider:before {
     margin: 0;
 }
 
+#save-as-pdf-pdfcrowd-options-filter {
+    padding-left: 26px;
+}
+
 #save-as-pdf-pdfcrowd-options-filter-icon {
     position: absolute;
     left: 7px;
     top: 50%;
     transform: translateY(-50%);
+    color: #888;
+}
+
+#save-as-pdf-pdfcrowd-options-filter:focus::placeholder {
+    color: transparent;
 }
 
 #save-as-pdf-pdfcrowd-admin-settings .nav-tab {
@@ -477,13 +486,14 @@ input:checked + .save-as-pdf-pdfcrowd-slider:before {
     outline: none !important;
 }
 
-#save-as-pdf-pdfcrowd-options-filter-icon {
-    color: #888;
-}
-
 #save-as-pdf-pdfcrowd-admin-settings .form-table th,
 #save-as-pdf-pdfcrowd-admin-settings .form-table td {
     padding: 1em 1em 1em 0;
+}
+
+/* nudge the option label down so it lines up better with its input */
+.save-as-pdf-pdfcrowd-set-group > th label {
+    padding-top: 5px;
 }
 
 #save-as-pdf-pdfcrowd-save-wrap {
@@ -532,4 +542,31 @@ input:checked + .save-as-pdf-pdfcrowd-slider:before {
 .save-as-pdf-pdfcrowd-category-wrap,
 .save-as-pdf-pdfcrowd-heading-wrap {
     scroll-margin-top: 200px;
+}
+
+.save-as-pdf-pdfcrowd-editable-select {
+    width: 250px;
+}
+
+.save-as-pdf-pdfcrowd-editable-select > select {
+    width: 100%;
+}
+
+.save-as-pdf-pdfcrowd-editable-select .save-as-pdf-pdfcrowd-ed-sel-input-wrap {
+    display: none;
+    align-items: center;
+    margin-top: 2px;
+}
+
+#save-as-pdf-pdfcrowd-version {
+    font-size: 10px;
+}
+
+.save-as-pdf-pdfcrowd-notice a {
+    margin-left: 1rem;
+    text-decoration: none;
+}
+
+.save-as-pdf-pdfcrowd-d-none {
+    display: none !important;
 }
