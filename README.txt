@@ -8,117 +8,82 @@ Stable tag: 4.5.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Add a Save as PDF button to WordPress posts, pages, and selected content. Visitors can download content as PDF in one click.
+Add a PDF download button to WordPress in minutes. Visitors can save pages or posts as PDF with one click.
 
 == Description ==
 
 
-The "Save as PDF" plugin is the WordPress-native way to add PDF download buttons to posts, pages, and selected content. Visitors can download a WordPress page or post as PDF in one click, and you can configure button placement and PDFCrowd conversion settings in the WordPress admin area.
+The "Save as PDF" plugin lets you add a full-featured PDF download button to your WordPress site in minutes, without custom code or server-side PDF software. Visitors can save a page or post as PDF with one click.
 
-The plugin can be tested in demo mode. Production output without the PDFCrowd watermark and branding requires a PDFCrowd license.
+You can install and test the plugin right away in fully functional demo mode. No registration is needed. When you are ready, activate a paid PDFCrowd license for production use.
+
+Useful links:
+
+* [WordPress plugin guide](https://pdfcrowd.com/save-as-pdf-wordpress-plugin/): setup, first test, and common workflows.
+* [WordPress FAQ](https://pdfcrowd.com/faq/wordpress/): common issues, examples, licensing, and troubleshooting.
+* [Option reference](https://pdfcrowd.com/save-as-pdf-wordpress-plugin/ref/): exact plugin settings.
+* [Contact PDFCrowd support](https://pdfcrowd.com/contact/): help with setup or output issues.
 
 === Features ===
 
-* **WordPress-native PDF download button:** Add a Save as PDF button to posts, pages, and selected content.
-* **Automatic or manual placement:** Show the button automatically, place it with a shortcode, or add it from PHP.
-* **Selected-content conversion:** Convert the full page or only the content enclosed by the block shortcode.
-* **Customizable button appearance:** Configure button text, icon, layout, style, and placement.
-* **PDFCrowd conversion settings:** Control PDF layout, page size, margins, headers, footers, and other conversion options from WordPress admin.
-* **Cloud PDF generation:** Generate PDFs through PDFCrowd without installing a server-side PDF library on your WordPress host.
+* **Easy setup:** Install from WordPress admin, activate the plugin, and test the button in demo mode.
+* **One-click PDF download:** Let visitors save pages or posts as PDF.
+* **Modern page rendering:** Supports current HTML, CSS, images, and JavaScript.
+* **Flexible button placement:** Show the button automatically or place it manually where needed.
+* **Customizable button appearance:** Configure button text, icon, layout, and style.
+* **Flexible output settings:** Adjust PDF layout, page size, margins, headers, footers, and other output options from WordPress admin.
+* **Selected-content conversion:** Convert the full page or a selected part of the page.
+* **Output cleanup:** Remove headers, sidebars, cookie banners, popups, ads, or other unwanted page parts from the generated PDF.
+* **No PDF software to install on your server:** PDF generation runs through PDFCrowd.
 
-
-== Usage ==
-
-Once activated, the "Save as PDF" button will automatically appear on eligible content according to your settings. Users can click the button to download the current page as a PDF file.
-
-To manually add the "Save as PDF" button to specific pages or posts, use the following shortcode:
-
-**[save_as_pdf_pdfcrowd]**
-
-To add a button for selected content, wrap that content in the block shortcode:
-
-**[block_save_as_pdf_pdfcrowd]**
-Selected content
-**[/block_save_as_pdf_pdfcrowd]**
-
-For additional methods of adding the button to your pages, please refer to the [Getting Started Guide](https://pdfcrowd.com/save-as-pdf-wordpress-plugin/#how-to-use).
-
-== Customization ==
-
-The plugin offers various customization options accessible through the WordPress admin area. You can change the PDF generation settings and button appearance. For more detailed customization, please refer to the plugin [option reference](https://pdfcrowd.com/save-as-pdf-wordpress-plugin/ref/).
-
-== Licensing ==
-
-By default, the plugin operates in demo mode. Demo mode is fully functional, but adds a watermark and PDFCrowd branding to the generated PDF.
-
-To remove the demo watermark and PDFCrowd branding, purchase a [PDFCrowd license](https://pdfcrowd.com/pricing/api/?api=v2&ref=wordpress). Activate the license by entering your PDFCrowd username and key in the plugin settings under the License tab.
-
-A PDFCrowd license can be used across multiple WordPress websites for our [plugins](https://pdfcrowd.com/save-as-pdf-image-wordpress-plugin/). It also grants direct access to the [PDFCrowd API](https://pdfcrowd.com/api/) for custom application integrations.
-
-== Basic Troubleshooting ==
-
-If the default plugin output does not meet your requirements, consider adjusting the following settings individually. You may need to activate the "Expert Settings" option to access some of these features.
-
-* **Mode > Conversion Mode:** Try switching it to either "Upload" or "Content".
-* **Print Resolution > Content Viewport Width:** Experiment with different widths to see which yields the best result.
-* **Print Resolution > Content Fit Mode:** Different scaling modes can significantly alter the PDF's page layout.
-* **Print Resolution > Content Viewport Height:** Increase this value, for example, to 50000, to see if it improves the output.
-== Support ==
-
-Please [contact us](https://pdfcrowd.com/contact/) or write to support@pdfcrowd.com if you need any help. We will be happy to assist you with configuring the plugin to ensure its output meets your needs.
-
-Plugin links:
-
-* [Guide](https://pdfcrowd.com/save-as-pdf-wordpress-plugin/)
-* [Option Reference](https://pdfcrowd.com/save-as-pdf-wordpress-plugin/ref/)
-* [FAQ](https://pdfcrowd.com/faq/wordpress/)
-
-== About us ==
-
-PDFCrowd provides cloud document conversion APIs and integrations for developers, website owners, WordPress sites, and automation workflows.
 
 == Installation ==
 
-1. **Upload Plugin:** Download the "Save as PDF" plugin ZIP file. In your WordPress dashboard, navigate to **Plugins > Add New > Upload Plugin**. Choose the ZIP file you downloaded and click **Install Now**.
-2. **Activate Plugin:** After the installation is complete, click **Activate Plugin** to start using "Save as PDF" on your site.
-3. **Configure Settings:** Go to the "Save as PDF" settings page to customize the button appearance and conversion settings.
+= Automatic installation =
+
+1. In WordPress admin, go to **Plugins > Add New**.
+2. Search for "Save as PDF by PDFCrowd".
+3. Click **Install Now**, then **Activate**.
+4. Go to **Settings > Save as PDF** to review button placement and output settings.
+
+= ZIP upload =
+
+1. Download the "Save as PDF" plugin ZIP file.
+2. In WordPress admin, go to **Plugins > Add New > Upload Plugin**.
+3. Choose the ZIP file and click **Install Now**.
+4. Click **Activate Plugin**.
+
+= After activation =
+
+The "Save as PDF" button appears automatically wherever it is enabled in the plugin settings. Go to **Settings > Save as PDF** to review button placement, button text, and output settings.
+
+Test the button on one post or page that you can safely use.
+
+For layout, page size, selected-content, or login/staging adjustments, see [Adjust the PDF Result](https://pdfcrowd.com/save-as-pdf-wordpress-plugin/#adjust-pdf-result).
+
+For button or PDF generation problems, see [Troubleshooting](https://pdfcrowd.com/save-as-pdf-wordpress-plugin/#troubleshooting).
 
 == Frequently Asked Questions ==
 
-= How can I activate the license? =
+= Can I test the plugin before buying a PDFCrowd license? =
 
-1. Purchase a [PDFCrowd license plan](https://pdfcrowd.com/pricing/api/?api=v2&ref=wordpress) that matches your usage level.
-2. Activate the license by entering your PDFCrowd username and key in the "License" tab of the plugin settings.
+Yes. You can install and test the plugin right away in fully functional demo mode. No registration is needed. When you are ready, activate a paid PDFCrowd license for production use.
 
-= Can I use the plugin without a PDFCrowd license? =
+= Does PDF generation happen on my WordPress server? =
 
-Yes. The plugin can be tested in demo mode. Demo mode is fully functional, but the generated PDF includes a watermark and PDFCrowd branding. A PDFCrowd license is required to remove the watermark and branding.
+No. PDF generation runs through PDFCrowd, so your WordPress host does not need PDF generation software installed.
 
-= How does the plugin work? =
+= Where can I find the full WordPress plugin documentation? =
 
-The plugin uses the PDFCrowd [HTML to PDF API](https://pdfcrowd.com/api/html-to-pdf-api/), a cloud conversion service. When a visitor clicks the button, the plugin sends either the page URL or the HTML content to PDFCrowd. PDFCrowd processes the request and returns the generated PDF file.
+Useful links:
 
-This approach has several benefits:
+* [WordPress plugin guide](https://pdfcrowd.com/save-as-pdf-wordpress-plugin/): setup, first test, and common workflows.
+* [WordPress FAQ](https://pdfcrowd.com/faq/wordpress/): common issues, examples, licensing, and troubleshooting.
+* [Option reference](https://pdfcrowd.com/save-as-pdf-wordpress-plugin/ref/): exact plugin settings.
 
-* **Performance:** Conversion does not consume your WordPress server's CPU or memory.
-* **Scalability:** Cloud conversion can handle traffic spikes without adding conversion load to your site.
-* **Reliability:** PDFCrowd's conversion infrastructure is maintained separately from your WordPress hosting environment.
+= How can I contact support? =
 
-= Can I choose where the button appears? =
-
-Yes. You can configure automatic button placement in the plugin settings, add the button with a shortcode, or create the button from PHP.
-
-= Can I convert only part of a page? =
-
-Yes. Use the block shortcode to place the button around selected content. The plugin can convert the enclosed block instead of the whole page.
-
-= Where can I find more information about the plugin? =
-
-* [Guide](https://pdfcrowd.com/save-as-pdf-wordpress-plugin/): Provides basic information about the plugin.
-* [Option Reference](https://pdfcrowd.com/save-as-pdf-wordpress-plugin/ref/): Offers a detailed reference for plugin options, including examples.
-* [FAQ](https://pdfcrowd.com/faq/wordpress/): An extensive plugin FAQ is available on our website.
-* [Contact Us](https://pdfcrowd.com/contact/): If you need any assistance, we're here to help.
-
+If you need help with setup, output adjustments, or troubleshooting, [contact PDFCrowd support](https://pdfcrowd.com/contact/). We are happy to help you configure the plugin for your WordPress site.
 
 == Changelog ==
 
