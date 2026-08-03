@@ -2276,6 +2276,83 @@ Ideal for automated conversion workflows where source HTML is well-structured.
                         </div>
                 </td>
             </tr>
+            <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
+                data-default="">
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-conformance">
+                        Conformance
+                    </label>
+                </th>
+                <td>
+                    <select name="save-as-pdf-pdfcrowd[conformance]" id="save-as-pdf-pdfcrowd-conformance" autocomplete="off">
+                    <option value="" <?php selected($conformance, '');?>>-- default --</option>
+                    <option value="PDF/A-2a" <?php selected($conformance, 'PDF/A-2a');?>>PDF/A-2a</option>
+                    <option value="PDF/A-2b" <?php selected($conformance, 'PDF/A-2b');?>>PDF/A-2b</option>
+                    <option value="PDF/A-2u" <?php selected($conformance, 'PDF/A-2u');?>>PDF/A-2u</option>
+                    <option value="PDF/A-3a" <?php selected($conformance, 'PDF/A-3a');?>>PDF/A-3a</option>
+                    <option value="PDF/A-3b" <?php selected($conformance, 'PDF/A-3b');?>>PDF/A-3b</option>
+                    <option value="PDF/A-3u" <?php selected($conformance, 'PDF/A-3u');?>>PDF/A-3u</option>
+                    <option value="PDF/A-4" <?php selected($conformance, 'PDF/A-4');?>>PDF/A-4</option>
+                    <option value="PDF/A-4e" <?php selected($conformance, 'PDF/A-4e');?>>PDF/A-4e</option>
+                    <option value="PDF/A-4f" <?php selected($conformance, 'PDF/A-4f');?>>PDF/A-4f</option>
+                    </select>
+                        <div class="save-as-pdf-pdfcrowd-description">
+                          <div>
+                            Produce the output PDF at the specified PDF/A conformance level. PDF/A is the ISO-standardized archival format for long-term document preservation. Can not be combined with encryption options, fillable PDF forms, or watermarks and backgrounds.
+                          </div>
+                            <br>Possible values: <ul><li>"PDF/A-2a" - PDF/A-2a - accessible documents, tagged structure and Unicode text.</li><li>"PDF/A-2b" - PDF/A-2b - reliable visual archiving, the most common choice.</li><li>"PDF/A-2u" - PDF/A-2u - visual archiving with searchable Unicode text.</li><li>"PDF/A-3a" - PDF/A-3a - PDF/A-2a plus file attachments.</li><li>"PDF/A-3b" - PDF/A-3b - PDF/A-2b plus file attachments.</li><li>"PDF/A-3u" - PDF/A-3u - PDF/A-2u plus file attachments.</li><li>"PDF/A-4" - PDF/A-4 - the latest PDF/A, based on PDF 2.0.</li><li>"PDF/A-4e" - PDF/A-4e - PDF/A-4 for engineering, allows 3D and attachments.</li><li>"PDF/A-4f" - PDF/A-4f - PDF/A-4 with a mandatory file attachment.</li></ul>
+                        </div>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode and function parameter: "<strong>conformance</strong>"<br>Possible values: "PDF/A-2a", "PDF/A-2b", "PDF/A-2u", "PDF/A-3a", "PDF/A-3b", "PDF/A-3u", "PDF/A-4", "PDF/A-4e", "PDF/A-4f"
+                        </div>
+                </td>
+            </tr>
+            <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
+                data-default="">
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-tagged_pdf">
+                        Tagged PDF
+                    </label>
+                </th>
+                <td>
+                    <input type="checkbox" id="save-as-pdf-pdfcrowd-tagged_pdf" name="save-as-pdf-pdfcrowd[tagged_pdf]" value="1" <?php checked( $tagged_pdf, 1 ); ?> autocomplete="off" />
+                        <div class="save-as-pdf-pdfcrowd-description">
+                          <div>
+                            Create a tagged PDF that preserves the logical structure of the source HTML - headings, paragraphs, lists, links and reading order - as PDF structure tags. Use this to make documents accessible to screen readers and to improve text extraction and content reflow. Can not be combined with watermarks and backgrounds.
+
+                          </div>
+                        </div>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode and function parameter: "<strong>tagged_pdf</strong>"<br>Possible values: 0, 1
+                        </div>
+                </td>
+            </tr>
+            <tr class="save-as-pdf-pdfcrowd-set-group save-as-pdf-pdfcrowd-adv-input"
+                data-default="">
+                <th scope="row">
+                    <label for="save-as-pdf-pdfcrowd-attachments">
+                        Attachments
+                    </label>
+                </th>
+                <td>
+                      <input
+                        type="text"
+                        class="regular-text"
+                        id="save-as-pdf-pdfcrowd-attachments"
+                        name="save-as-pdf-pdfcrowd[attachments]"
+                        value="<?php esc_attr_e($attachments); ?>"
+                        placeholder="" autocomplete="off" />
+                        <div class="save-as-pdf-pdfcrowd-description">
+                          <div>
+                            Embed a file as an attachment in the output PDF. To attach several files, separate the file paths with a semicolon. Absolute or relative filepath can be used. To apply WordPress uploaded media use e.g. ../wp-content/uploads/2019/06/your-file.pdf.
+                              The file must exist and not be empty.
+                          </div>
+                        </div>
+                        <div class='save-as-pdf-pdfcrowd-devi'>
+                            Shortcode and function parameter: "<strong>attachments</strong>"
+                        </div>
+                </td>
+            </tr>
         </tbody>
     </table>
      </div>

@@ -235,7 +235,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'smart_scaling_mode' => '',
         'url_lookup' => 'auto',
         'username' => '',
-        'version' => '4580',
+        'version' => '4600',
     );
 
     private static $API_OPTIONS = array(
@@ -322,6 +322,9 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         'author',
         'keywords',
         'extract_meta_tags',
+        'conformance',
+        'tagged_pdf',
+        'attachments',
         'page_layout',
         'page_mode',
         'initial_zoom_type',
@@ -376,6 +379,9 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             'content_viewport_width',
             'content_viewport_height',
             'content_fit_mode',
+            'conformance',
+            'tagged_pdf',
+            'attachments',
         ),
         '18.10' => array(
             'content_viewport_width',
@@ -390,6 +396,9 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             'custom_css',
             'auto_detect_element_to_convert',
             'readability_enhancements',
+            'conformance',
+            'tagged_pdf',
+            'attachments',
             'layout_dpi',
             'contents_matrix',
             'header_matrix',
@@ -404,6 +413,9 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             'content_viewport_width',
             'content_viewport_height',
             'content_fit_mode',
+            'conformance',
+            'tagged_pdf',
+            'attachments',
         ),
     );
 
@@ -447,6 +459,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
         483 => "The input is password protected. Provide a valid password.",
         484 => "The input contains an unsupported feature, typically a font type.",
         485 => "An error occurred while executing the OnLoad JavaScript. See details in the debug log.",
+        486 => "The input is not valid for the requested PDF/A output.",
         503 => "The 503 status code indicates a temporary network issue. Try the request again.",
     );
 
@@ -462,7 +475,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             $options['version'] = 1000;
         }
 
-        if($options['version'] == 4580) {
+        if($options['version'] == 4600) {
             return $options;
         }
 
@@ -497,7 +510,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">',
             }
         }
 
-        $options['version'] = 4580;
+        $options['version'] = 4600;
         if(!isset($options['button_indicator_html'])) {
             $options['button_indicator_html'] = '<img src="https://storage.googleapis.com/pdfcrowd-cdn/images/spinner.gif"
 style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
@@ -1253,6 +1266,20 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
                 $key == 'file'
             ) {
                 $files[$key] = $value;
+            } elseif($key == 'attachments') {
+                // multi-value option - the API expects a separate file
+                // field attachment_1, attachment_2,
+                // ... for each value
+                $multi_values = explode(';', $value);
+                $multi_index = 1;
+                foreach($multi_values as $multi_value) {
+                    $multi_value = trim($multi_value);
+                    if($multi_value != '') {
+                        $files['attachment_' . $multi_index] =
+                            $multi_value;
+                        $multi_index++;
+                    }
+                }
             } else {
                 // use only valid PDFCrowd options
                 $fields[$key] = $value;
@@ -1278,7 +1305,7 @@ style="position: absolute; top: calc(50% - 12px); left: calc(50% - 12px);">';
         $headers = array(
             'Authorization' => $auth,
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
-            'User-Agent' => 'pdfcrowd_wordpress_plugin/4.5.8 ('
+            'User-Agent' => 'pdfcrowd_wordpress_plugin/4.6.0 ('
             . $pflags . '/' . $wp_version . '/' . phpversion() . ')'
         );
 

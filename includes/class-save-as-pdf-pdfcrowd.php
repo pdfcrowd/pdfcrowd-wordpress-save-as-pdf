@@ -95,7 +95,7 @@ class Save_As_Pdf_Pdfcrowd {
             return SAVE_AS_PDF_VERSION;
         }
 
-        return '4.5.8';
+        return '4.6.0';
     }
 
     /**

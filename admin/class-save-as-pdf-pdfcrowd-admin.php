@@ -300,7 +300,7 @@ class Save_As_Pdf_Pdfcrowd_Admin {
     public function validate($input) {
         $options = get_option($this->plugin_name);
         $valid = $input;
-        $valid['version'] = 4580;
+        $valid['version'] = 4600;
 
         if(isset($input['wp_submit_action'])) {
             if($input['wp_submit_action'] === 'reset') {
@@ -1028,6 +1028,41 @@ class Save_As_Pdf_Pdfcrowd_Admin {
         $valid['keywords'] = isset($input['keywords']) ? $input['keywords'] : '';
 
         $valid['extract_meta_tags'] = empty($input['extract_meta_tags']) ? 0 : 1;
+
+        if (isset($input['conformance']) &&
+            $input['conformance'] != '') {
+            $conformance = $input['conformance'];
+            if (!preg_match("/(?i)^(PDF\/A-2a|PDF\/A-2b|PDF\/A-2u|PDF\/A-3a|PDF\/A-3b|PDF\/A-3u|PDF\/A-4|PDF\/A-4e|PDF\/A-4f)$/", $conformance))
+                add_settings_error(
+                'conformance',
+                'empty_conformance',
+                pdfcrowd_create_invalid_value_message($conformance, "Conformance", "Allowed values are PDF/A-2a, PDF/A-2b, PDF/A-2u, PDF/A-3a, PDF/A-3b, PDF/A-3u, PDF/A-4, PDF/A-4e, PDF/A-4f."));
+            
+        }
+        $valid['conformance'] = isset($input['conformance']) ? $input['conformance'] : '';
+
+        $valid['tagged_pdf'] = empty($input['tagged_pdf']) ? 0 : 1;
+
+        // multi-value option - a semicolon-separated list of values;
+        // validate each value and store the normalized string
+        $valid['attachments'] = '';
+        if (isset($input['attachments'])) {
+            $attachments_values = array();
+            foreach(explode(';', $input['attachments']) as $attachment) {
+                $attachment = trim($attachment);
+                if ($attachment == '') {
+                    continue;
+                }
+                if (!(filesize($attachment) > 0))
+                    add_settings_error(
+                'attachment',
+                'empty_attachment',
+                pdfcrowd_create_invalid_value_message($attachment, "Attachments", "The file must exist and not be empty."));
+                
+                $attachments_values[] = $attachment;
+            }
+            $valid['attachments'] = implode(';', $attachments_values);
+        }
 
         if (isset($input['page_layout']) &&
             $input['page_layout'] != '') {

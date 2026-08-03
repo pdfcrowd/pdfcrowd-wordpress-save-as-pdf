@@ -1,5 +1,10 @@
 == Changelog ==
 
+= 4.6.0 =
+* New "Conformance" option - produce the output PDF at the specified PDF/A conformance level.
+* New "Attachments" option - embed one or more files as attachments in the output PDF.
+* New "Tagged PDF" option - create a tagged PDF for accessibility and content reflow.
+
 = 4.5.8 =
 * Updated the readme file.
 * Fixed the vertical alignment of option labels in the plugin settings.
