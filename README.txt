@@ -3,7 +3,7 @@ Contributors: PDFCrowd
 Tags: pdf, save as pdf, pdf download, wordpress to pdf, html to pdf
 Requires PHP: 5.1
 Requires at least: 4.0
-Tested up to: 7.0
+Tested up to: 7.1
 Stable tag: 4.6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
