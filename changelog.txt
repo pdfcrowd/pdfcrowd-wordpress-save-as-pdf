@@ -1,5 +1,9 @@
 == Changelog ==
 
+= 4.6.1 =
+* Updated help text in the plugin settings.
+* Updated documentation links for shortcodes and PHP functions.
+
 = 4.6.0 =
 * New "Conformance" option - produce the output PDF at the specified PDF/A conformance level.
 * New "Attachments" option - embed one or more files as attachments in the output PDF.
