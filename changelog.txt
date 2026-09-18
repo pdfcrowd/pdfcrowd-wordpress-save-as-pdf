@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 4.6.2 =
+* Fixed PDF Created Callback shortcode authorization so only users with the manage_options capability can set it.
+
 = 4.6.1 =
 * Updated help text in the plugin settings.
 * Updated documentation links for shortcodes and PHP functions.
