@@ -4,7 +4,7 @@ Tags: pdf, save as pdf, pdf download, wordpress to pdf, html to pdf
 Requires PHP: 5.1
 Requires at least: 4.0
 Tested up to: 7.1
-Stable tag: 4.6.2
+Stable tag: 4.6.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,10 @@ If you need help with setup, output adjustments, or troubleshooting, [contact PD
 
 == Changelog ==
 
+= 4.6.3 =
+* Updated help text in the plugin settings.
+* Updated documentation links for shortcodes and PHP functions.
+
 = 4.6.2 =
 * Fixed PDF Created Callback shortcode authorization so only users with the manage_options capability can set it.
 
@@ -102,8 +106,5 @@ If you need help with setup, output adjustments, or troubleshooting, [contact PD
 = 4.5.8 =
 * Updated the readme file.
 * Fixed the vertical alignment of option labels in the plugin settings.
-
-= 4.5.7 =
-* Added ABSPATH guards, switched to wp_safe_redirect to pass Plugin Check.
 
 [See changelog for all versions](https://raw.githubusercontent.com/pdfcrowd/pdfcrowd-wordpress-save-as-pdf/master/changelog.txt).

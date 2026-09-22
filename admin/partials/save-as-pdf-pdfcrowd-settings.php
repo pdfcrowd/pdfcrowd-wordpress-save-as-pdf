@@ -1977,7 +1977,7 @@ Note that this only downscales - it will not upscale low-resolution images.
                         <div class="save-as-pdf-pdfcrowd-description">
                           <div>
                             Convert HTML forms to fillable PDF forms that users can complete in PDF readers. Use this to create interactive PDFs from HTML forms.
-Use this for fillable applications, surveys, or order forms that work offline. Details can be found in the <a href='https://pdfcrowd.com/blog/create-fillable-pdf-form/'>blog post</a>.
+Use this for fillable applications, surveys, or order forms that work offline. Details can be found in the <a href='https://pdfcrowd.com/guides/fillable-pdf-forms-from-html/'>fillable PDF forms guide</a>.
 
                           </div>
                         </div>
